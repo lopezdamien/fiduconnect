@@ -38,7 +38,8 @@ export function LeadForm() {
             });
 
             if (!response.ok) {
-                throw new Error('Une erreur est survenue.');
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Une erreur est survenue.');
             }
 
             // Optional: Tracking event
