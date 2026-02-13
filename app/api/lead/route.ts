@@ -63,12 +63,12 @@ export async function POST(request: Request) {
 
         if (error) {
             console.error('Resend error:', error);
-            return NextResponse.json({ ok: false, error: 'Erreur lors de l\'envoi' }, { status: 500 });
+            return NextResponse.json({ ok: false, error: 'Erreur lors de l\'envoi: ' + error.message }, { status: 500 });
         }
 
         return NextResponse.json({ ok: true });
     } catch (error) {
         console.error('Server error:', error);
-        return NextResponse.json({ ok: false, error: 'Erreur serveur' }, { status: 500 });
+        return NextResponse.json({ ok: false, error: error instanceof Error ? error.message : 'Erreur serveur inconnue' }, { status: 500 });
     }
 }
