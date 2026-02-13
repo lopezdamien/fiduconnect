@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const leadSchema = z.object({
     name: z.string().min(1, "Le nom est requis"),
     company: z.string().min(1, "La société est requise"),
@@ -15,8 +13,17 @@ const leadSchema = z.object({
     source: z.string().optional(),
 });
 
+
+
 export async function POST(request: Request) {
     try {
+        const resendApiKey = process.env.RESEND_API_KEY;
+
+        if (!resendApiKey) {
+            throw new Error("RESEND_API_KEY is not defined");
+        }
+
+        const resend = new Resend(resendApiKey);
         const body = await request.json();
 
         // Honeypot check
