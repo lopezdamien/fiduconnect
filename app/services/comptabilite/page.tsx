@@ -54,14 +54,6 @@ export default function ServiceComptabilite() {
                     </div>
 
                     <div className="bg-slate-900 text-white rounded-2xl overflow-hidden relative">
-                        <div className="h-64 overflow-hidden relative">
-                            <img
-                                src="/images/accounting-guarantee.png"
-                                alt="Illustration Déclarations"
-                                className="w-full h-full object-cover opacity-90"
-                            />
-                            <div className="absolute inset-0 bg-purple-900/20"></div>
-                        </div>
                         <div className="p-8">
                             <h3 className="text-xl font-bold mb-4">Notre garantie</h3>
                             <p className="text-slate-300 mb-6">

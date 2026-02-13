@@ -61,13 +61,8 @@ export default function Pilotage() {
                         </div>
                     </div>
 
-                    <div className="bg-slate-900 rounded-2xl text-white relative overflow-hidden h-full min-h-[400px]">
-                        <img
-                            src="/images/organization-shield.png"
-                            alt="Illustration Organisation"
-                            className="w-full h-full object-cover opacity-30"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    <div className="bg-slate-900 rounded-2xl text-white relative overflow-hidden h-full min-h-[400px] p-8 lg:p-12">
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900"></div>
                         <div className="absolute bottom-0 p-8">
                             <h3 className="text-2xl font-bold mb-6 relative z-10">Les risques évités</h3>
                             <ul className="space-y-6 relative z-10">

@@ -113,12 +113,14 @@ export default function Home() {
                 Elle permet de respecter les obligations fiscales et sociales, sans surprises ni rattrapages imprévus.
               </p>
             </div>
-            <div className="relative h-64 lg:h-auto lg:aspect-square rounded-2xl overflow-hidden shadow-xl bg-white flex items-center justify-center p-8">
-              <img
-                src="/images/hero-accounting.png"
-                alt="Illustration Sérénité Comptable"
-                className="w-full h-full object-contain"
-              />
+            <div className="bg-slate-100 p-8 rounded-2xl flex flex-col justify-center">
+              <h3 className="text-lg font-bold text-slate-900 mb-4">Pourquoi l&apos;organisation compte ?</h3>
+              <ul className="space-y-3 text-slate-700">
+                <li>• Éviter les intérêts moratoires</li>
+                <li>• Réduire les risques de contrôle</li>
+                <li>• Gagner du temps administratif</li>
+                <li>• Sécuriser vos déclarations TVA</li>
+              </ul>
             </div>
           </div>
         </div>
