@@ -20,7 +20,7 @@ export default function ServiceCharges() {
                             Charges Sociales & Salaires
                         </h1>
                         <p className="text-xl text-slate-600 leading-relaxed">
-                            Le poste &quot;salaires&quot; est souvent le plus lourd de votre compte de résultat. Pour le dirigeant, l&apos;arbitrage entre salaire et dividende est crucial.
+                            La gestion des salaires implique de nombreuses obligations administratives (AVS, LPP, LAA). Une gestion rigoureuse évite les erreurs de décompte.
                         </p>
                     </div>
                 </div>
@@ -29,39 +29,39 @@ export default function ServiceCharges() {
             <Section className="bg-slate-50">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div>
-                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Salaire ou Dividende ?</h2>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Obligations Employeur</h2>
                         <p className="text-slate-600 mb-4">
-                            En tant qu&apos;actionnaire-salarié de votre SA ou SARL, vous avez le choix. Ce choix impacte :
+                            En tant qu&apos;employeur, vous devez garantir la conformité de vos déclarations sociales auprès des différentes caisses :
                         </p>
                         <ul className="list-disc pl-5 space-y-2 text-slate-600 mb-8">
-                            <li>Votre charge AVS/AI/APG (environ 10.6% + part employeur)</li>
-                            <li>Vos cotisations LPP (2ème pilier)</li>
-                            <li>Votre impôt sur le revenu privé</li>
-                            <li>L&apos;impôt sur le bénéfice de la société</li>
+                            <li>Déclarations AVS/AI/APG</li>
+                            <li>Affiliation et cotisations LPP (2ème pilier)</li>
+                            <li>Assurances accidents (LAA) et maladie (IJM)</li>
+                            <li>Certificats de salaire annuels</li>
                         </ul>
                         <p className="text-slate-600">
-                            Il n&apos;y a pas de réponse unique. Une simulation chiffrée est indispensable chaque année.
+                            Nous vérifions que vous êtes en règle avec toutes ces institutions pour éviter tout rappel de cotisations.
                         </p>
                     </div>
 
                     <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                        <h3 className="text-xl font-bold text-slate-900 mb-6">Notre Audit LPP</h3>
+                        <h3 className="text-xl font-bold text-slate-900 mb-6">Notre Contrôle Administratif</h3>
                         <ul className="space-y-4 mb-8">
                             <li className="flex items-start gap-3">
                                 <CheckCircle2 className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
-                                <span className="text-slate-700 text-sm">Vérification de la conformité du plan de prévoyance.</span>
+                                <span className="text-slate-700 text-sm">Vérification de la conformité des affiliations.</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <CheckCircle2 className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
-                                <span className="text-slate-700 text-sm">Comparaison des frais de gestion et de risque (souvent cachés).</span>
+                                <span className="text-slate-700 text-sm">Contrôle des taux et des déductions appliquées.</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <CheckCircle2 className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
-                                <span className="text-slate-700 text-sm">Proposition de plans &quot;Cadres&quot; (1e) optimisés fiscalement.</span>
+                                <span className="text-slate-700 text-sm">Gestion des entrées et sorties de collaborateurs.</span>
                             </li>
                         </ul>
                         <Link href="/diagnostic">
-                            <Button fullWidth variant="primary">Simuler mes charges</Button>
+                            <Button fullWidth variant="primary">Faire un point gratuit</Button>
                         </Link>
                     </div>
                 </div>

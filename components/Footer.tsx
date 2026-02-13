@@ -12,7 +12,7 @@ export function Footer() {
                         </Link>
                         <p className="mt-4 text-sm leading-6 max-w-md">
                             Cabinet indépendant spécialisé dans l&apos;analyse administrative et fiscale des PME genevoises.
-                            Nous transformons vos obligations comptables en outils de pilotage.
+                            Nous facilitons la mise en relation avec des cabinets fiduciaires partenaires adaptés à vos besoins.
                         </p>
                     </div>
 

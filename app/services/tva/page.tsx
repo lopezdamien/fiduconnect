@@ -20,7 +20,7 @@ export default function ServiceTVA() {
                             TVA & Assujettissement
                         </h1>
                         <p className="text-xl text-slate-600 leading-relaxed">
-                            Le seuil de 100k est souvent mal interprété. Beaucoup de PME genevoises déclarent trop tard ou choisissent la mauvaise méthode, perdant des milliers de francs chaque année.
+                            Le seuil de 100k est souvent mal interprété. Une méthode ou un paramétrage inadapté peut entraîner des erreurs de décompte ou des rectifications.
                         </p>
                     </div>
                 </div>
@@ -35,14 +35,14 @@ export default function ServiceTVA() {
                                 <AlertTriangle className="h-6 w-6 text-orange-500 shrink-0" />
                                 <div>
                                     <strong className="block text-slate-900">Méthode inadaptée</strong>
-                                    <span className="text-slate-600 text-sm">Rester au taux effectif alors que le taux de dette fiscale nette réduirait la charge administrative et financière.</span>
+                                    <span className="text-slate-600 text-sm">Choisir la mauvaise méthode peut complexifier inutilement votre gestion administrative.</span>
                                 </div>
                             </li>
                             <li className="flex gap-4 p-4 bg-white rounded-lg border border-slate-100 shadow-sm">
                                 <AlertTriangle className="h-6 w-6 text-orange-500 shrink-0" />
                                 <div>
                                     <strong className="block text-slate-900">Impôt préalable oublié</strong>
-                                    <span className="text-slate-600 text-sm">Ne pas récupérer la TVA sur les investissements de départ ou les frais mixtes.</span>
+                                    <span className="text-slate-600 text-sm">Des erreurs dans la déclaration des frais peuvent fausser votre décompte final.</span>
                                 </div>
                             </li>
                             <li className="flex gap-4 p-4 bg-white rounded-lg border border-slate-100 shadow-sm">
@@ -60,20 +60,20 @@ export default function ServiceTVA() {
                             <div className="space-y-6">
                                 <div className="flex gap-4">
                                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-700 font-bold text-sm">1</div>
-                                    <p className="text-slate-700">Audit de vos 3 derniers décomptes TVA.</p>
+                                    <p className="text-slate-700">Audit et vérification de vos décomptes TVA.</p>
                                 </div>
                                 <div className="flex gap-4">
                                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-700 font-bold text-sm">2</div>
-                                    <p className="text-slate-700">Calcul comparatif : Méthode Effective vs Taux Dette Fiscale Nette.</p>
+                                    <p className="text-slate-700">Contrôle de la cohérence de votre méthode (Effective vs TDFN).</p>
                                 </div>
                                 <div className="flex gap-4">
                                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-700 font-bold text-sm">3</div>
-                                    <p className="text-slate-700">Régularisation spontanée si nécessaire (évite les amendes).</p>
+                                    <p className="text-slate-700">Régularisation administrative si nécessaire.</p>
                                 </div>
                             </div>
                             <div className="mt-8 pt-6 border-t border-slate-100">
                                 <Link href="/diagnostic">
-                                    <Button fullWidth>Demander une analyse TVA</Button>
+                                    <Button fullWidth>Faire un point gratuit</Button>
                                 </Link>
                             </div>
                         </div>

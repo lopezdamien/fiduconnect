@@ -107,10 +107,10 @@ export default function Home() {
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2 className="text-base font-semibold leading-7 text-green-700">Sérénité Administrative</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Une comptabilité bien structurée protège votre entreprise
+                Une comptabilité bien structurée protège votre entreprise.
               </p>
               <p className="mt-6 text-lg leading-8 text-slate-600">
-                Anticipez les problèmes avant qu&apos;ils n&apos;arrivent. Une gestion rigoureuse vous évite les amendes, les intérêts moratoires et le stress des contrôles.
+                Elle permet de respecter les obligations fiscales et sociales, sans surprises ni rattrapages imprévus.
               </p>
             </div>
             <div className="relative h-64 lg:h-auto lg:aspect-square rounded-2xl overflow-hidden shadow-xl bg-white flex items-center justify-center p-8">
@@ -153,7 +153,7 @@ export default function Home() {
 
             <div className="p-6 bg-slate-50 rounded-xl border border-slate-200">
               <p className="text-sm text-slate-500 italic">
-                &quot;J&apos;ai pu corriger mon assujettissement TVA avant le contrôle fiscal grâce à leur diagnostic.&quot;
+                &quot;Ce point m&apos;a permis de clarifier mes obligations TVA et de remettre ma comptabilité à jour.&quot;
               </p>
               <p className="mt-2 text-sm font-semibold text-slate-900">— Un entrepreneur genevois</p>
             </div>
