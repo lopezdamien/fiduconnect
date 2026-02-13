@@ -78,7 +78,7 @@ export function LeadForm() {
                         name="name"
                         id="name"
                         required
-                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border"
+                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
                         placeholder="Jean Dupont"
                     />
                 </div>
@@ -90,7 +90,7 @@ export function LeadForm() {
                         name="company"
                         id="company"
                         required
-                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border"
+                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
                         placeholder="Nom de votre entreprise"
                     />
                 </div>
@@ -103,7 +103,7 @@ export function LeadForm() {
                             name="email"
                             id="email"
                             required
-                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border"
+                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
                             placeholder="jean@entreprise.ch"
                         />
                     </div>
@@ -114,7 +114,7 @@ export function LeadForm() {
                             name="phone"
                             id="phone"
                             required
-                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border"
+                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
                             placeholder="+41 79 000 00 00"
                         />
                     </div>
@@ -126,10 +126,10 @@ export function LeadForm() {
                         id="subject"
                         name="subject"
                         required
-                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border"
+                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
                         defaultValue=""
                     >
-                        <option value="" disabled>Sélectionnez un sujet...</option>
+                        <option value="" disabled className="text-slate-400">Sélectionnez un sujet...</option>
                         <option value="TVA">TVA</option>
                         <option value="Comptabilité">Comptabilité (tenue / clôture)</option>
                         <option value="Déclarations fiscales">Déclarations fiscales</option>
@@ -146,7 +146,7 @@ export function LeadForm() {
                         id="comment"
                         name="comment"
                         rows={3}
-                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border"
+                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
                         placeholder="Expliquez brièvement votre situation..."
                     />
                 </div>
