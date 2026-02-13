@@ -5,8 +5,8 @@ import { CheckCircle2 } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Comptabilité PME & Reporting | FIDU Genève",
-    description: "Ne subissez plus votre comptabilité. Transformez vos bilans en outils de gestion clairs et précis.",
+    title: "Comptabilité & Déclarations Fiscales | FIDUCONNECT",
+    description: "Tenue de comptes et déclarations fiscales PME. Nous garantissons l'exactitude de vos chiffres pour l'administration.",
 };
 
 export default function ServiceComptabilite() {
@@ -16,10 +16,10 @@ export default function ServiceComptabilite() {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <span className="text-purple-600 font-semibold tracking-wide uppercase text-sm">Gestion</span>
                     <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">
-                        Comptabilité & Reporting
+                        Comptabilité & Déclarations
                     </h1>
                     <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
-                        Une comptabilité bien tenue ne sert pas qu&apos;à remplir sa déclaration d&apos;impôt. C&apos;est le thermomètre de votre entreprise.
+                        Une comptabilité rigoureuse est la base de votre sécurité fiscale. Nous auditons la qualité de votre tenue de comptes.
                     </p>
                 </div>
             </section>
@@ -27,36 +27,36 @@ export default function ServiceComptabilite() {
             <Section className="bg-slate-50">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div>
-                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Ce que nous analysons</h2>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Ce que nous vérifions</h2>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-4">
                                 <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center shrink-0 text-purple-600 font-bold">1</div>
                                 <div>
-                                    <strong className="block text-slate-900">La structure du plan comptable</strong>
-                                    <span className="text-slate-600 text-sm">Est-il adapté à votre activité ? Permet-il de lire vos marges par produit/service ?</span>
+                                    <strong className="block text-slate-900">La justesse des écritures</strong>
+                                    <span className="text-slate-600 text-sm">Les charges sont-elles déductibles ? Les comptes transitoires sont-ils justifiés ?</span>
                                 </div>
                             </li>
                             <li className="flex items-start gap-4">
                                 <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center shrink-0 text-purple-600 font-bold">2</div>
                                 <div>
-                                    <strong className="block text-slate-900">La qualité des imputations</strong>
-                                    <span className="text-slate-600 text-sm">Les charges directes sont-elles bien séparées des frais généraux ?</span>
+                                    <strong className="block text-slate-900">L&apos;exhaustivité des déclarations</strong>
+                                    <span className="text-slate-600 text-sm">TVA, Impôts, Dividendes : rien ne doit manquer à l&apos;appel.</span>
                                 </div>
                             </li>
                             <li className="flex items-start gap-4">
                                 <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center shrink-0 text-purple-600 font-bold">3</div>
                                 <div>
-                                    <strong className="block text-slate-900">Les amortissements</strong>
-                                    <span className="text-slate-600 text-sm">Sont-ils optimisés fiscalement ou subis comptablement ?</span>
+                                    <strong className="block text-slate-900">Le dossier de bouclement</strong>
+                                    <span className="text-slate-600 text-sm">Est-il complet pour résister à un contrôle fiscal ?</span>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
                     <div className="bg-slate-900 text-white p-8 rounded-2xl">
-                        <h3 className="text-xl font-bold mb-4">Notre promesse</h3>
+                        <h3 className="text-xl font-bold mb-4">Notre garantie</h3>
                         <p className="text-slate-300 mb-6">
-                            Nous ne sommes pas là pour refaire votre saisie, mais pour s&apos;assurer que votre fiduciaire actuelle (ou future) vous fournit les bons chiffres.
+                            Nous nous assurons que votre comptabilité reflète fidèlement la réalité et respecte toutes les normes suisses.
                         </p>
                         <div className="space-y-3 mb-8">
                             <div className="flex gap-3">

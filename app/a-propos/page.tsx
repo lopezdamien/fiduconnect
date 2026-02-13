@@ -27,10 +27,10 @@ export default function About() {
                             Nous sommes un cabinet indépendant spécialisé dans l&apos;analyse administrative et fiscale. Contrairement à une fiduciaire classique qui gère votre quotidien, nous intervenons pour <strong>auditer, structurer et orienter</strong>.
                         </p>
                         <p className="text-lg text-slate-600 mb-4">
-                            Notre constat est simple : trop d&apos;entrepreneurs subissent leur comptabilité au lieu de l&apos;utiliser comme un outil de pilotage.
+                            Notre constat est simple : trop d&apos;entrepreneurs subissent leur comptabilité au lieu de l&apos;utiliser comme un outil de sécurité.
                         </p>
-                        <p className="text-lg text-slate-600">
-                            Nous ne cherchons pas à remplacer votre fiduciaire si elle vous convient, mais à vous assurer que vous êtes entre de bonnes mains et que vos chiffres sont optimisés.
+                        <p className="text-lg text-slate-600 mb-6">
+                            <strong>FIDUCONNECT agit comme point d’entrée et facilite la mise en relation avec des cabinets fiduciaires partenaires.</strong> Nous ne remplaçons pas votre fiduciaire si elle vous convient, mais nous vous assurons que vous êtes entre de bonnes mains.
                         </p>
                     </div>
                     <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">

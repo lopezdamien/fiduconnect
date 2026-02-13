@@ -26,7 +26,7 @@ export function Header() {
                 <div className="flex items-center justify-between h-20">
                     <div className="flex lg:flex-1">
                         <Link href="/" className="-m-1.5 p-1.5 font-bold text-2xl tracking-tight text-slate-900">
-                            FIDU<span className="text-green-800">.</span>
+                            FIDUCONNECT<span className="text-green-800">.</span>
                         </Link>
                     </div>
 

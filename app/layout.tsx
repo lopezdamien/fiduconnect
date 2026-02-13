@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FIDU - Analyse & Orientation Comptable PME Genève",
-  description: "Cabinet indépendant spécialisé dans l'analyse administrative et fiscale des PME genevoises.",
+  title: "FIDUCONNECT | Expert Comptable & Fiscalité PME Genève",
+  description: "Analyse et organisation comptable pour les PME. TVA, déclarations fiscales, charges sociales. Mise en relation avec des fiduciaires partenaires.",
 };
 
 export default function RootLayout({

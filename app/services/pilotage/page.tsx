@@ -1,12 +1,12 @@
 import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
-import { BarChart3, PieChart, LineChart, ArrowUpRight } from "lucide-react";
+import { FileCheck, ShieldCheck, Clock, Archive } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Pilotage d'Entreprise & Tableau de Bord | FIDU Genève",
-    description: "Transformez votre comptabilité en outil de décision. Tableaux de bord, budgets prévisionnels et conseils stratégiques pour dirigeants.",
+    title: "Organisation Comptable & Sérénité | FIDUCONNECT",
+    description: "Ne laissez plus l'administratif gâcher vos nuits. Nous structurons votre comptabilité pour garantir délais et conformité.",
 };
 
 export default function Pilotage() {
@@ -16,10 +16,10 @@ export default function Pilotage() {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl">
                         <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6">
-                            Vos chiffres devraient vous aider à décider.
+                            Dormez sur vos deux oreilles.
                         </h1>
                         <p className="text-xl text-slate-300 leading-relaxed">
-                            Pas seulement à déclarer. Passez d&apos;une comptabilité fiscale à une comptabilité de pilotage.
+                            Une comptabilité à jour, c&apos;est la garantie d&apos;éviter les mauvaises surprises fiscales et les amendes pour retard.
                         </p>
                     </div>
                 </div>
@@ -28,34 +28,34 @@ export default function Pilotage() {
             <Section className="bg-white">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-6">Anticipation vs Constat</h2>
+                        <h2 className="text-3xl font-bold text-slate-900 mb-6">L&apos;organisation, clé de la conformité</h2>
                         <p className="text-lg text-slate-600 mb-6">
-                            La plupart des fiduciaires se contentent de saisir vos factures pour produire un bilan annuel. C&apos;est nécessaire pour l&apos;État, mais inutile pour vous.
+                            La comptabilité n&apos;est pas qu&apos;une obligation légale, c&apos;est votre protection. Des pièces manquantes ou des délais dépassés exposent votre entreprise à des risques inutiles.
                         </p>
                         <p className="text-lg text-slate-600 mb-6">
-                            Le pilotage dirigeant, c&apos;est l&apos;art d&apos;utiliser la donnée financière pour prendre des décisions éclairées en temps réel.
+                            FIDUCONNECT vérifie que votre organisation actuelle permet de respecter toutes les échéances sans stress.
                         </p>
 
                         <div className="mt-8 space-y-4">
                             <div className="flex items-center gap-4 p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <BarChart3 className="h-8 w-8 text-green-700" />
+                                <FileCheck className="h-8 w-8 text-green-700" />
                                 <div>
-                                    <h3 className="font-semibold text-slate-900">Tableaux de bord mensuels</h3>
-                                    <p className="text-sm text-slate-600">Suivez votre marge et vos frais fixes mois après mois.</p>
+                                    <h3 className="font-semibold text-slate-900">Pièces comptables complètes</h3>
+                                    <p className="text-sm text-slate-600">Fini les justificatifs perdus qui coûtent cher en impôts.</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <PieChart className="h-8 w-8 text-green-700" />
+                                <Clock className="h-8 w-8 text-green-700" />
                                 <div>
-                                    <h3 className="font-semibold text-slate-900">Analyse des centres de coûts</h3>
-                                    <p className="text-sm text-slate-600">Sachez exactement où part votre argent.</p>
+                                    <h3 className="font-semibold text-slate-900">Respect des délais</h3>
+                                    <p className="text-sm text-slate-600">TVA, acomptes, déclarations : soyez toujours à l&apos;heure.</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 p-4 rounded-lg bg-slate-50 border border-slate-100">
-                                <LineChart className="h-8 w-8 text-green-700" />
+                                <Archive className="h-8 w-8 text-green-700" />
                                 <div>
-                                    <h3 className="font-semibold text-slate-900">Budgets prévisionnels</h3>
-                                    <p className="text-sm text-slate-600">Anticipez vos besoins de trésorerie à 6 mois.</p>
+                                    <h3 className="font-semibold text-slate-900">Archivage sécurisé</h3>
+                                    <p className="text-sm text-slate-600">Vos documents accessibles et protégés en cas de contrôle.</p>
                                 </div>
                             </div>
                         </div>
@@ -63,23 +63,23 @@ export default function Pilotage() {
 
                     <div className="bg-slate-900 rounded-2xl p-8 lg:p-12 text-white relative overflow-hidden">
                         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-                        <h3 className="text-2xl font-bold mb-6 relative z-10">Questions stratégiques</h3>
+                        <h3 className="text-2xl font-bold mb-6 relative z-10">Les risques évités</h3>
                         <ul className="space-y-6 relative z-10">
                             <li className="flex gap-4">
-                                <ArrowUpRight className="h-6 w-6 text-green-400 shrink-0" />
-                                <span>&quot;Puis-je me permettre d&apos;embaucher ce nouveau collaborateur maintenant ?&quot;</span>
+                                <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
+                                <span>Intérêts moratoires sur impôts et TVA</span>
                             </li>
                             <li className="flex gap-4">
-                                <ArrowUpRight className="h-6 w-6 text-green-400 shrink-0" />
-                                <span>&quot;Quelle est la rentabilité réelle de ce projet ou de ce client ?&quot;</span>
+                                <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
+                                <span>Taxation d&apos;office (estimation souvent majorée)</span>
                             </li>
                             <li className="flex gap-4">
-                                <ArrowUpRight className="h-6 w-6 text-green-400 shrink-0" />
-                                <span>&quot;Combien puis-je investir en marketing sans mettre en danger ma trésorerie ?&quot;</span>
+                                <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
+                                <span>Pertes de déductions fiscales faute de preuves</span>
                             </li>
                             <li className="flex gap-4">
-                                <ArrowUpRight className="h-6 w-6 text-green-400 shrink-0" />
-                                <span>&quot;Dois-je acheter ou louer ce véhicule ?&quot;</span>
+                                <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
+                                <span>Stress inutile à chaque courrier officiel</span>
                             </li>
                         </ul>
                     </div>
@@ -88,12 +88,12 @@ export default function Pilotage() {
 
             <section className="bg-green-50 py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-6">Prenez le contrôle</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-6">Mettez de l&apos;ordre</h2>
                     <p className="text-lg text-slate-700 mb-8 max-w-2xl mx-auto">
-                        Nous mettons en place les outils qui vous manquent pour piloter sereinement.
+                        Nous auditons votre processus administratif pour vous garantir une tranquillité d&apos;esprit totale.
                     </p>
-                    <Link href="/contact">
-                        <Button size="lg">Discuter de mes besoins de pilotage</Button>
+                    <Link href="/diagnostic">
+                        <Button size="lg">Vérifier mon organisation</Button>
                     </Link>
                 </div>
             </section>

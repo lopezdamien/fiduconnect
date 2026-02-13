@@ -26,15 +26,15 @@ export default function Services() {
             href: "/services/charges-salaires"
         },
         {
-            title: "Pilotage Financier",
-            description: "Tableaux de bord sur mesure pour anticiper votre trésorerie et vos marges.",
+            title: "Organisation & Conformité",
+            description: "Structures vos processus pour ne plus jamais manquer une échéance administrative.",
             icon: TrendingDown,
             color: "text-green-600 bg-green-100",
             href: "/services/pilotage"
         },
         {
-            title: "Comptabilité & Reporting",
-            description: "Structuration de votre comptabilité pour qu'elle devienne un outil de décision.",
+            title: "Comptabilité & Déclarations",
+            description: "Tenue de comptes rigoureuse et établissement de vos déclarations fiscales.",
             icon: Wallet,
             color: "text-purple-600 bg-purple-100",
             href: "/services/comptabilite"

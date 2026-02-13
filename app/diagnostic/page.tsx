@@ -57,7 +57,8 @@ export default function Diagnostic() {
                     Diagnostic Gratuit
                 </h1>
                 <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                    Prenez 2 minutes pour nous décrire votre situation. Nous vous orienterons vers les bonnes solutions ou le bon partenaire.
+                    Analyse de votre organisation comptable et de vos obligations fiscales.
+                    Objectif : Identifier d’éventuelles erreurs, retards ou incohérences.
                 </p>
             </section>
 
