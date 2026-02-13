@@ -4,6 +4,12 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from './Button';
 
+declare global {
+    interface Window {
+        gtag?: (...args: unknown[]) => void;
+    }
+}
+
 export function LeadForm() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -36,8 +42,8 @@ export function LeadForm() {
             }
 
             // Optional: Tracking event
-            if (typeof window !== 'undefined' && (window as any).gtag) {
-                (window as any).gtag('event', 'lead_submit', {
+            if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'lead_submit', {
                     'event_category': 'form',
                     'event_label': 'lead_generation'
                 });
