@@ -13,21 +13,21 @@ export default function Services() {
     const services = [
         {
             title: "TVA & Fiscalité Dédiée",
-            description: "Analyse de votre assujettissement, méthode de décompte et récupération d'impôt préalable.",
+            description: "Vérification de la conformité de vos décomptes TVA et de votre méthode d'assujettissement.",
             icon: AlertTriangle,
             color: "text-orange-600 bg-orange-100",
             href: "/services/tva"
         },
         {
             title: "Charges Sociales & Salaires",
-            description: "Optimisation du ratio salaire/dividende et audit de votre couverture LPP/LAA.",
+            description: "Gestion administrative de vos obligations employeur (AVS, LPP, LAA).",
             icon: FileText,
             color: "text-blue-600 bg-blue-100",
             href: "/services/charges-salaires"
         },
         {
             title: "Organisation & Conformité",
-            description: "Structures vos processus pour ne plus jamais manquer une échéance administrative.",
+            description: "Mise en place de processus de classement et d'archivage pour respecter les délais.",
             icon: TrendingDown,
             color: "text-green-600 bg-green-100",
             href: "/services/pilotage"
@@ -41,7 +41,7 @@ export default function Services() {
         },
         {
             title: "Changer de Fiduciaire",
-            description: "Accompagnement complet pour une transition en douceur vers un partenaire adapté.",
+            description: "Accompagnement pour le transfert de votre dossier comptable vers un nouveau partenaire.",
             icon: RefreshCcw,
             color: "text-red-600 bg-red-100",
             href: "/services/changer-fiduciaire"
@@ -52,10 +52,10 @@ export default function Services() {
         <>
             <section className="bg-slate-900 py-24 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                    Nos Domaines d&apos;Expertise
+                    Nos Domaines d&apos;Intervention
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-                    Nous ne faisons pas que de la saisie. Nous analysons, structurons et optimisons votre gestion.
+                    Nous vous aidons à structurer votre administratif et à trouver les bons partenaires pour votre comptabilité.
                 </p>
             </section>
 

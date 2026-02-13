@@ -12,10 +12,10 @@ export default function About() {
         <>
             <section className="bg-slate-900 py-20 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                    Notre Mission
+                    Notre Rôle
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-                    Apporter de la clarté et de la sécurité aux dirigeants de PME genevoises.
+                    Apporter de la clarté administrative aux dirigeants de PME genevoises.
                 </p>
             </section>
 
@@ -24,13 +24,13 @@ export default function About() {
                     <div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-6">Qui sommes-nous ?</h2>
                         <p className="text-lg text-slate-600 mb-4">
-                            Nous sommes un cabinet indépendant spécialisé dans l&apos;analyse administrative et fiscale. Contrairement à une fiduciaire classique qui gère votre quotidien, nous intervenons pour <strong>auditer, structurer et orienter</strong>.
-                        </p>
-                        <p className="text-lg text-slate-600 mb-4">
-                            Notre constat est simple : trop d&apos;entrepreneurs subissent leur comptabilité au lieu de l&apos;utiliser comme un outil de sécurité.
+                            Nous sommes un cabinet indépendant spécialisé dans l&apos;analyse de l&apos;organisation comptable.
                         </p>
                         <p className="text-lg text-slate-600 mb-6">
-                            <strong>FIDUCONNECT agit comme point d’entrée et facilite la mise en relation avec des cabinets fiduciaires partenaires.</strong> Nous ne remplaçons pas votre fiduciaire si elle vous convient, mais nous vous assurons que vous êtes entre de bonnes mains.
+                            <strong>FIDUCONNECT agit comme point d’entrée et facilite la mise en relation avec des cabinets fiduciaires partenaires.</strong>
+                        </p>
+                        <p className="text-lg text-slate-600 mb-6">
+                            Nous ne remplaçons pas un mandat fiduciaire : nous analysons votre situation et vous orientons vers le partenaire adapté pour la tenue de vos comptes et vos déclarations.
                         </p>
                     </div>
                     <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
@@ -38,15 +38,15 @@ export default function About() {
                         <ul className="space-y-4">
                             <li className="flex gap-3">
                                 <CheckCircle2 className="h-6 w-6 text-green-700 shrink-0" />
-                                <span className="text-slate-700"><strong>Indépendance totale</strong> : Nous travaillons pour vous, pas pour l&apos;administration fiscale.</span>
+                                <span className="text-slate-700"><strong>Indépendance</strong> : Nous vous conseillons le partenaire le plus adapté à votre structure.</span>
                             </li>
                             <li className="flex gap-3">
                                 <CheckCircle2 className="h-6 w-6 text-green-700 shrink-0" />
-                                <span className="text-slate-700"><strong>Confidentialité</strong> : Vos données sont traitées avec le plus haut niveau de sécurité suisse.</span>
+                                <span className="text-slate-700"><strong>Rigueur</strong> : Nous vérifions la conformité de vos processus administratifs.</span>
                             </li>
                             <li className="flex gap-3">
                                 <CheckCircle2 className="h-6 w-6 text-green-700 shrink-0" />
-                                <span className="text-slate-700"><strong>Pragmatisme</strong> : Pas de jargon inutile, des solutions concrètes et applicables.</span>
+                                <span className="text-slate-700"><strong>Transparence</strong> : Pas de promesses irréalistes, uniquement de la gestion saine.</span>
                             </li>
                         </ul>
                     </div>
@@ -60,17 +60,17 @@ export default function About() {
                         <div>
                             <div className="text-4xl font-bold text-slate-200 mb-4">01</div>
                             <h3 className="font-bold text-slate-900 mb-2">Analyse</h3>
-                            <p className="text-slate-600">Nous passons en revue vos derniers bouclements et votre organisation actuelle.</p>
+                            <p className="text-slate-600">Nous passons en revue votre organisation administrative actuelle (classement, délais).</p>
                         </div>
                         <div>
                             <div className="text-4xl font-bold text-slate-200 mb-4">02</div>
-                            <h3 className="font-bold text-slate-900 mb-2">Échange</h3>
-                            <p className="text-slate-600">Nous vous présentons nos constats et les pistes d&apos;amélioration (tva, salaire, charges).</p>
+                            <h3 className="font-bold text-slate-900 mb-2">Constat</h3>
+                            <p className="text-slate-600">Nous identifions les manques éventuels (pièces, TVA, social).</p>
                         </div>
                         <div>
                             <div className="text-4xl font-bold text-slate-200 mb-4">03</div>
-                            <h3 className="font-bold text-slate-900 mb-2">Orientation</h3>
-                            <p className="text-slate-600">Si nécessaire, nous vous orientons vers un partenaire fiduciaire adapté à votre taille.</p>
+                            <h3 className="font-bold text-slate-900 mb-2">Mise en relation</h3>
+                            <p className="text-slate-600">Nous vous connectons avec la fiduciaire qu&apos;il vous faut pour la gestion courante.</p>
                         </div>
                     </div>
                 </div>
