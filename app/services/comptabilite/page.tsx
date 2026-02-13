@@ -56,7 +56,7 @@ export default function ServiceComptabilite() {
                     <div className="bg-slate-900 text-white rounded-2xl overflow-hidden relative">
                         <div className="h-64 overflow-hidden relative">
                             <img
-                                src="https://placehold.co/800x400/581c87/FFF?text=Illustration+Déclarations+Fiscales"
+                                src="/images/accounting-guarantee.png"
                                 alt="Illustration Déclarations"
                                 className="w-full h-full object-cover opacity-90"
                             />
@@ -84,6 +84,7 @@ export default function ServiceComptabilite() {
                             </Link>
                         </div>
                     </div>
+                </div>
             </Section>
         </>
     );

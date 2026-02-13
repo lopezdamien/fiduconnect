@@ -63,9 +63,9 @@ export default function Pilotage() {
 
                     <div className="bg-slate-900 rounded-2xl text-white relative overflow-hidden h-full min-h-[400px]">
                         <img
-                            src="https://placehold.co/800x800/14532d/FFF?text=Illustration+Organisation+Comptable"
+                            src="/images/organization-shield.png"
                             alt="Illustration Organisation"
-                            className="w-full h-full object-cover opacity-80"
+                            className="w-full h-full object-cover opacity-30"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                         <div className="absolute bottom-0 p-8">

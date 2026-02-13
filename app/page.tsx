@@ -113,12 +113,11 @@ export default function Home() {
                 Anticipez les problèmes avant qu&apos;ils n&apos;arrivent. Une gestion rigoureuse vous évite les amendes, les intérêts moratoires et le stress des contrôles.
               </p>
             </div>
-            <div className="relative h-64 lg:h-auto lg:aspect-square rounded-2xl overflow-hidden shadow-xl">
-              {/* Placeholder for Accounting Illustration */}
+            <div className="relative h-64 lg:h-auto lg:aspect-square rounded-2xl overflow-hidden shadow-xl bg-white flex items-center justify-center p-8">
               <img
-                src="https://placehold.co/800x800/0F172A/FFF?text=Illustration+Sérénité+Comptable"
+                src="/images/hero-accounting.png"
                 alt="Illustration Sérénité Comptable"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
