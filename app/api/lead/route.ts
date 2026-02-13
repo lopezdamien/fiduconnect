@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
         const { error } = await resend.emails.send({
             from: 'onboarding@resend.dev',
-            to: process.env.LEAD_TO_EMAIL || 'damien.lopez.pro@gmail.com', // Fallback for dev, but user should set env var
+            to: 'damienlopez@outlook.fr',
             subject: `Nouveau lead Fiduconnect – ${company} – ${subject}`,
             html: `
         <h2>Nouveau Lead Reçu</h2>
