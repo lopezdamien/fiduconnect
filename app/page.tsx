@@ -103,14 +103,24 @@ export default function Home() {
       {/* Section 2 - Sécurisation */}
       <section className="bg-slate-50 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-green-700">Sérénité Administrative</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Une comptabilité bien structurée protège votre entreprise
-            </p>
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              Anticipez les problèmes avant qu&apos;ils n&apos;arrivent. Une gestion rigoureuse vous évite les amendes, les intérêts moratoires et le stress des contrôles.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="mx-auto max-w-2xl lg:mx-0">
+              <h2 className="text-base font-semibold leading-7 text-green-700">Sérénité Administrative</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                Une comptabilité bien structurée protège votre entreprise
+              </p>
+              <p className="mt-6 text-lg leading-8 text-slate-600">
+                Anticipez les problèmes avant qu&apos;ils n&apos;arrivent. Une gestion rigoureuse vous évite les amendes, les intérêts moratoires et le stress des contrôles.
+              </p>
+            </div>
+            <div className="relative h-64 lg:h-auto lg:aspect-square rounded-2xl overflow-hidden shadow-xl">
+              {/* Placeholder for Accounting Illustration */}
+              <img
+                src="https://placehold.co/800x800/0F172A/FFF?text=Illustration+Sérénité+Comptable"
+                alt="Illustration Sérénité Comptable"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>

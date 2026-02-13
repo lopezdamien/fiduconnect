@@ -53,28 +53,37 @@ export default function ServiceComptabilite() {
                         </ul>
                     </div>
 
-                    <div className="bg-slate-900 text-white p-8 rounded-2xl">
-                        <h3 className="text-xl font-bold mb-4">Notre garantie</h3>
-                        <p className="text-slate-300 mb-6">
-                            Nous nous assurons que votre comptabilité reflète fidèlement la réalité et respecte toutes les normes suisses.
-                        </p>
-                        <div className="space-y-3 mb-8">
-                            <div className="flex gap-3">
-                                <CheckCircle2 className="text-green-400 h-5 w-5" />
-                                <span>Transparence totale sur les honoraires</span>
-                            </div>
-                            <div className="flex gap-3">
-                                <CheckCircle2 className="text-green-400 h-5 w-5" />
-                                <span>Accès à notre réseau de partenaires validés</span>
-                            </div>
+                    <div className="bg-slate-900 text-white rounded-2xl overflow-hidden relative">
+                        <div className="h-64 overflow-hidden relative">
+                            <img
+                                src="https://placehold.co/800x400/581c87/FFF?text=Illustration+Déclarations+Fiscales"
+                                alt="Illustration Déclarations"
+                                className="w-full h-full object-cover opacity-90"
+                            />
+                            <div className="absolute inset-0 bg-purple-900/20"></div>
                         </div>
-                        <Link href="/diagnostic">
-                            <Button className="w-full bg-green-600 hover:bg-green-500 text-white border-none">
-                                Auditer ma comptabilité
-                            </Button>
-                        </Link>
+                        <div className="p-8">
+                            <h3 className="text-xl font-bold mb-4">Notre garantie</h3>
+                            <p className="text-slate-300 mb-6">
+                                Nous nous assurons que votre comptabilité reflète fidèlement la réalité et respecte toutes les normes suisses.
+                            </p>
+                            <div className="space-y-3 mb-8">
+                                <div className="flex gap-3">
+                                    <CheckCircle2 className="text-green-400 h-5 w-5" />
+                                    <span>Transparence totale sur les honoraires</span>
+                                </div>
+                                <div className="flex gap-3">
+                                    <CheckCircle2 className="text-green-400 h-5 w-5" />
+                                    <span>Accès à notre réseau de partenaires validés</span>
+                                </div>
+                            </div>
+                            <Link href="/diagnostic">
+                                <Button className="w-full bg-green-600 hover:bg-green-500 text-white border-none">
+                                    Auditer ma comptabilité
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
-                </div>
             </Section>
         </>
     );

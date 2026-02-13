@@ -61,27 +61,34 @@ export default function Pilotage() {
                         </div>
                     </div>
 
-                    <div className="bg-slate-900 rounded-2xl p-8 lg:p-12 text-white relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-                        <h3 className="text-2xl font-bold mb-6 relative z-10">Les risques évités</h3>
-                        <ul className="space-y-6 relative z-10">
-                            <li className="flex gap-4">
-                                <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
-                                <span>Intérêts moratoires sur impôts et TVA</span>
-                            </li>
-                            <li className="flex gap-4">
-                                <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
-                                <span>Taxation d&apos;office (estimation souvent majorée)</span>
-                            </li>
-                            <li className="flex gap-4">
-                                <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
-                                <span>Pertes de déductions fiscales faute de preuves</span>
-                            </li>
-                            <li className="flex gap-4">
-                                <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
-                                <span>Stress inutile à chaque courrier officiel</span>
-                            </li>
-                        </ul>
+                    <div className="bg-slate-900 rounded-2xl text-white relative overflow-hidden h-full min-h-[400px]">
+                        <img
+                            src="https://placehold.co/800x800/14532d/FFF?text=Illustration+Organisation+Comptable"
+                            alt="Illustration Organisation"
+                            className="w-full h-full object-cover opacity-80"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                        <div className="absolute bottom-0 p-8">
+                            <h3 className="text-2xl font-bold mb-6 relative z-10">Les risques évités</h3>
+                            <ul className="space-y-6 relative z-10">
+                                <li className="flex gap-4">
+                                    <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
+                                    <span>Intérêts moratoires sur impôts et TVA</span>
+                                </li>
+                                <li className="flex gap-4">
+                                    <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
+                                    <span>Taxation d&apos;office (estimation souvent majorée)</span>
+                                </li>
+                                <li className="flex gap-4">
+                                    <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
+                                    <span>Pertes de déductions fiscales faute de preuves</span>
+                                </li>
+                                <li className="flex gap-4">
+                                    <ShieldCheck className="h-6 w-6 text-green-400 shrink-0" />
+                                    <span>Stress inutile à chaque courrier officiel</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </Section>
