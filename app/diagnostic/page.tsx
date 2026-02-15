@@ -12,11 +12,11 @@ export default function Diagnostic() {
         <>
             <section className="bg-slate-900 py-20 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                    Diagnostic Gratuit
+                    Consultation gratuite (30 min)
                 </h1>
                 <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                    Analyse de votre organisation comptable et de vos obligations fiscales.
-                    Objectif : Identifier d’éventuelles erreurs, retards ou incohérences.
+                    Analysez votre situation avec un expert fiduciaire partenaire.
+                    Objectif : Clarifier vos obligations et identifier vos axes d'amélioration.
                 </p>
             </section>
 

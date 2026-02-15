@@ -60,8 +60,8 @@ export function Header() {
 
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <Link href="/diagnostic">
-                            <Button variant="secondary" size="sm">
-                                Demander une offre
+                            <Button variant="secondary" size="sm" className="bg-green-700 text-white hover:bg-green-800 border-transparent">
+                                Consultation gratuite (30 min)
                             </Button>
                         </Link>
                     </div>
@@ -86,9 +86,9 @@ export function Header() {
                             </Link>
                         ))}
                         <div className="mt-4 pt-4 border-t border-slate-100">
-                            <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                                <Button fullWidth variant="secondary">
-                                    Demander une offre
+                            <Link href="/diagnostic" onClick={() => setIsMenuOpen(false)}>
+                                <Button fullWidth variant="secondary" className="bg-green-700 text-white hover:bg-green-800 border-transparent">
+                                    Consultation gratuite (30 min)
                                 </Button>
                             </Link>
                         </div>
