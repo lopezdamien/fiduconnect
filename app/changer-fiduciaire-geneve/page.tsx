@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 import { Section } from "@/components/Section";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight, AlertTriangle, FileText, HelpCircle, ArrowLeft } from "lucide-react";
-import Image from "next/image";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,15 +25,7 @@ export default function ChangerFiduciaireArticle() {
                         Changer de fiduciaire à Genève : comment organiser la transition en toute sécurité ?
                     </h1>
 
-                    <div className="my-10 flex justify-center">
-                        <Image
-                            src="/images/illustration-changer-fiduciaire-geneve-1.jpg"
-                            alt="Illustration — changement de fiduciaire à Genève"
-                            width={150}
-                            height={150}
-                            className="opacity-90 grayscale hover:grayscale-0 transition-all duration-500"
-                        />
-                    </div>
+
 
                     <p className="text-xl leading-8 text-slate-700">
                         Changer de fiduciaire est une décision stratégique pour une PME à Genève. Lorsqu’un dirigeant constate un manque de clarté, une gestion TVA incertaine ou une organisation peu structurée, la question du changement peut se poser.
@@ -259,15 +251,7 @@ export default function ChangerFiduciaireArticle() {
                 <div className="mx-auto max-w-3xl text-center">
                     <h2 className="text-xl font-bold text-slate-900 mb-6">Pour aller plus loin</h2>
 
-                    <div className="my-10 flex justify-center">
-                        <Image
-                            src="/images/illustration-transition-fiduciaire-geneve-2.jpg"
-                            alt="Illustration — transition comptable PME Genève"
-                            width={150}
-                            height={150}
-                            className="opacity-90 grayscale hover:grayscale-0 transition-all duration-500"
-                        />
-                    </div>
+
 
                     <div className="flex flex-wrap justify-center gap-4">
                         <Link href="/services/comptabilite" className="text-slate-600 hover:text-green-700 font-medium underline decoration-slate-300 underline-offset-4 hover:decoration-green-700 transition-all">
