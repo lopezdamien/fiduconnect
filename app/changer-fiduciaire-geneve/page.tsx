@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { Section } from "@/components/Section";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight, AlertTriangle, FileText, HelpCircle, ArrowLeft } from "lucide-react";
+import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -123,7 +124,17 @@ export default function ChangerFiduciaireArticle() {
                         </div>
                     </div>
 
-                    <div className="mt-12 p-8 bg-green-50 rounded-2xl border border-green-100 text-center">
+                    <div className="my-12">
+                        <Image
+                            src="/images/transition-fiduciaire-geneve-process.jpg"
+                            alt="Processus structuré de changement de fiduciaire pour PME à Genève"
+                            width={1200}
+                            height={600}
+                            className="rounded-xl border border-slate-200"
+                        />
+                    </div>
+
+                    <div className="mt-8 p-8 bg-green-50 rounded-2xl border border-green-100 text-center">
                         <h3 className="text-lg font-bold text-green-900 mb-3">Besoin d’un regard structuré sur votre situation actuelle ?</h3>
                         <Link href="/diagnostic">
                             <Button className="bg-green-700 hover:bg-green-800 text-white">
@@ -147,6 +158,19 @@ export default function ChangerFiduciaireArticle() {
                         <p>
                             Lors du changement, il est crucial de vérifier si la méthode utilisée (méthode effective ou taux de la dette fiscale nette) est toujours la plus avantageuse pour votre PME. Une erreur méthodologique ou un retard déclaratif lors de la transition peut entraîner des risques déclaratifs importants. Notre rôle est de sécuriser cette continuité.
                         </p>
+                    </div>
+
+                    <div className="my-12">
+                        <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm mx-auto max-w-2xl">
+                            <Image
+                                src="/images/changement-fiduciaire-points-sensibles-geneve.jpg"
+                                alt="Points sensibles lors d’une transition comptable pour PME à Genève"
+                                width={1200}
+                                height={600}
+                                className="rounded-lg"
+                            />
+                            <p className="text-center text-sm text-slate-500 mt-2">Les points de vigilance majeurs lors d'une transition fiduciaire.</p>
+                        </div>
                     </div>
                 </div>
             </Section>
