@@ -64,7 +64,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-8 text-center">
             Une approche moderne du mandat fiduciaire
           </h2>
-          <div className="prose prose-lg prose-slate mx-auto text-justify">
+          <div className="prose prose-lg prose-slate mx-auto text-justify text-slate-600">
             <p>
               Dans un environnement économique et fiscal aussi rigoureux que celui de la Suisse, la gestion comptable d'une PME ne peut se limiter à une simple saisie de factures. À Genève, où le tissu économique est dense et concurrentiel, choisir le bon partenaire pour votre mandat fiduciaire est une décision stratégique qui impacte directement la pérennité de votre entreprise.
             </p>
