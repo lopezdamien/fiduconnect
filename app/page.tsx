@@ -31,28 +31,26 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-8 max-w-4xl mx-auto leading-tight">
-            Fiduciaire pour PME à Genève <br />
-            <span className="text-green-500">Mandat structuré & conformité sécurisée</span>
+            Fiduciaire pour PME à Genève
           </h1>
           <p className="mt-6 text-xl leading-8 text-slate-300 max-w-3xl mx-auto">
-            Organisation et mise en place d’un mandat fiduciaire avec un expert partenaire. <br className="hidden sm:block" />
-            Comptabilité, TVA et obligations fiscales structurées avec clarté.
+            Une approche claire et structurée de votre comptabilité, TVA et obligations fiscales.
           </p>
 
           <ul className="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-slate-300 font-medium text-lg">
-            <li className="flex items-center justify-center"><CheckCircle2 className="h-6 w-6 text-green-500 mr-2" /> Process clair</li>
+            <li className="flex items-center justify-center"><CheckCircle2 className="h-6 w-6 text-green-500 mr-2" /> Organisation rigoureuse</li>
             <li className="flex items-center justify-center"><CheckCircle2 className="h-6 w-6 text-green-500 mr-2" /> Conformité maîtrisée</li>
-            <li className="flex items-center justify-center"><CheckCircle2 className="h-6 w-6 text-green-500 mr-2" /> Interlocuteur structuré</li>
+            <li className="flex items-center justify-center"><CheckCircle2 className="h-6 w-6 text-green-500 mr-2" /> Process transparent</li>
           </ul>
 
           <div className="mt-12 flex flex-col items-center gap-4">
             <Link href="#audit">
               <Button size="lg" className="bg-green-700 hover:bg-green-600 px-8 py-6 text-lg shadow-xl shadow-green-900/20 transform transition hover:scale-105">
-                Demander un audit conformité gratuit <ArrowRight className="ml-2 h-5 w-5" />
+                Demander une analyse de situation <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <p className="text-sm text-slate-400 flex items-center gap-2">
-              <Clock className="h-4 w-4" /> 30 minutes. Sans engagement. Réponse sous 24h ouvrées.
+            <p className="text-sm text-slate-400">
+              Analyse de 30 minutes — sans engagement.
             </p>
           </div>
         </div>
