@@ -306,52 +306,44 @@ export default function Home() {
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">
               Questions fréquentes
             </h2>
-            <p className="text-purple-900/60">
-              Tout ce que vous devez savoir avant de nous confier l'organisation de votre mandat.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Tout ce que vous devez savoir pour sécuriser la gestion comptable de votre PME à Genève.
             </p>
           </div>
 
           <div className="space-y-6">
             {[
               {
-                q: "Êtes-vous une fiduciaire ?",
-                a: "Nous sommes une société de services spécialisée dans l'organisation et la structuration administrative. Nous ne tenons pas votre comptabilité en interne mais nous organisons, structurons et coordonnons votre mandat avec un expert-comptable partenaire sélectionné et validé à Genève. Vous bénéficiez ainsi du meilleur des deux mondes : une organisation fluide et une expertise métier certifiée."
+                q: "Êtes-vous une fiduciaire classique ?",
+                a: "Nous sommes une structure hybride moderne. Nous ne faisons pas que de la saisie : nous organisons et pilotons votre administratif. Pour la validation des comptes et la fiscalité, nous collaborons avec des experts-comptables genevois certifiés. Vous avez ainsi la réactivité d'une start-up et la sécurité d'une fiduciaire établie."
               },
               {
-                q: "L’audit est-il vraiment gratuit ?",
-                a: "Oui, totalement. Cet audit de 30 minutes est une phase de diagnostic. Il nous permet de comprendre votre situation, d'identifier d'éventuels risques (TVA, sociaux) et de vous proposer une solution adaptée. Il ne vous engage à rien."
+                q: "L’audit de conformité est-il vraiment gratuit ?",
+                a: "Oui, à 100%. C'est notre manière de vous prouver notre valeur. En 30 minutes, nous analysons vos risques (TVA, charges sociales) et votre organisation actuelle. Si vous ne souhaitez pas travailler avec nous ensuite, vous repartez avec nos conseils, sans aucun frais."
               },
               {
-                q: "Comment fonctionne un mandat fiduciaire avec vous ?",
-                a: "Une fois vos besoins validés, nous mettons en place le mandat avec le partenaire. Nous restons votre interlocuteur pivilégié pour la transmission des pièces, le respect des délais et la qualité de service. Nous sommes le 'chef d'orchestre' de votre comptabilité."
+                q: "Comment se passe la transition si j'ai déjà une fiduciaire ?",
+                a: "C'est notre spécialité. Nous gérons le transfert de A à Z : récupération des balances, grand livre et historiques auprès de votre ancien prestataire. Nous nous assurons qu'il n'y a aucune rupture dans vos déclarations TVA ou salaires durant le changement."
               },
               {
-                q: "Combien coûte une fiduciaire à Genève ?",
-                a: "Les tarifs varient selon le volume d'écritures, la complexité de la TVA et le nombre de salaires. En structurant votre dossier en amont, nous permettons souvent de réduire la facture finale car le travail du comptable est facilité. Nous vous fournissons toujours une offre transparente et forfaitaire quand c'est possible."
+                q: "Vos tarifs sont-ils adaptés aux petites PME ?",
+                a: "Absolument. Nous privilégions les forfaits mensuels fixes plutôt que la facturation horaire opaque. En digitalisant les processus d'échange de documents, nous réduisons le temps de saisie inutile pour nous concentrer sur le conseil à forte valeur ajoutée."
               },
               {
-                q: "À quelle fréquence la TVA doit-elle être déclarée ?",
-                a: "Généralement tous les trimestres pour la méthode effective, et tous les semestres pour la méthode des taux de la dette fiscale flattée (TDFN). Le choix de la méthode et le respect des échéances sont cruciaux pour éviter les amendes."
+                q: "Gérez-vous la TVA Suisse et les impôts ?",
+                a: "Oui, nous prenons en charge l'entier du cycle fiscal : décomptes TVA trimestriels ou semestriels, impôts sur le bénéfice et capital, ainsi que la déclaration fiscale personnelle de l'administrateur si besoin."
               },
               {
-                q: "Comment changer de fiduciaire sans risque ?",
-                a: "Le risque principal est la perte d'information. Nous sécurisons ce processus en demandant systématiquement une balance de clôture, le grand livre complet et les derniers décomptes TVA avant de commencer toute nouvelle saisie. La transition administrative est gérée de professionnel à professionnel."
-              },
-              {
-                q: "Travaillez-vous avec des PME déjà soumises à la TVA ?",
-                a: "Oui, la majorité de nos clients sont des PME assujetties. Nous avons une expertise forte dans la reprise de dossiers TVA complexes et la régularisation de situations passées."
-              },
-              {
-                q: "Combien de temps dure la mise en place ?",
-                a: "Une fois l'audit réalisé et l'offre validée, la mise en place administrative (accès logiciels, mandat de représentation) prend généralement entre 48h et un une semaine selon la réactivité de votre ancien prestataire."
+                q: "Suis-je obligé de me déplacer à Genève ?",
+                a: "Non. Bien que nous soyons basés à Genève et ravis de vous rencontrer, toute notre collaboration peut se faire à distance grâce à des outils sécurisés et des visios régulières. Nous nous adaptons à votre rythme d'entrepreneur."
               }
             ].map((faq, i) => (
-              <div key={i} className="border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors bg-slate-50/50">
+              <div key={i} className="border border-slate-200 rounded-xl p-6 hover:border-green-200 transition-colors bg-slate-50/50">
                 <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-start">
                   <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
                   {faq.q}
                 </h3>
-                <p className="text-slate-600 pl-8 leading-relaxed">
+                <p className="text-slate-700 pl-8 leading-relaxed">
                   {faq.a}
                 </p>
               </div>
