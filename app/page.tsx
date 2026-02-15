@@ -46,11 +46,11 @@ export default function Home() {
           <div className="mt-12 flex flex-col items-center gap-4">
             <Link href="#audit">
               <Button size="lg" className="bg-green-700 hover:bg-green-600 px-8 py-6 text-lg shadow-xl shadow-green-900/20 transform transition hover:scale-105">
-                Demander une analyse de situation <ArrowRight className="ml-2 h-5 w-5" />
+                Demander une consultation gratuite de 30 minutes <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <p className="text-sm text-slate-400">
-              Analyse de 30 minutes — sans engagement.
+              Consultation réalisée par un expert fiduciaire partenaire. Sans engagement.
             </p>
           </div>
         </div>
@@ -93,47 +93,38 @@ export default function Home() {
               Comment nous organisons votre mandat fiduciaire
             </h2>
             <p className="mt-4 text-lg text-slate-600">
-              Une méthodologie en 4 étapes pour ne rien laisser au hasard.
+              Une méthodologie simplifiée pour une prise en charge rapide.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             {/* Ligne de connexion (desktop seulement) */}
             <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 -z-10"></div>
 
             {/* Étape 1 */}
             <div className="relative bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center text-center group hover:border-green-200 transition-all">
               <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-lg group-hover:bg-green-600 transition-colors">1</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-3">Audit conformité initial</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Consultation initiale (30 min)</h3>
               <p className="text-slate-600 text-sm">
-                Un diagnostic gratuit de 30 minutes pour analyser votre situation actuelle, vos risques TVA et vos besoins en gestion.
+                Vous échangez directement avec un expert fiduciaire partenaire pour analyser votre situation comptable et TVA.
               </p>
             </div>
 
             {/* Étape 2 */}
             <div className="relative bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center text-center group hover:border-green-200 transition-all">
               <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-lg group-hover:bg-green-600 transition-colors">2</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-3">Coordination expert</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Proposition claire</h3>
               <p className="text-slate-600 text-sm">
-                Nous sélectionnons le partenaire fiduciaire genevois idéal et définissons le cahier des charges précis du mandat.
+                Vous recevez une vision structurée de votre situation et une proposition adaptée si nécessaire.
               </p>
             </div>
 
             {/* Étape 3 */}
             <div className="relative bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center text-center group hover:border-green-200 transition-all">
               <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-lg group-hover:bg-green-600 transition-colors">3</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-3">Mise en place</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Mise en place du mandat</h3>
               <p className="text-slate-600 text-sm">
-                Récupération des historiques, paramétrage des outils comptables et mise en conformité immédiate TVA/Salaires.
-              </p>
-            </div>
-
-            {/* Étape 4 */}
-            <div className="relative bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center text-center group hover:border-green-200 transition-all">
-              <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-lg group-hover:bg-green-600 transition-colors">4</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-3">Suivi structuré</h3>
-              <p className="text-slate-600 text-sm">
-                Votre comptabilité est tenue à jour, vos décomptes envoyés à temps, et vous avez une vision claire de vos chiffres.
+                Le mandat fiduciaire est organisé de manière simple et structurée.
               </p>
             </div>
           </div>
@@ -254,7 +245,7 @@ export default function Home() {
               <div className="mt-8">
                 <Link href="/changer-fiduciaire">
                   <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50">
-                    Organiser une analyse de situation
+                    Demander une consultation gratuite de 30 minutes
                   </Button>
                 </Link>
               </div>
@@ -359,7 +350,7 @@ export default function Home() {
                 Obtenez une vision claire de votre situation comptable
               </h2>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                Ne laissez pas l'administratif freiner votre croissance. Demandez votre diagnostic gratuit et découvrez comment nous pouvons sécuriser et optimiser votre gestion fiduciaire dès aujourd'hui.
+                Ne laissez pas l'administratif freiner votre croissance. Demandez une consultation gratuite de 30 minutes. C'est simple, rapide et réalisé par un expert fiduciaire partenaire.
               </p>
               <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">
                 <div className="flex items-center gap-4 mb-4">

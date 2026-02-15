@@ -60,7 +60,7 @@ export default function Services() {
                 <div className="mt-10">
                     <Link href="/contact">
                         <Button size="lg" className="bg-green-700 hover:bg-green-600">
-                            Demander un audit conformité gratuit
+                            Demander une consultation gratuite de 30 minutes
                         </Button>
                     </Link>
                 </div>

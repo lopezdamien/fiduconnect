@@ -24,7 +24,7 @@ export default function ChangerFiduciaire() {
                     <div className="mt-10">
                         <Link href="/contact">
                             <Button size="lg" className="bg-green-700 hover:bg-green-600">
-                                Organiser une analyse de situation <ArrowRight className="ml-2 h-4 w-4" />
+                                Demander une consultation gratuite de 30 minutes <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
                     </div>
@@ -118,7 +118,7 @@ export default function ChangerFiduciaire() {
                 <h2 className="text-3xl font-bold text-slate-900 mb-6">Prêt à fiabiliser votre gestion ?</h2>
                 <Link href="/contact">
                     <Button size="lg" className="bg-slate-900 text-white hover:bg-slate-800">
-                        Organiser une analyse de situation
+                        Demander une consultation gratuite de 30 minutes
                     </Button>
                 </Link>
             </Section>

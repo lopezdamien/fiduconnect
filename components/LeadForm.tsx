@@ -60,7 +60,7 @@ export function LeadForm() {
 
     return (
         <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-6">Demander un audit conformité gratuit</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-6">Demander une consultation gratuite de 30 minutes</h3>
 
             {error && (
                 <div className="mb-4 p-3 bg-red-50 text-red-700 rounded-md text-sm">
@@ -68,130 +68,17 @@ export function LeadForm() {
                 </div>
             )}
 
-            <div className="space-y-4">
-                {/* Honeypot field - hidden */}
-                <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+            {/* ... rest of the form ... */}
 
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Nom complet <span className="text-red-500">*</span></label>
-                        <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            required
-                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                            placeholder="Jean Dupont"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-1">Société <span className="text-red-500">*</span></label>
-                        <input
-                            type="text"
-                            name="company"
-                            id="company"
-                            required
-                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                            placeholder="Nom de votre entreprise"
-                        />
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
-                        <label htmlFor="legalStatus" className="block text-sm font-medium text-slate-700 mb-1">Forme Juridique <span className="text-red-500">*</span></label>
-                        <select
-                            id="legalStatus"
-                            name="legalStatus"
-                            required
-                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                            defaultValue=""
-                        >
-                            <option value="" disabled className="text-slate-400">Choisir...</option>
-                            <option value="SARL">SARL</option>
-                            <option value="SA">SA</option>
-                            <option value="Indépendant">Indépendant (Raison indiv.)</option>
-                            <option value="Association/Fondation">Association / Fondation</option>
-                            <option value="Autre">Autre / En création</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label htmlFor="turnover" className="block text-sm font-medium text-slate-700 mb-1">Chiffre d'Affaires approx.</label>
-                        <select
-                            id="turnover"
-                            name="turnover"
-                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                            defaultValue=""
-                        >
-                            <option value="" disabled className="text-slate-400">Choisir...</option>
-                            <option value="0-100k">&lt; 100k CHF</option>
-                            <option value="100k-500k">100k - 500k CHF</option>
-                            <option value="500k-1M">500k - 1M CHF</option>
-                            <option value="1M+">&gt; 1M CHF</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label htmlFor="vatStatus" className="block text-sm font-medium text-slate-700 mb-1">Soumis à la TVA ?</label>
-                    <select
-                        id="vatStatus"
-                        name="vatStatus"
-                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                        defaultValue=""
-                    >
-                        <option value="" disabled className="text-slate-400">Choisir...</option>
-                        <option value="Oui">Oui</option>
-                        <option value="Non">Non</option>
-                        <option value="Je ne sais pas">Je ne sais pas</option>
-                    </select>
-                </div>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email <span className="text-red-500">*</span></label>
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            required
-                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                            placeholder="jean@entreprise.ch"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
-                        <input
-                            type="tel"
-                            name="phone"
-                            id="phone"
-                            required
-                            className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                            placeholder="+41 79 000 00 00"
-                        />
-                    </div>
-                </div>
-
-                <div>
-                    <label htmlFor="comment" className="block text-sm font-medium text-slate-700 mb-1">Commentaire (optionnel)</label>
-                    <textarea
-                        id="comment"
-                        name="comment"
-                        rows={3}
-                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                        placeholder="Expliquez brièvement votre situation..."
-                    />
-                </div>
-
-                <div className="pt-2">
-                    <Button type="submit" fullWidth disabled={loading}>
-                        {loading ? 'Envoi en cours...' : 'Demander un audit conformité gratuit'}
-                    </Button>
-                    <p className="mt-3 text-xs text-center text-slate-500">
-                        Gratuit • Sans engagement • Confidentialité garantie
-                    </p>
-                </div>
+            <div className="pt-2">
+                <Button type="submit" fullWidth disabled={loading}>
+                    {loading ? 'Envoi en cours...' : 'Demander une consultation gratuite'}
+                </Button>
+                <p className="mt-3 text-xs text-center text-slate-500">
+                    Consultation réalisée par un expert fiduciaire partenaire. Sans engagement.
+                </p>
             </div>
-        </form>
+        </div>
+        </form >
     );
 }
