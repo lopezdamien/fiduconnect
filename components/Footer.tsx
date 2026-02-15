@@ -35,23 +35,24 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-2 text-sm">
                                 <Mail className="h-4 w-4 text-green-500" />
-                                <a href="mailto:contact@fidu.ch" className="hover:text-white">contact@fidu.ch</a>
+                                <a href="mailto:contact@smartadministration.ch" className="hover:text-white">contact@smartadministration.ch</a>
                             </li>
                             <li className="flex items-center gap-2 text-sm">
                                 <Phone className="h-4 w-4 text-green-500" />
-                                <a href="tel:+41220000000" className="hover:text-white">+41 22 000 00 00</a>
+                                <span className="text-slate-400">Sur demande</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 <div className="mt-12 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-slate-500">
-                        &copy; {new Date().getFullYear()} FIDU. Tous droits réservés.
+                    <p className="text-xs text-slate-500 text-center md:text-left">
+                        &copy; {new Date().getFullYear()} Smart Administration. Tous droits réservés.
                     </p>
-                    <div className="flex gap-6">
-                        <Link href="/mentions-legales" className="text-xs text-slate-500 hover:text-white">Mentions légales</Link>
-                        <Link href="/confidentialite" className="text-xs text-slate-500 hover:text-white">Politique de confidentialité</Link>
+                    <div className="flex flex-wrap justify-center gap-6">
+                        <Link href="/mentions-legales" className="text-xs text-slate-500 hover:text-white transition-colors">Mentions légales</Link>
+                        <Link href="/confidentialite" className="text-xs text-slate-500 hover:text-white transition-colors">Politique de confidentialité</Link>
+                        <Link href="/cookies" className="text-xs text-slate-500 hover:text-white transition-colors">Cookies</Link>
                     </div>
                 </div>
             </div>
