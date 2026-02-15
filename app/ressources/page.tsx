@@ -11,6 +11,13 @@ export const metadata: Metadata = {
 export default function Resources() {
     const articles = [
         {
+            title: "Changer de fiduciaire à Genève : comment organiser la transition en toute sécurité ?",
+            excerpt: "Changer de fiduciaire est une décision stratégique. Découvrez comment organiser une transition fluide, sans risque fiscal et en toute transparence pour votre PME.",
+            category: "Gestion Fiduciaire",
+            date: "15 Février 2026",
+            slug: "/changer-fiduciaire-geneve"
+        },
+        {
             title: "TVA Suisse : Seuils et obligations pour 2026",
             excerpt: "Tout ce que vous devez savoir sur les nouveaux taux et les changements dans la loi TVA. Êtes-vous à jour ?",
             category: "TVA Genève",
@@ -63,7 +70,7 @@ export default function Resources() {
                             </div>
                             <div className="group relative">
                                 <h3 className="mt-3 text-lg font-semibold leading-6 text-slate-900 group-hover:text-slate-600">
-                                    <Link href={`/blog/${article.slug}`}>
+                                    <Link href={article.slug.startsWith('/') ? article.slug : `/blog/${article.slug}`}>
                                         <span className="absolute inset-0" />
                                         {article.title}
                                     </Link>
@@ -72,7 +79,7 @@ export default function Resources() {
                                     {article.excerpt}
                                 </p>
                             </div>
-                            <Link href={`/blog/${article.slug}`} className="mt-6 flex items-center text-sm font-semibold text-green-700 hover:text-green-800">
+                            <Link href={article.slug.startsWith('/') ? article.slug : `/blog/${article.slug}`} className="mt-6 flex items-center text-sm font-semibold text-green-700 hover:text-green-800">
                                 Lire l&apos;article <ArrowRight className="ml-1 h-4 w-4" />
                             </Link>
                         </article>
