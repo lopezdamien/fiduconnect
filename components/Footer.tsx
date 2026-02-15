@@ -11,8 +11,7 @@ export function Footer() {
                             FIDUCONNECT<span className="text-green-500">.</span>
                         </Link>
                         <p className="mt-4 text-sm leading-6 max-w-md">
-                            Cabinet indépendant spécialisé dans l&apos;analyse administrative et fiscale des PME genevoises.
-                            Nous facilitons la mise en relation avec des cabinets fiduciaires partenaires adaptés à vos besoins.
+                            Structure d’organisation et de mise en relation pour une consultation réalisée par un expert fiduciaire partenaire.
                         </p>
                     </div>
 

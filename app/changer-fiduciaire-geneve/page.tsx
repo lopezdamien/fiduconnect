@@ -24,6 +24,17 @@ export default function ChangerFiduciaireArticle() {
                     <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-8 leading-tight">
                         Changer de fiduciaire à Genève : comment organiser la transition en toute sécurité ?
                     </h1>
+
+                    <div className="my-10 flex justify-center">
+                        <Image
+                            src="/images/illustration-changer-fiduciaire-geneve-1.jpg"
+                            alt="Illustration — changement de fiduciaire à Genève"
+                            width={150}
+                            height={150}
+                            className="opacity-90 grayscale hover:grayscale-0 transition-all duration-500"
+                        />
+                    </div>
+
                     <p className="text-xl leading-8 text-slate-700">
                         Changer de fiduciaire est une décision stratégique pour une PME à Genève. Lorsqu’un dirigeant constate un manque de clarté, une gestion TVA incertaine ou une organisation peu structurée, la question du changement peut se poser.
                     </p>
@@ -111,7 +122,7 @@ export default function ChangerFiduciaireArticle() {
                             <div className="flex-none flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white font-bold">3</div>
                             <div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-2">Transmission des documents</h3>
-                                <p className="text-slate-700">Récupération du Grand Livre, des balances, des derniers décomptes TVA et des pièces justificatives. Nous assurons la liaison avec l'administration fiscale cantonale genevoise.</p>
+                                <p className="text-slate-700">Récupération du Grand Livre, des balances, des derniers décomptes TVA et des pièces justificatives. La reprise inclut la gestion de la relation avec l'administration fiscale cantonale genevoise.</p>
                             </div>
                         </div>
 
@@ -124,23 +135,16 @@ export default function ChangerFiduciaireArticle() {
                         </div>
                     </div>
 
-                    <div className="my-12">
-                        <Image
-                            src="/images/transition-fiduciaire-geneve-process.jpg"
-                            alt="Processus structuré de changement de fiduciaire pour PME à Genève"
-                            width={1200}
-                            height={600}
-                            className="rounded-xl border border-slate-200"
-                        />
-                    </div>
-
-                    <div className="mt-8 p-8 bg-green-50 rounded-2xl border border-green-100 text-center">
+                    <div className="mt-12 p-8 bg-green-50 rounded-2xl border border-green-100 text-center">
                         <h3 className="text-lg font-bold text-green-900 mb-3">Besoin d’un regard structuré sur votre situation actuelle ?</h3>
                         <Link href="/diagnostic">
                             <Button className="bg-green-700 hover:bg-green-800 text-white">
                                 Demander une consultation gratuite de 30 minutes
                             </Button>
                         </Link>
+                        <p className="text-xs text-green-800 mt-2">
+                            Consultation réalisée par un expert fiduciaire partenaire. Sans engagement.
+                        </p>
                     </div>
                 </div>
             </Section>
@@ -156,21 +160,11 @@ export default function ChangerFiduciaireArticle() {
                             La TVA est souvent le point critique. Pour rappel, dès 100’000 CHF de chiffre d’affaires, l'assujettissement est obligatoire.
                         </p>
                         <p>
-                            Lors du changement, il est crucial de vérifier si la méthode utilisée (méthode effective ou taux de la dette fiscale nette) est toujours la plus avantageuse pour votre PME. Une erreur méthodologique ou un retard déclaratif lors de la transition peut entraîner des risques déclaratifs importants. Notre rôle est de sécuriser cette continuité.
+                            Lors du changement, il est crucial de vérifier si la méthode utilisée (méthode effective ou taux de la dette fiscale nette) est toujours la plus avantageuse pour votre PME. Une erreur méthodologique ou un retard déclaratif lors de la transition peut entraîner des risques déclaratifs importants.
                         </p>
-                    </div>
-
-                    <div className="my-12">
-                        <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm mx-auto max-w-2xl">
-                            <Image
-                                src="/images/changement-fiduciaire-points-sensibles-geneve.jpg"
-                                alt="Points sensibles lors d’une transition comptable pour PME à Genève"
-                                width={1200}
-                                height={600}
-                                className="rounded-lg"
-                            />
-                            <p className="text-center text-sm text-slate-500 mt-2">Les points de vigilance majeurs lors d'une transition fiduciaire.</p>
-                        </div>
+                        <p>
+                            Selon les cas, les accès (ex. e-TVA) et les procurations peuvent être mis à jour directement par le nouvel expert fiduciaire pour assurer cette continuité.
+                        </p>
                     </div>
                 </div>
             </Section>
@@ -222,7 +216,7 @@ export default function ChangerFiduciaireArticle() {
                                 <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
                                 Peut-on résilier un mandat fiduciaire à tout moment ?
                             </h3>
-                            <p className="text-slate-700 pl-8">Idéalement, il faut respecter le préavis contractuel ou attendre la fin de l'exercice. Cependant, en cas de faute grave ou de rupture de confiance avérée, une résiliation immédiate peut s'envisager. Nous analysons votre contrat pour vous conseiller.</p>
+                            <p className="text-slate-700 pl-8">Idéalement, il faut respecter le préavis contractuel ou attendre la fin de l'exercice. Cependant, en cas de faute grave ou de rupture de confiance avérée, une résiliation immédiate peut s'envisager. Une analyse du contrat permet de déterminer la meilleure approche.</p>
                         </div>
 
                         <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
@@ -230,7 +224,7 @@ export default function ChangerFiduciaireArticle() {
                                 <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
                                 Le changement entraîne-t-il des frais supplémentaires ?
                             </h3>
-                            <p className="text-slate-700 pl-8">La reprise comptable demande un travail initial d'analyse et de paramétrage. Chez nous, cette étape est transparente et fait l'objet d'un devis clair. L'objectif est de repartir sur des bases saines.</p>
+                            <p className="text-slate-700 pl-8">La reprise comptable demande un travail initial d'analyse et de paramétrage. Cette étape fait généralement l'objet d'un devis clair. L'objectif est de repartir sur des bases saines.</p>
                         </div>
 
                         <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
@@ -246,7 +240,7 @@ export default function ChangerFiduciaireArticle() {
                                 <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
                                 Faut-il informer l’administration fiscale ?
                             </h3>
-                            <p className="text-slate-700 pl-8">Oui, nous nous chargeons d'annoncer la nouvelle représentation (procuration) auprès de l'Administration Fiscale Cantonale (AFC) et de l'Administration Fédérale des Contributions pour la TVA.</p>
+                            <p className="text-slate-700 pl-8">Oui, il est nécessaire d'annoncer les changements de représentation et de procuration auprès de l'Administration Fiscale Cantonale (AFC) et de l'Administration Fédérale des Contributions pour la TVA. Cela fait partie du processus de reprise.</p>
                         </div>
 
                         <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
@@ -254,7 +248,7 @@ export default function ChangerFiduciaireArticle() {
                                 <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
                                 Combien de temps dure une transition ?
                             </h3>
-                            <p className="text-slate-700 pl-8">Une transition bien organisée prend généralement entre 2 et 4 semaines, le temps de récupérer les pièces, de vérifier les balances et de paramétrer les nouveaux outils. Votre activité ne s'arrête pas pendant ce temps.</p>
+                            <p className="text-slate-700 pl-8">Une transition bien organisée prend généralement entre 2 et 4 semaines, le temps de récupérer les pièces, de vérifier les balances et de paramétrer les nouveaux outils. L'activité de la PME continue sans interruption.</p>
                         </div>
                     </div>
                 </div>
@@ -264,6 +258,17 @@ export default function ChangerFiduciaireArticle() {
             <Section className="bg-white border-t border-slate-100">
                 <div className="mx-auto max-w-3xl text-center">
                     <h2 className="text-xl font-bold text-slate-900 mb-6">Pour aller plus loin</h2>
+
+                    <div className="my-10 flex justify-center">
+                        <Image
+                            src="/images/illustration-transition-fiduciaire-geneve-2.jpg"
+                            alt="Illustration — transition comptable PME Genève"
+                            width={150}
+                            height={150}
+                            className="opacity-90 grayscale hover:grayscale-0 transition-all duration-500"
+                        />
+                    </div>
+
                     <div className="flex flex-wrap justify-center gap-4">
                         <Link href="/services/comptabilite" className="text-slate-600 hover:text-green-700 font-medium underline decoration-slate-300 underline-offset-4 hover:decoration-green-700 transition-all">
                             Nos services comptables
@@ -274,7 +279,7 @@ export default function ChangerFiduciaireArticle() {
                         </Link>
                         <span className="text-slate-300">|</span>
                         <Link href="/diagnostic" className="text-slate-600 hover:text-green-700 font-medium underline decoration-slate-300 underline-offset-4 hover:decoration-green-700 transition-all">
-                            Audit gratuit
+                            Consultation gratuite (30 min)
                         </Link>
                     </div>
                 </div>
