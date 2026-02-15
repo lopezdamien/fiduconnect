@@ -8,7 +8,7 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="col-span-1 md:col-span-2">
                         <Link href="/" className="text-2xl font-bold text-white mb-4 block">
-                            FIDU<span className="text-green-500">.</span>
+                            FIDUCONNECT<span className="text-green-500">.</span>
                         </Link>
                         <p className="mt-4 text-sm leading-6 max-w-md">
                             Cabinet indépendant spécialisé dans l&apos;analyse administrative et fiscale des PME genevoises.
