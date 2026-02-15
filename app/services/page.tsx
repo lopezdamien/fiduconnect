@@ -52,15 +52,15 @@ export default function Services() {
         <>
             <section className="bg-slate-900 py-24 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                    Services d’organisation fiduciaire à Genève
+                    Services fiduciaires pour PME à Genève
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-                    Nous structurons votre administratif, organisons la tenue comptable et coordonnons les obligations fiscales avec nos partenaires fiduciaires genevois.
+                    Une organisation administrative complète : de la saisie comptable au bouclement fiscal.
                 </p>
                 <div className="mt-10">
                     <Link href="/contact">
                         <Button size="lg" className="bg-green-700 hover:bg-green-600">
-                            Demander une offre
+                            Demander un audit conformité gratuit
                         </Button>
                     </Link>
                 </div>
@@ -77,7 +77,7 @@ export default function Services() {
                                 <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-green-800 transition-colors">
                                     {service.title}
                                 </h3>
-                                <p className="text-slate-600 mb-6">
+                                <p className="text-slate-700 mb-6 leading-relaxed">
                                     {service.description}
                                 </p>
                                 <div className="flex items-center text-sm font-semibold text-green-700 group-hover:translate-x-1 transition-transform">
@@ -91,27 +91,27 @@ export default function Services() {
 
             <Section className="bg-slate-50">
                 <div className="mx-auto max-w-3xl text-center">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-12">Comment ça marche ?</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-12">Notre approche structurée</h2>
                     <div className="space-y-12 text-left">
                         <div className="flex gap-6">
                             <div className="flex-none w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl">1</div>
                             <div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Analyse & Organisation</h3>
-                                <p className="text-slate-600">Nous analysons votre structure (SA/SARL/Indépendant) et définissons le cahier des charges comptable.</p>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">Audit & Cadrage</h3>
+                                <p className="text-slate-700">Nous analysons vos besoins spécifiques (SA/SARL/Indépendant) pour définir un cahier des charges fiduciare précis.</p>
                             </div>
                         </div>
                         <div className="flex gap-6">
                             <div className="flex-none w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl">2</div>
                             <div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Choix du Partenaire</h3>
-                                <p className="text-slate-600">Nous attribuons votre dossier au partenaire fiduciaire genevois le plus adapté à votre activité.</p>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">Expertise Dédiée</h3>
+                                <p className="text-slate-700">Votre dossier est géré par un de nos experts comptables partenaires à Genève, validé pour sa rigueur.</p>
                             </div>
                         </div>
                         <div className="flex gap-6">
                             <div className="flex-none w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl">3</div>
                             <div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Coordination & Suivi</h3>
-                                <p className="text-slate-600">Nous restons votre interlocuteur pour la transmission des pièces, les délais TVA et le suivi annuel.</p>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">Pilotage Continu</h3>
+                                <p className="text-slate-700">Nous assurons le suivi administratif, le respect des délais (TVA, Impôts) et la qualité des rendus.</p>
                             </div>
                         </div>
                     </div>
