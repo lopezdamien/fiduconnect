@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fiduconnectch.vercel.app'),
   title: "FIDUCONNECT | Expert Comptable & Fiscalité PME Genève",
   description: "Analyse et organisation comptable pour les PME. TVA, déclarations fiscales, charges sociales. Mise en relation avec des fiduciaires partenaires.",
 };
