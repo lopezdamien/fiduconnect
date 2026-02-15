@@ -12,9 +12,9 @@ export function Header() {
 
     const navigation = [
         { name: 'Accueil', href: '/' },
-        { name: 'Services', href: '/services' },
-        { name: 'Ressources', href: '/ressources' },
-        { name: 'À Propos', href: '/a-propos' },
+        { name: 'Services comptables', href: '/services' },
+        { name: 'TVA Suisse', href: '/tva-suisse' },
+        { name: 'Changer de fiduciaire', href: '/changer-fiduciaire' },
         { name: 'Contact', href: '/contact' },
     ];
 
@@ -61,7 +61,7 @@ export function Header() {
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <Link href="/diagnostic">
                             <Button variant="secondary" size="sm">
-                                Faire un point gratuit
+                                Demander une offre
                             </Button>
                         </Link>
                     </div>
@@ -88,7 +88,7 @@ export function Header() {
                         <div className="mt-4 pt-4 border-t border-slate-100">
                             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                                 <Button fullWidth variant="secondary">
-                                    Faire le point gratuit
+                                    Demander une offre
                                 </Button>
                             </Link>
                         </div>

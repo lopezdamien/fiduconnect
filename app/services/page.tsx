@@ -52,11 +52,18 @@ export default function Services() {
         <>
             <section className="bg-slate-900 py-24 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                    Nos Domaines d&apos;Intervention
+                    Services d’organisation fiduciaire à Genève
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-                    Nous vous aidons à structurer votre administratif et à trouver les bons partenaires pour votre comptabilité.
+                    Nous structurons votre administratif, organisons la tenue comptable et coordonnons les obligations fiscales avec nos partenaires fiduciaires genevois.
                 </p>
+                <div className="mt-10">
+                    <Link href="/contact">
+                        <Button size="lg" className="bg-green-700 hover:bg-green-600">
+                            Demander une offre
+                        </Button>
+                    </Link>
+                </div>
             </section>
 
             <Section className="bg-white">
@@ -82,11 +89,33 @@ export default function Services() {
                 </div>
             </Section>
 
-            <Section className="bg-slate-50 text-center">
-                <h2 className="text-3xl font-bold text-slate-900 mb-6">Besoin d&apos;un diagnostic global ?</h2>
-                <Link href="/diagnostic">
-                    <Button size="lg">Faire un point gratuit</Button>
-                </Link>
+            <Section className="bg-slate-50">
+                <div className="mx-auto max-w-3xl text-center">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-12">Comment ça marche ?</h2>
+                    <div className="space-y-12 text-left">
+                        <div className="flex gap-6">
+                            <div className="flex-none w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl">1</div>
+                            <div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">Analyse & Organisation</h3>
+                                <p className="text-slate-600">Nous analysons votre structure (SA/SARL/Indépendant) et définissons le cahier des charges comptable.</p>
+                            </div>
+                        </div>
+                        <div className="flex gap-6">
+                            <div className="flex-none w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl">2</div>
+                            <div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">Choix du Partenaire</h3>
+                                <p className="text-slate-600">Nous attribuons votre dossier au partenaire fiduciaire genevois le plus adapté à votre activité.</p>
+                            </div>
+                        </div>
+                        <div className="flex gap-6">
+                            <div className="flex-none w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl">3</div>
+                            <div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">Coordination & Suivi</h3>
+                                <p className="text-slate-600">Nous restons votre interlocuteur pour la transmission des pièces, les délais TVA et le suivi annuel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </Section>
         </>
     );
