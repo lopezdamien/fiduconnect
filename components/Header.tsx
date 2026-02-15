@@ -21,7 +21,7 @@ export function Header() {
     const isActive = (path: string) => pathname === path;
 
     return (
-        <header className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
+        <header className="fixed w-full bg-white z-50 border-b border-slate-100">
             <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Global">
                 <div className="flex items-center justify-between h-20">
                     <div className="flex lg:flex-1">
