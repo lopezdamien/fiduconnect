@@ -1,214 +1,403 @@
 import { Button } from "@/components/Button";
 import { Section } from "@/components/Section";
-
 import Link from "next/link";
-import { ArrowRight, AlertTriangle, FileText, TrendingDown, CheckCircle2 } from "lucide-react";
+import {
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
+  FileText,
+  TrendingUp,
+  Users,
+  RefreshCcw,
+  HelpCircle,
+  Clock,
+  AlertTriangle,
+  BookOpen,
+  PieChart
+} from "lucide-react";
 import { Metadata } from 'next';
+import { LeadForm } from "@/components/LeadForm";
 
 export const metadata: Metadata = {
-  title: "Organisation Comptable & TVA Genève | FIDUCONNECT",
-  description: "Votre comptabilité est-elle à jour ? TVA, charges sociales, impôts : nous analysons votre situation et vous orientons vers le bon partenaire fiduciaire.",
+  title: "Fiduciaire PME Genève | Mandat Structuré & Conformité Comptable",
+  description: "Organisation de mandats fiduciaires pour PME à Genève. Audit conformité gratuit. Nous structurons votre comptabilité, TVA et obligations fiscales. Expert partenaire dédié.",
 };
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      {/* Hero Section */}
-      <section className="relative bg-slate-900 pt-20 pb-32 overflow-hidden">
+      {/* 1. HERO SECTION */}
+      <section className="relative bg-slate-900 pt-32 pb-40 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6 max-w-4xl mx-auto">
-            Organisation de comptabilité & TVA pour PME à Genève
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-8 max-w-4xl mx-auto leading-tight">
+            Fiduciaire pour PME à Genève <br />
+            <span className="text-green-500">Mandat structuré & conformité sécurisée</span>
           </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-            Nous structurons et mettons en place votre mandat fiduciaire avec un partenaire sélectionné — simple, clair et sécurisé.
+          <p className="mt-6 text-xl leading-8 text-slate-300 max-w-3xl mx-auto">
+            Organisation et mise en place d’un mandat fiduciaire avec un expert partenaire. <br className="hidden sm:block" />
+            Comptabilité, TVA et obligations fiscales structurées avec clarté.
           </p>
 
-          <ul className="mt-8 flex flex-wrap justify-center gap-4 text-slate-300">
-            <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-green-500 mr-2" /> Interlocuteur dédié</li>
-            <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-green-500 mr-2" /> Process structuré</li>
-            <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-green-500 mr-2" /> Transition simplifiée</li>
+          <ul className="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-slate-300 font-medium text-lg">
+            <li className="flex items-center justify-center"><CheckCircle2 className="h-6 w-6 text-green-500 mr-2" /> Process clair</li>
+            <li className="flex items-center justify-center"><CheckCircle2 className="h-6 w-6 text-green-500 mr-2" /> Conformité maîtrisée</li>
+            <li className="flex items-center justify-center"><CheckCircle2 className="h-6 w-6 text-green-500 mr-2" /> Interlocuteur structuré</li>
           </ul>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-y-4">
-            <Link href="/contact">
-              <Button size="lg" className="bg-green-700 hover:bg-green-600 w-full sm:w-auto">
-                Demander une offre personnalisée <ArrowRight className="ml-2 h-4 w-4" />
+          <div className="mt-12 flex flex-col items-center gap-4">
+            <Link href="#audit">
+              <Button size="lg" className="bg-green-700 hover:bg-green-600 px-8 py-6 text-lg shadow-xl shadow-green-900/20 transform transition hover:scale-105">
+                Demander un audit conformité gratuit <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <p className="text-sm text-slate-400">
-              Réponse sous 24h ouvrées — sans engagement.
+            <p className="text-sm text-slate-400 flex items-center gap-2">
+              <Clock className="h-4 w-4" /> 30 minutes. Sans engagement. Réponse sous 24h ouvrées.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section 1 - Identification Problème */}
-      {/* Section 1 - Positionnement & Approche */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Une approche organisée et indépendante
+      {/* 2. SECTION POSITIONNEMENT */}
+      <Section className="bg-white">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-8 text-center">
+            Une approche moderne du mandat fiduciaire
           </h2>
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            Nous analysons votre situation, organisons la mise en place du mandat et coordonnons le suivi comptable avec un partenaire fiduciaire basé à Genève. Vous bénéficiez d’un cadre clair et d’un interlocuteur unique.
-          </p>
-        </div>
-      </section>
-
-      {/* Section 2 - Services */}
-      <Section className="bg-slate-50">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Mandats fiduciaires structurés pour PME
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Card 1 */}
-          <div className="rounded-xl bg-white p-8 shadow-sm border border-slate-100">
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600">
-              <TrendingDown className="h-5 w-5" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Tenue comptable</h3>
-            <p className="text-slate-600 text-sm">
-              Saisie rigoureuse de vos pièces et bouclement annuel conforme aux normes suisses.
+          <div className="prose prose-lg prose-slate mx-auto text-justify">
+            <p>
+              Dans un environnement économique et fiscal aussi rigoureux que celui de la Suisse, la gestion comptable d'une PME ne peut se limiter à une simple saisie de factures. À Genève, où le tissu économique est dense et concurrentiel, choisir le bon partenaire pour votre mandat fiduciaire est une décision stratégique qui impacte directement la pérennité de votre entreprise.
             </p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="rounded-xl bg-white p-8 shadow-sm border border-slate-100">
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
-              <AlertTriangle className="h-5 w-5" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Déclarations TVA</h3>
-            <p className="text-slate-600 text-sm">
-              Établissement et contrôle de vos décomptes TVA. Méthode effective ou taux de la dette fiscale nette.
+            <p>
+              Trop souvent, les entrepreneurs, qu'ils soient indépendants ou dirigeants de PME, se retrouvent isolés face à la complexité de leurs obligations. Retards de TVA, incompréhension des décomptes, manque de visibilité sur le résultat, ou pire, risques de redressements fiscaux par manque de suivi : ces situations sont évitables.
             </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="rounded-xl bg-white p-8 shadow-sm border border-slate-100">
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
-              <FileText className="h-5 w-5" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Salaires & Charges</h3>
-            <p className="text-slate-600 text-sm">
-              Gestion complète de la paie, des assurances sociales et des impôts à la source.
+            <p>
+              Notre mission est de vous offrir un cadre structuré et sécurisé. Nous ne sommes pas une simple boîte à lettres, mais un véritable organisateur de votre conformité comptable. Nous analysons votre structure, définissons vos besoins spécifiques (assujettissement TVA, gestion des salaires, optimisation fiscale) et coordonnons la mise en place de votre mandat avec un expert fiduciaire partenaire sélectionné pour sa rigueur et sa compétence à Genève.
             </p>
-          </div>
-
-          {/* Card 4 */}
-          <div className="rounded-xl bg-white p-8 shadow-sm border border-slate-100">
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 text-purple-600">
-              <FileText className="h-5 w-5" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Déclaration Fiscale</h3>
-            <p className="text-slate-600 text-sm">
-              Optimisation et remplissage de la déclaration d'impôt pour votre entreprise (PM).
+            <p className="font-semibold text-slate-900 mt-6">
+              Cette approche vous garantit :
             </p>
+            <ul className="list-disc pl-6 mt-4 space-y-2">
+              <li>Une clarté totale sur vos coûts et vos obligations.</li>
+              <li>Une réactivité garantie par un processus de suivi digitalisé.</li>
+              <li>La sécurité d'un travail effectué selon les normes suisses les plus strictes.</li>
+              <li>Un interlocuteur qui comprend votre métier et parle votre langage, sans jargon inutile.</li>
+            </ul>
           </div>
         </div>
       </Section>
 
-      {/* Section 2 - Sécurisation */}
-      {/* Section 3 - Changer de Fiduciaire */}
-      <section className="bg-white py-24">
+      {/* 3. SECTION PROCESS */}
+      <section className="bg-slate-50 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Changer de fiduciaire à Genève, sans stress
+              Comment nous organisons votre mandat fiduciaire
             </h2>
-            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-              Nous coordonnons la transition pour éviter toute rupture administrative.
+            <p className="mt-4 text-lg text-slate-600">
+              Une méthodologie en 4 étapes pour ne rien laisser au hasard.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="relative pl-12">
-              <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">1</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Analyse de situation</h3>
-              <p className="text-slate-600 text-sm">Nous faisons le point sur l'état de votre comptabilité actuelle et vos besoins.</p>
-            </div>
-            <div className="relative pl-12">
-              <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">2</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Organisation du transfert</h3>
-              <p className="text-slate-600 text-sm">Nous récupérons les pièces et l'historique auprès de votre ancien prestataire.</p>
-            </div>
-            <div className="relative pl-12">
-              <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">3</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Mise en place du suivi</h3>
-              <p className="text-slate-600 text-sm">Votre nouveau mandat démarre sur des bases saines et structurées.</p>
-            </div>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {/* Ligne de connexion (desktop seulement) */}
+            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 -z-10"></div>
 
-          <div className="mt-12 text-center">
-            <Link href="/changer-fiduciaire">
-              <Button size="lg" variant="outline">
-                Organiser la reprise de dossier
-              </Button>
-            </Link>
+            {/* Étape 1 */}
+            <div className="relative bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center text-center group hover:border-green-200 transition-all">
+              <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-lg group-hover:bg-green-600 transition-colors">1</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Audit conformité initial</h3>
+              <p className="text-slate-600 text-sm">
+                Un diagnostic gratuit de 30 minutes pour analyser votre situation actuelle, vos risques TVA et vos besoins en gestion.
+              </p>
+            </div>
+
+            {/* Étape 2 */}
+            <div className="relative bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center text-center group hover:border-green-200 transition-all">
+              <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-lg group-hover:bg-green-600 transition-colors">2</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Coordination expert</h3>
+              <p className="text-slate-600 text-sm">
+                Nous sélectionnons le partenaire fiduciaire genevois idéal et définissons le cahier des charges précis du mandat.
+              </p>
+            </div>
+
+            {/* Étape 3 */}
+            <div className="relative bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center text-center group hover:border-green-200 transition-all">
+              <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-lg group-hover:bg-green-600 transition-colors">3</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Mise en place</h3>
+              <p className="text-slate-600 text-sm">
+                Récupération des historiques, paramétrage des outils comptables et mise en conformité immédiate TVA/Salaires.
+              </p>
+            </div>
+
+            {/* Étape 4 */}
+            <div className="relative bg-white p-8 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center text-center group hover:border-green-200 transition-all">
+              <div className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 border-4 border-white shadow-lg group-hover:bg-green-600 transition-colors">4</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Suivi structuré</h3>
+              <p className="text-slate-600 text-sm">
+                Votre comptabilité est tenue à jour, vos décomptes envoyés à temps, et vous avez une vision claire de vos chiffres.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 4 - Pour Qui */}
-      <section className="bg-slate-50 py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-12">
-            Nous accompagnons
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <span className="px-6 py-3 bg-white rounded-full shadow-sm text-slate-700 font-semibold border border-slate-200">PME genevoises</span>
-            <span className="px-6 py-3 bg-white rounded-full shadow-sm text-slate-700 font-semibold border border-slate-200">Indépendants</span>
-            <span className="px-6 py-3 bg-white rounded-full shadow-sm text-slate-700 font-semibold border border-slate-200">Sociétés soumises à la TVA</span>
-            <span className="px-6 py-3 bg-white rounded-full shadow-sm text-slate-700 font-semibold border border-slate-200">Entreprises en création</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3 - Solution & CTA Form */}
-      {/* Section 5 - FAQ */}
+      {/* 4. SECTION SERVICES */}
       <Section className="bg-white">
-        <div className="mx-auto max-w-3xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Questions fréquentes
-            </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Mandat fiduciaire pour PME à Genève : ce que cela comprend
+          </h2>
+          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+            Une couverture complète de vos obligations légales et fiscales pour une sérénité totale.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+            <BookOpen className="h-8 w-8 text-blue-600 mb-4" />
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Tenue comptable</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Saisie de vos pièces comptables, réconciliations bancaires et tenue des grands livres selon les normes suisses. Une comptabilité tenue au cordeau pour une visibilité parfaite.
+            </p>
           </div>
 
-          <div className="space-y-8">
-            <div className="border-b border-slate-200 pb-8">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Êtes-vous une fiduciaire ?</h3>
-              <p className="text-slate-600">
-                Nous sommes un service d'organisation et de structuration comptable. Nous analysons vos besoins et mettons en place votre mandat avec un partenaire fiduciaire agréé à Genève. Vous bénéficiez ainsi d'une coordination professionnelle et d'un interlocuteur dédié pour le suivi.
-              </p>
-            </div>
+          <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+            <PieChart className="h-8 w-8 text-orange-600 mb-4" />
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Déclarations TVA</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Établissement des décomptes trimestriels ou semestriels. Analyse de la méthode optimale (TDFN vs effective) et respect rigoureux des délais de l'AFC.
+            </p>
+          </div>
 
-            <div className="border-b border-slate-200 pb-8">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Combien coûte un mandat ?</h3>
-              <p className="text-slate-600">
-                Le coût dépend du volume de pièces comptables et de la complexité de votre dossier (nombre de salariés, assujettissement TVA). Nous vous fournissons une offre détaillée et transparente sous 24h après analyse de votre situation.
-              </p>
-            </div>
+          <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+            <TrendingUp className="h-8 w-8 text-green-600 mb-4" />
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Bouclement annuel</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Clôture des comptes, écritures de transitoires, amortissements et préparation du bilan et du compte de résultat pour votre assemblée générale.
+            </p>
+          </div>
 
-            <div className="border-b border-slate-200 pb-8">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Comment se passe la mise en place ?</h3>
-              <p className="text-slate-600">
-                L'organisation est rapide : 1. Nous définissons vos besoins. 2. Nous structurons le mandat avec le partenaire. 3. Nous mettons en place les outils de transmission des pièces. Le tout peut être opérationnel en moins de 48h.
-              </p>
-            </div>
+          <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+            <ShieldCheck className="h-8 w-8 text-purple-600 mb-4" />
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Déclaration fiscale</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Remplissage et optimisation de la déclaration d'impôt pour les personnes morales (SA/SARL) ou les indépendants. Gestion des relations avec l'administration fiscale cantonale.
+            </p>
+          </div>
 
-            <div className="border-b border-slate-200 pb-8">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Travaillez-vous avec des PME déjà soumises à la TVA ?</h3>
-              <p className="text-slate-600">
-                Oui, c'est notre cœur de métier. Nous gérons la reprise de mandats existants (décomptes effectifs ou TDFN) et vérifions la conformité des périodes précédentes.
+          <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+            <Users className="h-8 w-8 text-indigo-600 mb-4" />
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Gestion des salaires</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Fiches de paie mensuelles, décomptes charges sociales (AVS/LPP/LAA), impôt à la source et certificats de salaire annuels. Une gestion RH conforme et sécurisée.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* 5. SECTION TVA (SEO BLOCK) */}
+      <section className="bg-slate-900 py-24 text-white">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="flex items-center justify-center mb-8">
+            <AlertTriangle className="h-12 w-12 text-orange-500" />
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8 text-center">
+            TVA en Suisse : un point clé pour les PME genevoises
+          </h2>
+          <div className="prose prose-lg prose-invert mx-auto text-slate-300 space-y-6 text-justify">
+            <p>
+              La Taxe sur la Valeur Ajoutée (TVA) est l'un des domaines les plus complexes et les plus risqués pour les PME en Suisse. Beaucoup d'entrepreneurs sous-estiment l'impact d'une erreur de gestion TVA, qui peut entraîner des redressements fiscaux rétroactifs sur 5 ans, assortis d'intérêts moratoires lourds.
+            </p>
+            <h3 className="text-xl font-bold text-white mt-8 mb-4">Le seuil critique des 100'000 CHF</h3>
+            <p>
+              Dès que votre chiffre d'affaires mondial (et non seulement suisse) dépasse 100'000 CHF, l'assujettissement à la TVA devient obligatoire. Ce seuil doit être surveillé de près, surtout pour les startups et les indépendants en croissance. Une inscription tardive est l'une des erreurs les plus fréquentes et les plus coûteuses.
+            </p>
+            <h3 className="text-xl font-bold text-white mt-8 mb-4">Obligations déclaratives et conformité</h3>
+            <p>
+              Une fois assujetti, la rigueur est de mise. Que vous soyez au décompte effectif (trimestriel) ou au taux de la dette fiscale nette (semestriel), chaque période doit être bouclée avec précision. La méthode TDFN simplifie la gestion administrative mais n'est pas toujours la plus avantageuse économiquement. Notre rôle est d'analyser votre modèle d'affaires pour déterminer la méthode qui optimise votre charge fiscale tout en garantissant une conformité absolue lors d'un éventuel contrôle de l'AFC.
+            </p>
+            <p>
+              Une organisation rigoureuse de vos pièces comptables est la seule défense efficace contre les risques fiscaux. C'est pourquoi nous plaçons la structure et la conformité au cœur de notre mandat fiduciaire à Genève.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. SECTION CHANGER DE FIDUCIAIRE */}
+      <Section className="bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-6">
+              Changer de fiduciaire à Genève : une transition structurée
+            </h2>
+            <div className="prose prose-slate text-slate-600 space-y-4">
+              <p>
+                Votre fiduciaire actuelle ne répond plus à vos attentes ? Vous constatez un manque de réactivité, des erreurs récurrentes ou une opacité dans la facturation ? Changer de fiduciaire est une démarche saine de gestion d'entreprise, mais elle effraie souvent par la peur de la complexité administrative.
+              </p>
+              <p>
+                Chez nous, la transition est un processus maîtrisé. Nous ne nous contentons pas de reprendre votre dossier ; nous organisons le transfert pour garantir la continuité de votre activité sans perte de données.
+              </p>
+              <ul className="space-y-3 mt-6">
+                <li className="flex items-start">
+                  <RefreshCcw className="h-5 w-5 text-green-600 mr-3 mt-1" />
+                  <span>Récupération intégrale de l'historique comptable (Grand Livre, Balances).</span>
+                </li>
+                <li className="flex items-start">
+                  <RefreshCcw className="h-5 w-5 text-green-600 mr-3 mt-1" />
+                  <span>Vérification des périodes fiscales ouvertes et des délais en cours.</span>
+                </li>
+                <li className="flex items-start">
+                  <RefreshCcw className="h-5 w-5 text-green-600 mr-3 mt-1" />
+                  <span>Mise en place immédiate des nouveaux accès et processus.</span>
+                </li>
+              </ul>
+
+              <div className="mt-8">
+                <Link href="/changer-fiduciaire">
+                  <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50">
+                    Organiser une analyse de situation
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 flex items-center justify-center min-h-[400px]">
+            {/* Abstract Illustration or Image could go here */}
+            <div className="text-center">
+              <ShieldCheck className="h-24 w-24 text-green-100 mx-auto mb-6" />
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Sécurité Administrative</h3>
+              <p className="text-slate-500 max-w-xs mx-auto">
+                Nous garantissons qu'aucune pièce ne se perde durant le transfert et que vos obligations continuent d'être respectées sans interruption.
               </p>
             </div>
           </div>
         </div>
       </Section>
+
+      {/* 7. SECTION POUR QUI */}
+      <section className="bg-slate-50 py-24 border-y border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-12">
+            Des services comptables adaptés à votre structure
+          </h2>
+          <div className="flex flex-wrap justify-center gap-6">
+            {[
+              "PME basées à Genève",
+              "Indépendants & Freelances",
+              "Sociétés à Responsabilité Limitée (Sàrl)",
+              "Sociétés Anonymes (SA)",
+              "Sociétés soumises à la TVA",
+              "Entreprises proches du seuil TVA",
+              "Associations & Fondations"
+            ].map((item, index) => (
+              <span key={index} className="px-8 py-4 bg-white rounded-xl shadow-sm border border-slate-200 text-lg font-semibold text-slate-700 hover:border-green-300 hover:shadow-md transition-all cursor-default">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FAQ */}
+      <Section className="bg-white">
+        <div className="mx-auto max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">
+              Questions fréquentes
+            </h2>
+            <p className="text-purple-900/60">
+              Tout ce que vous devez savoir avant de nous confier l'organisation de votre mandat.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: "Êtes-vous une fiduciaire ?",
+                a: "Nous sommes une société de services spécialisée dans l'organisation et la structuration administrative. Nous ne tenons pas votre comptabilité en interne mais nous organisons, structurons et coordonnons votre mandat avec un expert-comptable partenaire sélectionné et validé à Genève. Vous bénéficiez ainsi du meilleur des deux mondes : une organisation fluide et une expertise métier certifiée."
+              },
+              {
+                q: "L’audit est-il vraiment gratuit ?",
+                a: "Oui, totalement. Cet audit de 30 minutes est une phase de diagnostic. Il nous permet de comprendre votre situation, d'identifier d'éventuels risques (TVA, sociaux) et de vous proposer une solution adaptée. Il ne vous engage à rien."
+              },
+              {
+                q: "Comment fonctionne un mandat fiduciaire avec vous ?",
+                a: "Une fois vos besoins validés, nous mettons en place le mandat avec le partenaire. Nous restons votre interlocuteur pivilégié pour la transmission des pièces, le respect des délais et la qualité de service. Nous sommes le 'chef d'orchestre' de votre comptabilité."
+              },
+              {
+                q: "Combien coûte une fiduciaire à Genève ?",
+                a: "Les tarifs varient selon le volume d'écritures, la complexité de la TVA et le nombre de salaires. En structurant votre dossier en amont, nous permettons souvent de réduire la facture finale car le travail du comptable est facilité. Nous vous fournissons toujours une offre transparente et forfaitaire quand c'est possible."
+              },
+              {
+                q: "À quelle fréquence la TVA doit-elle être déclarée ?",
+                a: "Généralement tous les trimestres pour la méthode effective, et tous les semestres pour la méthode des taux de la dette fiscale flattée (TDFN). Le choix de la méthode et le respect des échéances sont cruciaux pour éviter les amendes."
+              },
+              {
+                q: "Comment changer de fiduciaire sans risque ?",
+                a: "Le risque principal est la perte d'information. Nous sécurisons ce processus en demandant systématiquement une balance de clôture, le grand livre complet et les derniers décomptes TVA avant de commencer toute nouvelle saisie. La transition administrative est gérée de professionnel à professionnel."
+              },
+              {
+                q: "Travaillez-vous avec des PME déjà soumises à la TVA ?",
+                a: "Oui, la majorité de nos clients sont des PME assujetties. Nous avons une expertise forte dans la reprise de dossiers TVA complexes et la régularisation de situations passées."
+              },
+              {
+                q: "Combien de temps dure la mise en place ?",
+                a: "Une fois l'audit réalisé et l'offre validée, la mise en place administrative (accès logiciels, mandat de représentation) prend généralement entre 48h et un une semaine selon la réactivité de votre ancien prestataire."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors bg-slate-50/50">
+                <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-start">
+                  <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
+                  {faq.q}
+                </h3>
+                <p className="text-slate-600 pl-8 leading-relaxed">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 9. CTA FINAL */}
+      <div id="audit" className="bg-slate-900 py-24 scroll-mt-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
+                Obtenez une vision claire de votre situation comptable
+              </h2>
+              <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+                Ne laissez pas l'administratif freiner votre croissance. Demandez votre diagnostic gratuit et découvrez comment nous pouvons sécuriser et optimiser votre gestion fiduciaire dès aujourd'hui.
+              </p>
+              <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="bg-green-900/30 p-3 rounded-lg">
+                    <ShieldCheck className="h-6 w-6 text-green-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold">Confidentialité Totale</h4>
+                    <p className="text-slate-400 text-sm">Vos données sont protégées et traitées sous le sceau du secret professionnel.</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="bg-blue-900/30 p-3 rounded-lg">
+                    <Clock className="h-6 w-6 text-blue-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold">Réponse Rapide</h4>
+                    <p className="text-slate-400 text-sm">Un expert analyse votre demande et vous recontacte sous 24h ouvrées.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <LeadForm />
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

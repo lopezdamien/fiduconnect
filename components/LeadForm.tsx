@@ -60,7 +60,7 @@ export function LeadForm() {
 
     return (
         <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-6">Demandez une offre</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-6">Demander mon audit gratuit</h3>
 
             {error && (
                 <div className="mb-4 p-3 bg-red-50 text-red-700 rounded-md text-sm">
@@ -185,7 +185,7 @@ export function LeadForm() {
 
                 <div className="pt-2">
                     <Button type="submit" fullWidth disabled={loading}>
-                        {loading ? 'Envoi en cours...' : 'Recevoir une offre'}
+                        {loading ? 'Envoi en cours...' : 'Obtenir mon audit gratuit'}
                     </Button>
                     <p className="mt-3 text-xs text-center text-slate-500">
                         Gratuit • Sans engagement • Confidentialité garantie
