@@ -16,34 +16,6 @@ export default function Resources() {
             category: "Gestion Fiduciaire",
             date: "15 Février 2026",
             slug: "/changer-fiduciaire-geneve"
-        },
-        {
-            title: "TVA Suisse : Seuils et obligations pour 2026",
-            excerpt: "Tout ce que vous devez savoir sur les nouveaux taux et les changements dans la loi TVA. Êtes-vous à jour ?",
-            category: "TVA Genève",
-            date: "12 Février 2026",
-            slug: "tva-suisse-2026"
-        },
-        {
-            title: "SARL ou SA : Quelle structure choisir pour votre PME ?",
-            excerpt: "Capital libéré, anonymat, fiscalité... Comparatif détaillé pour faire le bon choix lors de votre constitution ou transformation.",
-            category: "Création Entreprise",
-            date: "28 Janvier 2026",
-            slug: "sarl-vs-sa"
-        },
-        {
-            title: "Contrôle AVS : Comment s'y préparer sereinement ?",
-            excerpt: "Un contrôle AVS n'est pas une catastrophe si vous êtes préparé. Voici les documents à réunir et les erreurs à éviter.",
-            category: "Charges Sociales",
-            date: "15 Janvier 2026",
-            slug: "controle-avs"
-        },
-        {
-            title: "5 erreurs comptables qui coûtent cher aux PME",
-            excerpt: "De la confusion privé/professionnel aux amortissements oubliés : liste des fautes de gestion les plus fréquentes.",
-            category: "Gestion",
-            date: "03 Janvier 2026",
-            slug: "erreurs-comptables"
         }
     ];
 
