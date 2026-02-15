@@ -60,7 +60,7 @@ export function LeadForm() {
 
     return (
         <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-6">Réserver mon point de situation (Gratuit)</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-6">Faire un point gratuit</h3>
 
             {error && (
                 <div className="mb-4 p-3 bg-red-50 text-red-700 rounded-md text-sm">
@@ -122,7 +122,7 @@ export function LeadForm() {
                 </div>
 
                 <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-1">Votre besoin principal <span className="text-red-500">*</span></label>
+                    <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-1">Sujet de votre demande <span className="text-red-500">*</span></label>
                     <select
                         id="subject"
                         name="subject"
@@ -132,18 +132,32 @@ export function LeadForm() {
                     >
                         <option value="" disabled className="text-slate-400">Sélectionnez un sujet...</option>
                         <option value="TVA">TVA</option>
-                        <option value="Salaires">Salaires</option>
-                        <option value="Création">Création</option>
-                        <option value="Changement de fiduciaire">Changement de fiduciaire</option>
+                        <option value="Comptabilité">Comptabilité (tenue / clôture)</option>
+                        <option value="Déclarations fiscales">Déclarations fiscales</option>
+                        <option value="Charges sociales / salaires">Charges sociales / salaires</option>
+                        <option value="Création d'entreprise">Création d&apos;entreprise (SARL/SA)</option>
+                        <option value="Changer de fiduciaire">Changer de fiduciaire</option>
+                        <option value="Autre">Autre / Je ne sais pas</option>
                     </select>
+                </div>
+
+                <div>
+                    <label htmlFor="comment" className="block text-sm font-medium text-slate-700 mb-1">Commentaire (optionnel)</label>
+                    <textarea
+                        id="comment"
+                        name="comment"
+                        rows={3}
+                        className="w-full rounded-md border-slate-200 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-400"
+                        placeholder="Expliquez brièvement votre situation..."
+                    />
                 </div>
 
                 <div className="pt-2">
                     <Button type="submit" fullWidth disabled={loading}>
-                        {loading ? 'Envoi en cours...' : 'Obtenir mon diagnostic gratuit'}
+                        {loading ? 'Envoi en cours...' : 'Faire un point gratuit'}
                     </Button>
-                    <p className="mt-3 text-xs text-center text-slate-500 flex items-center justify-center gap-1">
-                        <span className="text-green-600">🔒</span> Confidentialité garantie - Conforme à la LPD suisse
+                    <p className="mt-3 text-xs text-center text-slate-500">
+                        Gratuit • Sans engagement • Confidentialité garantie
                     </p>
                 </div>
             </div>
