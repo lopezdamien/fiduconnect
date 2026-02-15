@@ -1,8 +1,9 @@
 
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Politique Cookies | Smart Administration",
+    title: "Politique relative aux cookies | Smart Administration",
     description: "Information sur l'utilisation des cookies sur le site Smart Administration.",
 };
 
@@ -11,12 +12,12 @@ export default function Cookies() {
         <div className="bg-slate-50 min-h-screen py-24 px-6 lg:px-8">
             <div className="mx-auto max-w-3xl bg-white p-10 rounded-2xl shadow-sm border border-slate-100">
                 <h1 className="text-3xl font-bold tracking-tight text-slate-900 mb-8 pb-4 border-b border-slate-100">
-                    Politique relative aux Cookies
+                    Politique relative aux cookies
                 </h1>
 
-                <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-8">
+                <div className="prose prose-slate max-w-none text-slate-800 leading-relaxed space-y-8">
                     <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">1. Qu'est-ce qu'un cookie ?</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">1. Définition des cookies</h2>
                         <p>
                             Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette, mobile) lors de la visite d'un site web. Il permet au site de mémoriser certaines informations sur votre navigation ou vos préférences pour améliorer votre expérience utilisateur.
                         </p>
@@ -35,31 +36,33 @@ export default function Cookies() {
                             </div>
 
                             <div className="bg-slate-50 p-4 rounded-lg border border-slate-100">
-                                <h3 className="font-semibold text-slate-900">Cookies de mesure d'audience (Analytiques)</h3>
+                                <h3 className="font-semibold text-slate-900">Cookies de mesure d'audience</h3>
                                 <p className="text-sm mt-1">
-                                    Ils nous aident à comprendre comment les visiteurs interagissent avec le site (pages les plus vues, temps passé), de manière anonyme. Cela nous permet d'améliorer notre contenu et notre ergonomie.
+                                    Nous pouvons utiliser des outils comme Google Analytics pour comprendre comment les visiteurs interagissent avec le site (pages les plus vues, temps passé), de manière anonyme. Cela nous permet d'améliorer notre contenu et notre ergonomie.
                                 </p>
                             </div>
                         </div>
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">3. Gestion de votre consentement</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">3. Gestion de vos préférences</h2>
                         <p>
-                            Lors de votre première visite, un bandeau d'information vous prévient de l'utilisation de cookies.
+                            Vous pouvez à tout moment configurer votre navigateur pour refuser les cookies ou être alerté lors de leur installation.
                         </p>
-                        <p className="mt-2">
-                            Vous pouvez à tout moment configurer votre navigateur pour refuser les cookies ou être alerté lors de leur installation. Notez que le refus des cookies techniques peut altérer certaines fonctionnalités du site.
-                        </p>
-                        <p className="mt-4">
-                            Pour plus d'informations sur la gestion des cookies dans votre navigateur (Chrome, Firefox, Safari...), nous vous invitons à consulter l'aide en ligne de votre logiciel.
-                        </p>
+                        <ul className="list-disc pl-5 space-y-1 mt-2">
+                            <li><strong>Chrome :</strong> Paramètres {'>'} Confidentialité et sécurité {'>'} Cookies.</li>
+                            <li><strong>Firefox :</strong> Options {'>'} Vie privée et sécurité {'>'} Cookies.</li>
+                            <li><strong>Safari :</strong> Préférences {'>'} Confidentialité.</li>
+                        </ul>
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">4. Contact</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">4. Politique de confidentialité</h2>
                         <p>
-                            Pour toute question relative à notre politique de cookies, vous pouvez nous écrire à : <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a>
+                            Pour en savoir plus sur la gestion de vos données personnelles, veuillez consulter notre{" "}
+                            <Link href="/confidentialite" className="text-green-700 hover:underline font-medium">
+                                Politique de confidentialité
+                            </Link>.
                         </p>
                     </section>
                 </div>

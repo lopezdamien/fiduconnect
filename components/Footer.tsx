@@ -50,9 +50,9 @@ export function Footer() {
                         &copy; {new Date().getFullYear()} Smart Administration. Tous droits réservés.
                     </p>
                     <div className="flex flex-wrap justify-center gap-6">
-                        <Link href="/mentions-legales" className="text-xs text-slate-500 hover:text-white transition-colors">Mentions légales</Link>
-                        <Link href="/confidentialite" className="text-xs text-slate-500 hover:text-white transition-colors">Politique de confidentialité</Link>
-                        <Link href="/cookies" className="text-xs text-slate-500 hover:text-white transition-colors">Cookies</Link>
+                        <Link href="/mentions-legales" className="text-xs text-slate-400 hover:text-white transition-colors">Mentions légales</Link>
+                        <Link href="/confidentialite" className="text-xs text-slate-400 hover:text-white transition-colors">Politique de confidentialité</Link>
+                        <Link href="/cookies" className="text-xs text-slate-400 hover:text-white transition-colors">Cookies</Link>
                     </div>
                 </div>
             </div>

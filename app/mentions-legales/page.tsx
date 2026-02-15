@@ -14,14 +14,14 @@ export default function MentionsLegales() {
                     Mentions Légales
                 </h1>
 
-                <div className="space-y-8 text-slate-700 leading-relaxed">
+                <div className="space-y-8 text-slate-800 leading-relaxed">
                     <section>
                         <h2 className="text-xl font-bold text-slate-900 mb-4">1. Éditeur du site</h2>
                         <p>
                             Le présent site est édité par :<br />
                             <strong>Smart Administration - Damien Lopez</strong><br />
                             <strong>Adresse :</strong> Avenue d'Aïre 73C, 1203 Genève, Suisse<br />
-                            <strong>Email de contact :</strong> <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a><br />
+                            <strong>Email :</strong> <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a><br />
                             <strong>Responsable :</strong> Damien LOPEZ
                         </p>
                     </section>
@@ -29,35 +29,48 @@ export default function MentionsLegales() {
                     <section>
                         <h2 className="text-xl font-bold text-slate-900 mb-4">2. Objet du site</h2>
                         <p>
-                            Le site a pour objet de présenter un service d’information et d’organisation de consultations administratives.
-                            Les consultations proposées (notamment la consultation initiale de 30 minutes) sont réalisées par un <strong>expert fiduciaire partenaire indépendant</strong>.
+                            Le site présente un service d’information et d’organisation de consultations en matière comptable et fiduciaire.
+                            Les consultations de 30 minutes sont réalisées par un <strong>expert fiduciaire partenaire indépendant</strong>.
                         </p>
-                        <p className="mt-2">
-                            Smart Administration agit en tant que facilitateur et organisateur. Nous ne sommes pas un cabinet fiduciaire et ne réalisons pas d'actes réservés sans la supervision de nos partenaires experts qualifiés.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">3. Clause de responsabilité</h2>
-                        <p>
-                            Les contenus publiés sur ce site sont fournis à titre purement informatif. Bien que nous nous efforcions de maintenir les informations à jour et exactes, aucune garantie d’exhaustivité ou de précision absolue ne peut être donnée, notamment au regard des évolutions législatives fréquentes.
-                        </p>
-                        <p className="mt-2">
-                            Les décisions de gestion, fiscales ou comptables doivent être prises sur la base d’une analyse complète de votre situation par un professionnel qualifié. Smart Administration décline toute responsabilité quant à l'utilisation qui pourrait être faite des informations présentes sur ce site sans consultation préalable.
+                        <p className="mt-2 text-slate-900 font-medium">
+                            Smart Administration n’agit pas en qualité de cabinet fiduciaire.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">4. Propriété intellectuelle</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">3. Hébergement</h2>
                         <p>
-                            L’ensemble des contenus de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété exclusive de Smart Administration - Damien Lopez, à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs cités. Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès par écrit de Smart Administration.
+                            Le site est hébergé par :<br />
+                            <strong>Vercel Inc.</strong><br />
+                            340 S Lemon Ave #4133<br />
+                            Walnut, CA 91789<br />
+                            États-Unis<br />
+                            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-green-700 hover:underline">https://vercel.com</a>
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">5. Droit applicable et for juridique</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">4. Responsabilité</h2>
                         <p>
-                            Le présent site et ses conditions d'utilisation sont régis par le <strong>droit suisse</strong>. En cas de litige, et à défaut d'accord amiable, le for juridique exclusif est situé à <strong>Genève</strong>.
+                            Les contenus publiés sur ce site sont fournis à titre informatif.
+                            Ils ne constituent pas un conseil juridique ou fiscal personnalisé.
+                            La responsabilité de Smart Administration ne saurait être engagée en cas d’erreur ou d’omission.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">5. Propriété intellectuelle</h2>
+                        <p>
+                            Les contenus, textes et éléments graphiques sont protégés par le droit applicable.
+                            Toute reproduction sans autorisation est interdite.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">6. Droit applicable</h2>
+                        <p>
+                            Le droit suisse est applicable.<br />
+                            For juridique à Genève.
                         </p>
                     </section>
                 </div>

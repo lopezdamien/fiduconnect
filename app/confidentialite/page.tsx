@@ -14,16 +14,11 @@ export default function Confidentialite() {
                     Politique de Confidentialité
                 </h1>
 
-                <div className="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-8">
-                    <p>
-                        La protection de vos données personnelles est une priorité pour Smart Administration. Cette politique vise à vous informer de manière transparente sur la manière dont nous collectons, utilisons et protégeons vos informations.
-                    </p>
-
+                <div className="prose prose-slate max-w-none text-slate-800 leading-relaxed space-y-8">
                     <section>
                         <h2 className="text-xl font-bold text-slate-900 mb-4">1. Responsable du traitement</h2>
                         <p>
-                            Le responsable du traitement de vos données est :<br />
-                            <strong>Smart Administration - Damien Lopez</strong><br />
+                            Smart Administration - Damien Lopez<br />
                             Avenue d'Aïre 73C, 1203 Genève, Suisse<br />
                             Email : <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a>
                         </p>
@@ -32,73 +27,73 @@ export default function Confidentialite() {
                     <section>
                         <h2 className="text-xl font-bold text-slate-900 mb-4">2. Données collectées</h2>
                         <p>
-                            Nous collectons principalement les données que vous nous transmettez volontairement via nos formulaires de contact ou de demande de consultation :
+                            Les données susceptibles d’être collectées via le formulaire :
                         </p>
                         <ul className="list-disc pl-5 space-y-1 mt-2">
-                            <li>Identité (Nom, Prénom)</li>
-                            <li>Coordonnées (Email, Téléphone)</li>
-                            <li>Informations professionnelles (Nom de la société, forme juridique, secteur d'activité)</li>
-                            <li>Tout autre détail sur votre situation que vous choisissez de nous communiquer dans le champ "commentaire".</li>
+                            <li>Nom et prénom</li>
+                            <li>Adresse email</li>
+                            <li>Numéro de téléphone</li>
+                            <li>Nom de la société</li>
+                            <li>Informations transmises volontairement</li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 className="text-xl font-bold text-slate-900 mb-4">3. Finalités du traitement</h2>
-                        <p>Vos données sont collectées pour les objectifs suivants :</p>
+                        <p>Les données sont collectées pour :</p>
                         <ul className="list-disc pl-5 space-y-1 mt-2">
-                            <li><strong>Organisation de votre consultation :</strong> Planifier et préparer votre échange de 30 minutes.</li>
-                            <li><strong>Mise en relation partenariale :</strong> Transmettre les éléments nécessaires à l'expert fiduciaire partenaire qui réalisera la consultation.</li>
-                            <li><strong>Gestion de la relation client :</strong> Suivi de votre dossier, réponses à vos questions.</li>
-                            <li><strong>Amélioration de nos services :</strong> Statistiques anonymisées pour comprendre les besoins de nos visiteurs.</li>
+                            <li>Organiser une consultation gratuite de 30 minutes</li>
+                            <li>Permettre la mise en relation avec un expert fiduciaire partenaire</li>
+                            <li>Répondre aux demandes</li>
+                            <li>Améliorer le service (statistiques anonymisées)</li>
                         </ul>
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">4. Base légale</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">4. Transmission des données</h2>
                         <p>
-                            Le traitement de vos données repose sur la Loi fédérale sur la protection des données (LPD) et, le cas échéant, le RGPD. Il est justifié par :
+                            Les informations transmises via le formulaire peuvent être communiquées à un expert fiduciaire partenaire uniquement dans le cadre de l’organisation et de la réalisation de la consultation.
                         </p>
-                        <ul className="list-disc pl-5 space-y-1 mt-2">
-                            <li>L'exécution de mesures précontractuelles (votre demande de consultation).</li>
-                            <li>Notre intérêt légitime à répondre aux sollicitations.</li>
-                            <li>Votre consentement (lorsque vous soumettez le formulaire).</li>
-                        </ul>
+                        <p className="mt-2 text-slate-900 font-medium">
+                            Aucune donnée n’est vendue ou cédée à des tiers à des fins commerciales.
+                        </p>
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">5. Partage des données</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">5. Base légale</h2>
                         <p>
-                            Vos données ne sont jamais vendues à des tiers. Elles peuvent être partagées uniquement :
+                            Le traitement repose sur :
                         </p>
                         <ul className="list-disc pl-5 space-y-1 mt-2">
-                            <li>Avec <strong>l'expert fiduciaire partenaire</strong> en charge de votre consultation, dans la stricte limite nécessaire à la réalisation de sa mission.</li>
-                            <li>Avec nos prestataires techniques (hébergement, outils d'emailing) qui sont tenus à des obligations de confidentialité et de sécurité.</li>
+                            <li>L’intérêt légitime</li>
+                            <li>L’exécution de mesures précontractuelles</li>
+                            <li>Le consentement lorsque requis</li>
                         </ul>
+                        <p className="mt-2">
+                            Conformément à la Loi fédérale sur la protection des données (LPD) et, le cas échéant, au RGPD.
+                        </p>
                     </section>
 
                     <section>
                         <h2 className="text-xl font-bold text-slate-900 mb-4">6. Durée de conservation</h2>
                         <p>
-                            Nous conservons vos données pour la durée nécessaire aux finalités poursuivies.
-                            Pour une simple demande de contact n'aboutissant pas à une relation contractuelle, les données sont supprimées ou anonymisées dans un délai maximum de <strong>12 mois</strong>.
-                            En cas de relation contractuelle, les durées légales de conservation (notamment comptables) s'appliquent.
+                            Les données sont conservées pour une durée maximale de 12 mois en l’absence de relation contractuelle.
+                            En cas de relation contractuelle, elles sont conservées conformément aux obligations légales.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-xl font-bold text-slate-900 mb-4">7. Sécurité</h2>
                         <p>
-                            Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre l'accès non autorisé, la perte ou l'altération (protocole HTTPS, accès restreints, prestataires fiables).
+                            Des mesures techniques et organisationnelles appropriées sont mises en place afin de protéger les données personnelles.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">8. Vos droits</h2>
+                        <h2 className="text-xl font-bold text-slate-900 mb-4">8. Droits des personnes concernées</h2>
                         <p>
-                            Conformément à la législation en vigueur, vous disposez d'un droit d'accès, de rectification, de suppression de vos données, ainsi que d'un droit à la limitation du traitement.
-                        </p>
-                        <p className="mt-2">
-                            Pour exercer ces droits, contactez-nous simplement à : <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a>
+                            Vous disposez d’un droit d’accès, de rectification, de suppression ou d’opposition.
+                            Toute demande peut être adressée à : <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a>
                         </p>
                     </section>
                 </div>
