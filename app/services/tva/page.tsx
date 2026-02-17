@@ -16,9 +16,12 @@ export default function ServiceTVA() {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl">
                         <span className="text-orange-600 font-semibold tracking-wide uppercase text-sm">Fiscalité</span>
-                        <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">
+                        <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-2">
                             TVA & Assujettissement
                         </h1>
+                        <p className="text-lg text-slate-500 font-medium mb-6">
+                            Sécurisez vos déclarations auprès de l'AFC et évitez les risques de reprises fiscales.
+                        </p>
                         <p className="text-xl text-slate-600 leading-relaxed">
                             Le seuil de 100k est souvent mal interprété. Une méthode ou un paramétrage inadapté peut entraîner des erreurs de décompte ou des rectifications.
                         </p>
@@ -56,7 +59,7 @@ export default function ServiceTVA() {
                     </div>
                     <div>
                         <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg">
-                            <h3 className="text-xl font-bold text-slate-900 mb-6">Notre Approche</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-6">Votre mise en conformité en 3 points</h3>
                             <div className="space-y-6">
                                 <div className="flex gap-4">
                                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-700 font-bold text-sm">1</div>
@@ -72,8 +75,8 @@ export default function ServiceTVA() {
                                 </div>
                             </div>
                             <div className="mt-8 pt-6 border-t border-slate-100">
-                                <Link href="/diagnostic">
-                                    <Button fullWidth>Faire un point gratuit</Button>
+                                <Link href="/contact">
+                                    <Button fullWidth className="bg-green-700 hover:bg-green-600 text-white">Faire un point gratuit</Button>
                                 </Link>
                             </div>
                         </div>

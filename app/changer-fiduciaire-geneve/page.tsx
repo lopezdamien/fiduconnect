@@ -2,7 +2,7 @@
 import { Button } from "@/components/Button";
 import { Section } from "@/components/Section";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, AlertTriangle, FileText, HelpCircle, ArrowLeft } from "lucide-react";
+import { CheckCircle2, ArrowRight, AlertTriangle, HelpCircle, ArrowLeft, ShieldCheck, Mail, FileCheck } from "lucide-react";
 
 import { Metadata } from "next";
 
@@ -25,14 +25,25 @@ export default function ChangerFiduciaireArticle() {
                         Changer de fiduciaire à Genève : comment organiser la transition en toute sécurité ?
                     </h1>
 
-
-
                     <p className="text-xl leading-8 text-slate-700">
-                        Changer de fiduciaire est une décision stratégique pour une PME à Genève. Lorsqu’un dirigeant constate un manque de clarté, une gestion TVA incertaine ou une organisation peu structurée, la question du changement peut se poser.
+                        Changez de fiduciaire en toute sérénité. Nous gérons le transfert complet de votre dossier, sans interruption d’activité et sans conflit.
                     </p>
-                    <p className="mt-6 text-lg leading-8 text-slate-700">
-                        Contrairement aux idées reçues, la transition vers un nouvel expert fiduciaire peut être organisée simplement et sans perturbation, à condition de suivre un processus clair et structuré.
-                    </p>
+
+                    <div className="mt-8">
+                        <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                            <span className="flex items-center text-sm text-slate-600 font-medium bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+                                <CheckCircle2 className="h-4 w-4 text-green-600 mr-2" /> Sans conflit avec votre ancien fiduciaire
+                            </span>
+                            <span className="flex items-center text-sm text-slate-600 font-medium bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+                                <CheckCircle2 className="h-4 w-4 text-green-600 mr-2" /> Aucune rupture administrative
+                            </span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <span className="flex items-center text-sm text-slate-600 font-medium bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+                                <CheckCircle2 className="h-4 w-4 text-green-600 mr-2" /> Processus 100% encadré
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -42,8 +53,11 @@ export default function ChangerFiduciaireArticle() {
                     <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mb-6">
                         Pourquoi les PME à Genève envisagent-elles un changement de fiduciaire ?
                     </h2>
-                    <p className="text-slate-700 mb-6 leading-relaxed">
-                        La gestion comptable d'une entreprise ne doit pas être une source de stress. Pourtant, de nombreux entrepreneurs genevois se retrouvent confrontés à des situations qui freinent leur développement :
+                    <p className="text-slate-700 mb-6 leading-relaxed font-medium text-lg">
+                        Changer de fiduciaire n’est pas un échec, c’est une décision stratégique. Si votre entreprise évolue, votre accompagnement doit évoluer aussi.
+                    </p>
+                    <p className="text-slate-700 mb-8 leading-relaxed">
+                        Un manque de réactivité ou de transparence peut coûter plus cher que vous ne le pensez.
                     </p>
                     <ul className="space-y-4 mb-8">
                         <li className="flex items-start">
@@ -89,16 +103,19 @@ export default function ChangerFiduciaireArticle() {
             {/* ETAPES CONCRÈTES */}
             <Section className="bg-white">
                 <div className="mx-auto max-w-3xl">
-                    <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mb-8">
-                        Les étapes concrètes d’un changement structuré
+                    <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mb-4">
+                        Un transfert 100% sécurisé
                     </h2>
+                    <p className="text-slate-600 mb-10">
+                        Nous avons structuré un processus simple pour éviter toute tension ou perte d’information.
+                    </p>
 
                     <div className="space-y-8">
                         <div className="flex gap-4">
                             <div className="flex-none flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white font-bold">1</div>
                             <div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-2">Analyse de la situation actuelle</h3>
-                                <p className="text-slate-700">Évaluation de l'état de la comptabilité et identification des points bloquants (erreurs passées, retards).</p>
+                                <p className="text-slate-700">Évaluation de l'état de la comptabilité et identification des points bloquants (erreurs passées, retards). Nous identifions les éventuelles erreurs ou risques avant toute reprise.</p>
                             </div>
                         </div>
 
@@ -127,16 +144,27 @@ export default function ChangerFiduciaireArticle() {
                         </div>
                     </div>
 
-                    <div className="mt-12 p-8 bg-green-50 rounded-2xl border border-green-100 text-center">
-                        <h3 className="text-lg font-bold text-green-900 mb-3">Besoin d’un regard structuré sur votre situation actuelle ?</h3>
-                        <Link href="/diagnostic">
-                            <Button className="bg-green-700 hover:bg-green-800 text-white">
-                                Demander une consultation gratuite de 30 minutes
-                            </Button>
-                        </Link>
-                        <p className="text-xs text-green-800 mt-2">
-                            Consultation réalisée par un expert fiduciaire partenaire. Sans engagement.
-                        </p>
+                    <div className="mt-12 p-8 bg-green-50 rounded-2xl border border-green-100">
+                        <h3 className="text-lg font-bold text-green-900 mb-4 text-center">Ce que nous récupérons pour vous</h3>
+                        <p className="text-green-800 text-center mb-6 text-sm">Vous n’avez rien à gérer. Nous coordonnons directement avec votre ancien prestataire.</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="bg-white p-3 rounded-lg border border-green-200 flex items-center shadow-sm">
+                                <FileCheck className="h-5 w-5 text-green-600 mr-3" />
+                                <span className="text-slate-700 text-sm">Grand Livre & Balances</span>
+                            </div>
+                            <div className="bg-white p-3 rounded-lg border border-green-200 flex items-center shadow-sm">
+                                <FileCheck className="h-5 w-5 text-green-600 mr-3" />
+                                <span className="text-slate-700 text-sm">Décomptes TVA passés</span>
+                            </div>
+                            <div className="bg-white p-3 rounded-lg border border-green-200 flex items-center shadow-sm">
+                                <FileCheck className="h-5 w-5 text-green-600 mr-3" />
+                                <span className="text-slate-700 text-sm">Dossiers Salaires (LPP, AVS)</span>
+                            </div>
+                            <div className="bg-white p-3 rounded-lg border border-green-200 flex items-center shadow-sm">
+                                <FileCheck className="h-5 w-5 text-green-600 mr-3" />
+                                <span className="text-slate-700 text-sm">Correspondances AFC</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Section>
@@ -161,132 +189,66 @@ export default function ChangerFiduciaireArticle() {
                 </div>
             </Section>
 
-            {/* RISQUES ET BÉNÉFICES */}
+            {/* NOUVELLE SECTION FREINS */}
             <Section className="bg-white">
-                <div className="mx-auto max-w-3xl">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div>
-                            <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-4 flex items-center">
-                                <AlertTriangle className="h-6 w-6 text-orange-500 mr-2" />
-                                Risques d'une transition mal organisée
-                            </h2>
-                            <ul className="space-y-3 text-slate-700">
-                                <li className="flex items-start">• Retards déclaratifs auprès de l'AFC</li>
-                                <li className="flex items-start">• Erreurs dans les décomptes TVA</li>
-                                <li className="flex items-start">• Rappels fiscaux inattendus</li>
-                                <li className="flex items-start">• Pénalités éventuelles pour négligence</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-4 flex items-center">
-                                <CheckCircle2 className="h-6 w-6 text-green-600 mr-2" />
-                                Bénéfices d'une transition structurée
-                            </h2>
-                            <ul className="space-y-3 text-slate-700">
-                                <li className="flex items-start">• Une vision financière enfin claire</li>
-                                <li className="flex items-start">• Une organisation rigoureuse et digitale</li>
-                                <li className="flex items-start">• Une meilleure compréhension de vos obligations</li>
-                                <li className="flex items-start">• Une communication fluide avec votre expert</li>
-                                <li className="flex items-start">• Une réduction drastique du risque d'erreurs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </Section>
-
-            {/* FAQ */}
-            <Section className="bg-slate-50">
-                <div className="mx-auto max-w-3xl">
-                    <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mb-8 text-center">
-                        Questions fréquentes sur le changement de fiduciaire à Genève
+                <div className="mx-auto max-w-5xl">
+                    <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mb-12 text-center">
+                        Vous hésitez encore ?
                     </h2>
-
-                    <div className="space-y-6">
-                        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <h3 className="font-bold text-slate-900 mb-2 flex items-start">
-                                <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
-                                Peut-on résilier un mandat fiduciaire à tout moment ?
-                            </h3>
-                            <p className="text-slate-700 pl-8">Idéalement, il faut respecter le préavis contractuel ou attendre la fin de l'exercice. Cependant, en cas de faute grave ou de rupture de confiance avérée, une résiliation immédiate peut s'envisager. Une analyse du contrat permet de déterminer la meilleure approche.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                            <div className="flex items-center gap-3 mb-4">
+                                <HelpCircle className="h-6 w-6 text-green-600" />
+                                <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide">Mon ancien fiduciaire va mal le prendre</h3>
+                            </div>
+                            <p className="text-slate-600 text-sm leading-relaxed">
+                                Le changement est un droit. Nous gérons les échanges de manière professionnelle et neutre pour éviter tout conflit émotionnel.
+                            </p>
                         </div>
-
-                        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <h3 className="font-bold text-slate-900 mb-2 flex items-start">
-                                <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
-                                Le changement entraîne-t-il des frais supplémentaires ?
-                            </h3>
-                            <p className="text-slate-700 pl-8">La reprise comptable demande un travail initial d'analyse et de paramétrage. Cette étape fait généralement l'objet d'un devis clair. L'objectif est de repartir sur des bases saines.</p>
+                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                            <div className="flex items-center gap-3 mb-4">
+                                <ShieldCheck className="h-6 w-6 text-green-600" />
+                                <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide">Le transfert va être compliqué</h3>
+                            </div>
+                            <p className="text-slate-600 text-sm leading-relaxed">
+                                Nous avons un protocole clair. Vous signez un mandat de reprise, et nous nous occupons de récupérer l'ensemble de l'historique.
+                            </p>
                         </div>
-
-                        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <h3 className="font-bold text-slate-900 mb-2 flex items-start">
-                                <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
-                                Peut-on changer en pleine période TVA ?
-                            </h3>
-                            <p className="text-slate-700 pl-8">Oui, mais cela demande de la rigueur. Le nouveau mandataire doit s'assurer que le décompte de la période en cours soit correctement préparé, même si la période a débuté sous l'ancien mandat.</p>
-                        </div>
-
-                        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <h3 className="font-bold text-slate-900 mb-2 flex items-start">
-                                <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
-                                Faut-il informer l’administration fiscale ?
-                            </h3>
-                            <p className="text-slate-700 pl-8">Oui, il est nécessaire d'annoncer les changements de représentation et de procuration auprès de l'Administration Fiscale Cantonale (AFC) et de l'Administration Fédérale des Contributions pour la TVA. Cela fait partie du processus de reprise.</p>
-                        </div>
-
-                        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <h3 className="font-bold text-slate-900 mb-2 flex items-start">
-                                <HelpCircle className="h-5 w-5 text-green-600 mr-3 mt-1 shrink-0" />
-                                Combien de temps dure une transition ?
-                            </h3>
-                            <p className="text-slate-700 pl-8">Une transition bien organisée prend généralement entre 2 et 4 semaines, le temps de récupérer les pièces, de vérifier les balances et de paramétrer les nouveaux outils. L'activité de la PME continue sans interruption.</p>
+                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                            <div className="flex items-center gap-3 mb-4">
+                                <FileCheck className="h-6 w-6 text-green-600" />
+                                <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide">Je risque une rupture administrative</h3>
+                            </div>
+                            <p className="text-slate-600 text-sm leading-relaxed">
+                                Faux. Nous assurons la continuité complète (TVA, salaires, déclarations) afin qu'aucune échéance ne soit manquée durant la transition.
+                            </p>
                         </div>
                     </div>
                 </div>
             </Section>
 
-            {/* MAILLAGE INTERNE */}
-            <Section className="bg-white border-t border-slate-100">
-                <div className="mx-auto max-w-3xl text-center">
-                    <h2 className="text-xl font-bold text-slate-900 mb-6">Pour aller plus loin</h2>
-
-
-
-                    <div className="flex flex-wrap justify-center gap-4">
-                        <Link href="/services/comptabilite" className="text-slate-600 hover:text-green-700 font-medium underline decoration-slate-300 underline-offset-4 hover:decoration-green-700 transition-all">
-                            Nos services comptables
-                        </Link>
-                        <span className="text-slate-300">|</span>
-                        <Link href="/tva-suisse" className="text-slate-600 hover:text-green-700 font-medium underline decoration-slate-300 underline-offset-4 hover:decoration-green-700 transition-all">
-                            Comprendre la TVA Suisse
-                        </Link>
-                        <span className="text-slate-300">|</span>
-                        <Link href="/diagnostic" className="text-slate-600 hover:text-green-700 font-medium underline decoration-slate-300 underline-offset-4 hover:decoration-green-700 transition-all">
-                            Consultation gratuite (30 min)
-                        </Link>
-                    </div>
-                </div>
-            </Section>
 
             {/* CONCLUSION & CTA FINAL */}
-            <section className="bg-slate-900 py-20 text-center">
+            <section className="bg-slate-900 py-24 text-center">
                 <div className="mx-auto max-w-4xl px-6">
                     <h2 className="text-3xl font-bold tracking-tight text-white mb-6">
-                        Une décision de gestion pour pérenniser votre activité
+                        Prêt à changer sereinement de fiduciaire ?
                     </h2>
                     <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
-                        Changer de fiduciaire à Genève est une décision de gestion, pas une rupture brutale. Avec une approche claire et structurée, la transition peut être organisée sans interruption, sans risque fiscal et sans complexité inutile.
+                        Avec une approche claire et structurée, la transition peut être organisée sans interruption, sans risque fiscal et sans complexité inutile.
                     </p>
-                    <div className="flex flex-col items-center gap-4">
+                    <div className="flex flex-col items-center gap-8">
                         <Link href="/diagnostic">
-                            <Button size="lg" className="bg-green-700 hover:bg-green-600 px-8 py-6 text-lg shadow-xl shadow-green-900/20">
+                            <Button size="lg" className="bg-green-700 hover:bg-green-600 px-10 py-6 text-lg shadow-xl shadow-green-900/20">
                                 Demander une consultation gratuite de 30 minutes <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                         </Link>
-                        <p className="text-sm text-slate-400">
-                            Consultation réalisée par un expert fiduciaire partenaire. Sans engagement.
-                        </p>
+
+                        <div className="flex flex-col sm:flex-row gap-6 text-sm text-slate-400">
+                            <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Consultation stratégique offerte</span>
+                            <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Analyse de votre situation actuelle</span>
+                            <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Plan de transition clair</span>
+                        </div>
                     </div>
                 </div>
             </section>

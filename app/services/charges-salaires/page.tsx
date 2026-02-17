@@ -17,10 +17,10 @@ export default function ServiceCharges() {
                     <div className="max-w-3xl">
                         <span className="text-blue-600 font-semibold tracking-wide uppercase text-sm">Ressources Humaines</span>
                         <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">
-                            Charges Sociales & Salaires
+                            Externalisez votre gestion des salaires pour une conformité totale (AVS/LPP)
                         </h1>
                         <p className="text-xl text-slate-600 leading-relaxed">
-                            La gestion des salaires implique de nombreuses obligations administratives (AVS, LPP, LAA). Une gestion rigoureuse évite les erreurs de décompte.
+                            La gestion des salaires est une responsabilité lourde. Nous simplifions vos obligations employeur pour vous permettre de vous concentrer sur votre équipe, sans risque de rappel de cotisations.
                         </p>
                     </div>
                 </div>
@@ -29,23 +29,40 @@ export default function ServiceCharges() {
             <Section className="bg-slate-50">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div>
-                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Obligations Employeur</h2>
-                        <p className="text-slate-600 mb-4">
-                            En tant qu&apos;employeur, vous devez garantir la conformité de vos déclarations sociales auprès des différentes caisses :
-                        </p>
-                        <ul className="list-disc pl-5 space-y-2 text-slate-600 mb-8">
-                            <li>Déclarations AVS/AI/APG</li>
-                            <li>Affiliation et cotisations LPP (2ème pilier)</li>
-                            <li>Assurances accidents (LAA) et maladie (IJM)</li>
-                            <li>Certificats de salaire annuels</li>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Obligations Employeur Suisses</h2>
+                        <ul className="space-y-6">
+                            <li className="flex items-start gap-4">
+                                <div className="mt-1 bg-green-100 rounded-full p-1">
+                                    <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
+                                </div>
+                                <div>
+                                    <strong className="block text-slate-900 mb-1">2ème Pilier (LPP)</strong>
+                                    <span className="text-slate-600 leading-relaxed">Affiliation et cotisations LPP (2ème pilier) et suivi des changements de taux.</span>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-4">
+                                <div className="mt-1 bg-green-100 rounded-full p-1">
+                                    <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
+                                </div>
+                                <div>
+                                    <strong className="block text-slate-900 mb-1">Déclarations Annuelles</strong>
+                                    <span className="text-slate-600 leading-relaxed">Gestion des déclarations annuelles AVS/AI/APG/AC et certificats de salaire.</span>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-4">
+                                <div className="mt-1 bg-green-100 rounded-full p-1">
+                                    <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
+                                </div>
+                                <div>
+                                    <strong className="block text-slate-900 mb-1">Assurances de Personnes</strong>
+                                    <span className="text-slate-600 leading-relaxed">Annonces d'accidents (LAA) et de maladie (IJM) en temps réel.</span>
+                                </div>
+                            </li>
                         </ul>
-                        <p className="text-slate-600">
-                            Nous vérifions que vous êtes en règle avec toutes ces institutions pour éviter tout rappel de cotisations.
-                        </p>
                     </div>
 
-                    <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                        <h3 className="text-xl font-bold text-slate-900 mb-6">Notre Contrôle Administratif</h3>
+                    <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm sticky top-24">
+                        <h3 className="text-xl font-bold text-slate-900 mb-6">Votre Audit de Conformité RH</h3>
                         <ul className="space-y-4 mb-8">
                             <li className="flex items-start gap-3">
                                 <CheckCircle2 className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
@@ -60,8 +77,8 @@ export default function ServiceCharges() {
                                 <span className="text-slate-700 text-sm">Gestion des entrées et sorties de collaborateurs.</span>
                             </li>
                         </ul>
-                        <Link href="/diagnostic">
-                            <Button fullWidth variant="primary">Faire un point gratuit</Button>
+                        <Link href="/contact">
+                            <Button fullWidth className="bg-green-700 hover:bg-green-600 text-white">Demander un devis personnalisé</Button>
                         </Link>
                     </div>
                 </div>
