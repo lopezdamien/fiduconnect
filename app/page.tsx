@@ -37,7 +37,7 @@ export default function Home() {
               FiduConnect organise un diagnostic stratégique gratuit avec un expert fiduciaire partenaire à Genève afin d’identifier vos points de fragilité, structurer votre situation et éviter des erreurs coûteuses.
             </p>
 
-            <div className="mt-12 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 text-slate-300 text-lg">
+            <div className="mt-12 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 text-slate-200 text-lg">
               <div className="flex items-center justify-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-green-500" />
                 <span>Analyse claire de votre situation TVA</span>
@@ -54,7 +54,7 @@ export default function Home() {
 
             <div className="mt-16 flex flex-col items-center gap-4">
               <Link href="#audit">
-                <Button size="lg" className="bg-green-700 hover:bg-green-600 px-10 py-7 text-lg shadow-2xl shadow-green-900/20 transform transition hover:scale-105">
+                <Button size="lg" className="bg-green-700 hover:bg-green-800 px-10 py-7 text-lg shadow-2xl shadow-green-900/30 transform transition hover:scale-105">
                   Demander une consultation gratuite de 30 minutes
                 </Button>
               </Link>
@@ -157,9 +157,9 @@ export default function Home() {
       </Section>
 
       {/* 4. PROCESSUS (Simplifié & Minimaliste) */}
-      <Section className="bg-white py-32">
+      <Section className="bg-white py-24">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl text-center mb-20">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl text-center mb-16">
             Un processus clair en 3 étapes.
           </h2>
 
@@ -168,7 +168,7 @@ export default function Home() {
             <div className="hidden md:block absolute top-[2.5rem] left-[15%] right-[15%] h-[1px] bg-slate-200 -z-10"></div>
 
             <div className="flex flex-col items-center text-center group">
-              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-2xl font-bold text-slate-900 shadow-sm mb-6 group-hover:border-green-500 group-hover:text-green-600 transition-colors">
+              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-3xl font-bold text-slate-900 shadow-md mb-6 group-hover:border-green-500 group-hover:text-green-700 transition-colors">
                 1
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Consultation stratégique (30 min)</h3>
@@ -176,7 +176,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col items-center text-center group">
-              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-2xl font-bold text-slate-900 shadow-sm mb-6 group-hover:border-green-500 group-hover:text-green-600 transition-colors">
+              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-3xl font-bold text-slate-900 shadow-md mb-6 group-hover:border-green-500 group-hover:text-green-700 transition-colors">
                 2
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Analyse et cadrage</h3>
@@ -184,7 +184,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col items-center text-center group">
-              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-2xl font-bold text-slate-900 shadow-sm mb-6 group-hover:border-green-500 group-hover:text-green-600 transition-colors">
+              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-3xl font-bold text-slate-900 shadow-md mb-6 group-hover:border-green-500 group-hover:text-green-700 transition-colors">
                 3
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Mise en relation qualifiée</h3>
@@ -195,21 +195,21 @@ export default function Home() {
       </Section>
 
       {/* 5. SECTION TVA (Premium) */}
-      <section className="bg-slate-900 py-32 text-white">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <FileText className="h-12 w-12 text-slate-400 mx-auto mb-8 opacity-50" />
+      <section className="bg-slate-900 py-36 text-white">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
+          <FileText className="h-12 w-12 text-slate-300 mx-auto mb-8 opacity-70" />
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">
             La TVA : un sujet technique qui mérite un cadrage précis.
           </h2>
-          <div className="prose prose-lg prose-invert mx-auto text-slate-400 space-y-8">
-            <p className="text-xl text-slate-300 font-light leading-relaxed">
+          <div className="prose prose-lg prose-invert mx-auto text-slate-300 space-y-8">
+            <p className="text-xl text-white/95 font-light leading-relaxed">
               Méthode effective ou TDFN, seuils d’assujettissement, taux applicables…
               <br />
               Une vérification structurée permet d’éviter des régularisations futures.
             </p>
             <div className="pt-8">
               <Link href="#audit">
-                <Button variant="outline" className="border-slate-700 text-slate-300 hover:bg-white hover:text-slate-900 px-8 py-6 rounded-lg transition-all">
+                <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-6 rounded-lg shadow-lg shadow-green-900/40 text-lg transition-all transform hover:scale-105">
                   Faire analyser ma situation TVA
                 </Button>
               </Link>
@@ -226,20 +226,25 @@ export default function Home() {
               <h2 className="text-3xl font-bold tracking-tight text-slate-900 mb-6">
                 Changer de fiduciaire à Genève, en toute continuité.
               </h2>
-              <p className="text-slate-600 mb-0">
-                Une transition organisée garantit :
+              <p className="text-slate-600 mb-8 leading-relaxed">
+                Une transition organisée garantit l'absence de toute interruption administrative et la bonne tenue de vos comptes.
               </p>
+              <Link href="#audit">
+                <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 shadow-lg shadow-green-900/10">
+                  Organiser ma transition
+                </Button>
+              </Link>
             </div>
             <div className="flex-1 w-full">
               <ul className="space-y-4">
-                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mr-4 shrink-0" /> Continuité des déclarations
+                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <CheckCircle2 className="h-5 w-5 text-green-700 mr-4 shrink-0" /> Continuité des déclarations
                 </li>
-                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mr-4 shrink-0" /> Transmission structurée des documents
+                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <CheckCircle2 className="h-5 w-5 text-green-700 mr-4 shrink-0" /> Transmission structurée des documents
                 </li>
-                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mr-4 shrink-0" /> Absence d’interruption administrative
+                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <CheckCircle2 className="h-5 w-5 text-green-700 mr-4 shrink-0" /> Absence d’interruption administrative
                 </li>
               </ul>
             </div>
@@ -248,7 +253,7 @@ export default function Home() {
       </Section>
 
       {/* 7. SECTION TYPES D'ENTREPRISES (Refined Design) */}
-      <Section className="bg-white py-24 border-t border-slate-100">
+      <Section className="bg-white py-20 border-t border-slate-100">
         <div className="mx-auto max-w-6xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 mb-12">
             Nous accompagnons notamment
@@ -262,7 +267,7 @@ export default function Home() {
               "Artisans",
               "Sociétés anonymes (SA)"
             ].map((type, index) => (
-              <span key={index} className="px-8 py-4 bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] border border-slate-100 text-slate-700 font-medium hover:scale-105 transition-transform cursor-default">
+              <span key={index} className="px-8 py-4 bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-slate-100 text-slate-700 font-medium cursor-default">
                 {type}
               </span>
             ))}
@@ -276,39 +281,74 @@ export default function Home() {
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 text-center mb-16">
             Questions fréquentes
           </h2>
-          <div className="grid gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="font-bold text-slate-900 text-lg mb-3 flex items-center">
-                <HelpCircle className="h-5 w-5 text-slate-400 mr-3" /> Quel est le rôle exact de FiduConnect ?
-              </h3>
-              <p className="text-slate-600 leading-relaxed pl-8">
+          <div className="grid gap-6">
+            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-bold text-lg select-none">
+                <div className="flex items-center">
+                  <HelpCircle className="h-5 w-5 text-green-600 mr-3" />
+                  <span>Quel est le rôle exact de FiduConnect ?</span>
+                </div>
+                <div className="shrink-0 transition duration-300 group-open:-rotate-180">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </summary>
+              <p className="mt-4 leading-relaxed text-slate-700 pl-8">
                 FiduConnect organise et structure la mise en relation avec un expert fiduciaire partenaire basé à Genève. Les prestations comptables sont réalisées directement par cet expert.
               </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="font-bold text-slate-900 text-lg mb-3 flex items-center">
-                <HelpCircle className="h-5 w-5 text-slate-400 mr-3" /> La consultation est-elle vraiment gratuite ?
-              </h3>
-              <p className="text-slate-600 leading-relaxed pl-8">
+            </details>
+
+            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-bold text-lg select-none">
+                <div className="flex items-center">
+                  <HelpCircle className="h-5 w-5 text-green-600 mr-3" />
+                  <span>La consultation est-elle vraiment gratuite ?</span>
+                </div>
+                <div className="shrink-0 transition duration-300 group-open:-rotate-180">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </summary>
+              <p className="mt-4 leading-relaxed text-slate-700 pl-8">
                 Oui. Elle permet d’analyser votre situation sans engagement.
               </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="font-bold text-slate-900 text-lg mb-3 flex items-center">
-                <HelpCircle className="h-5 w-5 text-slate-400 mr-3" /> Suis-je obligé de changer de fiduciaire ?
-              </h3>
-              <p className="text-slate-600 leading-relaxed pl-8">
+            </details>
+
+            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-bold text-lg select-none">
+                <div className="flex items-center">
+                  <HelpCircle className="h-5 w-5 text-green-600 mr-3" />
+                  <span>Suis-je obligé de changer de fiduciaire ?</span>
+                </div>
+                <div className="shrink-0 transition duration-300 group-open:-rotate-180">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </summary>
+              <p className="mt-4 leading-relaxed text-slate-700 pl-8">
                 Non. L’objectif est d’évaluer et de structurer votre situation.
               </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="font-bold text-slate-900 text-lg mb-3 flex items-center">
-                <HelpCircle className="h-5 w-5 text-slate-400 mr-3" /> Pourquoi passer par FiduConnect plutôt que contacter directement une fiduciaire ?
-              </h3>
-              <p className="text-slate-600 leading-relaxed pl-8">
+            </details>
+
+            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-bold text-lg select-none">
+                <div className="flex items-center">
+                  <HelpCircle className="h-5 w-5 text-green-600 mr-3" />
+                  <span>Pourquoi passer par FiduConnect plutôt que contacter directement une fiduciaire ?</span>
+                </div>
+                <div className="shrink-0 transition duration-300 group-open:-rotate-180">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </summary>
+              <p className="mt-4 leading-relaxed text-slate-700 pl-8">
                 FiduConnect structure en amont votre situation afin d’orienter votre mandat vers un expert réellement adapté à vos besoins.
               </p>
-            </div>
+            </details>
           </div>
         </div>
       </Section>

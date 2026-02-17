@@ -19,10 +19,10 @@ export function Footer() {
                     <div>
                         <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Navigation</h3>
                         <ul role="list" className="space-y-3">
-                            <li><Link href="/services" className="text-sm hover:text-white transition-colors">Comptabilité PME & Indépendants</Link></li>
-                            <li><Link href="/tva-suisse" className="text-sm hover:text-white transition-colors">Audit TVA Gratuit</Link></li>
-                            <li><Link href="/ressources" className="text-sm hover:text-white transition-colors">Conseils Fiscaux & Actualités</Link></li>
-                            <li><Link href="/a-propos" className="text-sm hover:text-white transition-colors">À Propos</Link></li>
+                            <li><Link href="/services" className="text-sm text-slate-300 hover:text-white transition-colors">Comptabilité PME & Indépendants</Link></li>
+                            <li><Link href="/tva-suisse" className="text-sm text-slate-300 hover:text-white transition-colors">Audit TVA Gratuit</Link></li>
+                            <li><Link href="/ressources" className="text-sm text-slate-300 hover:text-white transition-colors">Conseils Fiscaux & Actualités</Link></li>
+                            <li><Link href="/a-propos" className="text-sm text-slate-300 hover:text-white transition-colors">À Propos</Link></li>
                             <li><Link href="/contact" className="text-sm font-bold text-white hover:text-green-400 transition-colors">Prendre rendez-vous (30 min)</Link></li>
                         </ul>
                     </div>
@@ -47,7 +47,7 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-2 text-sm">
                                 <Phone className="h-4 w-4 text-green-500 flex-shrink-0" />
-                                <span className="text-slate-400">Sur demande</span>
+                                <span className="text-slate-300">Sur demande</span>
                             </li>
                         </ul>
                     </div>
@@ -70,6 +70,6 @@ export function Footer() {
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 }
