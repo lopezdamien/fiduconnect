@@ -1,7 +1,26 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 export function Footer() {
+    const pathname = usePathname();
+    const isLP = pathname?.startsWith('/lp');
+
+    if (isLP) {
+        return (
+            <footer className="bg-white border-t border-slate-100 py-6">
+                <div className="mx-auto max-w-7xl px-6 text-center">
+                    <p className="text-xs text-slate-400">
+                        &copy; {new Date().getFullYear()} FiduConnect. Tous droits réservés.
+                        <Link href="/mentions-legales" className="ml-4 hover:text-slate-600 transition-colors">Mentions légales</Link>
+                    </p>
+                </div>
+            </footer>
+        );
+    }
+
     return (
         <footer className="bg-slate-900 text-slate-300">
             <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
@@ -21,7 +40,7 @@ export function Footer() {
                         <ul role="list" className="space-y-3">
                             <li><Link href="/services" className="text-sm text-slate-300 hover:text-white transition-colors">Comptabilité PME & Indépendants</Link></li>
                             <li><Link href="/tva-suisse" className="text-sm text-slate-300 hover:text-white transition-colors">Audit TVA Gratuit</Link></li>
-                            <li><Link href="/ressources" className="text-sm text-slate-300 hover:text-white transition-colors">Conseils Fiscaux & Actualités</Link></li>
+                            <li><Link href="/ressources" className="text-sm text-slate-300 hover:text-white transition-colors">Ressources</Link></li>
                             <li><Link href="/a-propos" className="text-sm text-slate-300 hover:text-white transition-colors">À Propos</Link></li>
                             <li><Link href="/contact" className="text-sm font-bold text-white hover:text-green-400 transition-colors">Prendre rendez-vous (30 min)</Link></li>
                         </ul>

@@ -4,8 +4,8 @@ import { ArrowRight, BookOpen } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Ressources & Actualités Comptables Genève | FIDU",
-    description: "Guides pratiques, articles de fond et actualités fiscales pour les PME suisses.",
+    title: "Ressources Fiduciaires Genève | Analyses & Guides PME",
+    description: "Découvrez nos analyses et guides pratiques pour dirigeants de PME à Genève. TVA, fiscalité, comptabilité et optimisation.",
 };
 
 export default function Resources() {
@@ -23,10 +23,10 @@ export default function Resources() {
         <>
             <section className="bg-slate-900 py-20 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                    Ressources & Conseils
+                    Ressources & Analyses Fiduciaires à Genève
                 </h1>
-                <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-                    La connaissance est votre meilleure protection contre les risques fiscaux.
+                <p className="mt-6 text-lg tracking-wide text-slate-300 max-w-2xl mx-auto font-medium opacity-90">
+                    Guides pratiques, analyses fiscales et décryptages comptables pour dirigeants de PME à Genève.
                 </p>
             </section>
 

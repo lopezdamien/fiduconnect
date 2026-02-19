@@ -8,12 +8,16 @@ import { Button } from './Button';
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
+    const isLP = pathname?.startsWith('/lp');
+
+    if (isLP) return null;
 
     const navigation = [
         { name: 'Accueil', href: '/' },
         { name: 'Services comptables', href: '/services' },
         { name: 'TVA Suisse', href: '/tva-suisse' },
         { name: 'Changer de fiduciaire', href: '/changer-fiduciaire' },
+        { name: 'Ressources', href: '/ressources' },
         { name: 'Contact', href: '/contact' },
     ];
 
