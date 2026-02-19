@@ -7,8 +7,8 @@ import { CheckCircle2, ArrowRight, AlertTriangle, HelpCircle, ArrowLeft, ShieldC
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Changer de fiduciaire à Genève | Transition comptable PME",
-    description: "Comment changer de fiduciaire à Genève ? Étapes, résiliation du mandat, reprise comptable et organisation TVA pour PME.",
+    title: "Changer de fiduciaire | Transition comptable PME",
+    description: "Comment changer de fiduciaire ? Étapes, résiliation du mandat, reprise comptable et organisation TVA pour PME.",
 };
 
 export default function ChangerFiduciaireArticle() {
@@ -22,7 +22,7 @@ export default function ChangerFiduciaireArticle() {
                         Retour aux ressources
                     </Link>
                     <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-8 leading-tight">
-                        Changer de fiduciaire à Genève : comment organiser la transition en toute sécurité ?
+                        Changer de fiduciaire : comment organiser la transition en toute sécurité ?
                     </h1>
 
                     <p className="text-xl leading-8 text-slate-700">
@@ -51,7 +51,7 @@ export default function ChangerFiduciaireArticle() {
             <Section className="bg-white">
                 <div className="mx-auto max-w-3xl">
                     <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mb-6">
-                        Pourquoi les PME à Genève envisagent-elles un changement de fiduciaire ?
+                        Pourquoi les PME envisagent-elles un changement de fiduciaire ?
                     </h2>
                     <p className="text-slate-700 mb-6 leading-relaxed font-medium text-lg">
                         Changer de fiduciaire n’est pas un échec, c’est une décision stratégique. Si votre entreprise évolue, votre accompagnement doit évoluer aussi.
@@ -78,7 +78,7 @@ export default function ChangerFiduciaireArticle() {
                         </li>
                     </ul>
                     <p className="text-slate-700 leading-relaxed">
-                        Pour répondre aux obligations fiscales du canton de Genève, une PME doit pouvoir compter sur une reprise comptable fluide et une transition maîtrisée.
+                        Pour répondre aux obligations fiscales, une PME doit pouvoir compter sur une reprise comptable fluide et une transition maîtrisée.
                     </p>
                 </div>
             </Section>

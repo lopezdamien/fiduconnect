@@ -5,7 +5,7 @@ import { Check, AlertTriangle, ArrowRight, HelpCircle } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Expertise TVA Genève | Décompte & Optimisation | FIDUCONNECT",
+    title: "Expertise TVA | Décompte & Optimisation | FIDUCONNECT",
     description: "Méthode effective ou taux de dette fiscale nette ? Ne perdez plus d'argent avec votre TVA. Analyse gratuite pour PME. Évitez les redressements.",
 };
 

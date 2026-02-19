@@ -5,7 +5,7 @@ import { AlertTriangle, TrendingDown, FileText, ArrowRight, Wallet, RefreshCcw }
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Services & Expertise Comptable Genève | FIDU",
+    title: "Services & Expertise Comptable | FIDU",
     description: "Découvrez nos services d'analyse et d'orientation : TVA, Fiscalité, Salaires, Pilotage financier pour PME.",
 };
 
@@ -146,7 +146,7 @@ export default function Services() {
                             <div className="flex-none w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-slate-900/20 group-hover:bg-green-600 group-hover:shadow-green-600/30 transition-all">2</div>
                             <div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-2">Partenaire de Confiance</h3>
-                                <p className="text-slate-600 leading-relaxed text-lg">Votre dossier est piloté par un expert comptable expert du marché genevois, garantissant rigueur, conformité et réactivité.</p>
+                                <p className="text-slate-600 leading-relaxed text-lg">Votre dossier est piloté par un expert comptable expert du marché suisse, garantissant rigueur, conformité et réactivité.</p>
                             </div>
                         </div>
                         <div className="group flex gap-6 p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">

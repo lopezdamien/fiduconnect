@@ -5,8 +5,8 @@ import { CheckCircle2, MessageSquare, Clock, ShieldCheck, ArrowRight, HelpCircle
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Changer de fiduciaire à Genève | Processus simple et sécurisé",
-    description: "Changer de fiduciaire à Genève sans rupture d’activité. Audit préalable, transfert sécurisé et accompagnement structuré. Consultation gratuite 30 minutes.",
+    title: "Changer de fiduciaire | Processus simple et sécurisé",
+    description: "Changer de fiduciaire sans rupture d’activité. Audit préalable, transfert sécurisé et accompagnement structuré. Consultation gratuite 30 minutes.",
 };
 
 export default function ChangerFiduciaire() {
@@ -15,7 +15,7 @@ export default function ChangerFiduciaire() {
             <section className="bg-slate-900 pt-24 pb-20 text-center">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6 leading-tight">
-                        Changer de fiduciaire à Genève sans stress ni rupture d’activité
+                        Changer de fiduciaire sans stress ni rupture d’activité
                     </h1>
                     <p className="text-lg leading-8 text-slate-300 max-w-3xl mx-auto mb-10">
                         Une transition fluide, encadrée juridiquement et 100% sécurisée.
@@ -37,7 +37,7 @@ export default function ChangerFiduciaire() {
                     <div className="mt-12 inline-block bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 max-w-2xl mx-auto">
                         <div className="flex items-center justify-center gap-3 mb-2">
                             <Briefcase className="h-5 w-5 text-green-500" />
-                            <span className="text-white font-bold text-lg">+120 PME accompagnées à Genève</span>
+                            <span className="text-white font-bold text-lg">+120 PME accompagnées</span>
                         </div>
                         <p className="text-slate-400 text-sm">
                             Transition gérée de manière professionnelle, confidentielle et structurée.

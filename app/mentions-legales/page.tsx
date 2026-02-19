@@ -70,7 +70,7 @@ export default function MentionsLegales() {
                         <h2 className="text-xl font-bold text-slate-900 mb-4">6. Droit applicable</h2>
                         <p>
                             Le droit suisse est applicable.<br />
-                            For juridique à Genève.
+                            For juridique au siège de la société.
                         </p>
                     </section>
                 </div>

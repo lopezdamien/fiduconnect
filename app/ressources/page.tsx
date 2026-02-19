@@ -4,14 +4,14 @@ import { ArrowRight, BookOpen } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Ressources Fiduciaires Genève | Analyses & Guides PME",
-    description: "Découvrez nos analyses et guides pratiques pour dirigeants de PME à Genève. TVA, fiscalité, comptabilité et optimisation.",
+    title: "Ressources Fiduciaires | Analyses & Guides PME",
+    description: "Découvrez nos analyses et guides pratiques pour dirigeants de PME. TVA, fiscalité, comptabilité et optimisation.",
 };
 
 export default function Resources() {
     const articles = [
         {
-            title: "Changer de fiduciaire à Genève : comment organiser la transition en toute sécurité ?",
+            title: "Changer de fiduciaire : comment organiser la transition en toute sécurité ?",
             excerpt: "Changer de fiduciaire est une décision stratégique. Découvrez comment organiser une transition fluide, sans risque fiscal et en toute transparence pour votre PME.",
             category: "Gestion Fiduciaire",
             date: "15 Février 2026",

@@ -5,8 +5,8 @@ import { CheckCircle2, AlertTriangle, ArrowRight, TrendingUp, ShieldCheck, MapPi
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Expert TVA Genève | Audit & Optimisation Fiscale PME",
-    description: "Expert TVA à Genève pour PME. Audit 100% gratuit : choix méthode TDFN vs effective, inscription seuil 100'000 CHF, et conformité AFC.",
+    title: "Expert TVA | Audit & Optimisation Fiscale PME",
+    description: "Expert TVA pour PME. Audit 100% gratuit : choix méthode TDFN vs effective, inscription seuil 100'000 CHF, et conformité AFC.",
 };
 
 export default function TvaSuisse() {
@@ -19,7 +19,7 @@ export default function TvaSuisse() {
 
                 <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
                     <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl mb-6 leading-tight max-w-5xl mx-auto">
-                        Expert TVA à Genève pour PME : <br className="hidden sm:block" />
+                        Expert TVA pour PME : <br className="hidden sm:block" />
                         <span className="text-green-500">évitez les redressements fiscaux</span>
                     </h1>
                     <p className="mt-6 text-xl leading-8 text-slate-300 max-w-3xl mx-auto font-medium">
@@ -46,14 +46,14 @@ export default function TvaSuisse() {
             {/* 2. SECTION CREDIBILITE */}
             <div className="bg-[#f7f9fb] border-b border-slate-200 py-16">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-                    <h2 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-10">Conseil TVA PME Genève : Pourquoi faire analyser votre dossier ?</h2>
+                    <h2 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-10">Conseil TVA PME : Pourquoi faire analyser votre dossier ?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-700 font-medium">
                         <div className="flex flex-col items-center justify-center gap-4 bg-white px-8 py-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                             <div className="p-3 bg-green-50 rounded-full text-green-600 mb-2">
                                 <CheckCircle2 className="h-8 w-8" />
                             </div>
                             <span className="text-lg font-bold text-slate-900">+120 PME accompagnées</span>
-                            <span className="text-sm text-slate-500">Implantées à Genève et environs</span>
+                            <span className="text-sm text-slate-500">Implantées en Suisse romande</span>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-4 bg-white px-8 py-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                             <div className="p-3 bg-green-50 rounded-full text-green-600 mb-2">
@@ -241,7 +241,7 @@ export default function TvaSuisse() {
             <Section className="bg-white py-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-4 sm:text-4xl">Les erreurs TVA qui coûtent le plus cher aux PME genevoises</h2>
+                        <h2 className="text-3xl font-bold text-slate-900 mb-4 sm:text-4xl">Les erreurs TVA qui coûtent le plus cher aux PME</h2>
                         <p className="text-lg text-slate-600">Une gestion approximative entraîne souvent des correctifs douloureux.</p>
                     </div>
 

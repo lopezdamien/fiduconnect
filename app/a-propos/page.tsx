@@ -3,8 +3,8 @@ import { CheckCircle2 } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "À Propos | Cabinet d'expertise comptable Genève",
-    description: "Un regard indépendant et structuré sur votre comptabilité. Découvrez notre approche pragmatique pour les PME genevoises.",
+    title: "À Propos | Cabinet d'expertise comptable",
+    description: "Un regard indépendant et structuré sur votre comptabilité. Découvrez notre approche pragmatique pour les PME.",
 };
 
 export default function About() {

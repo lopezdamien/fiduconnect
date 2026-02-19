@@ -5,8 +5,8 @@ import { CheckCircle2, MessageSquare, Clock, ShieldCheck, ArrowRight, HelpCircle
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Changer de fiduciaire à Genève | Transition sécurisée",
-    description: "Changez de fiduciaire à Genève sans risque. Audit préalable, transfert encadré et continuité fiscale garantie. Consultation gratuite.",
+    title: "Changer de fiduciaire | Transition sécurisée",
+    description: "Changez de fiduciaire sans risque. Audit préalable, transfert encadré et continuité fiscale garantie. Consultation gratuite.",
 };
 
 export default function ChangerFiduciaire() {

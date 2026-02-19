@@ -18,8 +18,8 @@ import { Metadata } from 'next';
 import { LeadForm } from "@/components/LeadForm";
 
 export const metadata: Metadata = {
-  title: "FiduConnect | Consultation & Structuration Fiduciaire Genève",
-  description: "FiduConnect structure et sécurise votre gestion comptable grâce à une consultation stratégique gratuite avec un expert fiduciaire partenaire à Genève.",
+  title: "FiduConnect | Consultation & Structuration Fiduciaire",
+  description: "FiduConnect structure et sécurise votre gestion comptable grâce à une consultation stratégique gratuite avec un expert fiduciaire partenaire.",
 };
 
 export default function Home() {

@@ -6,8 +6,8 @@ import { LPForm } from '@/components/LPForm';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Changer de fiduciaire à Genève | Consultation gratuite 30 min',
-    description: 'Besoin de changer de fiduciaire à Genève ? Transition encadrée, analyse confidentielle offerte en 30 minutes. Sans conflit, sans stress.',
+    title: 'Changer de fiduciaire | Consultation gratuite 30 min',
+    description: 'Besoin de changer de fiduciaire ? Transition encadrée, analyse confidentielle offerte en 30 minutes. Sans conflit, sans stress.',
     robots: {
         index: false,
         follow: false,
@@ -36,14 +36,14 @@ export default function LandingPage() {
                             </h1>
                             <p className="mt-6 text-lg text-slate-600 mb-8 font-medium leading-relaxed">
                                 Analyse confidentielle offerte (30 min).<br />
-                                Transition encadrée par un expert fiduciaire partenaire à Genève.
+                                Transition encadrée par un expert fiduciaire partenaire.
                             </p>
 
                             {/* Checkpoints (Visible on Desktop, moved below form on Mobile usually, but here keeping consistent) */}
                             <div className="space-y-3 text-sm font-medium text-slate-700 mb-8 lg:mb-0">
                                 <div className="flex items-center justify-center lg:justify-start gap-3">
                                     <div className="bg-green-100 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-green-700" /></div>
-                                    <span>+120 PME accompagnées à Genève</span>
+                                    <span>+120 PME accompagnées</span>
                                 </div>
                                 <div className="flex items-center justify-center lg:justify-start gap-3">
                                     <div className="bg-green-100 p-1 rounded-full"><ShieldCheck className="w-4 h-4 text-green-700" /></div>
@@ -157,7 +157,7 @@ export default function LandingPage() {
                         </div>
                         <div className="bg-slate-50 p-6 rounded-xl">
                             <h3 className="font-bold text-slate-900 mb-2 text-sm">Y a-t-il des frais pour l’analyse ?</h3>
-                            <p className="text-sm text-slate-600">Non, c'est 100% offert pour les entreprises à Genève.</p>
+                            <p className="text-sm text-slate-600">Non, c'est 100% offert pour les entreprises.</p>
                         </div>
                     </div>
                 </div>

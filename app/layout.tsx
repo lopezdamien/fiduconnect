@@ -10,8 +10,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://fiduconnectch.vercel.app'),
-  title: "FIDUCONNECT | Expert Comptable Genève & Fiscalité PME",
-  description: "Une approche claire et structurée de votre comptabilité, TVA et obligations fiscales. Audit conformité gratuit pour PME à Genève. Partenaires experts-comptables.",
+  title: "FIDUCONNECT | Expert Comptable & Fiscalité PME",
+  description: "Une approche claire et structurée de votre comptabilité, TVA et obligations fiscales. Audit conformité gratuit pour PME. Partenaires experts-comptables.",
 };
 
 export default function RootLayout({

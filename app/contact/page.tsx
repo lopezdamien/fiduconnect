@@ -7,8 +7,8 @@ import { Mail, Phone, MapPin, CheckCircle2, UserCheck, ShieldCheck, Briefcase } 
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Contact Fiduciaire Genève | Consultation Comptable Gratuite | FiduConnect",
-    description: "Besoin d’un avis comptable à Genève ? Obtenez une consultation gratuite de 30 minutes avec un expert fiduciaire partenaire. Analyse personnalisée et sans engagement.",
+    title: "Contact Fiduciaire | Consultation Comptable Gratuite | FiduConnect",
+    description: "Besoin d’un avis comptable ? Obtenez une consultation gratuite de 30 minutes avec un expert fiduciaire partenaire. Analyse personnalisée et sans engagement.",
 };
 
 export default function Contact() {

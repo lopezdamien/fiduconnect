@@ -5,7 +5,7 @@ import { Check, CheckCircle2, AlertTriangle, Building2, Users, Briefcase, Shield
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Gestion Salaires & LPP Genève | Conformité AVS | FIDU",
+    title: "Gestion Salaires & LPP | Conformité AVS | FIDU",
     description: "Externalisez votre gestion des salaires en toute sécurité. Audit RH gratuit, LPP, AVS, LAA. Conformité garantie pour PME suisses. Évitez les redressements.",
 };
 
@@ -187,7 +187,7 @@ export default function ServiceSalaires() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
                         <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col items-center hover:border-blue-200 hover:shadow-md transition-all">
                             <Building2 className="h-12 w-12 text-blue-600 mb-6" />
-                            <span className="font-bold text-slate-900 text-xl">PME genevoises en croissance</span>
+                            <span className="font-bold text-slate-900 text-xl">PME suisses en croissance</span>
                         </div>
                         <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col items-center hover:border-blue-200 hover:shadow-md transition-all">
                             <div className="h-12 w-12 flex items-center justify-center bg-blue-100 rounded-full mb-6 text-blue-600 font-bold text-2xl">🚀</div>
