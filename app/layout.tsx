@@ -8,8 +8,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "https://www.fiduconnect.ch";
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://fiduconnectch.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: "FIDUCONNECT | Expert Comptable & Fiscalité PME",
   description: "Une approche claire et structurée de votre comptabilité, TVA et obligations fiscales. Audit conformité gratuit pour PME. Partenaires experts-comptables.",
 };
