@@ -15,7 +15,7 @@ export default function About() {
                     Notre Rôle
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-                    Apporter de la clarté administrative aux dirigeants de PME genevoises.
+                    Apporter de la clarté administrative aux dirigeants de PME.
                 </p>
             </section>
 

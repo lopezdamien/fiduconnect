@@ -23,10 +23,10 @@ export default function Resources() {
         <>
             <section className="bg-slate-900 py-20 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
-                    Ressources & Analyses Fiduciaires à Genève
+                    Ressources & Analyses Fiduciaires
                 </h1>
                 <p className="mt-6 text-lg tracking-wide text-slate-300 max-w-2xl mx-auto font-medium opacity-90">
-                    Guides pratiques, analyses fiscales et décryptages comptables pour dirigeants de PME à Genève.
+                    Guides pratiques, analyses fiscales et décryptages comptables pour dirigeants de PME.
                 </p>
             </section>
 

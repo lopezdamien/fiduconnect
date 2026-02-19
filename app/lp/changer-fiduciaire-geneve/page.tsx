@@ -31,7 +31,7 @@ export default function LandingPage() {
                         {/* Text Content */}
                         <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
                             <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-6 leading-tight">
-                                Changer de fiduciaire à Genève <br />
+                                Changer de fiduciaire <br />
                                 <span className="text-green-700">Sans conflit.</span> Sans perte de données. <span className="text-green-700">Sans stress.</span>
                             </h1>
                             <p className="mt-6 text-lg text-slate-600 mb-8 font-medium leading-relaxed">

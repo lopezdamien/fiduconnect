@@ -34,7 +34,7 @@ export default function Home() {
               30 minutes pour clarifier et sécuriser votre situation comptable.
             </h1>
             <p className="mt-6 text-xl leading-8 text-slate-300 font-medium">
-              FiduConnect organise un diagnostic stratégique gratuit avec un expert fiduciaire partenaire à Genève afin d’identifier vos points de fragilité, structurer votre situation et éviter des erreurs coûteuses.
+              FiduConnect organise un diagnostic stratégique gratuit avec un expert fiduciaire partenaire afin d’identifier vos points de fragilité, structurer votre situation et éviter des erreurs coûteuses.
             </p>
 
             <div className="mt-12 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 text-slate-200 text-lg">
@@ -224,7 +224,7 @@ export default function Home() {
           <div className="bg-white rounded-2xl p-10 lg:p-16 shadow-sm border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-md">
               <h2 className="text-3xl font-bold tracking-tight text-slate-900 mb-6">
-                Changer de fiduciaire à Genève, en toute continuité.
+                Changer de fiduciaire, en toute continuité.
               </h2>
               <p className="text-slate-600 mb-8 leading-relaxed">
                 Une transition organisée garantit l'absence de toute interruption administrative et la bonne tenue de vos comptes.
@@ -295,7 +295,7 @@ export default function Home() {
                 </div>
               </summary>
               <p className="mt-4 leading-relaxed text-slate-700 pl-8">
-                FiduConnect organise et structure la mise en relation avec un expert fiduciaire partenaire basé à Genève. Les prestations comptables sont réalisées directement par cet expert.
+                FiduConnect organise et structure la mise en relation avec un expert fiduciaire partenaire. Les prestations comptables sont réalisées directement par cet expert.
               </p>
             </details>
 

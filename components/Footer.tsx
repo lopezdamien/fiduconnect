@@ -30,7 +30,7 @@ export function Footer() {
                             FIDUCONNECT<span className="text-green-500">.</span>
                         </Link>
                         <p className="mt-4 text-sm leading-6 max-w-md">
-                            Fiduciaire à Genève, FiduConnect accompagne les PME, startups et indépendants dans l'optimisation de leur gestion comptable et fiscale.
+                            Fiduciaire digitale, FiduConnect accompagne les PME et indépendants dans l'optimisation de leur gestion comptable et fiscale.
                             Une expertise dédiée pour sécuriser votre croissance et garantir votre conformité.
                         </p>
                     </div>
@@ -57,7 +57,7 @@ export function Footer() {
                                     rel="noopener noreferrer"
                                     className="hover:text-white"
                                 >
-                                    Genève, Suisse
+                                    Suisse
                                 </a>
                             </li>
                             <li className="flex items-center gap-2 text-sm">

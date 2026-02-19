@@ -18,7 +18,7 @@ export default function ChangerFiduciaire() {
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
                 <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
                     <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6 leading-tight">
-                        Changer de fiduciaire à Genève, <br className="hidden sm:block" />
+                        Changer de fiduciaire, <br className="hidden sm:block" />
                         <span className="text-green-500">simplement et sans risque</span>
                     </h1>
                     <p className="mt-6 text-xl leading-8 text-slate-300 max-w-2xl mx-auto font-medium">

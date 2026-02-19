@@ -15,7 +15,7 @@ export function Header() {
     const navigation = [
         { name: 'Accueil', href: '/' },
         { name: 'Services comptables', href: '/services' },
-        { name: 'TVA Suisse', href: '/tva-suisse' },
+        { name: 'TVA', href: '/tva-suisse' },
         { name: 'Changer de fiduciaire', href: '/changer-fiduciaire' },
         { name: 'Ressources', href: '/ressources' },
         { name: 'Contact', href: '/contact' },

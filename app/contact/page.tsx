@@ -21,7 +21,7 @@ export default function Contact() {
                         Parlons de votre situation comptable
                     </h1>
                     <p className="mt-6 text-xl leading-8 text-slate-300 max-w-3xl mx-auto font-medium">
-                        En 30 minutes, identifiez vos risques fiscaux et vos optimisations possibles avec un expert fiduciaire à Genève.
+                        En 30 minutes, identifiez vos risques fiscaux et vos optimisations possibles avec un expert fiduciaire.
                     </p>
 
                     <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-sm text-slate-400 font-medium">
@@ -51,7 +51,7 @@ export default function Contact() {
                                     <MapPin className="h-5 w-5 text-slate-700 group-hover:text-green-600 transition-colors" />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-green-700 font-bold uppercase tracking-wide mb-1">Présence locale à Genève</p>
+                                    <p className="text-xs text-green-700 font-bold uppercase tracking-wide mb-1">Présence en Suisse</p>
                                     <h3 className="font-bold text-slate-900 text-lg">Bureau</h3>
                                     <p className="text-slate-600 leading-relaxed mt-1">Rue du Rhône 14<br />1204 Genève, Suisse</p>
                                 </div>

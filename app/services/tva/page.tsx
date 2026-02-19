@@ -19,7 +19,7 @@ export default function ServiceTVA() {
 
                 <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center pt-8">
                     <span className="inline-flex items-center rounded-full bg-orange-500/10 px-3 py-1 text-sm font-semibold text-orange-400 ring-1 ring-inset ring-orange-500/20 mb-6">
-                        FISCALITÉ & TVA – GENÈVE
+                        FISCALITÉ & TVA
                     </span>
                     <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6 max-w-4xl mx-auto leading-tight">
                         TVA & Assujettissement : <span className="text-green-500">sécurisez votre conformité</span> et évitez les reprises fiscales
