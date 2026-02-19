@@ -18,8 +18,11 @@ import { Metadata } from 'next';
 import { LeadForm } from "@/components/LeadForm";
 
 export const metadata: Metadata = {
-  title: "FiduConnect | Consultation & Structuration Fiduciaire",
-  description: "FiduConnect structure et sécurise votre gestion comptable grâce à une consultation stratégique gratuite avec un expert fiduciaire partenaire.",
+  title: "Changer de fiduciaire en Suisse romande | Diagnostic gratuit PME | FiduConnect",
+  description: "Vous souhaitez changer de fiduciaire en Suisse romande ? Comparez les honoraires, la TVA et la qualité de service. Diagnostic gratuit pour PME et indépendants.",
+  alternates: {
+    canonical: "/",
+  }
 };
 
 export default function Home() {
