@@ -18,7 +18,7 @@ import { Metadata } from 'next';
 import { LeadForm } from "@/components/LeadForm";
 
 export const metadata: Metadata = {
-  title: "Changer de fiduciaire en Suisse romande | Diagnostic gratuit PME | FiduConnect",
+  title: "Changer de fiduciaire en Suisse romande | FiduConnect",
   description: "Vous souhaitez changer de fiduciaire en Suisse romande ? Comparez les honoraires, la TVA et la qualité de service. Diagnostic gratuit pour PME et indépendants.",
   alternates: {
     canonical: "/",
