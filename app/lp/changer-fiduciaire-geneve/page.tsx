@@ -19,11 +19,11 @@ export default function LandingPage() {
     return (
         <main className="min-h-screen bg-white font-sans text-slate-900">
             {/* 0. DISCRET LOGO HEADER */}
-            <header className="absolute top-0 left-0 w-full p-6 z-10 flex justify-between items-center">
+            <header className="absolute top-0 left-0 w-full p-4 sm:p-6 z-10 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
                 <Link href="/" className="text-xl font-bold text-slate-900">
                     FIDUCONNECT<span className="text-green-700">.</span>
                 </Link>
-                <a href="tel:+41795186717" className="text-sm font-medium text-slate-700 hover:text-green-700 transition-colors">
+                <a href="tel:+41795186717" className="text-sm font-medium text-slate-700 hover:text-green-700 transition-colors bg-white/80 px-4 py-2 sm:px-0 sm:py-0 rounded-full backdrop-blur-sm sm:bg-transparent shadow-sm sm:shadow-none border border-slate-100 sm:border-transparent">
                     📞 +41 79 518 67 17
                 </a>
             </header>
@@ -34,9 +34,9 @@ export default function LandingPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         {/* Text Content */}
                         <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-                            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-6 leading-tight">
-                                Changer de fiduciaire <br />
-                                <span className="text-green-700">Sans conflit.</span> Sans perte de données. <span className="text-green-700">Sans stress.</span>
+                            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight text-balance mx-auto lg:mx-0 max-w-lg lg:max-w-none">
+                                Changer de fiduciaire <br className="hidden sm:block" />
+                                <span className="text-green-700">Sans conflit.</span> Sans perte de données. <span className="text-green-700 inline-block">Sans stress.</span>
                             </h1>
                             <p className="mt-6 text-lg text-slate-600 mb-8 font-medium leading-relaxed">
                                 Analyse confidentielle offerte (30 min).<br />
@@ -49,7 +49,7 @@ export default function LandingPage() {
                                     alt="Illustration de la transition fiduciaire" 
                                     width={320} 
                                     height={240} 
-                                    className="object-contain w-full max-w-[280px] drop-shadow-sm mix-blend-multiply bg-transparent"
+                                    className="object-contain w-full max-w-[280px] drop-shadow-sm"
                                     priority
                                 />
                             </div>
@@ -57,23 +57,23 @@ export default function LandingPage() {
                             {/* Checkpoints (Visible on Desktop, moved below form on Mobile usually, but here keeping consistent) */}
                             <div className="space-y-3 text-sm font-medium text-slate-700 mb-8 lg:mb-0">
 
-                                <div className="flex items-center justify-center lg:justify-start gap-3">
-                                    <div className="bg-green-100 p-1 rounded-full"><ShieldCheck className="w-4 h-4 text-green-700" /></div>
-                                    <span>100% confidentiel</span>
+                                <div className="flex items-start lg:items-center justify-center lg:justify-start gap-3">
+                                    <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5 lg:mt-0"><ShieldCheck className="w-4 h-4 text-green-700" /></div>
+                                    <span className="text-left text-sm">100% confidentiel</span>
                                 </div>
-                                <div className="flex items-center justify-center lg:justify-start gap-3">
-                                    <div className="bg-green-100 p-1 rounded-full"><Briefcase className="w-4 h-4 text-green-700" /></div>
-                                    <span>Aucune démarche sans votre validation</span>
+                                <div className="flex items-start lg:items-center justify-center lg:justify-start gap-3">
+                                    <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5 lg:mt-0"><Briefcase className="w-4 h-4 text-green-700" /></div>
+                                    <span className="text-left text-sm leading-snug">Aucune démarche sans votre validation</span>
                                 </div>
-                                <div className="flex items-center justify-center lg:justify-start gap-3">
-                                    <div className="bg-green-100 p-1 rounded-full"><Clock className="w-4 h-4 text-green-700" /></div>
-                                    <span>Consultation gratuite · 30 minutes</span>
+                                <div className="flex items-start lg:items-center justify-center lg:justify-start gap-3">
+                                    <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5 lg:mt-0"><Clock className="w-4 h-4 text-green-700" /></div>
+                                    <span className="text-left text-sm leading-snug">Consultation gratuite · 30 minutes</span>
                                 </div>
-                                <div className="flex items-center justify-center lg:justify-start gap-3">
-                                    <div className="bg-green-100 p-1 rounded-full"><Users className="w-4 h-4 text-green-700" /></div>
-                                    <span>+ de 120 PME accompagnées par nos experts partenaires</span>
+                                <div className="flex items-start lg:items-center justify-center lg:justify-start gap-3">
+                                    <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5 lg:mt-0"><Users className="w-4 h-4 text-green-700" /></div>
+                                    <span className="text-left text-sm leading-snug">+ de 120 PME accompagnées par nos experts partenaires</span>
                                 </div>
-                                <div className="flex items-center justify-center lg:justify-start gap-3 text-slate-500 text-xs mt-2 pt-2 border-t border-slate-100 max-w-xs mx-auto lg:mx-0">
+                                <div className="flex items-center justify-center lg:justify-start gap-3 text-slate-500 text-xs mt-4 pt-4 border-t border-slate-100 w-full max-w-[280px] mx-auto lg:mx-0">
                                     Rappel sous 24h ouvrées.
                                 </div>
                             </div>
@@ -167,7 +167,7 @@ export default function LandingPage() {
                             alt="Reprise complète du dossier" 
                             width={800} 
                             height={400} 
-                            className="object-contain w-full max-w-2xl drop-shadow-md mix-blend-multiply bg-transparent"
+                            className="object-contain w-full max-w-2xl drop-shadow-md"
                         />
                     </div>
 
@@ -209,7 +209,7 @@ export default function LandingPage() {
             {/* 6. FINAL CTA (Navy) */}
             <section className="py-24 bg-slate-900 text-white text-center px-6">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-6">Votre situation mérite un regard neuf.</h2>
+                    <h2 className="text-3xl font-bold mb-6 text-balance">Votre situation mérite un regard neuf.</h2>
                     <p className="text-slate-400 mb-10 text-lg">
                         30 minutes suffisent pour savoir où vous en êtes. Gratuit, confidentiel, sans engagement.
                     </p>
