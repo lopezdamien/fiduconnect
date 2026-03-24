@@ -25,6 +25,9 @@ export function LPForm() {
 
         const payload = {
             ...data,
+            company: data.company || 'Non renseigné',
+            subject: 'Demande depuis Landing Page',
+            comment: data.message,
             source: window.location.pathname,
             lp_variant: 'changer-fiduciaire-geneve', // Tag specific LP
         };
@@ -67,31 +70,30 @@ export function LPForm() {
             {/* Honeypot field - hidden */}
             <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1">Nom complet <span className="text-red-500">*</span></label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        required
-                        className="w-full rounded-lg border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                        placeholder="Jean Dupont"
-                    />
-                </div>
-                <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-1">Entreprise <span className="text-slate-400 font-normal">(Optionnel)</span></label>
-                    <input
-                        type="text"
-                        name="company"
-                        id="company"
-                        className="w-full rounded-lg border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                        placeholder="Votre société"
-                    />
-                </div>
+            <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1">Nom complet <span className="text-red-500">*</span></label>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    required
+                    className="w-full rounded-lg border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 px-4 py-3 border text-slate-900 placeholder:text-slate-400"
+                    placeholder="Jean Dupont"
+                />
             </div>
 
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                <div>
+                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        required
+                        className="w-full rounded-lg border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 px-4 py-3 border text-slate-900 placeholder:text-slate-400"
+                        placeholder="+41 22 000 00 00"
+                    />
+                </div>
                 <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1">Email professionnel <span className="text-red-500">*</span></label>
                     <input
@@ -103,33 +105,13 @@ export function LPForm() {
                         placeholder="jean@entreprise.ch"
                     />
                 </div>
-                <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        required
-                        className="w-full rounded-lg border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                        placeholder="+41 22 ..."
-                    />
-                </div>
             </div>
 
-            <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1">Message (Optionnel)</label>
-                <textarea
-                    name="message"
-                    id="message"
-                    rows={3}
-                    className="w-full rounded-lg border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                    placeholder="Précisez votre demande..."
-                ></textarea>
-            </div>
+
 
             <div className="pt-2">
                 <Button type="submit" fullWidth disabled={loading} className="bg-green-800 hover:bg-green-900 text-white shadow-xl shadow-green-900/20 py-4 text-lg font-bold transition-all transform hover:scale-[1.01]">
-                    {loading ? 'Planification...' : 'Planifier mon analyse confidentielle'}
+                    {loading ? 'Envoi...' : 'Je veux être rappelé gratuitement'}
                 </Button>
             </div>
         </form>

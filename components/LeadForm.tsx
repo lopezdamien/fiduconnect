@@ -27,6 +27,7 @@ export function LeadForm() {
         // We add source page info
         const payload = {
             ...data,
+            subject: 'Avis Stratégique Gratuit',
             source: window.location.pathname,
         };
 
