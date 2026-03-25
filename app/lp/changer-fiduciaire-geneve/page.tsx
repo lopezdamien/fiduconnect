@@ -54,8 +54,8 @@ export default function LandingPage() {
                                 />
                             </div>
 
-                            {/* Checkpoints (Desktop only) */}
-                            <div className="hidden lg:block space-y-3 text-sm font-medium text-slate-700 mb-8 lg:mb-0">
+                            {/* Checkpoints */}
+                            <div className="space-y-3 text-sm font-medium text-slate-700 mb-8 lg:mb-0">
                                 <div className="flex items-start lg:items-center justify-center lg:justify-start gap-3">
                                     <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5 lg:mt-0"><ShieldCheck className="w-4 h-4 text-green-700" /></div>
                                     <span className="text-left text-sm">100% confidentiel</span>
@@ -93,18 +93,6 @@ export default function LandingPage() {
                                     Vos données sont utilisées uniquement pour vous recontacter. Aucune revente à des tiers.<br/>
                                     En savoir plus : <a href="https://www.fiduconnect.ch/mentions-legales" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-500">Mentions légales</a>
                                 </p>
-                            </div>
-
-                            {/* Checkpoints Mobile only */}
-                            <div className="lg:hidden mt-8 space-y-3 text-sm font-medium text-slate-700 mx-auto max-w-sm">
-                                <div className="flex items-start gap-3">
-                                    <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5"><ShieldCheck className="w-4 h-4 text-green-700" /></div>
-                                    <span className="text-left text-sm leading-snug font-semibold text-slate-800">100% confidentiel et sans engagement</span>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                    <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5"><Briefcase className="w-4 h-4 text-green-700" /></div>
-                                    <span className="text-left text-sm leading-snug font-semibold text-slate-800">Aucune démarche sans votre validation expresse</span>
-                                </div>
                             </div>
                         </div>
                     </div>
