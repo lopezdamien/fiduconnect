@@ -23,40 +23,39 @@ export default function LandingPage() {
                 <Link href="/" className="text-xl font-bold text-slate-900">
                     FIDUCONNECT<span className="text-green-700">.</span>
                 </Link>
-                <a href="tel:+41795186717" className="text-sm font-medium text-slate-700 hover:text-green-700 transition-colors bg-white/80 px-4 py-2 sm:px-0 sm:py-0 rounded-full backdrop-blur-sm sm:bg-transparent shadow-sm sm:shadow-none border border-slate-100 sm:border-transparent">
+                <a href="tel:+41795186717" className="text-sm font-medium text-slate-700 hover:text-green-700 transition-colors flex items-center gap-1.5">
                     📞 +41 79 518 67 17
                 </a>
             </header>
 
             {/* 1. HERO + FORMULAIRE */}
-            <section id="hero" className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+            <section id="hero" className="relative pt-20 pb-12 lg:pt-32 lg:pb-24 overflow-hidden">
                 <div className="mx-auto max-w-6xl px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                         {/* Text Content */}
                         <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-                            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight text-balance mx-auto lg:mx-0 max-w-lg lg:max-w-none">
+                            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 sm:mb-6 leading-tight text-balance mx-auto lg:mx-0 max-w-lg lg:max-w-none">
                                 Changer de fiduciaire <br className="hidden sm:block" />
                                 <span className="text-green-700">Sans conflit.</span> Sans perte de données. <span className="text-green-700 inline-block">Sans stress.</span>
                             </h1>
-                            <p className="mt-6 text-lg text-slate-600 mb-8 font-medium leading-relaxed">
+                            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-600 mb-6 font-medium leading-relaxed">
                                 Analyse confidentielle offerte (30 min).<br />
                                 Transition encadrée par un expert fiduciaire partenaire.
                             </p>
 
-                            <div className="mb-8 flex justify-center lg:justify-start">
+                            <div className="mb-6 flex justify-center lg:justify-start">
                                 <Image 
                                     src="/images/image1.png" 
                                     alt="Illustration de la transition fiduciaire" 
                                     width={320} 
                                     height={240} 
-                                    className="object-contain w-full max-w-[280px] drop-shadow-sm"
+                                    className="object-contain w-full max-w-[200px] sm:max-w-[280px]"
                                     priority
                                 />
                             </div>
 
-                            {/* Checkpoints (Visible on Desktop, moved below form on Mobile usually, but here keeping consistent) */}
-                            <div className="space-y-3 text-sm font-medium text-slate-700 mb-8 lg:mb-0">
-
+                            {/* Checkpoints (Desktop only) */}
+                            <div className="hidden lg:block space-y-3 text-sm font-medium text-slate-700 mb-8 lg:mb-0">
                                 <div className="flex items-start lg:items-center justify-center lg:justify-start gap-3">
                                     <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5 lg:mt-0"><ShieldCheck className="w-4 h-4 text-green-700" /></div>
                                     <span className="text-left text-sm">100% confidentiel</span>
@@ -81,19 +80,31 @@ export default function LandingPage() {
 
                         {/* Form Wrapper */}
                         <div className="relative">
-                            <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-6 sm:p-8">
-                                <div className="text-center mb-6">
+                            <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-5 sm:p-8">
+                                <div className="text-center mb-5 sm:mb-6">
                                     <h2 className="text-xl font-bold text-slate-900">Recevez votre analyse gratuite (30 min)</h2>
                                     <p className="text-sm text-slate-500 mt-1">Un expert vous rappelle sous 24h ouvrées.</p>
                                 </div>
                                 <LPForm />
-                                <p className="text-center text-xs text-slate-500 mt-4 flex items-center justify-center gap-2 font-medium">
-                                    🔒 Confidentiel · Sans engagement · Aucune démarche sans votre accord
+                                <p className="text-center text-[11px] sm:text-xs text-slate-500 mt-4 flex items-center justify-center gap-2 font-medium">
+                                    🔒 Confidentiel · Sans engagement
                                 </p>
-                                <p className="text-[10px] text-slate-400 leading-relaxed mt-4 text-center">
+                                <p className="hidden sm:block text-[10px] text-slate-400 leading-relaxed mt-4 text-center">
                                     Vos données sont utilisées uniquement pour vous recontacter. Aucune revente à des tiers.<br/>
                                     En savoir plus : <a href="https://www.fiduconnect.ch/mentions-legales" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-500">Mentions légales</a>
                                 </p>
+                            </div>
+
+                            {/* Checkpoints Mobile only */}
+                            <div className="lg:hidden mt-8 space-y-3 text-sm font-medium text-slate-700 mx-auto max-w-sm">
+                                <div className="flex items-start gap-3">
+                                    <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5"><ShieldCheck className="w-4 h-4 text-green-700" /></div>
+                                    <span className="text-left text-sm leading-snug font-semibold text-slate-800">100% confidentiel et sans engagement</span>
+                                </div>
+                                <div className="flex items-start gap-3">
+                                    <div className="bg-green-100 p-1.5 rounded-full shrink-0 mt-0.5"><Briefcase className="w-4 h-4 text-green-700" /></div>
+                                    <span className="text-left text-sm leading-snug font-semibold text-slate-800">Aucune démarche sans votre validation expresse</span>
+                                </div>
                             </div>
                         </div>
                     </div>
