@@ -23,8 +23,11 @@ export function LPForm() {
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
 
+        const fullPhone = `${data.countryCode} ${data.phoneNumber}`;
+
         const payload = {
             ...data,
+            phone: fullPhone,
             company: data.company || 'Non renseigné',
             subject: 'Demande depuis Landing Page',
             comment: data.message,
@@ -84,15 +87,28 @@ export function LPForm() {
 
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                 <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        required
-                        className="w-full rounded-lg border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 px-4 py-3 border text-slate-900 placeholder:text-slate-400"
-                        placeholder="+41 22 000 00 00"
-                    />
+                    <label htmlFor="phoneNumber" className="block text-sm font-semibold text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
+                    <div className="flex relative shadow-sm rounded-lg">
+                        <select
+                            name="countryCode"
+                            defaultValue="+41"
+                            aria-label="Indicatif pays"
+                            className="inline-flex items-center rounded-l-lg border border-r-0 border-slate-300 bg-slate-50 px-2 sm:px-3 text-slate-700 sm:text-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                        >
+                            <option value="+41">🇨🇭 +41</option>
+                            <option value="+33">🇫🇷 +33</option>
+                            <option value="+32">🇧🇪 +32</option>
+                            <option value="+1">🇺🇸 +1</option>
+                        </select>
+                        <input
+                            type="tel"
+                            name="phoneNumber"
+                            id="phoneNumber"
+                            required
+                            className="w-full rounded-r-lg border px-4 py-3 border-slate-300 focus:border-green-600 focus:ring-1 focus:ring-green-600 text-slate-900 placeholder:text-slate-400"
+                            placeholder="79 000 00 00"
+                        />
+                    </div>
                 </div>
                 <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1">Email professionnel <span className="text-red-500">*</span></label>

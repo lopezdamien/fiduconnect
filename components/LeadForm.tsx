@@ -23,10 +23,13 @@ export function LeadForm() {
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
 
+        const fullPhone = `${data.countryCode} ${data.phoneNumber}`;
+
         // Simple honeypot check on server, field is hidden here
         // We add source page info
         const payload = {
             ...data,
+            phone: fullPhone,
             subject: 'Avis Stratégique Gratuit',
             source: window.location.pathname,
         };
@@ -110,15 +113,28 @@ export function LeadForm() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
-                        <input
-                            type="tel"
-                            name="phone"
-                            id="phone"
-                            required
-                            className="w-full rounded-md border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-500"
-                            placeholder="+41 22 XXX XX XX"
-                        />
+                        <label htmlFor="phoneNumber" className="block text-sm font-medium text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
+                        <div className="flex relative shadow-sm rounded-md">
+                            <select
+                                name="countryCode"
+                                defaultValue="+41"
+                                aria-label="Indicatif pays"
+                                className="inline-flex items-center rounded-l-md border border-r-0 border-slate-300 bg-slate-50 px-2 sm:px-3 text-slate-700 sm:text-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
+                            >
+                                <option value="+41">🇨🇭 +41</option>
+                                <option value="+33">🇫🇷 +33</option>
+                                <option value="+32">🇧🇪 +32</option>
+                                <option value="+1">🇺🇸 +1</option>
+                            </select>
+                            <input
+                                type="tel"
+                                name="phoneNumber"
+                                id="phoneNumber"
+                                required
+                                className="w-full rounded-r-md border-slate-300 shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 sm:text-sm px-4 py-3 border text-slate-900 placeholder:text-slate-500"
+                                placeholder="79 000 00 00"
+                            />
+                        </div>
                     </div>
                 </div>
 
