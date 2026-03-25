@@ -167,7 +167,7 @@ export default function LandingPage() {
                             alt="Reprise complète du dossier" 
                             width={800} 
                             height={400} 
-                            className="object-contain w-full max-w-2xl drop-shadow-md"
+                            className="object-contain w-full max-w-md drop-shadow-md"
                         />
                     </div>
 
