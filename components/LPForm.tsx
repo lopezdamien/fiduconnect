@@ -23,7 +23,7 @@ export function LPForm() {
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
 
-        const fullPhone = `${data.countryCode} ${data.phoneNumber}`;
+        const fullPhone = `+41 ${data.phoneNumber}`;
 
         const payload = {
             ...data,
@@ -89,22 +89,17 @@ export function LPForm() {
                 <div>
                     <label htmlFor="phoneNumber" className="block text-sm font-semibold text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
                     <div className="flex relative shadow-sm rounded-lg">
-                        <select
-                            name="countryCode"
-                            defaultValue="+41"
-                            aria-label="Indicatif pays"
-                            className="inline-flex items-center rounded-l-lg border border-r-0 border-slate-300 bg-slate-50 px-2 sm:px-3 text-slate-700 sm:text-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none"
-                        >
-                            <option value="+41">🇨🇭 +41</option>
-                            <option value="+33">🇫🇷 +33</option>
-                            <option value="+32">🇧🇪 +32</option>
-                            <option value="+1">🇺🇸 +1</option>
-                        </select>
+                        <span className="inline-flex items-center rounded-l-lg border border-r-0 border-slate-300 bg-slate-100 px-4 text-slate-500 font-medium sm:text-sm select-none">
+                            +41
+                        </span>
                         <input
                             type="tel"
                             name="phoneNumber"
                             id="phoneNumber"
                             required
+                            onInput={(e) => {
+                                e.currentTarget.value = e.currentTarget.value.replace(/[^0-9\s]/g, '');
+                            }}
                             className="w-full rounded-r-lg border px-4 py-3 border-slate-300 focus:border-green-600 focus:ring-1 focus:ring-green-600 text-slate-900 placeholder:text-slate-400"
                             placeholder="79 000 00 00"
                         />
