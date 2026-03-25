@@ -110,7 +110,7 @@ export function LPForm() {
 
 
             <div className="pt-2">
-                <Button type="submit" fullWidth disabled={loading} className="bg-green-800 hover:bg-green-900 text-white shadow-xl shadow-green-900/20 py-4 text-lg font-bold transition-all transform hover:scale-[1.01]">
+                <Button type="submit" fullWidth disabled={loading} className="bg-green-800 hover:bg-green-900 text-white shadow-xl shadow-green-900/20 py-3.5 sm:py-4 text-[15px] sm:text-lg font-bold transition-all transform hover:scale-[1.01] whitespace-nowrap">
                     {loading ? 'Envoi...' : 'Je veux être rappelé gratuitement'}
                 </Button>
             </div>
