@@ -68,6 +68,7 @@ export async function POST(request: Request) {
         }
 
         // Sauvegarde dans Google Sheets via le Webhook Apps Script
+        let debugSheet = 'Skipped (No URL)';
         if (process.env.GOOGLE_SCRIPT_URL) {
             console.log('Sending lead to Google Sheets URL:', process.env.GOOGLE_SCRIPT_URL);
             try {
@@ -77,9 +78,8 @@ export async function POST(request: Request) {
                     email,
                     source: source || 'Inconnue'
                 };
-                console.log('Data sent to Google Sheets:', sheetData);
                 
-                await fetch(process.env.GOOGLE_SCRIPT_URL, {
+                const sheetResponse = await fetch(process.env.GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     redirect: 'follow',
                     headers: {
@@ -87,15 +87,18 @@ export async function POST(request: Request) {
                     },
                     body: JSON.stringify(sheetData),
                 });
-            } catch (err) {
+                const sheetText = await sheetResponse.text();
+                debugSheet = `Success: ${sheetResponse.status} - ${sheetText.substring(0, 100)}`;
+            } catch (err: any) {
                 console.error('Google Sheets backup error:', err);
-                // On ne bloque pas le retour "ok: true" si le script échoue
+                debugSheet = `Error: ${err.message || 'Unknown error'}`;
             }
         } else {
             console.warn('GOOGLE_SCRIPT_URL is not defined in environment variables');
+            debugSheet = 'Missing GOOGLE_SCRIPT_URL';
         }
 
-        return NextResponse.json({ ok: true });
+        return NextResponse.json({ ok: true, debugSheet });
     } catch (error) {
         console.error('Server error:', error);
         return NextResponse.json({ ok: false, error: error instanceof Error ? error.message : 'Erreur serveur inconnue' }, { status: 500 });
