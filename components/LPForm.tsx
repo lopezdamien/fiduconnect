@@ -10,10 +10,19 @@ declare global {
     }
 }
 
+const COUNTRY_CODES = [
+    { code: '+41', flag: '🇨🇭', label: 'Suisse' },
+    { code: '+33', flag: '🇫🇷', label: 'France' },
+    { code: '+32', flag: '🇧🇪', label: 'Belgique' },
+    { code: '+1', flag: '🇺🇸', label: 'États-Unis' }
+];
+
 export function LPForm() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [selectedCountry, setSelectedCountry] = useState(COUNTRY_CODES[0]);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -89,17 +98,44 @@ export function LPForm() {
                 <div>
                     <label htmlFor="phoneNumber" className="block text-sm font-semibold text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
                     <div className="flex relative shadow-sm rounded-lg">
-                        <select
-                            name="countryCode"
-                            defaultValue="+41"
-                            aria-label="Indicatif pays"
-                            className="inline-flex items-center rounded-l-lg border border-r-0 border-slate-300 bg-slate-100 px-3 py-3 text-slate-600 font-medium sm:text-sm focus:z-10 focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none cursor-pointer hover:bg-slate-200 transition-colors"
+                        <input type="hidden" name="countryCode" value={selectedCountry.code} />
+                        
+                        <button
+                            type="button"
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className="inline-flex items-center justify-between w-[95px] shrink-0 rounded-l-lg border border-r-0 border-slate-300 bg-slate-50 hover:bg-slate-100 px-3 py-3 text-slate-600 font-medium sm:text-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none transition-colors"
                         >
-                            <option value="+41">🇨🇭 +41</option>
-                            <option value="+33">🇫🇷 +33</option>
-                            <option value="+32">🇧🇪 +32</option>
-                            <option value="+1">🇺🇸 +1</option>
-                        </select>
+                            <span className="flex items-center gap-1.5">
+                                <span className="text-base leading-none">{selectedCountry.flag}</span>
+                                <span>{selectedCountry.code}</span>
+                            </span>
+                            <svg className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+
+                        {isDropdownOpen && (
+                            <>
+                                <div className="fixed inset-0 z-10" onClick={() => setIsDropdownOpen(false)}></div>
+                                <div className="absolute top-[calc(100%+4px)] left-0 w-[240px] z-20 bg-white border border-slate-200 rounded-lg shadow-xl overflow-hidden py-1">
+                                    {COUNTRY_CODES.map((country) => (
+                                        <button
+                                            key={country.code}
+                                            type="button"
+                                            onClick={() => {
+                                                setSelectedCountry(country);
+                                                setIsDropdownOpen(false);
+                                            }}
+                                            className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 focus:bg-slate-50 flex items-center justify-between transition-colors outline-none"
+                                        >
+                                            <span className="flex items-center gap-3">
+                                                <span className="text-xl leading-none">{country.flag}</span>
+                                                <span className="font-medium text-slate-700">{country.label}</span>
+                                            </span>
+                                            <span className="text-slate-500 font-medium">{country.code}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </>
+                        )}
                         <input
                             type="tel"
                             name="phoneNumber"
