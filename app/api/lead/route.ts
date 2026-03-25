@@ -43,9 +43,16 @@ export async function POST(request: Request) {
 
         const { name, company, email, phone, subject, comment, source } = validation.data;
 
+        const fromEmail = process.env.LEAD_FROM_EMAIL;
+        const toEmail = process.env.LEAD_TO_EMAIL;
+
+        if (!fromEmail || !toEmail) {
+            throw new Error("LEAD_FROM_EMAIL or LEAD_TO_EMAIL is not defined");
+        }
+
         const { error } = await resend.emails.send({
-            from: process.env.LEAD_FROM_EMAIL || 'onboarding@resend.dev',
-            to: 'contact@smartadministration.ch',
+            from: fromEmail,
+            to: toEmail,
             subject: `Nouveau lead Fiduconnect – ${company} – ${subject}`,
             html: `
         <h2>Nouveau Lead Reçu</h2>
