@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         const { name, company, email, phone, subject, comment, source } = validation.data;
 
         const { error } = await resend.emails.send({
-            from: 'onboarding@resend.dev',
+            from: process.env.LEAD_FROM_EMAIL || 'onboarding@resend.dev',
             to: 'contact@smartadministration.ch',
             subject: `Nouveau lead Fiduconnect – ${company} – ${subject}`,
             html: `
