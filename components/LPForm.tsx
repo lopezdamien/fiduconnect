@@ -23,7 +23,7 @@ export function LPForm() {
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
 
-        const fullPhone = `+41 ${data.phoneNumber}`;
+        const fullPhone = `${data.countryCode} ${data.phoneNumber}`;
 
         const payload = {
             ...data,
@@ -89,9 +89,17 @@ export function LPForm() {
                 <div>
                     <label htmlFor="phoneNumber" className="block text-sm font-semibold text-slate-700 mb-1">Téléphone <span className="text-red-500">*</span></label>
                     <div className="flex relative shadow-sm rounded-lg">
-                        <span className="inline-flex items-center rounded-l-lg border border-r-0 border-slate-300 bg-slate-100 px-4 text-slate-500 font-medium sm:text-sm select-none">
-                            +41
-                        </span>
+                        <select
+                            name="countryCode"
+                            defaultValue="+41"
+                            aria-label="Indicatif pays"
+                            className="inline-flex items-center rounded-l-lg border border-r-0 border-slate-300 bg-slate-100 px-3 py-3 text-slate-600 font-medium sm:text-sm focus:z-10 focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none cursor-pointer hover:bg-slate-200 transition-colors"
+                        >
+                            <option value="+41">🇨🇭 +41</option>
+                            <option value="+33">🇫🇷 +33</option>
+                            <option value="+32">🇧🇪 +32</option>
+                            <option value="+1">🇺🇸 +1</option>
+                        </select>
                         <input
                             type="tel"
                             name="phoneNumber"
