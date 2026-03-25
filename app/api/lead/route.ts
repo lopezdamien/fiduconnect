@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
         const { error } = await resend.emails.send({
             from: 'onboarding@resend.dev',
-            to: 'damienlopez@outlook.fr',
+            to: 'contact@smartadministration.ch',
             subject: `Nouveau lead Fiduconnect – ${company} – ${subject}`,
             html: `
         <h2>Nouveau Lead Reçu</h2>
@@ -64,6 +64,25 @@ export async function POST(request: Request) {
         if (error) {
             console.error('Resend error:', error);
             return NextResponse.json({ ok: false, error: 'Erreur lors de l\'envoi: ' + error.message }, { status: 500 });
+        }
+
+        // Sauvegarde dans Google Sheets via le Webhook Apps Script
+        if (process.env.GOOGLE_SCRIPT_URL) {
+            try {
+                await fetch(process.env.GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        email,
+                        source: source || 'Inconnue'
+                    }),
+                });
+            } catch (err) {
+                console.error('Google Sheets backup error:', err);
+                // On ne bloque pas le retour "ok: true" si le script échoue
+            }
         }
 
         return NextResponse.json({ ok: true });
