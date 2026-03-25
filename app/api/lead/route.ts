@@ -4,11 +4,8 @@ import { z } from 'zod';
 
 const leadSchema = z.object({
     name: z.string().min(1, "Le nom est requis"),
-    company: z.string().min(1, "La société est requise"),
     email: z.string().email("Email invalide"),
     phone: z.string().min(1, "Le téléphone est requis"),
-    subject: z.string().min(1, "Le sujet est requis"),
-    comment: z.string().optional(),
     website: z.string().optional(), // Honeypot
     source: z.string().optional(),
 });
@@ -41,7 +38,7 @@ export async function POST(request: Request) {
             );
         }
 
-        const { name, company, email, phone, subject, comment, source } = validation.data;
+        const { name, email, phone, source } = validation.data;
 
         const fromEmail = process.env.LEAD_FROM_EMAIL;
         const toEmail = process.env.LEAD_TO_EMAIL;
@@ -53,15 +50,12 @@ export async function POST(request: Request) {
         const { error } = await resend.emails.send({
             from: fromEmail,
             to: toEmail,
-            subject: `Nouveau lead Fiduconnect – ${company} – ${subject}`,
+            subject: `Nouveau lead Fiduconnect – ${name}`,
             html: `
         <h2>Nouveau Lead Reçu</h2>
         <p><strong>Nom :</strong> ${name}</p>
-        <p><strong>Société :</strong> ${company}</p>
         <p><strong>Email :</strong> ${email}</p>
         <p><strong>Téléphone :</strong> ${phone}</p>
-        <p><strong>Sujet :</strong> ${subject}</p>
-        <p><strong>Commentaire :</strong> ${comment || 'Aucun'}</p>
         <br/>
         <p><strong>Page Source :</strong> ${source || 'Inconnue'}</p>
         <p><strong>Date :</strong> ${new Date().toLocaleString('fr-FR')}</p>
@@ -75,21 +69,27 @@ export async function POST(request: Request) {
 
         // Sauvegarde dans Google Sheets via le Webhook Apps Script
         if (process.env.GOOGLE_SCRIPT_URL) {
+            console.log('Sending lead to Google Sheets URL:', process.env.GOOGLE_SCRIPT_URL);
             try {
+                const sheetData = {
+                    name,
+                    phone,
+                    email,
+                    source: source || 'Inconnue'
+                };
+                console.log('Data sent to Google Sheets:', sheetData);
+                
                 await fetch(process.env.GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        name,
-                        phone,
-                        email,
-                        source: source || 'Inconnue'
-                    }),
+                    body: JSON.stringify(sheetData),
                 });
             } catch (err) {
                 console.error('Google Sheets backup error:', err);
                 // On ne bloque pas le retour "ok: true" si le script échoue
             }
+        } else {
+            console.warn('GOOGLE_SCRIPT_URL is not defined in environment variables');
         }
 
         return NextResponse.json({ ok: true });
