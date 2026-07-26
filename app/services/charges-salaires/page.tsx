@@ -7,7 +7,7 @@ import { breadcrumbSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
 export const metadata = pageMetadata({
     title: "Gestion des salaires, AVS et LPP pour PME à Genève",
-    description: "Externalisez votre gestion des salaires en toute sécurité. Audit gratuit, LPP, AVS, LAA. Conformité garantie pour les PME genevoises.",
+    description: "Sécurisez votre gestion des salaires en toute conformité. Audit gratuit, LPP, AVS, LAA. Conformité maîtrisée pour les PME genevoises.",
     path: "/services/charges-salaires",
 });
 
@@ -30,7 +30,7 @@ export default function ServiceSalaires() {
                 ]}
             />
             {/* HERO SECTION */}
-            <section className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
+            <section className="relative bg-slate-900 py-14 sm:py-24 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 opacity-90"></div>
                 <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center pt-8">
@@ -38,7 +38,7 @@ export default function ServiceSalaires() {
                         RESSOURCES HUMAINES
                     </span>
                     <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6 max-w-5xl mx-auto leading-tight">
-                        Externalisez votre gestion des salaires en <span className="text-green-500">toute conformité</span> (AVS / LPP / LAA)
+                        Sécurisez votre gestion des salaires en <span className="text-green-500">toute conformité</span> (AVS / LPP / LAA)
                     </h1>
                     <p className="mt-6 text-xl leading-8 text-slate-300 max-w-3xl mx-auto">
                         Nous analysons vos obligations employeur suisses et coordonnons leur gestion avec l&apos;expert fiduciaire partenaire, pour éviter rappels de cotisations, erreurs de taux et sanctions administratives.
@@ -61,7 +61,7 @@ export default function ServiceSalaires() {
             </section>
 
             {/* OBLIGATIONS EMPLOYEUR */}
-            <Section className="bg-white py-24">
+            <Section className="bg-white py-14 sm:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto px-4">
                     <div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-4 sm:text-4xl">Vos obligations employeur en Suisse</h2>
@@ -168,7 +168,7 @@ export default function ServiceSalaires() {
             </Section>
 
             {/* RISQUES FRÉQUENTS */}
-            <Section className="bg-slate-50 py-24 border-t border-slate-200">
+            <Section className="bg-slate-50 py-14 sm:py-24 border-t border-slate-200">
                 <div className="mx-auto max-w-3xl text-center mb-16">
                     <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl text-center">Les erreurs les plus fréquentes en gestion salariale</h2>
                 </div>
@@ -198,7 +198,7 @@ export default function ServiceSalaires() {
             </Section>
 
             {/* POUR QUI */}
-            <Section className="bg-white py-24">
+            <Section className="bg-white py-14 sm:py-24">
                 <div className="mx-auto max-w-6xl text-center">
                     <h2 className="text-3xl font-bold text-slate-900 mb-16 sm:text-4xl text-center">Ce service est idéal pour :</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
@@ -219,7 +219,7 @@ export default function ServiceSalaires() {
             </Section>
 
             {/* NEW FINAL SECTION */}
-            <section className="bg-slate-900 py-24">
+            <section className="bg-slate-900 py-14 sm:py-24">
                 <div className="mx-auto max-w-4xl px-6 text-center">
                     <h2 className="text-3xl font-bold tracking-tight text-white mb-6 sm:text-4xl">
                         Sécurisez votre masse salariale

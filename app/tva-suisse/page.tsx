@@ -36,7 +36,7 @@ export default function TvaSuisse() {
                 ]}
             />
             {/* 1. HERO SECTION */}
-            <section className="relative bg-slate-900 py-24 lg:py-32 text-center text-white overflow-hidden">
+            <section className="relative bg-slate-900 py-14 sm:py-24 lg:py-32 text-center text-white overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950 opacity-90"></div>
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
 
@@ -97,10 +97,10 @@ export default function TvaSuisse() {
             </div>
 
             {/* 3. SECTION PROCESSUS */}
-            <Section className="bg-white py-24">
+            <Section className="bg-white py-14 sm:py-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-800 text-xs font-bold uppercase tracking-wider mb-4">Processus certifié</span>
+                        <span className="inline-block py-1 px-3 rounded-full bg-green-100 text-green-800 text-xs font-bold uppercase tracking-wider mb-4">Processus structuré</span>
                         <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">Comment nous sécurisons votre TVA</h2>
                     </div>
 
@@ -131,7 +131,7 @@ export default function TvaSuisse() {
             </Section>
 
             {/* 4. SECTION METHODES */}
-            <Section className="bg-slate-50 py-24 border-y border-slate-200">
+            <Section className="bg-slate-50 py-14 sm:py-24 border-y border-slate-200">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-slate-900 mb-4 sm:text-4xl">Méthode TDFN vs effective : Laquelle est la plus avantageuse ?</h2>
@@ -261,7 +261,7 @@ export default function TvaSuisse() {
             </Section>
 
             {/* 6. SECTION PIEGES */}
-            <Section className="bg-white py-24">
+            <Section className="bg-white py-14 sm:py-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold text-slate-900 mb-4 sm:text-4xl">Les erreurs TVA qui coûtent le plus cher aux PME</h2>
@@ -301,7 +301,7 @@ export default function TvaSuisse() {
             </Section>
 
             {/* 7. FAQ MODERNE */}
-            <Section className="bg-[#f8fafc] py-24 border-t border-slate-100">
+            <Section className="bg-[#f8fafc] py-14 sm:py-24 border-t border-slate-100">
                 <div className="mx-auto max-w-4xl px-6">
                     <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Questions fréquentes : Inscription TVA Suisse & seuil 100’000 CHF</h2>
                     <div className="space-y-6">
@@ -345,7 +345,7 @@ export default function TvaSuisse() {
             </Section>
 
             {/* 8. CTA FINAL */}
-            <section className="bg-slate-900 py-24 text-center">
+            <section className="bg-slate-900 py-14 sm:py-24 text-center">
                 <div className="mx-auto max-w-4xl px-6">
                     <h2 className="text-3xl font-bold tracking-tight text-white mb-6 sm:text-4xl">
                         Besoin d’un avis expert sur votre situation TVA ?

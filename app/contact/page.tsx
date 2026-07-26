@@ -116,7 +116,7 @@ export default function Contact() {
                                     <div className="bg-green-50 p-2 rounded-full text-green-600">
                                         <Briefcase className="h-5 w-5" />
                                     </div>
-                                    <span className="text-xs font-bold text-slate-700 leading-tight">+120 Entreprises accompagnées</span>
+                                    <span className="text-xs font-bold text-slate-700 leading-tight">+120 PME accompagnées par notre partenaire</span>
                                 </div>
                                 <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col items-center text-center gap-2 hover:shadow-md transition-shadow">
                                     <div className="bg-green-50 p-2 rounded-full text-green-600">

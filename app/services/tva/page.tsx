@@ -46,7 +46,7 @@ export default function ServiceTVA() {
                 ]}
             />
             {/* HERO SECTION */}
-            <section className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
+            <section className="relative bg-slate-900 py-14 sm:py-24 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 opacity-90"></div>
 
@@ -91,7 +91,7 @@ export default function ServiceTVA() {
             </section>
 
             {/* PIÈGES FRÉQUENTS */}
-            <Section className="bg-slate-50 py-24">
+            <Section className="bg-slate-50 py-14 sm:py-24">
                 <div className="relative">
                     {/* Light background for the section is already applied via Section className bg-slate-50 */}
                     <div className="mx-auto max-w-3xl text-center mb-16">
@@ -138,7 +138,7 @@ export default function ServiceTVA() {
             </Section>
 
             {/* MISE EN CONFORMITÉ */}
-            <Section className="bg-white py-24">
+            <Section className="bg-white py-14 sm:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto px-4">
                     <div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-6 leading-tight sm:text-4xl">Notre méthode en <br /><span className="text-green-600">3 étapes structurées</span></h2>
@@ -195,7 +195,7 @@ export default function ServiceTVA() {
             </Section>
 
             {/* FAQ */}
-            <Section className="bg-slate-50 py-24">
+            <Section className="bg-slate-50 py-14 sm:py-24">
                 <div className="mx-auto max-w-3xl">
                     <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Questions Fréquentes TVA</h2>
                     <div className="space-y-4">
@@ -245,7 +245,7 @@ export default function ServiceTVA() {
             </Section>
 
             {/* NEW FINAL SECTION */}
-            <section className="bg-slate-900 py-24">
+            <section className="bg-slate-900 py-14 sm:py-24">
                 <div className="mx-auto max-w-4xl px-6 text-center">
                     <h2 className="text-3xl font-bold tracking-tight text-white mb-6 sm:text-4xl">
                         Évitez les mauvaises surprises fiscales

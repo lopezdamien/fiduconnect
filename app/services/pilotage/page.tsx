@@ -30,7 +30,7 @@ export default function Pilotage() {
                 ]}
             />
             {/* HERO SECTION */}
-            <section className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
+            <section className="relative bg-slate-900 py-14 sm:py-24 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 opacity-90"></div>
 
@@ -40,7 +40,7 @@ export default function Pilotage() {
                             Dormez sur vos deux oreilles.
                         </h1>
                         <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mb-10">
-                            Une organisation structurée, des échéances respectées, zéro stress administratif.<br className="hidden sm:block" />
+                            Une organisation structurée, des échéances respectées, zéro stress administratif.<br className="hidden sm:block" />{' '}
                             Nous sécurisons votre gestion pour éviter erreurs, pénalités et pertes fiscales.
                         </p>
 
@@ -61,7 +61,7 @@ export default function Pilotage() {
             </section>
 
             {/* MAIN CONTENT SECTION */}
-            <Section className="bg-white py-24">
+            <Section className="bg-white py-14 sm:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                     {/* LEFT COLUMN */}
                     <div>
@@ -160,7 +160,7 @@ export default function Pilotage() {
             </Section>
 
             {/* ACTION SECTION */}
-            <section className="bg-slate-50 py-24 border-y border-slate-200">
+            <section className="bg-slate-50 py-14 sm:py-24 border-y border-slate-200">
                 <div className="mx-auto max-w-4xl px-4 text-center">
                     <h2 className="text-3xl font-bold text-slate-900 mb-6 sm:text-4xl">Reprenez le contrôle de votre gestion</h2>
                     <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -181,7 +181,7 @@ export default function Pilotage() {
             </section>
 
             {/* NEW FINAL SECTION */}
-            <section className="bg-white py-24">
+            <section className="bg-white py-14 sm:py-24">
                 <div className="mx-auto max-w-4xl px-6 text-center">
                     <h2 className="text-3xl font-bold text-slate-900 mb-6 sm:text-4xl">
                         Pourquoi l’organisation fait toute la différence
@@ -200,7 +200,7 @@ export default function Pilotage() {
             </section>
 
             {/* FAQ SECTION */}
-            <Section className="bg-slate-50 py-24">
+            <Section className="bg-slate-50 py-14 sm:py-24">
                 <div className="max-w-3xl mx-auto">
                     <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center sm:text-4xl">Questions fréquentes</h2>
 

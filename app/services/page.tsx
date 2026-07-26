@@ -1,7 +1,7 @@
 import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
-import { AlertTriangle, TrendingDown, FileText, ArrowRight, Wallet, RefreshCcw } from "lucide-react";
+import { AlertTriangle, LayoutDashboard, FileText, ArrowRight, Wallet, RefreshCcw } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
@@ -30,7 +30,7 @@ export default function Services() {
         {
             title: "Digitalisation & Organisation Administrative",
             description: "Mise en place de processus de classement et d'archivage pour respecter les délais.",
-            icon: TrendingDown,
+            icon: LayoutDashboard,
             color: "text-green-600 bg-green-100",
             href: "/services/pilotage"
         },
@@ -53,7 +53,7 @@ export default function Services() {
     return (
         <>
             <JsonLd schema={breadcrumbSchema([{ name: "Services", path: "/services" }])} />
-            <section className="relative bg-slate-900 py-24 lg:py-32 text-center overflow-hidden">
+            <section className="relative bg-slate-900 py-14 sm:py-24 lg:py-32 text-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-950 opacity-80"></div>
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
                 <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -61,7 +61,7 @@ export default function Services() {
                         Une gestion comptable et fiscale de A à Z pour <span className="text-green-500">sécuriser votre croissance</span>
                     </h1>
                     <p className="mt-6 text-xl leading-8 text-slate-200 max-w-2xl mx-auto font-medium">
-                        Une organisation administrative complète : de la saisie comptable au bouclement fiscal, pilotée par des experts.
+                        Une organisation administrative complète : de la saisie comptable au bouclement fiscal, confiée à un expert fiduciaire partenaire.
                     </p>
                     <div className="mt-10 flex flex-col items-center gap-3">
                         <Link href="/contact">
@@ -130,7 +130,7 @@ export default function Services() {
                 </div>
             </Section>
 
-            <Section className="bg-slate-50 py-24 pb-20 border-t border-slate-100">
+            <Section className="bg-slate-50 py-14 sm:py-24 pb-20 border-t border-slate-100">
                 <div className="mx-auto max-w-4xl">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold text-slate-900 mb-4 sm:text-4xl">Votre transition vers une gestion sereine en 3 étapes</h2>

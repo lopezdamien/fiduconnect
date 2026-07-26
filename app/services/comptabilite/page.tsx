@@ -29,7 +29,7 @@ export default function ServiceComptabilite() {
                     ]),
                 ]}
             />
-            <section className="bg-white py-24 sm:py-32">
+            <section className="bg-white py-14 sm:py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <span className="inline-flex items-center rounded-full bg-purple-100 px-3 py-1 text-sm font-semibold text-purple-600 ring-1 ring-inset ring-purple-600/20 mb-6">
                         GESTION COMPTABLE & FISCALE
@@ -50,7 +50,7 @@ export default function ServiceComptabilite() {
                 </div>
             </section>
 
-            <Section className="bg-slate-50 py-24">
+            <Section className="bg-slate-50 py-14 sm:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 gap-y-12">
                     <div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-8 sm:text-4xl">Ce que nous vérifions</h2>
@@ -119,7 +119,7 @@ export default function ServiceComptabilite() {
             </Section>
 
             {/* NEW FINAL SECTION */}
-            <section className="bg-slate-900 py-24">
+            <section className="bg-slate-900 py-14 sm:py-24">
                 <div className="mx-auto max-w-4xl px-6 text-center">
                     <h2 className="text-3xl font-bold tracking-tight text-white mb-6 sm:text-4xl">
                         Votre comptabilité doit être un outil, pas une contrainte

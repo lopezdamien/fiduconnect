@@ -52,7 +52,7 @@ export default function Home() {
     <>
       <JsonLd schema={[organizationSchema(), faqSchema(FAQ)]} />
       {/* 1. HERO SECTION (Premium & Structured) */}
-      <section className="relative bg-slate-900 pt-40 pb-48 overflow-hidden">
+      <section className="relative bg-slate-900 pt-24 pb-28 sm:pt-40 sm:pb-48 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <div className="max-w-[900px] mx-auto">
@@ -93,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* 2. SECTION PROBLÉMATIQUE (Tension Soft) */}
-      <Section className="bg-white py-32">
+      <Section className="bg-white py-16 sm:py-32">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-6">
             Une gestion mal structurée finit toujours par coûter du temps… ou de l’argent.
@@ -124,7 +124,7 @@ export default function Home() {
       </Section>
 
       {/* 3. SECTION POSITIONNEMENT (Carte Premium) */}
-      <Section className="bg-slate-50 border-y border-slate-200 py-32">
+      <Section className="bg-slate-50 border-y border-slate-200 py-16 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">
@@ -183,7 +183,7 @@ export default function Home() {
       </Section>
 
       {/* 4. PROCESSUS (Simplifié & Minimaliste) */}
-      <Section className="bg-white py-24">
+      <Section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl text-center mb-16">
             Un processus clair en 3 étapes.
@@ -245,7 +245,7 @@ export default function Home() {
       </section>
 
       {/* 6. CHANGEMENT DE FIDUCIAIRE (Continuité) */}
-      <Section className="bg-slate-50 py-32">
+      <Section className="bg-slate-50 py-16 sm:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <div className="bg-white rounded-2xl p-10 lg:p-16 shadow-sm border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-md">
@@ -279,7 +279,7 @@ export default function Home() {
       </Section>
 
       {/* 7. SECTION TYPES D'ENTREPRISES (Refined Design) */}
-      <Section className="bg-white py-20 border-t border-slate-100">
+      <Section className="bg-white py-14 sm:py-20 border-t border-slate-100">
         <div className="mx-auto max-w-6xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 mb-12">
             Nous accompagnons notamment
@@ -302,7 +302,7 @@ export default function Home() {
       </Section>
 
       {/* 8. FAQ (Réécriture Premium) */}
-      <Section className="bg-slate-50 py-32">
+      <Section className="bg-slate-50 py-16 sm:py-32">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 text-center mb-16">
             Questions fréquentes
@@ -380,7 +380,7 @@ export default function Home() {
       </Section>
 
       {/* 9. FORMULAIRE FINAL */}
-      <div id="audit" className="bg-slate-900 py-32 scroll-mt-20 border-t border-slate-800">
+      <div id="audit" className="bg-slate-900 py-16 sm:py-32 scroll-mt-20 border-t border-slate-800">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>

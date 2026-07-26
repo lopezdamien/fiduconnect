@@ -10,7 +10,7 @@ export const metadata = pageMetadata({
 
 export default function Cookies() {
     return (
-        <div className="bg-slate-50 min-h-screen py-24 px-6 lg:px-8">
+        <div className="bg-slate-50 min-h-screen py-14 sm:py-24 px-6 lg:px-8">
             <div className="mx-auto max-w-3xl bg-white p-10 rounded-2xl shadow-sm border border-slate-100">
                 <h1 className="text-3xl font-bold tracking-tight text-slate-900 mb-8 pb-4 border-b border-slate-100">
                     Politique relative aux cookies
