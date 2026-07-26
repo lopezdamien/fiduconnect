@@ -1,15 +1,29 @@
 import { Section } from "@/components/Section";
 import { LeadForm } from "@/components/LeadForm";
-import { Metadata } from 'next';
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Diagnostic Gratuit | FIDUCONNECT",
-    description: "Analyse de votre organisation comptable et de vos obligations fiscales.",
-};
+export const metadata = pageMetadata({
+    title: "Diagnostic comptable gratuit pour PME à Genève",
+    description: "Analyse gratuite de votre organisation comptable et de vos obligations fiscales, en 30 minutes avec un expert fiduciaire partenaire à Genève.",
+    path: "/diagnostic",
+});
 
 export default function Diagnostic() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    serviceSchema({
+                        name: "Diagnostic comptable et fiscal gratuit",
+                        description:
+                            "Analyse de 30 minutes de votre organisation comptable, de votre situation TVA et de vos obligations fiscales, avec un expert fiduciaire partenaire.",
+                        path: "/diagnostic",
+                        serviceType: "Diagnostic comptable",
+                    }),
+                    breadcrumbSchema([{ name: "Diagnostic gratuit", path: "/diagnostic" }]),
+                ]}
+            />
             <section className="bg-slate-900 py-20 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
                     Consultation gratuite (30 min)

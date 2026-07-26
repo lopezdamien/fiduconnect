@@ -1,15 +1,18 @@
 import { Section } from "@/components/Section";
 import { CheckCircle2 } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "À Propos | Cabinet d'expertise comptable",
-    description: "Un regard indépendant et structuré sur votre comptabilité. Découvrez notre approche pragmatique pour les PME.",
-};
+export const metadata = pageMetadata({
+    title: "À propos — notre rôle auprès des PME genevoises",
+    description: "Un regard indépendant et structuré sur votre comptabilité. Découvrez notre approche pragmatique pour les PME et indépendants à Genève.",
+    path: "/a-propos",
+});
 
 export default function About() {
     return (
         <>
+            <JsonLd schema={breadcrumbSchema([{ name: "À propos", path: "/a-propos" }])} />
             <section className="bg-slate-900 py-20 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
                     Notre Rôle
@@ -24,10 +27,10 @@ export default function About() {
                     <div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-6">Qui sommes-nous ?</h2>
                         <p className="text-lg text-slate-600 mb-4">
-                            Nous sommes un cabinet indépendant spécialisé dans l&apos;analyse de l&apos;organisation comptable.
+                            Nous sommes un service indépendant spécialisé dans l&apos;analyse de l&apos;organisation comptable.
                         </p>
                         <p className="text-lg text-slate-600 mb-6">
-                            <strong>FIDUCONNECT agit comme point d’entrée et facilite la mise en relation avec des cabinets fiduciaires partenaires.</strong>
+                            <strong>FiduConnect agit comme point d’entrée et facilite la mise en relation avec des cabinets fiduciaires partenaires.</strong>
                         </p>
                         <p className="text-lg text-slate-600 mb-6">
                             Nous ne remplaçons pas un mandat fiduciaire : nous analysons votre situation et vous orientons vers le partenaire adapté pour la tenue de vos comptes et vos déclarations.
@@ -42,7 +45,7 @@ export default function About() {
                             </li>
                             <li className="flex gap-3">
                                 <CheckCircle2 className="h-6 w-6 text-green-700 shrink-0" />
-                                <span className="text-slate-700"><strong>Rigueur</strong> : Nous vérifions la conformité de vos processus administratifs.</span>
+                                <span className="text-slate-700"><strong>Rigueur</strong> : Nous passons en revue vos processus administratifs et signalons les points à corriger.</span>
                             </li>
                             <li className="flex gap-3">
                                 <CheckCircle2 className="h-6 w-6 text-green-700 shrink-0" />

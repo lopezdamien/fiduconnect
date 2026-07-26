@@ -1,10 +1,11 @@
 
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Mentions Légales | Smart Administration",
-    description: "Mentions légales du site Smart Administration - Damien Lopez.",
-};
+export const metadata = pageMetadata({
+    title: "Mentions légales",
+    description: "Mentions légales du site FiduConnect, édité par Smart Administration - Damien Lopez.",
+    path: "/mentions-legales",
+});
 
 export default function MentionsLegales() {
     return (
@@ -21,7 +22,7 @@ export default function MentionsLegales() {
                             Le présent site est édité par :<br />
                             <strong>Smart Administration - Damien Lopez</strong><br />
                             <strong>Adresse :</strong> Avenue d'Aïre 73C, 1203 Genève, Suisse<br />
-                            <strong>Email :</strong> <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a><br />
+                            <strong>Email :</strong> <a href="mailto:contact@fiduconnect.ch" className="text-green-700 hover:underline">contact@fiduconnect.ch</a><br />
                             <strong>Responsable :</strong> Damien LOPEZ
                         </p>
                     </section>

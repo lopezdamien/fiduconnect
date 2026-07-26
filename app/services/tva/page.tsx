@@ -2,16 +2,49 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { Check, AlertTriangle, ArrowRight, HelpCircle } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, faqSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Expertise TVA | Décompte & Optimisation | FIDUCONNECT",
-    description: "Méthode effective ou taux de dette fiscale nette ? Ne perdez plus d'argent avec votre TVA. Analyse gratuite pour PME. Évitez les redressements.",
-};
+export const metadata = pageMetadata({
+    title: "Expertise TVA à Genève — décompte et optimisation PME",
+    description: "Méthode effective ou taux de dette fiscale nette ? Ne perdez plus d'argent avec votre TVA. Analyse gratuite pour PME genevoises. Évitez les redressements.",
+    path: "/services/tva",
+});
+
+const FAQ = [
+    {
+        question: "Quand suis-je obligé de m’assujettir à la TVA ?",
+        answer: "Dès que votre chiffre d'affaires mondial dépasse 100'000 CHF (provenant de prestations imposables). L'assujettissement est également possible de manière volontaire en dessous de ce seuil pour récupérer l'impôt préalable.",
+    },
+    {
+        question: "Quelle différence entre méthode effective et TDFN ?",
+        answer: "La méthode effective permet de déduire la TVA réelle payée sur vos achats (impôt préalable). La méthode Taux de Dette Fiscale Nette (TDFN) applique un taux forfaitaire plus bas sur votre CA, mais ne permet aucune déduction. Le choix dépend de votre structure de coûts.",
+    },
+    {
+        question: "Puis-je corriger une erreur passée ?",
+        answer: "Oui, il est possible de déposer des décomptes rectificatifs (concordance annuelle) pour corriger des erreurs sur les 5 dernières années. Une démarche spontanée permet souvent d'éviter des pénalités plus lourdes.",
+    },
+];
 
 export default function ServiceTVA() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    serviceSchema({
+                        name: "Expertise TVA pour PME",
+                        description:
+                            "Analyse de votre méthode d'assujettissement TVA, vérification des décomptes et correction des erreurs passées.",
+                        path: "/services/tva",
+                        serviceType: "Conseil TVA",
+                    }),
+                    faqSchema(FAQ),
+                    breadcrumbSchema([
+                        { name: "Services", path: "/services" },
+                        { name: "TVA", path: "/services/tva" },
+                    ]),
+                ]}
+            />
             {/* HERO SECTION */}
             <section className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
@@ -109,7 +142,7 @@ export default function ServiceTVA() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto px-4">
                     <div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-6 leading-tight sm:text-4xl">Notre méthode en <br /><span className="text-green-600">3 étapes structurées</span></h2>
-                        <p className="text-lg text-slate-600 mb-10">Nous prenons en charge l'intégralité du processus pour garantir votre sérénité fiscale.</p>
+                        <p className="text-lg text-slate-600 mb-10">Nous analysons votre dossier TVA et coordonnons sa mise en conformité avec l&apos;expert fiduciaire partenaire, pour votre sérénité fiscale.</p>
 
                         <div className="space-y-10">
                             <div className="flex gap-6">

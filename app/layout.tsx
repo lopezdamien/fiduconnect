@@ -2,19 +2,38 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE_NAME, SITE_URL, organizationSchema } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "https://www.fiduconnect.ch";
-const SITE_URL = rawUrl.replace(/&$/, '').replace(/\/$/, '');
+const DEFAULT_TITLE = "FiduConnect | Expert Comptable & Fiscalité PME à Genève";
+const DEFAULT_DESCRIPTION =
+  "Une approche claire et structurée de votre comptabilité, TVA et obligations fiscales. Diagnostic gratuit pour PME et indépendants à Genève.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "FIDUCONNECT | Expert Comptable & Fiscalité PME",
-  description: "Une approche claire et structurée de votre comptabilité, TVA et obligations fiscales. Audit conformité gratuit pour PME. Partenaires experts-comptables.",
+  title: {
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    locale: "fr_CH",
+    siteName: SITE_NAME,
+    url: SITE_URL,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({

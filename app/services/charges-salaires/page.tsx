@@ -2,16 +2,33 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { Check, CheckCircle2, AlertTriangle, Building2, Users, Briefcase, ShieldAlert } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Gestion Salaires & LPP | Conformité AVS | FIDU",
-    description: "Externalisez votre gestion des salaires en toute sécurité. Audit RH gratuit, LPP, AVS, LAA. Conformité garantie pour PME suisses. Évitez les redressements.",
-};
+export const metadata = pageMetadata({
+    title: "Gestion des salaires, AVS et LPP pour PME à Genève",
+    description: "Externalisez votre gestion des salaires en toute sécurité. Audit gratuit, LPP, AVS, LAA. Conformité garantie pour les PME genevoises.",
+    path: "/services/charges-salaires",
+});
 
 export default function ServiceSalaires() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    serviceSchema({
+                        name: "Gestion des salaires et charges sociales",
+                        description:
+                            "Établissement des salaires, décomptes AVS, LPP et LAA, et vérification de la conformité des affiliations.",
+                        path: "/services/charges-salaires",
+                        serviceType: "Gestion des salaires",
+                    }),
+                    breadcrumbSchema([
+                        { name: "Services", path: "/services" },
+                        { name: "Charges & salaires", path: "/services/charges-salaires" },
+                    ]),
+                ]}
+            />
             {/* HERO SECTION */}
             <section className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
@@ -24,7 +41,7 @@ export default function ServiceSalaires() {
                         Externalisez votre gestion des salaires en <span className="text-green-500">toute conformité</span> (AVS / LPP / LAA)
                     </h1>
                     <p className="mt-6 text-xl leading-8 text-slate-300 max-w-3xl mx-auto">
-                        Nous prenons en charge vos obligations employeur suisses pour éviter rappels de cotisations, erreurs de taux et sanctions administratives.
+                        Nous analysons vos obligations employeur suisses et coordonnons leur gestion avec l&apos;expert fiduciaire partenaire, pour éviter rappels de cotisations, erreurs de taux et sanctions administratives.
                         <span className="block mt-4 text-slate-400 font-medium border-t border-slate-800 pt-4 max-w-xl mx-auto">
                             Un mauvais paramétrage peut entraîner des rappels de cotisations et des pénalités.
                         </span>
@@ -138,7 +155,7 @@ export default function ServiceSalaires() {
 
                                 <Link href="/contact" className="block">
                                     <Button fullWidth className="bg-green-700 hover:bg-green-600 text-white py-4 text-lg shadow-lg hover:translate-y-px transition-all h-auto font-bold">
-                                        👉 Recevoir un devis personnalisé
+                                        👉 Faire auditer ma gestion salariale
                                     </Button>
                                 </Link>
                                 <p className="text-center text-xs text-slate-500 mt-4 font-medium">
@@ -213,7 +230,7 @@ export default function ServiceSalaires() {
                     <div className="flex flex-col items-center gap-4">
                         <Link href="/contact">
                             <Button size="lg" className="bg-green-700 hover:bg-green-600 text-white px-10 py-5 text-lg shadow-xl shadow-green-900/40 transform transition hover:-translate-y-1 hover:scale-105">
-                                👉 Recevoir une offre personnalisée
+                                👉 Demander mon diagnostic RH gratuit
                             </Button>
                         </Link>
                     </div>

@@ -2,16 +2,49 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { CheckCircle2, MessageSquare, Clock, ShieldCheck, ArrowRight, HelpCircle, RefreshCcw, FileWarning, Unlock, Briefcase } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, faqSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Changer de fiduciaire | Transition sécurisée",
-    description: "Changez de fiduciaire sans risque. Audit préalable, transfert encadré et continuité fiscale garantie. Consultation gratuite.",
-};
+export const metadata = pageMetadata({
+    title: "Changer de fiduciaire à Genève — transition sécurisée",
+    description: "Changez de fiduciaire sans risque à Genève. Audit préalable, transfert encadré et continuité fiscale garantie. Consultation gratuite de 30 minutes.",
+    path: "/services/changer-fiduciaire",
+});
+
+const FAQ = [
+    {
+        question: "Mon fiduciaire actuel va-t-il mal le prendre ?",
+        answer: "Changer de fiduciaire est un droit contractuel. La communication est gérée de manière professionnelle et neutre avec votre prestataire actuel.",
+    },
+    {
+        question: "Est-ce que je risque un problème fiscal ?",
+        answer: "Non. La situation est auditée avant toute reprise, afin d'éviter les erreurs et les ruptures déclaratives.",
+    },
+    {
+        question: "Est-ce que cela va me prendre du temps ?",
+        answer: "Non. Vous signez le mandat de reprise et la coordination est prise en charge : vous restez concentré sur votre activité.",
+    },
+];
 
 export default function ChangerFiduciaire() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    serviceSchema({
+                        name: "Changement de fiduciaire",
+                        description:
+                            "Audit préalable, résiliation du mandat en cours, récupération des dossiers comptables et reprise sans rupture déclarative.",
+                        path: "/services/changer-fiduciaire",
+                        serviceType: "Reprise de mandat fiduciaire",
+                    }),
+                    faqSchema(FAQ),
+                    breadcrumbSchema([
+                        { name: "Services", path: "/services" },
+                        { name: "Changer de fiduciaire", path: "/services/changer-fiduciaire" },
+                    ]),
+                ]}
+            />
             {/* 1. HERO SECTION */}
             <section className="relative bg-slate-900 py-24 lg:py-32 text-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-950 opacity-80"></div>
@@ -49,10 +82,10 @@ export default function ChangerFiduciaire() {
                         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-green-200 transition-colors h-full">
                             <div className="flex items-center gap-3 mb-4">
                                 <HelpCircle className="h-6 w-6 text-green-600" />
-                                <h3 className="font-bold text-slate-900 uppercase tracking-wide text-sm">Mon fiduciaire va mal le prendre ?</h3>
+                                <h3 className="font-bold text-slate-900 uppercase tracking-wide text-sm">Mon fiduciaire actuel va-t-il mal le prendre ?</h3>
                             </div>
                             <p className="text-slate-600 leading-relaxed">
-                                Changer de fiduciaire est un droit contractuel. Nous gérons la communication de manière professionnelle.
+                                Changer de fiduciaire est un droit contractuel. La communication est gérée de manière professionnelle et neutre avec votre prestataire actuel.
                             </p>
                         </div>
 
@@ -62,7 +95,7 @@ export default function ChangerFiduciaire() {
                                 <h3 className="font-bold text-slate-900 uppercase tracking-wide text-sm">Est-ce que je risque un problème fiscal ?</h3>
                             </div>
                             <p className="text-slate-600 leading-relaxed">
-                                Non. Nous auditons la situation avant toute reprise pour éviter erreurs et ruptures déclaratives.
+                                Non. La situation est auditée avant toute reprise, afin d&apos;éviter les erreurs et les ruptures déclaratives.
                             </p>
                         </div>
 
@@ -72,7 +105,7 @@ export default function ChangerFiduciaire() {
                                 <h3 className="font-bold text-slate-900 uppercase tracking-wide text-sm">Est-ce que cela va me prendre du temps ?</h3>
                             </div>
                             <p className="text-slate-600 leading-relaxed">
-                                Non. Vous signez, nous coordonnons tout. Vous restez concentré sur votre activité.
+                                Non. Vous signez le mandat de reprise et la coordination est prise en charge : vous restez concentré sur votre activité.
                             </p>
                         </div>
                     </div>
@@ -107,7 +140,7 @@ export default function ChangerFiduciaire() {
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3">Coordination & transfert</h3>
                             <p className="text-slate-600 leading-relaxed px-4">
-                                Nous récupérons les documents et assurons la continuité fiscale.
+                                Nous coordonnons la récupération des documents et la continuité fiscale avec l&apos;expert fiduciaire partenaire.
                             </p>
                         </div>
 

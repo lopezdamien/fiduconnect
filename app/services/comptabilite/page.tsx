@@ -2,16 +2,33 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { CheckCircle2, Calculator, LayoutDashboard, ScrollText, PieChart } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Comptabilité & Déclarations Fiscales | FIDUCONNECT",
-    description: "Tenue de comptes et déclarations fiscales PME. Nous garantissons l'exactitude de vos chiffres pour l'administration. Audit gratuit.",
-};
+export const metadata = pageMetadata({
+    title: "Comptabilité et déclarations fiscales PME à Genève",
+    description: "Tenue de comptes et déclarations fiscales pour PME genevoises. L'exactitude de vos chiffres garantie face à l'administration. Diagnostic gratuit.",
+    path: "/services/comptabilite",
+});
 
 export default function ServiceComptabilite() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    serviceSchema({
+                        name: "Tenue de comptabilité et déclarations fiscales",
+                        description:
+                            "Tenue de comptes, bouclement annuel et déclarations fiscales pour PME et indépendants.",
+                        path: "/services/comptabilite",
+                        serviceType: "Comptabilité",
+                    }),
+                    breadcrumbSchema([
+                        { name: "Services", path: "/services" },
+                        { name: "Comptabilité", path: "/services/comptabilite" },
+                    ]),
+                ]}
+            />
             <section className="bg-white py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <span className="inline-flex items-center rounded-full bg-purple-100 px-3 py-1 text-sm font-semibold text-purple-600 ring-1 ring-inset ring-purple-600/20 mb-6">
@@ -21,7 +38,7 @@ export default function ServiceComptabilite() {
                         Comptabilité & Déclarations
                     </h1>
                     <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mb-10">
-                        Une comptabilité rigoureuse est la base de votre sécurité fiscale. Nous auditons la qualité de votre tenue de comptes et assurons la conformité de vos déclarations.
+                        Une comptabilité rigoureuse est la base de votre sécurité fiscale. Nous auditons la qualité de votre tenue de comptes et coordonnons la mise en conformité de vos déclarations avec l&apos;expert fiduciaire partenaire.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Link href="/contact">
@@ -67,9 +84,9 @@ export default function ServiceComptabilite() {
                             <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
 
                             <div className="p-10 lg:p-12 relative">
-                                <h3 className="text-2xl font-bold mb-6">Notre garantie</h3>
+                                <h3 className="text-2xl font-bold mb-6">Notre engagement</h3>
                                 <p className="text-slate-300 mb-8 text-lg leading-relaxed">
-                                    Nous nous assurons que votre comptabilité reflète fidèlement la réalité et respecte toutes les normes suisses (CO).
+                                    Nous veillons à ce que votre comptabilité soit confiée à un expert fiduciaire partenaire qui en garantit la fidélité et la conformité aux normes suisses (CO).
                                 </p>
                                 <div className="space-y-4 mb-10">
                                     <div className="flex gap-4 items-center">

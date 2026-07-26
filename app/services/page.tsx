@@ -2,12 +2,14 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { AlertTriangle, TrendingDown, FileText, ArrowRight, Wallet, RefreshCcw } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Services & Expertise Comptable | FIDU",
-    description: "Découvrez nos services d'analyse et d'orientation : TVA, Fiscalité, Salaires, Pilotage financier pour PME.",
-};
+export const metadata = pageMetadata({
+    title: "Services et expertise comptable pour PME à Genève",
+    description: "Nos services d'analyse et d'orientation pour PME genevoises : TVA, fiscalité, salaires, comptabilité et organisation administrative.",
+    path: "/services",
+});
 
 export default function Services() {
     const services = [
@@ -50,6 +52,7 @@ export default function Services() {
 
     return (
         <>
+            <JsonLd schema={breadcrumbSchema([{ name: "Services", path: "/services" }])} />
             <section className="relative bg-slate-900 py-24 lg:py-32 text-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-950 opacity-80"></div>
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
@@ -153,7 +156,7 @@ export default function Services() {
                             <div className="flex-none w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-slate-900/20 group-hover:bg-green-600 group-hover:shadow-green-600/30 transition-all">3</div>
                             <div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-2">Zéro Stress Administratif</h3>
-                                <p className="text-slate-600 leading-relaxed text-lg">Nous gérons vos échéances (TVA, Impôts, LPP) et vous fournissons des tableaux de bord clairs pour piloter votre activité en temps réel.</p>
+                                <p className="text-slate-600 leading-relaxed text-lg">Nous coordonnons le suivi de vos échéances (TVA, impôts, LPP) avec l&apos;expert fiduciaire partenaire et veillons à une visibilité claire pour piloter votre activité.</p>
                             </div>
                         </div>
                     </div>

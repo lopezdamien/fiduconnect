@@ -1,10 +1,11 @@
 
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Politique de Confidentialité | Smart Administration",
-    description: "Politique de confidentialité et gestion des données personnelles - Smart Administration.",
-};
+export const metadata = pageMetadata({
+    title: "Politique de confidentialité",
+    description: "Politique de confidentialité et gestion des données personnelles du site FiduConnect.",
+    path: "/confidentialite",
+});
 
 export default function Confidentialite() {
     return (
@@ -20,7 +21,7 @@ export default function Confidentialite() {
                         <p>
                             Smart Administration - Damien Lopez<br />
                             Avenue d'Aïre 73C, 1203 Genève, Suisse<br />
-                            Email : <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a>
+                            Email : <a href="mailto:contact@fiduconnect.ch" className="text-green-700 hover:underline">contact@fiduconnect.ch</a>
                         </p>
                     </section>
 
@@ -93,7 +94,7 @@ export default function Confidentialite() {
                         <h2 className="text-xl font-bold text-slate-900 mb-4">8. Droits des personnes concernées</h2>
                         <p>
                             Vous disposez d’un droit d’accès, de rectification, de suppression ou d’opposition.
-                            Toute demande peut être adressée à : <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a>
+                            Toute demande peut être adressée à : <a href="mailto:contact@fiduconnect.ch" className="text-green-700 hover:underline">contact@fiduconnect.ch</a>
                         </p>
                     </section>
                 </div>

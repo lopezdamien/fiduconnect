@@ -2,16 +2,33 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { FileCheck, ShieldCheck, Clock, Archive, ArrowRight, CheckCircle2, AlertTriangle, PlayCircle } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Organisation Comptable & Sérénité | FIDUCONNECT",
-    description: "Une organisation structurée pour une gestion sans stress. Finis les retards et les pénalités. Diagnostic organisationnel gratuit.",
-};
+export const metadata = pageMetadata({
+    title: "Organisation et pilotage comptable pour PME genevoises",
+    description: "Une organisation structurée pour une gestion sans stress. Finis les retards et les pénalités. Diagnostic organisationnel gratuit à Genève.",
+    path: "/services/pilotage",
+});
 
 export default function Pilotage() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    serviceSchema({
+                        name: "Organisation et pilotage comptable",
+                        description:
+                            "Structuration des processus administratifs, calendrier des échéances et digitalisation de la gestion documentaire.",
+                        path: "/services/pilotage",
+                        serviceType: "Organisation comptable",
+                    }),
+                    breadcrumbSchema([
+                        { name: "Services", path: "/services" },
+                        { name: "Pilotage", path: "/services/pilotage" },
+                    ]),
+                ]}
+            />
             {/* HERO SECTION */}
             <section className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
@@ -147,7 +164,7 @@ export default function Pilotage() {
                 <div className="mx-auto max-w-4xl px-4 text-center">
                     <h2 className="text-3xl font-bold text-slate-900 mb-6 sm:text-4xl">Reprenez le contrôle de votre gestion</h2>
                     <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Nous auditons votre organisation administrative et mettons en place une structure fiable et durable.
+                        Nous auditons votre organisation administrative et structurons un fonctionnement fiable et durable, en lien avec l&apos;expert fiduciaire partenaire.
                     </p>
                     <div className="flex flex-col items-center gap-4">
                         <Link href="/contact">
