@@ -30,8 +30,8 @@ export function Footer() {
                             FIDUCONNECT<span className="text-green-500">.</span>
                         </Link>
                         <p className="mt-4 text-sm leading-6 max-w-md">
-                            Fiduciaire digitale, FiduConnect accompagne les PME et indépendants dans l'optimisation de leur gestion comptable et fiscale.
-                            Une expertise dédiée pour sécuriser votre croissance et garantir votre conformité.
+                            Diagnostic et pilotage administratif pour PME genevoises. FiduConnect structure votre situation
+                            comptable et fiscale, puis coordonne son exécution avec un expert fiduciaire partenaire.
                         </p>
                     </div>
 
@@ -51,14 +51,7 @@ export function Footer() {
                         <ul role="list" className="space-y-3">
                             <li className="flex items-center gap-2 text-sm">
                                 <MapPin className="h-4 w-4 text-green-500 flex-shrink-0" />
-                                <a
-                                    href="https://www.google.com/maps/search/?api=1&query=Rue+du+Rhône+14,+1204+Genève"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-white"
-                                >
-                                    Suisse
-                                </a>
+                                <span className="text-slate-300">Genève, Suisse</span>
                             </li>
                             <li className="flex items-center gap-2 text-sm">
                                 <Mail className="h-4 w-4 text-green-500 flex-shrink-0" />
@@ -66,7 +59,9 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-2 text-sm">
                                 <Phone className="h-4 w-4 text-green-500 flex-shrink-0" />
-                                <span className="text-slate-300">Sur demande</span>
+                                <Link href="/contact" className="hover:text-white transition-colors">
+                                    Rappel sous 24h ouvrables
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -76,9 +71,6 @@ export function Footer() {
                     <div className="flex flex-col md:text-left text-center">
                         <p className="text-xs text-slate-500">
                             &copy; {new Date().getFullYear()} Smart Administration. Tous droits réservés.
-                        </p>
-                        <p className="text-[10px] text-slate-600 mt-1">
-                            Membre de l'Association Suisse des Comptables et Contrôleurs de gestion.
                         </p>
                     </div>
 

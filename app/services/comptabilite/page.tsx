@@ -2,16 +2,33 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { CheckCircle2, Calculator, LayoutDashboard, ScrollText, PieChart } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Comptabilité & Déclarations Fiscales | FIDUCONNECT",
-    description: "Tenue de comptes et déclarations fiscales PME. Nous garantissons l'exactitude de vos chiffres pour l'administration. Audit gratuit.",
-};
+export const metadata = pageMetadata({
+    title: "Comptabilité et déclarations fiscales PME à Genève",
+    description: "Tenue de comptes et déclarations fiscales pour PME genevoises. L'exactitude de vos chiffres garantie face à l'administration. Diagnostic gratuit.",
+    path: "/services/comptabilite",
+});
 
 export default function ServiceComptabilite() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    serviceSchema({
+                        name: "Tenue de comptabilité et déclarations fiscales",
+                        description:
+                            "Tenue de comptes, bouclement annuel et déclarations fiscales pour PME et indépendants.",
+                        path: "/services/comptabilite",
+                        serviceType: "Comptabilité",
+                    }),
+                    breadcrumbSchema([
+                        { name: "Services", path: "/services" },
+                        { name: "Comptabilité", path: "/services/comptabilite" },
+                    ]),
+                ]}
+            />
             <section className="bg-white py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <span className="inline-flex items-center rounded-full bg-purple-100 px-3 py-1 text-sm font-semibold text-purple-600 ring-1 ring-inset ring-purple-600/20 mb-6">

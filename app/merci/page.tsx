@@ -1,6 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { CheckCircle2 } from "lucide-react";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+    title: "Merci pour votre demande",
+    description: "Votre demande de diagnostic a bien été transmise. Un expert fiduciaire partenaire vous recontacte sous 24 heures ouvrables.",
+    path: "/merci",
+    noIndex: true,
+});
 
 export default function Merci() {
     return (
@@ -9,9 +17,9 @@ export default function Merci() {
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-6">
                     <CheckCircle2 className="h-10 w-10 text-green-600" />
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight text-slate-900 mb-4">
+                <h1 className="text-3xl font-bold tracking-tight text-slate-900 mb-4">
                     Merci !
-                </h2>
+                </h1>
                 <p className="text-lg text-slate-600 mb-8">
                     Votre demande est bien reçue. Nous vous recontactons rapidement.
                 </p>

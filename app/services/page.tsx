@@ -2,12 +2,14 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { AlertTriangle, TrendingDown, FileText, ArrowRight, Wallet, RefreshCcw } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Services & Expertise Comptable | FIDU",
-    description: "Découvrez nos services d'analyse et d'orientation : TVA, Fiscalité, Salaires, Pilotage financier pour PME.",
-};
+export const metadata = pageMetadata({
+    title: "Services et expertise comptable pour PME à Genève",
+    description: "Nos services d'analyse et d'orientation pour PME genevoises : TVA, fiscalité, salaires, comptabilité et organisation administrative.",
+    path: "/services",
+});
 
 export default function Services() {
     const services = [
@@ -50,6 +52,7 @@ export default function Services() {
 
     return (
         <>
+            <JsonLd schema={breadcrumbSchema([{ name: "Services", path: "/services" }])} />
             <section className="relative bg-slate-900 py-24 lg:py-32 text-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-950 opacity-80"></div>
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>

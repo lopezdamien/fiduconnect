@@ -1,15 +1,18 @@
 import { Section } from "@/components/Section";
 import { CheckCircle2 } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "À Propos | Cabinet d'expertise comptable",
-    description: "Un regard indépendant et structuré sur votre comptabilité. Découvrez notre approche pragmatique pour les PME.",
-};
+export const metadata = pageMetadata({
+    title: "À propos — notre rôle auprès des PME genevoises",
+    description: "Un regard indépendant et structuré sur votre comptabilité. Découvrez notre approche pragmatique pour les PME et indépendants à Genève.",
+    path: "/a-propos",
+});
 
 export default function About() {
     return (
         <>
+            <JsonLd schema={breadcrumbSchema([{ name: "À propos", path: "/a-propos" }])} />
             <section className="bg-slate-900 py-20 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
                     Notre Rôle

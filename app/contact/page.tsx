@@ -4,16 +4,19 @@ import { LeadForm } from "@/components/LeadForm";
 import Link from "next/link";
 import { ContactScrollButton } from "@/components/ContactScrollButton";
 import { Mail, Phone, MapPin, CheckCircle2, UserCheck, ShieldCheck, Briefcase } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Contact Fiduciaire | Consultation Comptable Gratuite | FiduConnect",
-    description: "Besoin d’un avis comptable ? Obtenez une consultation gratuite de 30 minutes avec un expert fiduciaire partenaire. Analyse personnalisée et sans engagement.",
-};
+export const metadata = pageMetadata({
+    title: "Contact fiduciaire à Genève — consultation gratuite",
+    description: "Besoin d’un avis comptable ? Obtenez une consultation gratuite de 30 minutes avec un expert fiduciaire partenaire à Genève. Sans engagement.",
+    path: "/contact",
+});
 
 export default function Contact() {
     return (
         <>
+            <JsonLd schema={breadcrumbSchema([{ name: "Contact", path: "/contact" }])} />
             <section className="bg-slate-900 py-20 text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
                 <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -27,7 +30,7 @@ export default function Contact() {
                     <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-sm text-slate-400 font-medium">
                         <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Sans engagement</span>
                         <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Analyse personnalisée</span>
-                        <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Réponse sous 48h</span>
+                        <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Réponse sous 24h ouvrées</span>
                     </div>
 
                     <div className="mt-10">
@@ -51,9 +54,14 @@ export default function Contact() {
                                     <MapPin className="h-5 w-5 text-slate-700 group-hover:text-green-600 transition-colors" />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-green-700 font-bold uppercase tracking-wide mb-1">Présence en Suisse</p>
-                                    <h3 className="font-bold text-slate-900 text-lg">Bureau</h3>
-                                    <p className="text-slate-600 leading-relaxed mt-1">Rue du Rhône 14<br />1204 Genève, Suisse</p>
+                                    <p className="text-xs text-green-700 font-bold uppercase tracking-wide mb-1">Zone d&apos;intervention</p>
+                                    <h3 className="font-bold text-slate-900 text-lg">Genève</h3>
+                                    <p className="text-slate-600 leading-relaxed mt-1">
+                                        Canton de Genève et arc lémanique.<br />
+                                        <Link href="/mentions-legales" className="text-green-700 hover:underline">
+                                            Coordonnées complètes
+                                        </Link>
+                                    </p>
                                 </div>
                             </div>
 
@@ -62,9 +70,9 @@ export default function Contact() {
                                     <Phone className="h-5 w-5 text-slate-700 group-hover:text-green-600 transition-colors" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-slate-900 text-lg">Téléphone</h3>
-                                    <p className="text-slate-600 mt-1 font-medium">+41 22 XXX XX XX</p>
-                                    <p className="text-sm text-slate-500 mt-1">Du lundi au vendredi, 9h-18h</p>
+                                    <h3 className="font-bold text-slate-900 text-lg">Être rappelé</h3>
+                                    <p className="text-slate-600 mt-1 font-medium">Rappel sous 24h ouvrables</p>
+                                    <p className="text-sm text-slate-500 mt-1">Indiquez votre numéro dans le formulaire ci-contre.</p>
                                 </div>
                             </div>
 
@@ -75,7 +83,7 @@ export default function Contact() {
                                 <div>
                                     <h3 className="font-bold text-slate-900 text-lg">Email</h3>
                                     <Link href="mailto:contact@fiduconnect.ch" className="text-slate-600 hover:text-green-700 transition-colors font-medium block mt-1">contact@fiduconnect.ch</Link>
-                                    <p className="text-sm text-slate-500 mt-1">Réponse sous 1 à 2 jours ouvrables.</p>
+                                    <p className="text-sm text-slate-500 mt-1">Réponse sous 24h ouvrées.</p>
                                 </div>
                             </div>
                         </div>

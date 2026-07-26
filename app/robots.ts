@@ -1,15 +1,15 @@
 import { MetadataRoute } from 'next'
+import { absoluteUrl } from '@/lib/seo'
 
 export default function robots(): MetadataRoute.Robots {
-    const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "https://www.fiduconnect.ch";
-    const SITE_URL = rawUrl.replace(/&$/, '').replace(/\/$/, '');
-
     return {
+        // Les pages hors index (/lp/*, /merci) portent une balise noindex.
+        // Elles restent crawlables : bloquer le crawl empêcherait Google de la lire.
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/private/',
+            disallow: '/api/',
         },
-        sitemap: `${SITE_URL}/sitemap.xml`,
+        sitemap: absoluteUrl('/sitemap.xml'),
     }
 }

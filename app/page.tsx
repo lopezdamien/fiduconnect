@@ -14,20 +14,43 @@ import {
   HelpCircle,
   Briefcase
 } from "lucide-react";
-import { Metadata } from 'next';
 import { LeadForm } from "@/components/LeadForm";
+import { JsonLd } from "@/components/JsonLd";
+import { faqSchema, organizationSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "FiduConnect | Diagnostic et optimisation fiduciaire en Suisse romande",
-  description: "Vous souhaitez changer de fiduciaire en Suisse romande ? Comparez les honoraires, la TVA et la qualité de service. Diagnostic gratuit pour PME et indépendants.",
-  alternates: {
-    canonical: "/",
-  }
-};
+export const metadata = pageMetadata({
+  title: "Diagnostic et optimisation fiduciaire à Genève",
+  description:
+    "Vous souhaitez changer de fiduciaire à Genève ? Comparez les honoraires, la TVA et la qualité de service. Diagnostic gratuit pour PME et indépendants.",
+  path: "/",
+});
+
+const FAQ = [
+  {
+    question: "Quel est le rôle exact de FiduConnect ?",
+    answer:
+      "FiduConnect organise et structure la mise en relation avec un expert fiduciaire partenaire. Les prestations comptables sont réalisées directement par cet expert.",
+  },
+  {
+    question: "La consultation est-elle vraiment gratuite ?",
+    answer: "Oui. Elle permet d’analyser votre situation sans engagement.",
+  },
+  {
+    question: "Suis-je obligé de changer de fiduciaire ?",
+    answer: "Non. L’objectif est d’évaluer et de structurer votre situation.",
+  },
+  {
+    question:
+      "Pourquoi passer par FiduConnect plutôt que contacter directement une fiduciaire ?",
+    answer:
+      "FiduConnect structure en amont votre situation afin d’orienter votre mandat vers un expert réellement adapté à vos besoins.",
+  },
+];
 
 export default function Home() {
   return (
     <>
+      <JsonLd schema={[organizationSchema(), faqSchema(FAQ)]} />
       {/* 1. HERO SECTION (Premium & Structured) */}
       <section className="relative bg-slate-900 pt-40 pb-48 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>

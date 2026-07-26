@@ -2,16 +2,33 @@ import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { Check, CheckCircle2, AlertTriangle, Building2, Users, Briefcase, ShieldAlert } from "lucide-react";
-import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, pageMetadata, serviceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Gestion Salaires & LPP | Conformité AVS | FIDU",
-    description: "Externalisez votre gestion des salaires en toute sécurité. Audit RH gratuit, LPP, AVS, LAA. Conformité garantie pour PME suisses. Évitez les redressements.",
-};
+export const metadata = pageMetadata({
+    title: "Gestion des salaires, AVS et LPP pour PME à Genève",
+    description: "Externalisez votre gestion des salaires en toute sécurité. Audit gratuit, LPP, AVS, LAA. Conformité garantie pour les PME genevoises.",
+    path: "/services/charges-salaires",
+});
 
 export default function ServiceSalaires() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    serviceSchema({
+                        name: "Gestion des salaires et charges sociales",
+                        description:
+                            "Établissement des salaires, décomptes AVS, LPP et LAA, et vérification de la conformité des affiliations.",
+                        path: "/services/charges-salaires",
+                        serviceType: "Gestion des salaires",
+                    }),
+                    breadcrumbSchema([
+                        { name: "Services", path: "/services" },
+                        { name: "Charges & salaires", path: "/services/charges-salaires" },
+                    ]),
+                ]}
+            />
             {/* HERO SECTION */}
             <section className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>

@@ -1,10 +1,11 @@
 
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Mentions Légales | Smart Administration",
-    description: "Mentions légales du site Smart Administration - Damien Lopez.",
-};
+export const metadata = pageMetadata({
+    title: "Mentions légales",
+    description: "Mentions légales du site FiduConnect, édité par Smart Administration - Damien Lopez.",
+    path: "/mentions-legales",
+});
 
 export default function MentionsLegales() {
     return (

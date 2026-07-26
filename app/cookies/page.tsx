@@ -1,11 +1,12 @@
 
-import { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Politique relative aux cookies | Smart Administration",
-    description: "Information sur l'utilisation des cookies sur le site Smart Administration.",
-};
+export const metadata = pageMetadata({
+    title: "Politique relative aux cookies",
+    description: "Information sur l'utilisation des cookies sur le site FiduConnect.",
+    path: "/cookies",
+});
 
 export default function Cookies() {
     return (

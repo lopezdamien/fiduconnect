@@ -2,16 +2,39 @@ import { Button } from "@/components/Button";
 import { Section } from "@/components/Section";
 import Link from "next/link";
 import { CheckCircle2, AlertTriangle, ArrowRight, TrendingUp, ShieldCheck, MapPin, Calculator, FileCheck, HelpCircle, ChevronDown } from "lucide-react";
-import { Metadata } from 'next';
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, faqSchema, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Expert TVA | Audit & Optimisation Fiscale PME",
-    description: "Expert TVA pour PME. Audit 100% gratuit : choix méthode TDFN vs effective, inscription seuil 100'000 CHF, et conformité AFC.",
-};
+export const metadata = pageMetadata({
+    title: "TVA suisse — seuils, méthodes et conformité AFC pour PME",
+    description: "Guide TVA pour PME : seuil d'assujettissement de 100'000 CHF, méthode TDFN ou effective, et conformité AFC. Audit gratuit à Genève.",
+    path: "/tva-suisse",
+});
+
+const FAQ = [
+    {
+        question: "À partir de quel montant suis-je obligé de payer la TVA ?",
+        answer: "L'assujettissement devient obligatoire dès que votre chiffre d'affaires mondial (imposable) dépasse 100'000 CHF par an. Si vous êtes en dessous, vous pouvez opter pour l'assujettissement volontaire, utile pour récupérer la TVA sur de gros investissements.",
+    },
+    {
+        question: "Puis-je changer de méthode TVA (Effective / TDFN) ?",
+        answer: "Oui, mais sous certaines conditions de délais imposés par l'Administration Fédérale des Contributions (AFC). En général, le changement se fait en début de période fiscale et doit être planifié pour éviter des blocages administratifs.",
+    },
+    {
+        question: "Que faire si j'ai oublié de m'inscrire ?",
+        answer: "Il faut régulariser la situation au plus vite via une annonce tardive. L'AFC réclamera la TVA due rétroactivement. Une démarche spontanée avec un fiduciaire permet souvent de négocier les modalités et d'éviter des pénalités pour soustraction d'impôt.",
+    },
+];
 
 export default function TvaSuisse() {
     return (
         <>
+            <JsonLd
+                schema={[
+                    faqSchema(FAQ),
+                    breadcrumbSchema([{ name: "TVA suisse", path: "/tva-suisse" }]),
+                ]}
+            />
             {/* 1. HERO SECTION */}
             <section className="relative bg-slate-900 py-24 lg:py-32 text-center text-white overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950 opacity-90"></div>
@@ -36,7 +59,7 @@ export default function TvaSuisse() {
                         </Link>
                         <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-slate-400 font-medium tracking-wide">
                             <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Sans engagement</span>
-                            <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Réponse sous 48h</span>
+                            <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Réponse sous 24h ouvrées</span>
                             <span className="flex items-center justify-center"><CheckCircle2 className="h-4 w-4 mr-2 text-green-500" /> Expertise méthodes effective & TDFN</span>
                         </div>
                     </div>
@@ -53,7 +76,7 @@ export default function TvaSuisse() {
                                 <CheckCircle2 className="h-8 w-8" />
                             </div>
                             <span className="text-lg font-bold text-slate-900">+120 PME accompagnées</span>
-                            <span className="text-sm text-slate-500">Implantées en Suisse romande</span>
+                            <span className="text-sm text-slate-500">Par notre expert fiduciaire partenaire</span>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-4 bg-white px-8 py-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                             <div className="p-3 bg-green-50 rounded-full text-green-600 mb-2">
@@ -344,7 +367,7 @@ export default function TvaSuisse() {
                                 <CheckCircle2 className="h-4 w-4 text-green-500" /> Analyse personnalisée
                             </span>
                             <span className="flex items-center gap-2">
-                                <CheckCircle2 className="h-4 w-4 text-green-500" /> Réponse sous 48h
+                                <CheckCircle2 className="h-4 w-4 text-green-500" /> Réponse sous 24h ouvrées
                             </span>
                         </div>
                     </div>

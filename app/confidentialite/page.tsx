@@ -1,10 +1,11 @@
 
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Politique de Confidentialité | Smart Administration",
-    description: "Politique de confidentialité et gestion des données personnelles - Smart Administration.",
-};
+export const metadata = pageMetadata({
+    title: "Politique de confidentialité",
+    description: "Politique de confidentialité et gestion des données personnelles du site FiduConnect.",
+    path: "/confidentialite",
+});
 
 export default function Confidentialite() {
     return (
