@@ -6,8 +6,10 @@ const leadSchema = z.object({
     name: z.string().min(1, "Le nom est requis"),
     email: z.string().email("Email invalide"),
     phone: z.string().min(1, "Le téléphone est requis"),
-    website: z.string().optional(), // Honeypot
+    company: z.string().optional(),
     source: z.string().optional(),
+    lp_variant: z.string().optional(), // Campagne SEA d'origine
+    website: z.string().optional(), // Honeypot
 });
 
 
@@ -38,7 +40,7 @@ export async function POST(request: Request) {
             );
         }
 
-        const { name, email, phone, source } = validation.data;
+        const { name, email, phone, company, source, lp_variant } = validation.data;
 
         const fromEmail = process.env.LEAD_FROM_EMAIL;
         const toEmail = process.env.LEAD_TO_EMAIL;
@@ -54,22 +56,30 @@ export async function POST(request: Request) {
             html: `
         <h2>Nouveau Lead Reçu</h2>
         <p><strong>Nom :</strong> ${name}</p>
+        <p><strong>Société :</strong> ${company || 'Non renseignée'}</p>
         <p><strong>Email :</strong> ${email}</p>
         <p><strong>Téléphone :</strong> ${phone}</p>
         <br/>
         <p><strong>Page Source :</strong> ${source || 'Inconnue'}</p>
+        ${lp_variant ? `<p><strong>Campagne :</strong> ${lp_variant}</p>` : ''}
         <p><strong>Date :</strong> ${new Date().toLocaleString('fr-FR')}</p>
       `,
         });
 
         if (error) {
             console.error('Resend error:', error);
-            return NextResponse.json({ ok: false, error: 'Erreur lors de l\'envoi: ' + error.message }, { status: 500 });
+            return NextResponse.json(
+                { ok: false, error: "L'envoi a échoué. Merci de réessayer ou de nous écrire à contact@fiduconnect.ch." },
+                { status: 500 }
+            );
         }
 
         return NextResponse.json({ ok: true });
     } catch (error) {
         console.error('Server error:', error);
-        return NextResponse.json({ ok: false, error: error instanceof Error ? error.message : 'Erreur serveur inconnue' }, { status: 500 });
+        return NextResponse.json(
+            { ok: false, error: "Une erreur est survenue. Merci de réessayer dans un instant." },
+            { status: 500 }
+        );
     }
 }
