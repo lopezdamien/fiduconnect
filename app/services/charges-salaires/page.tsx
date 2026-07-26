@@ -155,7 +155,7 @@ export default function ServiceSalaires() {
 
                                 <Link href="/contact" className="block">
                                     <Button fullWidth className="bg-green-700 hover:bg-green-600 text-white py-4 text-lg shadow-lg hover:translate-y-px transition-all h-auto font-bold">
-                                        👉 Recevoir un devis personnalisé
+                                        👉 Faire auditer ma gestion salariale
                                     </Button>
                                 </Link>
                                 <p className="text-center text-xs text-slate-500 mt-4 font-medium">
@@ -230,7 +230,7 @@ export default function ServiceSalaires() {
                     <div className="flex flex-col items-center gap-4">
                         <Link href="/contact">
                             <Button size="lg" className="bg-green-700 hover:bg-green-600 text-white px-10 py-5 text-lg shadow-xl shadow-green-900/40 transform transition hover:-translate-y-1 hover:scale-105">
-                                👉 Recevoir une offre personnalisée
+                                👉 Demander mon diagnostic RH gratuit
                             </Button>
                         </Link>
                     </div>
