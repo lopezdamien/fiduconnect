@@ -16,7 +16,7 @@ export function Header() {
         { name: 'Accueil', href: '/' },
         { name: 'Services comptables', href: '/services' },
         { name: 'TVA', href: '/tva-suisse' },
-        { name: 'Changer de fiduciaire', href: '/changer-fiduciaire' },
+        { name: 'Changer de fiduciaire', href: '/services/changer-fiduciaire' },
         { name: 'Ressources', href: '/ressources' },
         { name: 'Contact', href: '/contact' },
     ];

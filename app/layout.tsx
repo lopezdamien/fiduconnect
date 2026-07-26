@@ -10,7 +10,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const DEFAULT_TITLE = "FIDUCONNECT | Expert Comptable & Fiscalité PME à Genève";
+const DEFAULT_TITLE = "FiduConnect | Expert Comptable & Fiscalité PME à Genève";
 const DEFAULT_DESCRIPTION =
   "Une approche claire et structurée de votre comptabilité, TVA et obligations fiscales. Diagnostic gratuit pour PME et indépendants à Genève.";
 

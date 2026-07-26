@@ -70,9 +70,9 @@ export default function Contact() {
                                     <Phone className="h-5 w-5 text-slate-700 group-hover:text-green-600 transition-colors" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-slate-900 text-lg">Être rappelé</h3>
-                                    <p className="text-slate-600 mt-1 font-medium">Rappel sous 24h ouvrables</p>
-                                    <p className="text-sm text-slate-500 mt-1">Indiquez votre numéro dans le formulaire ci-contre.</p>
+                                    <h3 className="font-bold text-slate-900 text-lg">Téléphone</h3>
+                                    <a href="tel:+41795186717" className="text-slate-600 hover:text-green-700 transition-colors font-medium block mt-1">+41 79 518 67 17</a>
+                                    <p className="text-sm text-slate-500 mt-1">Du lundi au vendredi, 9h-18h.</p>
                                 </div>
                             </div>
 

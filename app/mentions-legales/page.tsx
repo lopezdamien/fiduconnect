@@ -22,7 +22,7 @@ export default function MentionsLegales() {
                             Le présent site est édité par :<br />
                             <strong>Smart Administration - Damien Lopez</strong><br />
                             <strong>Adresse :</strong> Avenue d'Aïre 73C, 1203 Genève, Suisse<br />
-                            <strong>Email :</strong> <a href="mailto:contact@smartadministration.ch" className="text-green-700 hover:underline">contact@smartadministration.ch</a><br />
+                            <strong>Email :</strong> <a href="mailto:contact@fiduconnect.ch" className="text-green-700 hover:underline">contact@fiduconnect.ch</a><br />
                             <strong>Responsable :</strong> Damien LOPEZ
                         </p>
                     </section>

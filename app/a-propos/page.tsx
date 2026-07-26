@@ -30,7 +30,7 @@ export default function About() {
                             Nous sommes un service indépendant spécialisé dans l&apos;analyse de l&apos;organisation comptable.
                         </p>
                         <p className="text-lg text-slate-600 mb-6">
-                            <strong>FIDUCONNECT agit comme point d’entrée et facilite la mise en relation avec des cabinets fiduciaires partenaires.</strong>
+                            <strong>FiduConnect agit comme point d’entrée et facilite la mise en relation avec des cabinets fiduciaires partenaires.</strong>
                         </p>
                         <p className="text-lg text-slate-600 mb-6">
                             Nous ne remplaçons pas un mandat fiduciaire : nous analysons votre situation et vous orientons vers le partenaire adapté pour la tenue de vos comptes et vos déclarations.

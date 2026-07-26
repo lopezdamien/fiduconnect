@@ -50,7 +50,7 @@ export async function POST(request: Request) {
         const { error } = await resend.emails.send({
             from: fromEmail,
             to: toEmail,
-            subject: `Nouveau lead Fiduconnect – ${name}`,
+            subject: `Nouveau lead FiduConnect – ${name}`,
             html: `
         <h2>Nouveau Lead Reçu</h2>
         <p><strong>Nom :</strong> ${name}</p>

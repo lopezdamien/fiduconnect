@@ -77,6 +77,8 @@ export function organizationSchema() {
         url: SITE_URL,
         description:
             "FiduConnect met en relation les PME et indépendants genevois avec un expert fiduciaire partenaire, après un diagnostic comptable et fiscal gratuit.",
+        telephone: '+41795186717',
+        email: 'contact@fiduconnect.ch',
         areaServed: {
             '@type': 'AdministrativeArea',
             name: AREA_SERVED,

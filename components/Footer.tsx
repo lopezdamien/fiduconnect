@@ -59,9 +59,9 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-2 text-sm">
                                 <Phone className="h-4 w-4 text-green-500 flex-shrink-0" />
-                                <Link href="/contact" className="hover:text-white transition-colors">
-                                    Rappel sous 24h ouvrables
-                                </Link>
+                                <a href="tel:+41795186717" className="hover:text-white transition-colors">
+                                    +41 79 518 67 17
+                                </a>
                             </li>
                         </ul>
                     </div>
