@@ -142,7 +142,7 @@ export default function ServiceTVA() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto px-4">
                     <div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-6 leading-tight sm:text-4xl">Notre méthode en <br /><span className="text-green-600">3 étapes structurées</span></h2>
-                        <p className="text-lg text-slate-600 mb-10">Nous prenons en charge l'intégralité du processus pour garantir votre sérénité fiscale.</p>
+                        <p className="text-lg text-slate-600 mb-10">Nous analysons votre dossier TVA et coordonnons sa mise en conformité avec l&apos;expert fiduciaire partenaire, pour votre sérénité fiscale.</p>
 
                         <div className="space-y-10">
                             <div className="flex gap-6">

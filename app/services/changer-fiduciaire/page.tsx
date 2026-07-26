@@ -140,7 +140,7 @@ export default function ChangerFiduciaire() {
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 mb-3">Coordination & transfert</h3>
                             <p className="text-slate-600 leading-relaxed px-4">
-                                Nous récupérons les documents et assurons la continuité fiscale.
+                                Nous coordonnons la récupération des documents et la continuité fiscale avec l&apos;expert fiduciaire partenaire.
                             </p>
                         </div>
 

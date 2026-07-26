@@ -164,7 +164,7 @@ export default function Pilotage() {
                 <div className="mx-auto max-w-4xl px-4 text-center">
                     <h2 className="text-3xl font-bold text-slate-900 mb-6 sm:text-4xl">Reprenez le contrôle de votre gestion</h2>
                     <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Nous auditons votre organisation administrative et mettons en place une structure fiable et durable.
+                        Nous auditons votre organisation administrative et structurons un fonctionnement fiable et durable, en lien avec l&apos;expert fiduciaire partenaire.
                     </p>
                     <div className="flex flex-col items-center gap-4">
                         <Link href="/contact">

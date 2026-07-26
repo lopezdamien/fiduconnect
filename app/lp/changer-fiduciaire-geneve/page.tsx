@@ -157,7 +157,7 @@ export default function LandingPage() {
                     <h2 className="text-3xl font-bold text-slate-900 mb-6">Vous n’avez rien à gérer</h2>
                     <p className="text-lg text-slate-700 mb-8 leading-relaxed">
                         De la première consultation à la reprise complète du dossier,<br />
-                        nous gérons chaque détail à votre place.
+                        nous coordonnons chaque détail avec l’expert fiduciaire partenaire.
                     </p>
 
                     <div className="mb-10 w-full flex justify-center">
@@ -187,7 +187,7 @@ export default function LandingPage() {
                         </div>
                         <div className="bg-slate-50 p-6 rounded-xl">
                             <h3 className="font-bold text-slate-900 mb-2 text-sm">Combien de temps prend le changement ?</h3>
-                            <p className="text-sm text-slate-600">En général 2 à 4 semaines. Nous gérons la récupération de tous vos documents et la continuité de votre comptabilité.</p>
+                            <p className="text-sm text-slate-600">En général 2 à 4 semaines. Nous coordonnons la récupération de vos documents et la continuité de votre comptabilité avec l’expert fiduciaire partenaire.</p>
                         </div>
                         <div className="bg-slate-50 p-6 rounded-xl">
                             <h3 className="font-bold text-slate-900 mb-2 text-sm">Y a-t-il des frais pour l'analyse ?</h3>

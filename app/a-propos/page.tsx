@@ -27,7 +27,7 @@ export default function About() {
                     <div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-6">Qui sommes-nous ?</h2>
                         <p className="text-lg text-slate-600 mb-4">
-                            Nous sommes un cabinet indépendant spécialisé dans l&apos;analyse de l&apos;organisation comptable.
+                            Nous sommes un service indépendant spécialisé dans l&apos;analyse de l&apos;organisation comptable.
                         </p>
                         <p className="text-lg text-slate-600 mb-6">
                             <strong>FIDUCONNECT agit comme point d’entrée et facilite la mise en relation avec des cabinets fiduciaires partenaires.</strong>
@@ -45,7 +45,7 @@ export default function About() {
                             </li>
                             <li className="flex gap-3">
                                 <CheckCircle2 className="h-6 w-6 text-green-700 shrink-0" />
-                                <span className="text-slate-700"><strong>Rigueur</strong> : Nous vérifions la conformité de vos processus administratifs.</span>
+                                <span className="text-slate-700"><strong>Rigueur</strong> : Nous passons en revue vos processus administratifs et signalons les points à corriger.</span>
                             </li>
                             <li className="flex gap-3">
                                 <CheckCircle2 className="h-6 w-6 text-green-700 shrink-0" />

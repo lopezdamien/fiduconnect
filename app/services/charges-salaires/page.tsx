@@ -41,7 +41,7 @@ export default function ServiceSalaires() {
                         Externalisez votre gestion des salaires en <span className="text-green-500">toute conformité</span> (AVS / LPP / LAA)
                     </h1>
                     <p className="mt-6 text-xl leading-8 text-slate-300 max-w-3xl mx-auto">
-                        Nous prenons en charge vos obligations employeur suisses pour éviter rappels de cotisations, erreurs de taux et sanctions administratives.
+                        Nous analysons vos obligations employeur suisses et coordonnons leur gestion avec l&apos;expert fiduciaire partenaire, pour éviter rappels de cotisations, erreurs de taux et sanctions administratives.
                         <span className="block mt-4 text-slate-400 font-medium border-t border-slate-800 pt-4 max-w-xl mx-auto">
                             Un mauvais paramétrage peut entraîner des rappels de cotisations et des pénalités.
                         </span>
