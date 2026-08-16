@@ -1,5 +1,8 @@
 import { Button } from "@/components/Button";
 import { Section } from "@/components/Section";
+import { Eyebrow } from "@/components/Eyebrow";
+import { Reveal } from "@/components/Reveal";
+import { Accordion } from "@/components/Accordion";
 import Link from "next/link";
 import {
   CheckCircle2,
@@ -11,8 +14,6 @@ import {
   LayoutDashboard,
   FileText,
   AlertCircle,
-  HelpCircle,
-  Briefcase
 } from "lucide-react";
 import { LeadForm } from "@/components/LeadForm";
 import { JsonLd } from "@/components/JsonLd";
@@ -47,371 +48,294 @@ const FAQ = [
   },
 ];
 
+const APPROCHE = [
+  { icon: LayoutDashboard, color: "text-blue-700 bg-blue-50", title: "Structurer l’analyse", text: "Audit initial complet." },
+  { icon: Search, color: "text-orange-700 bg-orange-50", title: "Identifier les fragilités", text: "Détection des points sensibles." },
+  { icon: Layers, color: "text-green-700 bg-green-50", title: "Organiser la gestion", text: "Mise en place adaptée à votre structure." },
+  { icon: ShieldCheck, color: "text-purple-700 bg-purple-50", title: "Sécuriser la continuité", text: "Accompagnement fluide et conforme." },
+];
+
+const ETAPES = [
+  { n: "1", title: "Consultation stratégique (30 min)", text: "Échange structuré pour comprendre votre situation." },
+  { n: "2", title: "Analyse et cadrage", text: "Diagnostic précis des risques et obligations." },
+  { n: "3", title: "Mise en relation qualifiée", text: "Orientation vers un expert fiduciaire partenaire adapté." },
+];
+
+const DOULEURS = ["Rappels fiscaux imprévus", "Pénalités de retard", "Stress administratif", "Perte de temps en gestion"];
+
+const CIBLES = [
+  "Indépendants",
+  "Sociétés à responsabilité limitée (Sàrl)",
+  "Petites et Moyennes Entreprises (PME)",
+  "Consultants & freelances",
+  "Artisans",
+  "Sociétés anonymes (SA)",
+];
+
 export default function Home() {
   return (
     <>
       <JsonLd schema={[organizationSchema(), faqSchema(FAQ)]} />
-      {/* 1. HERO SECTION (Premium & Structured) */}
-      <section className="relative bg-slate-900 pt-24 pb-28 sm:pt-40 sm:pb-48 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <div className="max-w-[900px] mx-auto">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-8 leading-tight">
+
+      {/* 1. HERO */}
+      <section className="relative overflow-hidden bg-slate-900 pt-24 pb-28 sm:pt-40 sm:pb-48">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+        {/* Halo vert diffus */}
+        <div className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-green-600/20 blur-[120px]" />
+        <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
+          <div className="mx-auto max-w-[900px]">
+            <div className="mb-8 flex justify-center">
+              <Eyebrow onDark>Diagnostic gratuit · Genève</Eyebrow>
+            </div>
+            <h1 className="mb-8 text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
               30 minutes pour clarifier et sécuriser votre situation comptable.
             </h1>
-            <p className="mt-6 text-xl leading-8 text-slate-300 font-medium">
+            <p className="mt-6 text-xl font-medium leading-8 text-slate-300">
               FiduConnect organise un diagnostic stratégique gratuit avec un expert fiduciaire partenaire afin d’identifier vos points de fragilité, structurer votre situation et éviter des erreurs coûteuses.
             </p>
 
-            <div className="mt-12 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 text-slate-200 text-lg">
-              <div className="flex items-center justify-center gap-3">
-                <CheckCircle2 className="h-5 w-5 text-green-500" />
-                <span>Analyse claire de votre situation TVA</span>
-              </div>
-              <div className="flex items-center justify-center gap-3">
-                <CheckCircle2 className="h-5 w-5 text-green-500" />
-                <span>Identification des zones de fragilité</span>
-              </div>
-              <div className="flex items-center justify-center gap-3">
-                <CheckCircle2 className="h-5 w-5 text-green-500" />
-                <span>Organisation d’une gestion conforme</span>
-              </div>
+            <div className="mt-12 flex flex-col justify-center gap-6 text-lg text-slate-200 sm:flex-row sm:gap-10">
+              {["Analyse claire de votre situation TVA", "Identification des zones de fragilité", "Organisation d’une gestion conforme"].map((item) => (
+                <div key={item} className="flex items-center justify-center gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-green-500" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
 
             <div className="mt-16 flex flex-col items-center gap-4">
               <Link href="#audit">
-                <Button size="lg" className="bg-green-700 hover:bg-green-800 px-10 py-7 text-lg shadow-2xl shadow-green-900/30 transform transition hover:scale-105">
+                <Button variant="cta" size="xl">
                   Demander une consultation gratuite de 30 minutes
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </Link>
-              <p className="text-sm text-slate-500 mt-2">
-                Sans engagement. Réponse sous 24h ouvrées.
-              </p>
+              <p className="mt-2 text-sm text-slate-500">Sans engagement. Réponse sous 24h ouvrées.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. SECTION PROBLÉMATIQUE (Tension Soft) */}
+      {/* 2. PROBLÉMATIQUE */}
       <Section className="bg-white py-16 sm:py-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-6">
+        <Reveal className="mx-auto max-w-4xl text-center">
+          <div className="mb-6 flex justify-center">
+            <Eyebrow color="orange">Les risques d’une gestion floue</Eyebrow>
+          </div>
+          <h2 className="mb-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Une gestion mal structurée finit toujours par coûter du temps… ou de l’argent.
           </h2>
-          <p className="text-lg text-slate-600 mb-16 leading-relaxed max-w-3xl mx-auto">
+          <p className="mx-auto mb-16 max-w-3xl text-lg leading-relaxed text-slate-600">
             Une interprétation imprécise des obligations TVA, un manque de suivi ou une organisation floue peuvent entraîner :
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              "Rappels fiscaux imprévus",
-              "Pénalités de retard",
-              "Stress administratif",
-              "Perte de temps en gestion"
-            ].map((item, index) => (
-              <div key={index} className="flex items-center justify-center p-6 bg-slate-50 rounded-xl border border-slate-100 text-slate-700 font-medium hover:bg-slate-100 transition-colors">
-                {item}
-              </div>
+          <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {DOULEURS.map((item, index) => (
+              <Reveal key={item} delay={index * 0.08}>
+                <div className="group flex h-full flex-col items-center justify-center gap-3 rounded-xl border border-slate-100 bg-slate-50 p-6 text-center font-medium text-slate-700 transition-all duration-300 hover:-translate-y-1 hover:border-red-200 hover:bg-red-50 hover:shadow-md">
+                  <AlertCircle className="h-6 w-6 text-slate-400 transition-colors group-hover:text-red-500" />
+                  {item}
+                </div>
+              </Reveal>
             ))}
           </div>
 
-          <div>
-            <Link href="#audit" className="text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors underline decoration-slate-300 underline-offset-4">
-              Vérifier ma situation
-            </Link>
-          </div>
-        </div>
+          <Link href="#audit" className="text-sm font-semibold text-slate-500 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-slate-800">
+            Vérifier ma situation
+          </Link>
+        </Reveal>
       </Section>
 
-      {/* 3. SECTION POSITIONNEMENT (Carte Premium) */}
-      <Section className="bg-slate-50 border-y border-slate-200 py-16 sm:py-32">
+      {/* 3. POSITIONNEMENT */}
+      <Section className="border-y border-slate-200 bg-slate-50 py-16 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">
+          <Reveal className="mb-16 text-center">
+            <div className="mb-4 flex justify-center">
+              <Eyebrow color="blue">Notre approche</Eyebrow>
+            </div>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               FiduConnect n’est pas une fiduciaire classique.
             </h2>
-            <p className="text-xl text-slate-600">
-              Nous structurons votre situation avant toute décision.
-            </p>
-          </div>
+            <p className="text-xl text-slate-600">Nous structurons votre situation avant toute décision.</p>
+          </Reveal>
 
-          <div className="bg-white rounded-3xl p-10 lg:p-14 border border-slate-200 shadow-xl shadow-slate-200/50">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-              <div className="flex flex-col items-start space-y-3">
-                <div className="p-3 bg-blue-50 rounded-xl mb-2">
-                  <LayoutDashboard className="h-6 w-6 text-blue-700" />
+          <Reveal className="rounded-3xl border border-slate-200 bg-white p-10 shadow-xl shadow-slate-200/50 lg:p-14">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+              {APPROCHE.map((it) => (
+                <div key={it.title} className="group flex flex-col items-start space-y-3">
+                  <div className={`mb-2 rounded-xl p-3 transition-transform duration-300 group-hover:scale-110 ${it.color}`}>
+                    <it.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900">{it.title}</h3>
+                  <p className="leading-relaxed text-slate-600">{it.text}</p>
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg">Structurer l’analyse</h3>
-                <p className="text-slate-600 leading-relaxed">Audit initial complet.</p>
-              </div>
-
-              <div className="flex flex-col items-start space-y-3">
-                <div className="p-3 bg-orange-50 rounded-xl mb-2">
-                  <Search className="h-6 w-6 text-orange-700" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-lg">Identifier les fragilités</h3>
-                <p className="text-slate-600 leading-relaxed">Détection des points sensibles.</p>
-              </div>
-
-              <div className="flex flex-col items-start space-y-3">
-                <div className="p-3 bg-green-50 rounded-xl mb-2">
-                  <Layers className="h-6 w-6 text-green-700" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-lg">Organiser la gestion</h3>
-                <p className="text-slate-600 leading-relaxed">Mise en place adaptée à votre structure.</p>
-              </div>
-
-              <div className="flex flex-col items-start space-y-3">
-                <div className="p-3 bg-purple-50 rounded-xl mb-2">
-                  <ShieldCheck className="h-6 w-6 text-purple-700" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-lg">Sécuriser la continuité</h3>
-                <p className="text-slate-600 leading-relaxed">Accompagnement fluide et conforme.</p>
-              </div>
+              ))}
             </div>
 
-            <div className="mt-14 pt-10 border-t border-slate-100 text-center space-y-4">
+            <div className="mt-14 space-y-4 border-t border-slate-100 pt-10 text-center">
               <p className="text-lg text-slate-600">
                 Les prestations comptables sont ensuite réalisées par un expert fiduciaire partenaire sélectionné pour sa rigueur et sa conformité.
               </p>
-              <p className="text-lg text-green-700 font-bold uppercase tracking-wide">
-                UN MANDAT BIEN STRUCTURÉ DÈS LE DÉPART CHANGE TOUT.
+              <p className="text-lg font-bold uppercase tracking-wide text-green-700">
+                Un mandat bien structuré dès le départ change tout.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Section>
 
-      {/* 4. PROCESSUS (Simplifié & Minimaliste) */}
+      {/* 4. PROCESSUS */}
       <Section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl text-center mb-16">
-            Un processus clair en 3 étapes.
-          </h2>
-
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Ligne de connexion */}
-            <div className="hidden md:block absolute top-[2.5rem] left-[15%] right-[15%] h-[1px] bg-slate-200 -z-10"></div>
-
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-3xl font-bold text-slate-900 shadow-md mb-6 group-hover:border-green-500 group-hover:text-green-700 transition-colors">
-                1
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Consultation stratégique (30 min)</h3>
-              <p className="text-slate-600 leading-relaxed px-4">Échange structuré pour comprendre votre situation.</p>
+          <Reveal className="mb-16 text-center">
+            <div className="mb-4 flex justify-center">
+              <Eyebrow color="green">Comment ça marche</Eyebrow>
             </div>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Un processus clair en 3 étapes.</h2>
+          </Reveal>
 
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-3xl font-bold text-slate-900 shadow-md mb-6 group-hover:border-green-500 group-hover:text-green-700 transition-colors">
-                2
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Analyse et cadrage</h3>
-              <p className="text-slate-600 leading-relaxed px-4">Diagnostic précis des risques et obligations.</p>
-            </div>
-
-            <div className="flex flex-col items-center text-center group">
-              <div className="w-20 h-20 bg-white border border-slate-200 rounded-full flex items-center justify-center text-3xl font-bold text-slate-900 shadow-md mb-6 group-hover:border-green-500 group-hover:text-green-700 transition-colors">
-                3
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Mise en relation qualifiée</h3>
-              <p className="text-slate-600 leading-relaxed px-4">Orientation vers un expert fiduciaire partenaire adapté.</p>
-            </div>
+          <div className="relative grid grid-cols-1 gap-12 md:grid-cols-3">
+            <div className="absolute left-[15%] right-[15%] top-10 -z-10 hidden h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent md:block" />
+            {ETAPES.map((etape, index) => (
+              <Reveal key={etape.n} delay={index * 0.12} className="flex flex-col items-center text-center">
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-b from-slate-900 to-slate-700 text-3xl font-bold text-white shadow-lg ring-4 ring-white">
+                  {etape.n}
+                </div>
+                <h3 className="mb-3 text-xl font-bold text-slate-900">{etape.title}</h3>
+                <p className="px-4 leading-relaxed text-slate-600">{etape.text}</p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </Section>
 
-      {/* 5. SECTION TVA (Premium) */}
-      <section className="bg-slate-900 py-36 text-white">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-          <FileText className="h-12 w-12 text-slate-300 mx-auto mb-8 opacity-70" />
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8">
+      {/* 5. TVA */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-green-950 py-28 text-white sm:py-36">
+        <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-green-600/15 blur-[100px]" />
+        <Reveal className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
+          <div className="mb-8 flex justify-center">
+            <Eyebrow onDark>TVA suisse</Eyebrow>
+          </div>
+          <FileText className="mx-auto mb-8 h-12 w-12 text-green-400/80" />
+          <h2 className="mb-8 text-3xl font-bold tracking-tight sm:text-4xl">
             La TVA : un sujet technique qui mérite un cadrage précis.
           </h2>
-          <div className="prose prose-lg prose-invert mx-auto text-slate-300 space-y-8">
-            <p className="text-xl text-white/95 font-light leading-relaxed">
-              Méthode effective ou TDFN, seuils d’assujettissement, taux applicables…
-              <br />
-              Une vérification structurée permet d’éviter des régularisations futures.
-            </p>
-            <div className="pt-8">
-              <Link href="#audit">
-                <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-6 rounded-lg shadow-lg shadow-green-900/40 text-lg transition-all transform hover:scale-105">
-                  Faire analyser ma situation TVA
-                </Button>
-              </Link>
-            </div>
+          <p className="text-xl font-light leading-relaxed text-white/95">
+            Méthode effective ou TDFN, seuils d’assujettissement, taux applicables…
+            <br />
+            Une vérification structurée permet d’éviter des régularisations futures.
+          </p>
+          <div className="pt-10">
+            <Link href="#audit">
+              <Button variant="cta" size="lg">
+                Faire analyser ma situation TVA
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      {/* 6. CHANGEMENT DE FIDUCIAIRE (Continuité) */}
+      {/* 6. CHANGEMENT DE FIDUCIAIRE */}
       <Section className="bg-slate-50 py-16 sm:py-32">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="bg-white rounded-2xl p-10 lg:p-16 shadow-sm border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-12">
+        <Reveal className="mx-auto max-w-5xl px-6">
+          <div className="flex flex-col items-center justify-between gap-12 rounded-2xl border border-slate-100 bg-white p-10 shadow-sm md:flex-row lg:p-16">
             <div className="max-w-md">
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900 mb-6">
+              <div className="mb-6">
+                <Eyebrow color="purple">Transition</Eyebrow>
+              </div>
+              <h2 className="mb-6 text-3xl font-bold tracking-tight text-slate-900">
                 Changer de fiduciaire, en toute continuité.
               </h2>
-              <p className="text-slate-600 mb-8 leading-relaxed">
-                Une transition organisée garantit l'absence de toute interruption administrative et la bonne tenue de vos comptes.
+              <p className="mb-8 leading-relaxed text-slate-600">
+                Une transition organisée garantit l&apos;absence de toute interruption administrative et la bonne tenue de vos comptes.
               </p>
               <Link href="#audit">
-                <Button className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 shadow-lg shadow-green-900/10">
+                <Button variant="cta">
                   Organiser ma transition
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </Link>
             </div>
-            <div className="flex-1 w-full">
-              <ul className="space-y-4">
-                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="h-5 w-5 text-green-700 mr-4 shrink-0" /> Continuité des déclarations
+            <ul className="w-full flex-1 space-y-4">
+              {["Continuité des déclarations", "Transmission structurée des documents", "Absence d’interruption administrative"].map((item) => (
+                <li key={item} className="flex items-center rounded-lg border border-slate-100 bg-slate-50 p-4 font-medium text-slate-800 transition-colors hover:border-green-200 hover:bg-green-50">
+                  <CheckCircle2 className="mr-4 h-5 w-5 shrink-0 text-green-700" /> {item}
                 </li>
-                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="h-5 w-5 text-green-700 mr-4 shrink-0" /> Transmission structurée des documents
-                </li>
-                <li className="flex items-center text-slate-800 font-medium p-4 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="h-5 w-5 text-green-700 mr-4 shrink-0" /> Absence d’interruption administrative
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
           </div>
-        </div>
+        </Reveal>
       </Section>
 
-      {/* 7. SECTION TYPES D'ENTREPRISES (Refined Design) */}
-      <Section className="bg-white py-14 sm:py-20 border-t border-slate-100">
-        <div className="mx-auto max-w-6xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 mb-12">
-            Nous accompagnons notamment
-          </h2>
+      {/* 7. TYPES D'ENTREPRISES */}
+      <Section className="border-t border-slate-100 bg-white py-14 sm:py-20">
+        <Reveal className="mx-auto max-w-6xl text-center">
+          <div className="mb-5 flex justify-center">
+            <Eyebrow color="slate">Pour qui</Eyebrow>
+          </div>
+          <h2 className="mb-12 text-2xl font-bold tracking-tight text-slate-900">Nous accompagnons notamment</h2>
           <div className="flex flex-wrap justify-center gap-4">
-            {[
-              "Indépendants",
-              "Sociétés à responsabilité limitée (Sàrl)",
-              "Petites et Moyennes Entreprises (PME)",
-              "Consultants & freelances",
-              "Artisans",
-              "Sociétés anonymes (SA)"
-            ].map((type, index) => (
-              <span key={index} className="px-8 py-4 bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-slate-100 text-slate-700 font-medium cursor-default">
+            {CIBLES.map((type) => (
+              <span key={type} className="cursor-default rounded-xl border border-slate-100 bg-white px-8 py-4 font-medium text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-lg">
                 {type}
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
       </Section>
 
-      {/* 8. FAQ (Réécriture Premium) */}
+      {/* 8. FAQ */}
       <Section className="bg-slate-50 py-16 sm:py-32">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 text-center mb-16">
-            Questions fréquentes
-          </h2>
-          <div className="grid gap-6">
-            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-bold text-lg select-none">
-                <div className="flex items-center">
-                  <HelpCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span>Quel est le rôle exact de FiduConnect ?</span>
-                </div>
-                <div className="shrink-0 transition duration-300 group-open:-rotate-180">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-              <p className="mt-4 leading-relaxed text-slate-700 pl-8">
-                FiduConnect organise et structure la mise en relation avec un expert fiduciaire partenaire. Les prestations comptables sont réalisées directement par cet expert.
-              </p>
-            </details>
-
-            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-bold text-lg select-none">
-                <div className="flex items-center">
-                  <HelpCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span>La consultation est-elle vraiment gratuite ?</span>
-                </div>
-                <div className="shrink-0 transition duration-300 group-open:-rotate-180">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-              <p className="mt-4 leading-relaxed text-slate-700 pl-8">
-                Oui. Elle permet d’analyser votre situation sans engagement.
-              </p>
-            </details>
-
-            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-bold text-lg select-none">
-                <div className="flex items-center">
-                  <HelpCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span>Suis-je obligé de changer de fiduciaire ?</span>
-                </div>
-                <div className="shrink-0 transition duration-300 group-open:-rotate-180">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-              <p className="mt-4 leading-relaxed text-slate-700 pl-8">
-                Non. L’objectif est d’évaluer et de structurer votre situation.
-              </p>
-            </details>
-
-            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-bold text-lg select-none">
-                <div className="flex items-center">
-                  <HelpCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span>Pourquoi passer par FiduConnect plutôt que contacter directement une fiduciaire ?</span>
-                </div>
-                <div className="shrink-0 transition duration-300 group-open:-rotate-180">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </summary>
-              <p className="mt-4 leading-relaxed text-slate-700 pl-8">
-                FiduConnect structure en amont votre situation afin d’orienter votre mandat vers un expert réellement adapté à vos besoins.
-              </p>
-            </details>
-          </div>
+          <Reveal className="mb-16 text-center">
+            <div className="mb-4 flex justify-center">
+              <Eyebrow color="green">FAQ</Eyebrow>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900">Questions fréquentes</h2>
+          </Reveal>
+          <Reveal>
+            <Accordion items={FAQ} />
+          </Reveal>
         </div>
       </Section>
 
       {/* 9. FORMULAIRE FINAL */}
-      <div id="audit" className="bg-slate-900 py-16 sm:py-32 scroll-mt-20 border-t border-slate-800">
+      <div id="audit" className="scroll-mt-20 border-t border-slate-800 bg-slate-900 py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-8 leading-tight">
+          <div className="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
+            <Reveal>
+              <div className="mb-8">
+                <Eyebrow onDark>Consultation gratuite</Eyebrow>
+              </div>
+              <h2 className="mb-8 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
                 Prenez 30 minutes pour sécuriser votre gestion comptable.
               </h2>
 
-              <div className="space-y-6 mb-10">
+              <div className="mb-10 space-y-6">
                 <div className="flex items-center text-lg text-slate-300">
-                  <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mr-4">
+                  <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
                     <Clock className="h-5 w-5 text-green-500" />
                   </div>
                   <span>Temps estimé : 1 minute</span>
                 </div>
                 <div className="flex items-center text-lg text-slate-300">
-                  <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mr-4">
+                  <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
                     <ShieldCheck className="h-5 w-5 text-green-500" />
                   </div>
                   <span>Réponse sous 24h ouvrées</span>
                 </div>
               </div>
 
-              <div className="p-6 bg-slate-800/50 rounded-xl border border-slate-700">
-                <p className="text-slate-400 text-sm leading-relaxed">
+              <div className="rounded-xl border border-slate-700 bg-slate-800/50 p-6">
+                <p className="text-sm leading-relaxed text-slate-400">
                   Vos informations sont strictement confidentielles et utilisées uniquement pour préparer votre consultation.
                 </p>
               </div>
-            </div>
-            <div>
+            </Reveal>
+            <Reveal delay={0.1}>
               <LeadForm />
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>
