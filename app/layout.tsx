@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import LayoutWrapper from "@/components/LayoutWrapper";
-import { JsonLd } from "@/components/JsonLd";
-import { SITE_NAME, SITE_URL, organizationSchema } from "@/lib/seo";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const DEFAULT_TITLE = "FiduConnect | Expert Comptable & Fiscalité PME à Genève";
+const DEFAULT_TITLE = "FiduConnect | Trouvez une fiduciaire adaptée à Genève";
 const DEFAULT_DESCRIPTION =
-  "Une approche claire et structurée de votre comptabilité, TVA et obligations fiscales. Diagnostic gratuit pour PME et indépendants à Genève.";
+  "FiduConnect aide les entreprises genevoises à identifier une fiduciaire partenaire adaptée, gratuitement et sans engagement.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -55,7 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </head>
       <body
-        className={`${inter.variable} antialiased font-sans bg-slate-50 text-slate-900 flex flex-col min-h-screen`}
+        className="antialiased font-sans bg-slate-50 text-slate-900 flex flex-col min-h-screen"
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -67,7 +59,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <LayoutWrapper>{children}</LayoutWrapper>
+        {children}
       </body>
     </html>
   );

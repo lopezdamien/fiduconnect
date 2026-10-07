@@ -7,11 +7,23 @@ const leadSchema = z.object({
     email: z.string().email("Email invalide"),
     phone: z.string().min(1, "Le téléphone est requis"),
     company: z.string().optional(),
+    situation: z.string().min(1, "La situation est requise"),
+    mainNeed: z.string().min(1, "Le besoin principal est requis"),
+    message: z.string().optional(),
     source: z.string().optional(),
     lp_variant: z.string().optional(), // Campagne SEA d'origine
     website: z.string().optional(), // Honeypot
 });
 
+function escapeHtml(value: string): string {
+    return value.replace(/[&<>"']/g, (character) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+    }[character] as string));
+}
 
 
 export async function POST(request: Request) {
@@ -40,7 +52,18 @@ export async function POST(request: Request) {
             );
         }
 
-        const { name, email, phone, company, source, lp_variant } = validation.data;
+        const { name, email, phone, company, situation, mainNeed, message, source, lp_variant } = validation.data;
+        const safe = {
+            name: escapeHtml(name),
+            email: escapeHtml(email),
+            phone: escapeHtml(phone),
+            company: company ? escapeHtml(company) : 'Non renseignée',
+            situation: escapeHtml(situation),
+            mainNeed: escapeHtml(mainNeed),
+            message: message ? escapeHtml(message) : '',
+            source: source ? escapeHtml(source) : 'Inconnue',
+            lpVariant: lp_variant ? escapeHtml(lp_variant) : '',
+        };
 
         const fromEmail = process.env.LEAD_FROM_EMAIL;
         const toEmail = process.env.LEAD_TO_EMAIL;
@@ -55,13 +78,16 @@ export async function POST(request: Request) {
             subject: `Nouveau lead FiduConnect – ${name}`,
             html: `
         <h2>Nouveau Lead Reçu</h2>
-        <p><strong>Nom :</strong> ${name}</p>
-        <p><strong>Société :</strong> ${company || 'Non renseignée'}</p>
-        <p><strong>Email :</strong> ${email}</p>
-        <p><strong>Téléphone :</strong> ${phone}</p>
+        <p><strong>Nom :</strong> ${safe.name}</p>
+        <p><strong>Société :</strong> ${safe.company}</p>
+        <p><strong>Email :</strong> ${safe.email}</p>
+        <p><strong>Téléphone :</strong> ${safe.phone}</p>
+        <p><strong>Situation :</strong> ${safe.situation}</p>
+        <p><strong>Besoin principal :</strong> ${safe.mainNeed}</p>
+        ${safe.message ? `<p><strong>Précisions :</strong> ${safe.message}</p>` : ''}
         <br/>
-        <p><strong>Page Source :</strong> ${source || 'Inconnue'}</p>
-        ${lp_variant ? `<p><strong>Campagne :</strong> ${lp_variant}</p>` : ''}
+        <p><strong>Page Source :</strong> ${safe.source}</p>
+        ${safe.lpVariant ? `<p><strong>Campagne :</strong> ${safe.lpVariant}</p>` : ''}
         <p><strong>Date :</strong> ${new Date().toLocaleString('fr-FR')}</p>
       `,
         });

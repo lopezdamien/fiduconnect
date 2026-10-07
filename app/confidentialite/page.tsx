@@ -20,7 +20,7 @@ export default function Confidentialite() {
                         <h2 className="text-xl font-bold text-slate-900 mb-4">1. Responsable du traitement</h2>
                         <p>
                             Smart Administration - Damien Lopez<br />
-                            Avenue d'Aïre 73C, 1203 Genève, Suisse<br />
+                            Avenue d&apos;Aïre 73C, 1203 Genève, Suisse<br />
                             Email : <a href="mailto:contact@fiduconnect.ch" className="text-green-700 hover:underline">contact@fiduconnect.ch</a>
                         </p>
                     </section>
