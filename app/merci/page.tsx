@@ -1,38 +1,28 @@
 import Link from "next/link";
-import { Button } from "@/components/Button";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { FiduLogo } from "@/components/FiduLogo";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
     title: "Merci pour votre demande",
-    description: "Votre demande de diagnostic a bien été transmise. Un expert fiduciaire partenaire vous recontacte sous 24 heures ouvrables.",
+    description: "Votre demande a bien été transmise. FIDUCONNECT vous rappelle gratuitement sous 24 heures, sans engagement.",
     path: "/merci",
     noIndex: true,
 });
 
 export default function Merci() {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-50">
-            <div className="text-center bg-white p-12 rounded-2xl shadow-lg border border-slate-100 max-w-md w-full">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-6">
-                    <CheckCircle2 className="h-10 w-10 text-green-600" />
-                </div>
-                <h1 className="text-3xl font-bold tracking-tight text-slate-900 mb-4">
-                    Merci !
-                </h1>
-                <p className="text-lg text-slate-600 mb-8">
-                    Votre demande est bien reçue. Nous vous recontactons rapidement.
+        <main className="sea-page flex min-h-screen items-center justify-center px-5 py-12">
+            <div className="sea-form-card w-full max-w-lg p-7 sm:p-10">
+                <Link href="/" className="inline-block"><FiduLogo className="w-[180px]" /></Link>
+                <p className="sea-eyebrow mt-10">Demande reçue</p>
+                <h1 className="sea-title mt-4 text-4xl">Merci pour votre confiance.</h1>
+                <p className="mt-6 text-base leading-7 text-[#605b54]">
+                    Nous vous rappelons gratuitement sous 24 heures pour préciser votre besoin et vous orienter vers un partenaire adapté.
                 </p>
-                <div className="flex flex-col gap-3 text-sm text-slate-500 mb-8 bg-slate-50 p-4 rounded-lg">
-                    <span>🔒 Confidentiel</span>
-                    <span>✅ Sans engagement</span>
-                </div>
-                <Link href="/">
-                    <Button fullWidth>
-                        Retour à l&apos;accueil
-                    </Button>
-                </Link>
+                <p className="mt-4 text-sm text-[#605b54]">Votre demande est sans engagement.</p>
+                <Link href="/" className="sea-button mt-8">Retour à l’accueil <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
             </div>
-        </div>
+        </main>
     );
 }

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 230" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Votre entreprise et un partenaire fiduciaire, reliés par FIDUCONNECT</title>
+  <desc id="desc">Une entreprise à gauche et un dossier partenaire à droite sont reliés par le symbole FIDUCONNECT au centre.</desc>
+  <path d="M160 131H600" stroke="#c4b8a6" stroke-width="1.5" stroke-dasharray="4 7"/>
+  <rect x="55" y="36" width="189" height="160" rx="10" fill="#e5eaf0" stroke="#b7c6d1"/>
+  <path d="M91 162H207M105 162V99L151 73L193 99V162M132 162V133H166V162" stroke="#223b4a" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M121 111H134M164 111H177M121 126H134M164 126H177" stroke="#b36349" stroke-width="3"/>
+  <rect x="330" y="71" width="100" height="100" rx="15" fill="#fffdfa" stroke="#d4c6b6"/>
+  <path d="M354 148V95H402L395 106H366V118H390V129H366V148Z" fill="#223b4a"/>
+  <circle cx="399" cy="141" r="6" fill="#b36349"/>
+  <rect x="538" y="31" width="157" height="164" rx="9" transform="rotate(7 538 31)" fill="#e8ddd0" stroke="#c8b8a3"/>
+  <rect x="514" y="43" width="157" height="164" rx="9" transform="rotate(-4 514 43)" fill="#f5f1e9" stroke="#c8b8a3"/>
+  <rect x="514" y="37" width="157" height="164" rx="9" fill="#fffdfa" stroke="#c8b8a3"/>
+  <circle cx="548" cy="74" r="10" fill="#b36349"/>
+  <path d="M571 70H646M571 78H620M539 109H646M539 125H646M539 141H604" stroke="#223b4a" stroke-width="2" stroke-linecap="round"/>
+  <rect x="539" y="164" width="46" height="12" rx="3" fill="#e5eaf0"/>
+  <circle cx="268" cy="131" r="4" fill="#b36349"/>
+  <circle cx="490" cy="131" r="4" fill="#b36349"/>
+</svg>

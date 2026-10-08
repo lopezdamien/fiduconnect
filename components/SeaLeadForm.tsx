@@ -121,7 +121,8 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                 {loading ? 'Envoi en cours…' : 'Trouver ma fiduciaire'}
                 {loading ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin motion-reduce:animate-none" /> : <ArrowRight aria-hidden="true" className="h-4 w-4" />}
             </button>
-            <p className="mt-3 text-center text-[11px] leading-5 text-[#6c665e]">Gratuit et sans engagement. Vos informations servent à vous recontacter. <a href="/confidentialite" className="underline underline-offset-2">Confidentialité</a></p>
+            <p className="mt-3 text-center text-xs font-medium text-[#223b4a]">Rappel gratuit sous 24 h · Sans engagement</p>
+            <p className="mt-2 text-center text-[11px] leading-5 text-[#6c665e]">Vos informations servent à vous recontacter. <a href="/confidentialite" className="underline underline-offset-2">Confidentialité</a></p>
         </Form>
     );
 }

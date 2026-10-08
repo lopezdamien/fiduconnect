@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="board-title">
+  <title id="board-title">FIDUCONNECT — logo et palette</title>
+  <rect width="1200" height="760" fill="#f5f1e9"/>
+  <g font-family="Arial, sans-serif">
+    <text x="64" y="57" font-size="13" letter-spacing="3" fill="#756b5f">FIDUCONNECT / IDENTITÉ VISUELLE</text>
+    <path d="M64 83H1136" stroke="#d4c6b6"/>
+    <svg x="64" y="133" width="790" height="130" viewBox="0 0 507 72"><g fill="#223b4a" fill-rule="evenodd">
+  <path transform="translate(10 10)" d="M0 0H34V8H9V22H30V30H9V52H0Z"/>
+  <path transform="translate(50 10)" d="M0 0H9V52H0Z"/>
+  <path transform="translate(65 10)" d="M0 0H16C33 0 41 10 41 26S33 52 16 52H0ZM9 8V44H16C27 44 32 38 32 26S27 8 16 8Z"/>
+  <path transform="translate(112 10)" d="M0 0H9V32C9 41 13 45 20.5 45S32 41 32 32V0H41V32C41 46 34 53 20.5 53S0 46 0 32Z"/>
+  <path transform="translate(159 10)" d="M42 9L35 15C32 10 28 7 22 7C14 7 9 14 9 26S14 45 22 45C28 45 32 42 35 37L42 43C37 50 30 53 22 53C8 53 0 43 0 26S8 -1 22 -1C30 -1 37 2 42 9Z"/>
+  <path transform="translate(208 10)" d="M22.5 -1C37 -1 45 10 45 26S37 53 22.5 53S0 42 0 26S8 -1 22.5 -1ZM22.5 7C13 7 9 14 9 26S13 45 22.5 45S36 38 36 26S32 7 22.5 7Z"/>
+  <path transform="translate(259 10)" d="M0 52V0H9L33 36V0H42V52H33L9 16V52Z"/>
+  <path transform="translate(307 10)" d="M0 52V0H9L33 36V0H42V52H33L9 16V52Z"/>
+  <path transform="translate(355 10)" d="M0 0H35V8H9V22H30V30H9V44H35V52H0Z"/>
+  <path transform="translate(396 10)" d="M42 9L35 15C32 10 28 7 22 7C14 7 9 14 9 26S14 45 22 45C28 45 32 42 35 37L42 43C37 50 30 53 22 53C8 53 0 43 0 26S8 -1 22 -1C30 -1 37 2 42 9Z"/>
+  <path transform="translate(445 10)" d="M0 0H40V8H24.5V52H15.5V8H0Z"/>
+  </g><circle cx="494" cy="56" r="6" fill="#b36349"/></svg>
+    <svg x="975" y="133" width="106" height="106" viewBox="0 0 64 64"><path d="M12 52V12H48L43 20H21V29H39V37H21V52Z" fill="#223b4a"/><circle cx="45" cy="47" r="5" fill="#b36349"/></svg>
+    <text x="64" y="300" font-size="15" fill="#756b5f">Lettres tracées · Point final · Fond transparent</text>
+    <text x="975" y="274" font-size="13" fill="#756b5f">SYMBOLE F.</text>
+    <rect x="64" y="352" width="520" height="180" rx="6" fill="#223b4a"/>
+    <svg x="99" y="402" width="450" height="65" viewBox="0 0 507 72"><g fill="#f5f1e9" fill-rule="evenodd">
+  <path transform="translate(10 10)" d="M0 0H34V8H9V22H30V30H9V52H0Z"/>
+  <path transform="translate(50 10)" d="M0 0H9V52H0Z"/>
+  <path transform="translate(65 10)" d="M0 0H16C33 0 41 10 41 26S33 52 16 52H0ZM9 8V44H16C27 44 32 38 32 26S27 8 16 8Z"/>
+  <path transform="translate(112 10)" d="M0 0H9V32C9 41 13 45 20.5 45S32 41 32 32V0H41V32C41 46 34 53 20.5 53S0 46 0 32Z"/>
+  <path transform="translate(159 10)" d="M42 9L35 15C32 10 28 7 22 7C14 7 9 14 9 26S14 45 22 45C28 45 32 42 35 37L42 43C37 50 30 53 22 53C8 53 0 43 0 26S8 -1 22 -1C30 -1 37 2 42 9Z"/>
+  <path transform="translate(208 10)" d="M22.5 -1C37 -1 45 10 45 26S37 53 22.5 53S0 42 0 26S8 -1 22.5 -1ZM22.5 7C13 7 9 14 9 26S13 45 22.5 45S36 38 36 26S32 7 22.5 7Z"/>
+  <path transform="translate(259 10)" d="M0 52V0H9L33 36V0H42V52H33L9 16V52Z"/>
+  <path transform="translate(307 10)" d="M0 52V0H9L33 36V0H42V52H33L9 16V52Z"/>
+  <path transform="translate(355 10)" d="M0 0H35V8H9V22H30V30H9V44H35V52H0Z"/>
+  <path transform="translate(396 10)" d="M42 9L35 15C32 10 28 7 22 7C14 7 9 14 9 26S14 45 22 45C28 45 32 42 35 37L42 43C37 50 30 53 22 53C8 53 0 43 0 26S8 -1 22 -1C30 -1 37 2 42 9Z"/>
+  <path transform="translate(445 10)" d="M0 0H40V8H24.5V52H15.5V8H0Z"/>
+  </g><circle cx="494" cy="56" r="6" fill="#dc9678"/></svg>
+    <text x="94" y="504" font-size="11" letter-spacing="2" fill="#cad3d9">VERSION INVERSÉE</text>
+    <rect x="616" y="352" width="520" height="180" rx="6" fill="#fffdfa" stroke="#d4c6b6"/>
+    <svg x="651" y="402" width="450" height="65" viewBox="0 0 507 72"><g fill="#151515" fill-rule="evenodd">
+  <path transform="translate(10 10)" d="M0 0H34V8H9V22H30V30H9V52H0Z"/>
+  <path transform="translate(50 10)" d="M0 0H9V52H0Z"/>
+  <path transform="translate(65 10)" d="M0 0H16C33 0 41 10 41 26S33 52 16 52H0ZM9 8V44H16C27 44 32 38 32 26S27 8 16 8Z"/>
+  <path transform="translate(112 10)" d="M0 0H9V32C9 41 13 45 20.5 45S32 41 32 32V0H41V32C41 46 34 53 20.5 53S0 46 0 32Z"/>
+  <path transform="translate(159 10)" d="M42 9L35 15C32 10 28 7 22 7C14 7 9 14 9 26S14 45 22 45C28 45 32 42 35 37L42 43C37 50 30 53 22 53C8 53 0 43 0 26S8 -1 22 -1C30 -1 37 2 42 9Z"/>
+  <path transform="translate(208 10)" d="M22.5 -1C37 -1 45 10 45 26S37 53 22.5 53S0 42 0 26S8 -1 22.5 -1ZM22.5 7C13 7 9 14 9 26S13 45 22.5 45S36 38 36 26S32 7 22.5 7Z"/>
+  <path transform="translate(259 10)" d="M0 52V0H9L33 36V0H42V52H33L9 16V52Z"/>
+  <path transform="translate(307 10)" d="M0 52V0H9L33 36V0H42V52H33L9 16V52Z"/>
+  <path transform="translate(355 10)" d="M0 0H35V8H9V22H30V30H9V44H35V52H0Z"/>
+  <path transform="translate(396 10)" d="M42 9L35 15C32 10 28 7 22 7C14 7 9 14 9 26S14 45 22 45C28 45 32 42 35 37L42 43C37 50 30 53 22 53C8 53 0 43 0 26S8 -1 22 -1C30 -1 37 2 42 9Z"/>
+  <path transform="translate(445 10)" d="M0 0H40V8H24.5V52H15.5V8H0Z"/>
+  </g><circle cx="494" cy="56" r="6" fill="#151515"/></svg>
+    <text x="646" y="504" font-size="11" letter-spacing="2" fill="#756b5f">VERSION MONOCHROME</text>
+    <text x="64" y="593" font-size="11" letter-spacing="2" fill="#756b5f">LA PALETTE</text>
+    <rect x="64" y="614" width="256" height="55" rx="3" fill="#223b4a"/>
+    <rect x="336" y="614" width="256" height="55" rx="3" fill="#b36349"/>
+    <rect x="608" y="614" width="256" height="55" rx="3" fill="#f5f1e9" stroke="#d4c6b6"/>
+    <rect x="880" y="614" width="256" height="55" rx="3" fill="#e5eaf0"/>
+    <g fill="#605b54" font-size="13">
+      <text x="64" y="695">Bleu encre · #223B4A</text>
+      <text x="336" y="695">Terre cuite · #B36349</text>
+      <text x="608" y="695">Ivoire · #F5F1E9</text>
+      <text x="880" y="695">Bleu brume · #E5EAF0</text>
+    </g>
+  </g>
+</svg>
