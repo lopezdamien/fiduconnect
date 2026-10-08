@@ -46,8 +46,7 @@ export default function Home() {
             <section className="sea-hero">
                 <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_minmax(440px,.86fr)] lg:gap-16">
                     <PremiumReveal className="pt-2 lg:pt-8">
-                        <Eyebrow>Genève · Mise en relation fiduciaire</Eyebrow>
-                        <h1 className="sea-title mt-6 max-w-3xl text-[2.75rem] sm:text-6xl lg:text-[4.5rem]">
+                        <h1 className="sea-title max-w-3xl text-[2.75rem] sm:text-6xl lg:text-[4.5rem]">
                             Trouvez la fiduciaire <em className="font-normal text-[#9c513b]">adaptée</em> à votre entreprise à Genève.
                         </h1>
                         <p className="mt-7 max-w-xl text-base leading-7 text-[#605b54] sm:text-lg sm:leading-8">
