@@ -47,8 +47,9 @@ export default function Confidentialite() {
             </section>
             <section>
                 <h2>6. Conservation</h2>
-                <p>La conservation doit être limitée aux besoins de suivi de votre demande et de la mise en relation. La durée maximale pour les demandes sans rendez-vous reste à valider avant publication ; l’ancienne durée de douze mois n’est pas reprise sans vérification.</p>
-                <p className="mt-3">La suppression doit couvrir les e-mails, les éventuels exports et les outils de suivi. Resend annonce trente jours de conservation des e-mails et journaux sur ses offres Free, Pro et Scale, indépendamment de notre boîte de réception. Une obligation légale ou la défense d’un droit peut justifier une conservation distincte.</p>
+                <p>Si votre demande n’aboutit pas à un rendez-vous, nous prévoyons de la supprimer au plus tard trois mois après sa réception. Un rappel ne remet pas ce délai à zéro. Si un rendez-vous est validé, les informations utiles sont conservées uniquement le temps nécessaire au suivi de la mise en relation, puis supprimées.</p>
+                <p className="mt-3">Cette règle concerne les e-mails et les copies dans les éventuels exports ou outils de suivi. Sa mise en œuvre dans la messagerie, y compris la corbeille et les modalités de sauvegarde, doit être vérifiée avant publication. Le site ne supprime pas automatiquement les e-mails. Resend annonce trente jours de conservation des e-mails et journaux sur ses offres Free, Pro et Scale, indépendamment de notre boîte de réception.</p>
+                <p className="mt-3">Une obligation légale ou la défense d’un droit peut justifier une conservation distincte, limitée aux informations nécessaires et à la durée justifiée.</p>
             </section>
             <section>
                 <h2>7. Cookies et publicité</h2>

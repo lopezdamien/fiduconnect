@@ -21,21 +21,29 @@ Ne retirer ce verrou qu’après validation de tous les points ci-dessous et aut
 
 ## Points encore à valider
 
-- [ ] Choisir la durée maximale des demandes sans rendez-vous. Proposition soumise à l’exploitant : 3 mois, non encore approuvée. Mettre à jour la déclaration après validation.
+- [x] Durée des demandes sans rendez-vous retenue après délégation de l’exploitant : trois mois calendaires depuis la réception initiale, sans renouvellement au rappel. Déclaration mise à jour ; mise en œuvre de la suppression encore à vérifier.
 - [ ] Mettre en œuvre la suppression dans Infomaniak, corbeilles, exports et outils de suivi, et documenter les limites des sauvegardes. Aucun effacement automatique des e-mails n’est réalisé par le code du site.
 - [ ] Pour chaque transmission : noter la date, le partenaire identifié, le rendez-vous validé et les informations que le client accepte de partager. Pas d’enregistrement audio nécessaire par défaut. Partager uniquement les informations utiles, pas l’ensemble de la boîte mail.
 - [ ] Vérifier les accords applicables aux comptes Vercel, Resend et Infomaniak, leurs sous-traitants, les pays de traitement et les garanties de transfert. Compléter la déclaration avec les pays réellement concernés.
+- [ ] Choisir une offre d’hébergement autorisant l’usage commercial : le projet Vercel inspecté est sur Hobby, réservé à l’usage personnel non commercial. Aucun abonnement modifié. Voir [les conditions d’usage Vercel](https://vercel.com/docs/limits/fair-use-guidelines#commercial-usage).
 - [ ] Examiner le modèle de rémunération avec l’exploitant et, si nécessaire, un juriste. Ne pas promettre une comparaison exhaustive ou une indépendance non démontrée. La gratuité concerne FIDUCONNECT, pas les services ultérieurs de la fiduciaire.
 - [ ] Activer une protection centralisée anti-abus pour POST /api/lead sur Vercel (règle WAF ou limiteur durable), avec limites, exceptions et tests adaptés au trafic attendu. Ne pas se fier uniquement au limiteur mémoire ni au contrôle d’origine : un bot peut fabriquer des en-têtes.
 - [ ] Vérifier les accès, la double authentification et les permissions de la clé d’envoi. Aucun secret n’a été lu en clair ou modifié pour ces corrections.
 - [ ] Vérifier la réception Infomaniak avec TLS, puis envisager TLS Enforced dans Resend et retester. Le réglage observé lors de l’audit était Opportunistic ; aucun paramètre de compte n’a été changé.
-- [ ] Définir qui répond aux demandes d’accès, de rectification et de suppression, et comment vérifier l’identité sans collecte excessive.
-- [ ] Définir la procédure d’incident : contenir, évaluer le risque, documenter et effectuer les notifications requises si applicables.
+- [x] Procédure d’accès, de rectification et de suppression rédigée ; responsable désigné : Damien Lopez. Voir `docs/PROCEDURES-DONNEES.md`.
+- [x] Procédure d’incident rédigée : contenir, évaluer le risque, documenter et examiner les notifications requises. Voir `docs/PROCEDURES-DONNEES.md`.
+- [ ] Vérifier l’application effective de ces procédures : surveillance de la boîte, calendrier de suppression, suivi restreint et moyens de réponse/gestion d’incident. Une procédure écrite ne prouve pas sa mise en œuvre.
 - [ ] Si les campagnes et mesures Google sont activées : inventorier les tags, prévoir les choix appropriés, le retrait et la preuve du consentement. Tester l’absence de transmission non autorisée, y compris sans JavaScript. Ne jamais transmettre le texte libre ou les coordonnées via une URL, un événement ou le dataLayer.
 - [ ] Fixer le domaine public, vérifier HTTPS, les en-têtes et les journaux de l’environnement final avant ouverture au public. La configuration locale ne prouve pas celle des comptes.
 - [ ] Faire relire les textes, supprimer leur avertissement « version locale de travail » seulement après validation et autoriser explicitement la publication.
 
 ## Vérifications reproductibles
+
+### Contrôle des comptes du 9 octobre 2026
+
+Lecture seule Vercel : compte accessible, deux projets FiduConnect identifiés. `fiduconnect.ch` utilise Next.js et Node 24.x ; `fiduconnect` utilise le préréglage Other. Tableau de bord de `fiduconnect.ch` : offre Hobby, aucune règle personnalisée, Bot Protection Off. Aucun projet n’a été modifié, lié au dépôt ou déployé. L’offre Hobby n’autorise pas le lancement commercial de cette landing. La règle proposée et les vérifications restantes figurent dans `docs/PROCEDURES-DONNEES.md` ; le projet cible doit être confirmé avant toute action sur le site existant.
+
+Lecture seule Resend : domaine Verified, région d’envoi Irlande, TLS Opportunistic et offre Free confirmés. DPA signé par Resend disponible dans Settings → Documents ; contenu de la version applicable encore à relire, aucun accord accepté pendant ce contrôle. Infomaniak demande une connexion de l’exploitant : paramètres de compte non vérifiés.
 
 `npm test` teste le véritable handler avec Resend simulé, sans lire de fichier .env ni envoyer d’e-mail. Compléter avec `npm run lint`, `npm run build`, `npm audit` et `npm audit --omit=dev`. Un envoi réel doit être un test distinct autorisé, avec données fictives clairement identifiées.
 
@@ -71,6 +79,7 @@ L’audit complet conserve cinq entrées élevées dans la chaîne **de dévelop
 - `package.json` et `package-lock.json` : versions corrigées et commande de test.
 - `tests/lead.test.mjs` : tests isolés sans réseau ni secrets.
 - `docs/AVANT-PUBLICATION.md` : procédures, limites et points encore à valider.
+- `docs/PROCEDURES-DONNEES.md` : préparation opérationnelle de la conservation, des suppressions, des accords de transmission, des droits et des incidents ; contrôles des comptes encore à effectuer.
 - `AGENTS.md` : fichier généré automatiquement par la nouvelle version de Next.js au démarrage local, conservé comme tel.
 
 Aucun fichier `.env`, secret, logo ou contenu visuel de la landing n’a été modifié.
