@@ -7,6 +7,8 @@ Version locale du 9 octobre 2026. Aucun déploiement autorisé.
 - Mentions légales et déclaration de confidentialité adaptées au service d’orientation, et non à une consultation de 30 minutes.
 - Contact : Smart Administration – Damien Lopez, Avenue d’Aïre 73C, 1203 Genève ; contact@smartadministration.ch.
 - Transmission au partenaire seulement après l’appel et validation du rendez-vous par le client.
+- Résumé d’information avant le bouton d’envoi dans les deux formulaires : exploitant, finalité, validation du rendez-vous avant transmission, destinataires techniques et pays accessibles dans un volet natif. Liens vers la conservation, les droits et les garanties de transfert ; pas de case imposant un consentement publicitaire.
+- Déclaration de confidentialité reformulée en langage simple : rôles de Vercel, Resend et Infomaniak, distinction entre l’envoi depuis l’Irlande et le stockage aux États-Unis, explication des clauses contractuelles types. Aucun tarif d’abonnement ni rémunération commerciale publié. Avertissement de travail conservé, sans prétendre à une validation complète des pays et des accords.
 - Google Tag Manager, iframe sans JavaScript et événement de conversion retirés. Ne pas réintroduire le conteneur avant audit de ses tags et des choix de consentement.
 - Champs normalisés et bornés côté serveur, listes de choix partagées avec le formulaire, téléphone contrôlé, corps JSON limité à 16 Kio et lecture limitée à 5 secondes.
 - Vérification du format et de l’origine, honeypot, échappement HTML, erreurs sans contenu personnel et réponse sans cache.
@@ -24,7 +26,7 @@ Ne retirer ce verrou qu’après validation de tous les points ci-dessous et aut
 - [x] Durée des demandes sans rendez-vous retenue après délégation de l’exploitant : trois mois calendaires depuis la réception initiale, sans renouvellement au rappel. Déclaration mise à jour ; mise en œuvre de la suppression encore à vérifier.
 - [ ] Mettre en œuvre la suppression dans Infomaniak, corbeilles, exports et outils de suivi, et documenter les limites des sauvegardes. Aucun effacement automatique des e-mails n’est réalisé par le code du site.
 - [ ] Pour chaque transmission : noter la date, le partenaire identifié, le rendez-vous validé et les informations que le client accepte de partager. Pas d’enregistrement audio nécessaire par défaut. Partager uniquement les informations utiles, pas l’ensemble de la boîte mail.
-- [ ] Vérifier les accords applicables aux comptes Vercel, Resend et Infomaniak, leurs sous-traitants, les pays de traitement et les garanties de transfert. Compléter la déclaration avec les pays réellement concernés.
+- [ ] Validation contractuelle à la charge de l’exploitant : vérifier les accords applicables aux comptes Vercel, Resend et Infomaniak, leurs sous-traitants, les pays de traitement et les garanties de transfert. Compléter la déclaration avec tous les pays réellement concernés. Le résumé public ne remplace pas cette validation ; aucun contrat accepté par l’agent.
 - [ ] Choisir une offre d’hébergement autorisant l’usage commercial : le projet Vercel inspecté est sur Hobby, réservé à l’usage personnel non commercial. Aucun abonnement modifié. Voir [les conditions d’usage Vercel](https://vercel.com/docs/limits/fair-use-guidelines#commercial-usage).
 - [ ] Examiner le modèle de rémunération avec l’exploitant et, si nécessaire, un juriste. Ne pas promettre une comparaison exhaustive ou une indépendance non démontrée. La gratuité concerne FIDUCONNECT, pas les services ultérieurs de la fiduciaire.
 - [ ] Activer une protection centralisée anti-abus pour POST /api/lead sur Vercel (règle WAF ou limiteur durable), avec limites, exceptions et tests adaptés au trafic attendu. Ne pas se fier uniquement au limiteur mémoire ni au contrôle d’origine : un bot peut fabriquer des en-têtes.
@@ -55,7 +57,7 @@ L’audit complet conserve cinq entrées élevées dans la chaîne **de dévelop
 
 ### Résultats locaux
 
-- Tests du handler : 34 tests réussis, Resend simulé, y compris lecture lente, tailles, validation, origine, erreurs et verrou de production.
+- Tests : 36 réussis, dont 34 pour le handler avec Resend simulé et 2 pour l’information sur les données. Le rendu du véritable formulaire est vérifié pour les instances hero/final : notice avant l’envoi, pays, partenaires, liens et absence de newsletter automatique. Le rendu du contenu de confidentialité vérifie les garanties et l’absence de promesse de validation terminée. Aucun envoi réel.
 - Lint : réussi, sans erreur ni avertissement.
 - Audit des dépendances de production : zéro alerte au moment du contrôle. Cela ne garantit pas une absence globale de vulnérabilités.
 - Compilation vérifiée avec `npm run build -- --webpack`. Le moteur Turbopack de `npm run build` est bloqué localement par une restriction de création de processus/port, même après la tentative avec permissions étendues. Le script par défaut est conservé.
@@ -78,6 +80,7 @@ L’audit complet conserve cinq entrées élevées dans la chaîne **de dévelop
 - `lib/seo.ts` : coordonnées structurées cohérentes avec l’exploitant confirmé ; ancien téléphone non confirmé retiré.
 - `package.json` et `package-lock.json` : versions corrigées et commande de test.
 - `tests/lead.test.mjs` : tests isolés sans réseau ni secrets.
+- `tests/privacy.test.mjs` : contrôles du rendu de l’information avant envoi et du contenu de confidentialité, sans navigateur ni secrets.
 - `docs/AVANT-PUBLICATION.md` : procédures, limites et points encore à valider.
 - `docs/PROCEDURES-DONNEES.md` : préparation opérationnelle de la conservation, des suppressions, des accords de transmission, des droits et des incidents ; contrôles des comptes encore à effectuer.
 - `AGENTS.md` : fichier généré automatiquement par la nouvelle version de Next.js au démarrage local, conservé comme tel.

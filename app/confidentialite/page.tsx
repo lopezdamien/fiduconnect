@@ -27,28 +27,31 @@ export default function Confidentialite() {
                 <p className="mt-3">Ne transmettez pas de pièces d’identité, de données bancaires, de données salariales ou de documents fiscaux confidentiels dans le champ libre. Aucun dépôt de document n’est proposé.</p>
             </section>
             <section>
-                <h2>3. Utilisation de votre demande</h2>
+                <h2>3. À quoi servent vos informations ?</h2>
                 <p>Vos informations servent à vous rappeler gratuitement sous 24 heures, à comprendre votre situation et à préparer une orientation vers un partenaire adapté. Les informations techniques servent au fonctionnement du site et à la prévention des abus.</p>
                 <p className="mt-3">Votre demande ne vous inscrit pas à une newsletter et n’autorise pas une prospection sans rapport avec votre besoin. Le traitement est soumis à la Loi fédérale suisse sur la protection des données.</p>
             </section>
             <section>
-                <h2>4. Destinataires et partenaires</h2>
-                <p>Votre demande est envoyée à Smart Administration – Damien Lopez. Les prestataires d’hébergement, d’envoi et de messagerie la traitent pour fournir leurs services.</p>
+                <h2>4. Qui reçoit votre demande ?</h2>
+                <p>Smart Administration – Damien Lopez reçoit votre demande et prépare votre rappel. Vercel, Resend et Infomaniak interviennent dans le fonctionnement du site et l’acheminement de cette demande, comme expliqué ci-dessous.</p>
                 <p className="mt-3">Vos coordonnées et les informations utiles ne sont transmises à une fiduciaire partenaire qu’après l’appel et votre validation d’un rendez-vous avec le partenaire concerné. Le formulaire n’envoie aucune demande automatiquement aux fiduciaires. Le partenaire vous informe de ses propres traitements.</p>
             </section>
             <section>
-                <h2>5. Prestataires et traitements à l’étranger</h2>
+                <h2 id="prestataires">5. Où vos données sont-elles traitées ?</h2>
                 <ul>
-                    <li><strong>Vercel Inc.</strong> : hébergement prévu et exécution du formulaire. Son accord prévoit notamment des traitements aux États-Unis et par ses sous-traitants. <a href="https://vercel.com/legal/dpa" rel="noopener noreferrer">Accord Vercel</a>.</li>
-                    <li><strong>Resend</strong> : envoi par e-mail. La région d’envoi configurée est l’Irlande ; Resend indique que les e-mails et journaux stockés le sont aux États-Unis. <a href="https://resend.com/security" rel="noopener noreferrer">Informations Resend</a>.</li>
-                    <li><strong>Infomaniak</strong> : réception et conservation dans la messagerie. Son Service Mail est hébergé en Suisse. <a href="https://www.infomaniak.com/fr/ksuite/service-mail" rel="noopener noreferrer">Service Mail</a>.</li>
+                    <li><strong>Vercel Inc.</strong> héberge la version prévue pour publication et exécute le formulaire. Cela concerne les informations de votre demande ainsi que les données techniques du site. Son accord prévoit notamment des traitements aux <strong>États-Unis</strong> et le recours à d’autres prestataires. <a href="https://vercel.com/legal/dpa" rel="noopener noreferrer">Informations sur le traitement par Vercel</a>.</li>
+                    <li><strong>Resend</strong> achemine votre demande par e-mail. L’envoi est configuré depuis l’<strong>Irlande</strong>, mais les e-mails et journaux sont stockés aux <strong>États-Unis</strong>. Choisir une région d’envoi européenne ne signifie donc pas que les données restent en Europe. <a href="https://resend.com/security" rel="noopener noreferrer">Informations sur le traitement par Resend</a>.</li>
+                    <li><strong>Infomaniak</strong> reçoit et conserve les e-mails dans notre messagerie, hébergée en <strong>Suisse</strong>. <a href="https://www.infomaniak.com/fr/ksuite/service-mail" rel="noopener noreferrer">Informations sur le Service Mail Infomaniak</a>.</li>
                 </ul>
-                <p className="mt-3">Les accords de Vercel et de Resend prévoient des mécanismes de transfert international, notamment des clauses contractuelles types avec des dispositions adaptées au droit suisse. Les contrats du compte, les sous-traitants et les pays de traitement doivent être vérifiés avant publication de cette version de travail. La région d’envoi ne garantit pas un stockage exclusivement européen ou suisse.</p>
+                <h3 id="garanties" className="mb-2 mt-5 font-semibold text-[#223b4a]">Quelles garanties sont prévues ?</h3>
+                <p>Les accords publiés par Vercel et Resend prévoient notamment des « clauses contractuelles types », avec des dispositions pour les transferts depuis la Suisse. Ce sont des engagements encadrant l’utilisation et la protection des données lors d’un transfert à l’étranger. Ils ne signifient pas que les données restent en Suisse.</p>
+                <p className="mt-3">Vous pouvez consulter ces engagements dans les <a href="https://vercel.com/legal/dpa" rel="noopener noreferrer">dispositions de protection des données de Vercel</a> et de <a href="https://resend.com/legal/dpa" rel="noopener noreferrer">Resend</a>, ou nous contacter pour des précisions sur les garanties applicables à votre demande.</p>
+                <p className="mt-3">Pour cette version locale de travail, l’application de ces accords à nos comptes et la liste complète des pays concernés par les autres prestataires doivent encore être confirmées avant publication.</p>
             </section>
             <section>
                 <h2>6. Conservation</h2>
                 <p>Si votre demande n’aboutit pas à un rendez-vous, nous prévoyons de la supprimer au plus tard trois mois après sa réception. Un rappel ne remet pas ce délai à zéro. Si un rendez-vous est validé, les informations utiles sont conservées uniquement le temps nécessaire au suivi de la mise en relation, puis supprimées.</p>
-                <p className="mt-3">Cette règle concerne les e-mails et les copies dans les éventuels exports ou outils de suivi. Sa mise en œuvre dans la messagerie, y compris la corbeille et les modalités de sauvegarde, doit être vérifiée avant publication. Le site ne supprime pas automatiquement les e-mails. Resend annonce trente jours de conservation des e-mails et journaux sur ses offres Free, Pro et Scale, indépendamment de notre boîte de réception.</p>
+                <p className="mt-3">Cette règle concerne les e-mails et les copies dans les éventuels exports ou outils de suivi. Sa mise en œuvre dans la messagerie, y compris la corbeille et les modalités de sauvegarde, doit être vérifiée avant publication. Le site ne supprime pas automatiquement les e-mails. Resend annonce trente jours de conservation des e-mails et journaux pour l’offre utilisée, indépendamment de notre boîte de réception.</p>
                 <p className="mt-3">Une obligation légale ou la défense d’un droit peut justifier une conservation distincte, limitée aux informations nécessaires et à la durée justifiée.</p>
             </section>
             <section>
