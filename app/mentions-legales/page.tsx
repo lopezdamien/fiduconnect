@@ -1,81 +1,44 @@
-
-import { pageMetadata } from "@/lib/seo";
+import { LegalPage } from '@/components/LegalPage';
+import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-    title: "Mentions légales",
-    description: "Mentions légales du site FiduConnect, édité par Smart Administration - Damien Lopez.",
-    path: "/mentions-legales",
+    title: 'Mentions légales',
+    description: 'Identité de l’exploitant et fonctionnement du service FIDUCONNECT.',
+    path: '/mentions-legales',
+    noIndex: true,
 });
 
 export default function MentionsLegales() {
     return (
-        <div className="bg-slate-50 min-h-screen py-14 sm:py-24 px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl bg-white p-10 rounded-2xl shadow-sm border border-slate-100">
-                <h1 className="text-3xl font-bold tracking-tight text-slate-900 mb-8 pb-4 border-b border-slate-100">
-                    Mentions Légales
-                </h1>
-
-                <div className="space-y-8 text-slate-800 leading-relaxed">
-                    <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">1. Éditeur du site</h2>
-                        <p>
-                            Le présent site est édité par :<br />
-                            <strong>Smart Administration - Damien Lopez</strong><br />
-                            <strong>Adresse :</strong> Avenue d&apos;Aïre 73C, 1203 Genève, Suisse<br />
-                            <strong>Email :</strong> <a href="mailto:contact@fiduconnect.ch" className="text-green-700 hover:underline">contact@fiduconnect.ch</a><br />
-                            <strong>Responsable :</strong> Damien LOPEZ
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">2. Objet du site</h2>
-                        <p>
-                            Le site présente un service d’information et d’organisation de consultations en matière comptable et fiduciaire.
-                            Les consultations de 30 minutes sont réalisées par un <strong>expert fiduciaire partenaire indépendant</strong>.
-                        </p>
-                        <p className="mt-2 text-slate-900 font-medium">
-                            Smart Administration n’agit pas en qualité de cabinet fiduciaire.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">3. Hébergement</h2>
-                        <p>
-                            Le site est hébergé par :<br />
-                            <strong>Vercel Inc.</strong><br />
-                            340 S Lemon Ave #4133<br />
-                            Walnut, CA 91789<br />
-                            États-Unis<br />
-                            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-green-700 hover:underline">https://vercel.com</a>
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">4. Responsabilité</h2>
-                        <p>
-                            Les contenus publiés sur ce site sont fournis à titre informatif.
-                            Ils ne constituent pas un conseil juridique ou fiscal personnalisé.
-                            La responsabilité de Smart Administration ne saurait être engagée en cas d’erreur ou d’omission.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">5. Propriété intellectuelle</h2>
-                        <p>
-                            Les contenus, textes et éléments graphiques sont protégés par le droit applicable.
-                            Toute reproduction sans autorisation est interdite.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-xl font-bold text-slate-900 mb-4">6. Droit applicable</h2>
-                        <p>
-                            Le droit suisse est applicable.<br />
-                            For juridique au siège de la société.
-                        </p>
-                    </section>
-                </div>
-            </div>
-        </div>
+        <LegalPage title="Mentions légales">
+            <section>
+                <h2>1. Exploitant et contact</h2>
+                <p>FIDUCONNECT est un service exploité par <strong>Smart Administration – Damien Lopez</strong>.</p>
+                <p>Avenue d’Aïre 73C, 1203 Genève, Suisse.<br />Responsable du site : Damien Lopez.<br />E-mail : <a href="mailto:contact@smartadministration.ch">contact@smartadministration.ch</a>.</p>
+            </section>
+            <section>
+                <h2>2. Le rôle de FIDUCONNECT</h2>
+                <p>Nous recueillons votre besoin, vous rappelons gratuitement sous 24 heures et vous aidons à identifier et comparer des partenaires fiduciaires adaptés à votre entreprise à Genève. La demande, le rappel et l’orientation FIDUCONNECT sont gratuits et sans engagement pour vous.</p>
+                <p className="mt-3">FIDUCONNECT n’est pas un cabinet fiduciaire et ne fournit pas de conseil comptable, fiscal ou juridique personnalisé. L’orientation porte sur des partenaires du réseau, sans comparaison exhaustive de toutes les fiduciaires du marché.</p>
+                <p className="mt-3">Après l’appel, vos coordonnées ne sont transmises au partenaire concerné que si vous validez un rendez-vous. Vous restez libre de donner suite ou non. Les prestations éventuellement commandées à la fiduciaire font l’objet d’un accord distinct avec elle, notamment pour leurs tarifs et leurs conditions.</p>
+            </section>
+            <section>
+                <h2>3. Hébergement et prestataires techniques</h2>
+                <p>L’hébergeur prévu pour la version publiée est <a href="https://vercel.com/legal/privacy-notice" rel="noopener noreferrer">Vercel Inc.</a>, États-Unis. L’envoi des demandes utilise Resend ; la messagerie de réception est hébergée par Infomaniak en Suisse.</p>
+                <p className="mt-3">Les traitements associés sont décrits dans la <a href="/confidentialite">déclaration de confidentialité</a>.</p>
+            </section>
+            <section>
+                <h2>4. Informations et responsabilité</h2>
+                <p>Le site présente le service d’orientation. Ses informations ne remplacent pas l’analyse de votre situation par un professionnel. Chaque partenaire reste responsable de ses propres conseils et prestations. Ces précisions ne limitent pas les droits que la loi vous reconnaît.</p>
+            </section>
+            <section>
+                <h2>5. Contenus du site</h2>
+                <p>Les textes, le logo et les éléments graphiques sont soumis aux droits de leurs titulaires respectifs. Pour une demande de réutilisation, contactez-nous.</p>
+            </section>
+            <section>
+                <h2>6. Droit applicable</h2>
+                <p>Le service est destiné aux entreprises recherchant une fiduciaire à Genève. Le droit suisse s’applique, sous réserve des dispositions impératives applicables.</p>
+            </section>
+        </LegalPage>
     );
 }

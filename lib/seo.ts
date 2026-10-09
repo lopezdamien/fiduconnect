@@ -74,23 +74,25 @@ export function organizationSchema() {
         '@type': 'ProfessionalService',
         '@id': ORGANIZATION_ID,
         name: SITE_NAME,
+        legalName: 'Smart Administration – Damien Lopez',
         url: SITE_URL,
         description:
             "FiduConnect aide les entreprises genevoises à identifier et comparer des partenaires fiduciaires adaptés, gratuitement et sans engagement.",
-        telephone: '+41795186717',
-        email: 'contact@fiduconnect.ch',
+        email: 'contact@smartadministration.ch',
         areaServed: {
             '@type': 'AdministrativeArea',
             name: AREA_SERVED,
         },
         address: {
             '@type': 'PostalAddress',
+            streetAddress: 'Avenue d’Aïre 73C',
+            postalCode: '1203',
             addressLocality: 'Genève',
             addressRegion: 'GE',
             addressCountry: 'CH',
         },
         knowsLanguage: ['fr-CH'],
-        priceRange: 'Diagnostic gratuit',
+        priceRange: 'Orientation gratuite et sans engagement',
     };
 }
 
