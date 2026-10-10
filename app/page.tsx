@@ -20,7 +20,16 @@ const steps = [
     ['03', 'Nous vous orientons vers un partenaire adapté', 'Vous recevez une orientation claire, sans engagement de votre part.'],
 ];
 
-const needs = ['Création d’entreprise', 'Comptabilité', 'Fiscalité', 'TVA', 'Salaires', 'Comparaison ou changement de fiduciaire'];
+const needs = [
+    'Création d’entreprise',
+    'Domiciliation à Genève',
+    'Administration de société à Genève',
+    'Comptabilité',
+    'Fiscalité',
+    'TVA',
+    'Salaires',
+    'Comparaison ou changement de fiduciaire',
+];
 const reassurances = [
     ['Gratuit', 'Aucun coût pour votre demande.'],
     ['Sans engagement', 'Vous restez libre de votre décision.'],
