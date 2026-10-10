@@ -1,6 +1,6 @@
 # FIDUCONNECT — procédures internes pour les données
 
-Préparation locale du 9 octobre 2026. Responsable : Damien Lopez, Smart Administration. Contact : contact@smartadministration.ch.
+Préparation locale mise à jour le 10 octobre 2026. Responsable : Damien Lopez, Smart Administration. Contact : contact@smartadministration.ch.
 
 Ces procédures sont préparées, mais leur application dans les comptes doit encore être vérifiée avant publication. Aucun e-mail n’a été supprimé, aucun compte modifié et aucun abonnement souscrit pendant cette préparation. Ne pas conserver de données réelles de prospects dans ce dépôt Git.
 
@@ -23,7 +23,7 @@ Procédure à mettre en place avant ouverture :
 1. Inscrire l’échéance lors de la réception. Prévoir une revue hebdomadaire et supprimer à cette revue les demandes dont l’échéance tombe avant la prochaine revue, afin de ne pas dépasser trois mois. Aucune règle de suppression automatique n’a été activée.
 2. Retrouver les copies dans la réception, les archives, les messages envoyés, les dossiers partagés, les exports et l’outil de suivi. Supprimer uniquement les éléments du dossier identifié, après contrôle des obligations de conservation éventuelles.
 3. Traiter aussi la corbeille : une simple mise à la corbeille ne prouve pas la suppression finale. Ne pas vider globalement une boîte ni sa corbeille pour supprimer un seul dossier.
-4. Vérifier auprès d’Infomaniak les délais et modalités de sauvegarde/restauration applicables au compte. Ne pas promettre un effacement instantané des sauvegardes non maîtrisées. Si une restauration réintroduit un dossier supprimé, appliquer de nouveau la suppression.
+4. Tenir compte des sauvegardes Infomaniak : le 10 octobre 2026, la console de la boîte indique une restauration jusqu'à trente jours maximum. Cette fenêtre n'établit pas la durée de toutes les copies internes ; les conditions publiques mentionnent une autre durée (voir section 6). Ne pas promettre un effacement instantané des sauvegardes non maîtrisées. Si une restauration réintroduit un dossier supprimé, appliquer de nouveau la suppression.
 5. Garder une trace minimale de l’opération (référence interne non directement identifiante, date, périmètre et éventuelle limite technique), sans recopier le message ou les coordonnées supprimés. Réexaminer aussi l’utilité de cette trace.
 
 Resend annonce une conservation de trente jours des e-mails et journaux sur les offres Free, Pro et Scale. Ce délai ne supprime pas les copies dans Infomaniak. Vérifier le plan réellement utilisé et ne pas importer les e-mails dans Git pour en garder une preuve.
@@ -71,7 +71,13 @@ Identifier le projet retenu avant toute activation : une protection publiée sur
 
 Lecture seule Resend le 9 octobre 2026 : domaine `fiduconnect.ch` Verified, région d’envoi Ireland / eu-west-1, TLS **Opportunistic**, offre transactionnelle **Free**. Settings → Documents présente le DPA signé par Resend et indique son application dès l’inscription. Le contenu et les garanties de la version contractuelle applicable doivent encore être relus ; sa présence ne suffit pas à valider l’ensemble des transferts. Aucun contrat accepté ni réglage modifié pendant ce contrôle.
 
-Infomaniak : la console demande une connexion. Les permissions, la double authentification, la suppression, les sauvegardes et le transport du compte n’ont donc pas pu être vérifiés. Connexion par l’exploitant requise ; ne pas transmettre son mot de passe dans la conversation.
+Infomaniak : console accessible, boîte vérifiée en lecture seule le 10 octobre 2026. Un utilisateur actif, aucune invitation en attente, un appareil configuré ; permissions détaillées encore à vérifier. Lors du contrôle précédent, aucune redirection n'était configurée, la double authentification du compte était active par SMS et le nettoyage de la corbeille/des indésirables affichait trente jours. Le nettoyage de ces dossiers ne supprime pas automatiquement les demandes présentes dans la réception ou les archives.
+
+La fenêtre de restauration affiche **30 jours maximum**, avec une sauvegarde datée du 10 octobre 2026 à 04:30. Consultation annulée, aucune restauration effectuée. La [FAQ de restauration](https://www.infomaniak.com/fr/support/faq/1203/restaurer-un-compte-mail-recuperer-des-e-mails-supprimes) décrit des sauvegardes quotidiennes et cette fenêtre selon l'offre. Les [conditions particulières Service Mail](https://welcome.infomaniak.com/api/web-components/1/cgu/latest?id=38&locale=fr_FR), révision du 27 mai 2026, mentionnent sept jours au §7.2 et une responsabilité du client pour sa sauvegarde au §5.3. Ne pas confondre fenêtre proposée par l'interface, conservation de toutes les copies et contrat applicable. Clarifier la différence avec le fournisseur si une durée contractuelle exacte ou une garantie d'effacement est nécessaire ; aucun nouveau service de sauvegarde installé.
+
+Transport : MX `mta-gw.infomaniak.ch` identifié. La tentative STARTTLS sur le port 25 avec vérification du certificat/nom n'a pas obtenu de réponse et a été arrêtée après 25 secondes, sans envoi d'e-mail ni authentification. Résultat **non concluant**, pas une preuve que la réception est dépourvue de TLS. Resend reste en mode Opportunistic, observé à nouveau le 10 octobre ; aucun réglage modifié. Une vérification d'en-têtes d'un test fictif identifié ou un test de livraison autorisé reste à effectuer pour établir le trajet réel. TLS Enforced est une option à décider séparément : il empêche le repli non chiffré mais peut refuser une livraison si TLS échoue.
+
+Ces contrôles techniques sont des moyens de vérifier une protection proportionnée, pas des obligations légales universelles imposant une double authentification précise, un nouveau service de sauvegarde ou TLS Enforced à tout formulaire. Les conditions des fournisseurs doivent être examinées séparément par l'exploitant.
 
 À vérifier dans les comptes concernés :
 

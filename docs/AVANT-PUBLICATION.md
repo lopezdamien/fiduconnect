@@ -1,6 +1,6 @@
 # FIDUCONNECT — validation avant publication
 
-Version locale du 9 octobre 2026. Aucun déploiement autorisé.
+Version locale du 10 octobre 2026. Aucun déploiement autorisé.
 
 ## Corrections locales
 
@@ -22,6 +22,8 @@ Version locale du 9 octobre 2026. Aucun déploiement autorisé.
 Ne retirer ce verrou qu’après validation de tous les points ci-dessous et autorisation de publication par l’exploitant. Ne pas le remplacer par un paramètre public contrôlable depuis le navigateur.
 
 ## Points encore à valider
+
+Cette liste distingue les obligations de protection et d'information, les conditions des fournisseurs et les précautions techniques proposées. Chaque case n'est pas une obligation légale autonome. La double authentification, un nouveau service de sauvegarde ou le réglage Resend TLS Enforced ne sont pas présentés comme des obligations universelles. La sécurité doit rester proportionnée aux données et aux risques ; les résultats d'un contrôle doivent être documentés sans prétendre à une certification.
 
 - [x] Durée des demandes sans rendez-vous retenue après délégation de l’exploitant : trois mois calendaires depuis la réception initiale, sans renouvellement au rappel. Déclaration mise à jour ; mise en œuvre de la suppression encore à vérifier.
 - [ ] Mettre en œuvre la suppression dans Infomaniak, corbeilles, exports et outils de suivi, et documenter les limites des sauvegardes. Aucun effacement automatique des e-mails n’est réalisé par le code du site.
@@ -45,7 +47,17 @@ Ne retirer ce verrou qu’après validation de tous les points ci-dessous et aut
 
 Lecture seule Vercel : compte accessible, deux projets FiduConnect identifiés. `fiduconnect.ch` utilise Next.js et Node 24.x ; `fiduconnect` utilise le préréglage Other. Tableau de bord de `fiduconnect.ch` : offre Hobby, aucune règle personnalisée, Bot Protection Off. Aucun projet n’a été modifié, lié au dépôt ou déployé. L’offre Hobby n’autorise pas le lancement commercial de cette landing. La règle proposée et les vérifications restantes figurent dans `docs/PROCEDURES-DONNEES.md` ; le projet cible doit être confirmé avant toute action sur le site existant.
 
-Lecture seule Resend : domaine Verified, région d’envoi Irlande, TLS Opportunistic et offre Free confirmés. DPA signé par Resend disponible dans Settings → Documents ; contenu de la version applicable encore à relire, aucun accord accepté pendant ce contrôle. Infomaniak demande une connexion de l’exploitant : paramètres de compte non vérifiés.
+Lecture seule Resend : domaine Verified, région d’envoi Irlande, TLS Opportunistic et offre Free confirmés. DPA signé par Resend disponible dans Settings → Documents ; contenu de la version applicable encore à relire, aucun accord accepté pendant ce contrôle.
+
+### Contrôle complémentaire du 10 octobre 2026
+
+- Git propre avant la mise à jour de cette documentation, branche `landing-sea`.
+- Console Infomaniak accessible : un utilisateur actif, aucune invitation en attente et un appareil configuré pour la boîte de réception. Les permissions détaillées n'ont pas été validées. Lors du contrôle précédent, aucune redirection n'était configurée et la double authentification du compte était active par SMS ; aucun réglage changé.
+- La fenêtre de restauration de la boîte destinataire indique explicitement **30 jours maximum** et propose la sauvegarde du 10 octobre 2026 à 04:30. Fenêtre fermée avec Annuler : aucune restauration, suppression ou notification provoquée.
+- La [FAQ Infomaniak](https://www.infomaniak.com/fr/support/faq/1203/restaurer-un-compte-mail-recuperer-des-e-mails-supprimes) décrit des sauvegardes quotidiennes et une restauration jusqu'à 30 jours selon l'offre. Les [conditions particulières Service Mail](https://welcome.infomaniak.com/api/web-components/1/cgu/latest?id=38&locale=fr_FR), révision du 27 mai 2026, mentionnent sept jours au §7.2 et la responsabilité du client de conserver une sauvegarde au §5.3. L'interface confirme la fenêtre de restauration proposée, pas la durée de toutes les copies internes ni la version contractuelle applicable au compte. Ne pas garantir un effacement immédiat ou fixer publiquement une durée globale sur cette seule base. Aucun service de sauvegarde supplémentaire souscrit.
+- Resend : domaine Verified, région Ireland, **Opportunistic** à nouveau observé. Ce mode tente TLS mais autorise un repli sans chiffrement ; [TLS Enforced](https://resend.com/docs/dashboard/domains/tls) refuse l'envoi si TLS ne peut pas être établi. Aucun changement appliqué.
+- Le MX du domaine destinataire est `mta-gw.infomaniak.ch`. Une tentative STARTTLS SMTP sur le port 25, avec vérification du certificat et du nom de serveur demandée, n'a donné aucune réponse et a été arrêtée après 25 secondes. Aucun message ni identifiant de connexion envoyé. **Résultat non concluant** : ni succès TLS, ni preuve d'une absence de TLS. Vérifier un en-tête de réception d'un test fictif identifié ou réaliser un test de livraison distinct autorisé avant d'affirmer que le trajet Resend → Infomaniak a été vérifié.
+- Aucun compte, secret, fichier `.env` ou texte public de la landing modifié ; aucun déploiement. Seule la documentation interne a été actualisée.
 
 `npm test` teste le véritable handler avec Resend simulé, sans lire de fichier .env ni envoyer d’e-mail. Compléter avec `npm run lint`, `npm run build`, `npm audit` et `npm audit --omit=dev`. Un envoi réel doit être un test distinct autorisé, avec données fictives clairement identifiées.
 
