@@ -118,19 +118,10 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                     <p id={`${idPrefix}-message-help`} className="text-[11px] leading-5 text-[#6c665e]">2 000 caractères maximum. N’indiquez pas de données bancaires, salariales, fiscales confidentielles ou de pièces d’identité.</p>
                 </Field.Root>
             </fieldset>
-            <section aria-label="Utilisation de vos données" className="mt-5 border-t border-[#e5dfd5] pt-4 text-xs leading-6 text-[#6c665e]">
-                <p>Smart Administration – Damien Lopez utilise vos informations pour vous rappeler et vous orienter. Vos coordonnées et les informations utiles ne sont transmises à une fiduciaire qu’après l’appel et votre validation d’un rendez-vous avec ce partenaire.</p>
-                <details className="mt-2">
-                    <summary className="cursor-pointer font-medium text-[#223b4a]">Qui traite vos données et dans quels pays ?</summary>
-                    <ul className="mt-2 list-disc space-y-1 pl-4">
-                        <li>Vercel : hébergement prévu du site et traitement du formulaire, notamment aux États-Unis.</li>
-                        <li>Resend : envoi des e-mails depuis l’Irlande et stockage aux États-Unis.</li>
-                        <li>Infomaniak : réception et conservation des e-mails en Suisse.</li>
-                    </ul>
-                    <p className="mt-2">Les garanties prévues pour ces transferts sont expliquées dans la <a href="/confidentialite#garanties" className="underline underline-offset-2">déclaration de confidentialité</a>.</p>
-                </details>
-                <p className="mt-2"><a href="/confidentialite" className="underline underline-offset-2">Utilisation, conservation et vos droits</a>. Votre demande ne vous inscrit pas à une newsletter.</p>
-            </section>
+            <p aria-label="Utilisation de vos données" className="mt-4 text-[11px] leading-5 text-[#6c665e]">
+                Vos informations servent à vous rappeler et vous orienter.{' '}
+                <a href="/confidentialite" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Confidentialité<span className="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>.
+            </p>
             <button type="submit" className="sea-button sea-submit mt-4" disabled={loading}>
                 {loading ? 'Envoi en cours…' : 'Trouver ma fiduciaire'}
                 {loading ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin motion-reduce:animate-none" /> : <ArrowRight aria-hidden="true" className="h-4 w-4" />}
