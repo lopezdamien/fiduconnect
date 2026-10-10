@@ -87,7 +87,8 @@ test('desktop compaction preserves all form fields and avoids an inner scroll ar
         assert.match(html, /sea-contact-fields/);
         assert.match(html, /sea-need-fields/);
         assert.match(html, /type="submit"/);
-        assert.match(html, /2 000 caractères maximum/);
+        assert.match(html, /<textarea\b[^>]*maxlength="2000"/i);
+        assert.doesNotMatch(html, /2 000 caractères maximum|N’indiquez pas de données|message-help/);
         assert.match(html, /Confidentialité/);
     }
     const styles = readFileSync(resolve(root, 'app/globals.css'), 'utf8');
@@ -100,4 +101,23 @@ test('desktop compaction preserves all form fields and avoids an inner scroll ar
     assert.doesNotMatch(desktop, /\.(sea-contact-fields|sea-need-fields|sea-input|sea-submit)[^{]*\{[^}]*display:\s*none/);
     const mobile = styles.slice(0, styles.indexOf('@media (min-width: 640px)'));
     assert.match(mobile, /\.sea-input\s*\{[^}]*min-height: 44px[^}]*font-size: 16px/s);
+});
+
+test('hero guide points to the form without a duplicate filled button, with a downward arrow on mobile', () => {
+    const page = readFileSync(resolve(root, 'app/page.tsx'), 'utf8');
+    const guide = page.match(/<a href="#demande" className="sea-form-guide">[\s\S]*?<\/a>/)?.[0];
+    assert.ok(guide);
+    assert.match(guide, /Trouver ma fiduciaire/);
+    assert.doesNotMatch(guide, /sea-button/);
+    for (const name of ['sea-form-guide-arrow', 'sea-form-guide-mobile']) {
+        assert.match(guide, new RegExp(`<svg className="${name}"[^>]*aria-hidden="true"[^>]*focusable="false"`));
+    }
+    const styles = readFileSync(resolve(root, 'app/globals.css'), 'utf8');
+    const mobile = styles.slice(0, styles.indexOf('@media (min-width: 640px)'));
+    const desktop = styles.slice(styles.indexOf('@media (min-width: 1024px)'), styles.indexOf('@media (prefers-reduced-motion'));
+    assert.match(mobile, /\.sea-form-guide-arrow\s*\{ display: none/);
+    assert.match(mobile, /\.sea-form-guide-mobile\s*\{ width: 28px; height: 36px/);
+    assert.match(desktop, /\.sea-form-guide-arrow\s*\{ display: block/);
+    assert.match(desktop, /\.sea-form-guide-mobile\s*\{ display: none/);
+    assert.match(styles, /\.sea-form-guide:focus-visible\s*\{ outline:/);
 });

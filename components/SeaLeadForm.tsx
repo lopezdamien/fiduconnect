@@ -114,8 +114,7 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                 </div>
                 <Field.Root name="message" className="sea-field">
                     <Field.Label className="sea-label">Quelques précisions <span className="sea-optional">Facultatif</span></Field.Label>
-                    <Field.Control id={`${idPrefix}-message`} render={<textarea rows={2} maxLength={leadLimits.message} aria-describedby={`${idPrefix}-message-help`} />} className="sea-input sea-textarea" placeholder="Votre activité, vos attentes…" />
-                    <p id={`${idPrefix}-message-help`} className="sea-message-help text-[11px] leading-5 text-[#6c665e]">2 000 caractères maximum. N’indiquez pas de données bancaires, salariales, fiscales confidentielles ou de pièces d’identité.</p>
+                    <Field.Control id={`${idPrefix}-message`} render={<textarea rows={2} maxLength={leadLimits.message} />} className="sea-input sea-textarea" placeholder="Votre activité, vos attentes…" />
                 </Field.Root>
             </fieldset>
             <p aria-label="Utilisation de vos données" className="sea-privacy-note mt-4 text-[11px] leading-5 text-[#6c665e]">

@@ -26,6 +26,11 @@ body { background: var(--background); color: var(--foreground); font-family: var
 .sea-header-link { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; }
 .sea-header-link:hover { color: #756b5f; }
 .sea-hero { padding: 40px 0 56px; border-bottom: 1px solid #ded7cb; }
+.sea-form-guide { display: inline-flex; align-items: center; gap: 20px; min-height: 48px; max-width: 100%; margin-top: 32px; font-size: 14px; font-weight: 500; }
+.sea-form-guide > span { border-bottom: 1px solid #c7c0b6; padding-bottom: 3px; }
+.sea-form-guide:hover { color: #9c513b; }
+.sea-form-guide-arrow { display: none; flex-shrink: 0; color: #9c513b; }
+.sea-form-guide-mobile { width: 28px; height: 36px; flex-shrink: 0; color: #9c513b; }
 .sea-button {
   display: inline-flex; align-items: center; justify-content: center; gap: 16px;
   min-height: 48px; padding: 13px 22px; border-radius: 5px;
@@ -34,7 +39,7 @@ body { background: var(--background); color: var(--foreground); font-family: var
   transition: background .18s, border-color .18s, box-shadow .18s;
 }
 .sea-button:hover { background: #305061; border-color: #305061; }
-.sea-button:focus-visible, .sea-header-link:focus-visible { outline: 2px solid #b36349; outline-offset: 4px; }
+.sea-button:focus-visible, .sea-header-link:focus-visible, .sea-form-guide:focus-visible { outline: 2px solid #b36349; outline-offset: 4px; }
 .sea-button:disabled { opacity: .65; cursor: wait; }
 .sea-form-card {
   border: 1px solid #ded7cb; border-top: 2px solid #b36349; border-radius: 8px; background: #fffdfa; color: #223b4a;
@@ -84,6 +89,10 @@ body { background: var(--background); color: var(--foreground); font-family: var
 @media (min-width: 1024px) {
   .sea-header > div { padding-block: 12px; }
   .sea-hero { padding: 20px 0 40px; }
+  .sea-form-guide { gap: 24px; font-family: var(--font-display); font-size: 24px; font-weight: 400; font-style: italic; }
+  .sea-form-guide > span { border-bottom: 0; padding-bottom: 0; }
+  .sea-form-guide-arrow { display: block; width: clamp(100px, 12vw, 180px); height: auto; }
+  .sea-form-guide-mobile { display: none; }
   .sea-form-card { padding: 20px; }
   .sea-form-heading { padding-bottom: 10px; margin-bottom: 12px; }
   .sea-form-heading .sea-eyebrow { display: none; }
@@ -101,7 +110,6 @@ body { background: var(--background); color: var(--foreground); font-family: var
   .sea-contact-fields > :not(legend) + :not(legend) { margin-top: 8px; }
   .sea-need-fields { margin-top: 12px; padding-top: 12px; }
   .sea-need-fields > :not(legend) + :not(legend) { margin-top: 10px; }
-  .sea-message-help { line-height: 16px; }
   .sea-privacy-note { margin-top: 10px; line-height: 16px; }
   .sea-submit { margin-top: 12px; }
   .sea-form-reassurance { display: none; }

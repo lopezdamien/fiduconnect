@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowDownRight, ArrowRight } from 'lucide-react';
+import { ArrowDownRight } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { PremiumReveal } from '@/components/PremiumReveal';
 import { SeaLeadForm } from '@/components/SeaLeadForm';
@@ -64,7 +64,15 @@ export default function Home() {
                         <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-medium text-[#605b54]">
                             <span>Rappel gratuit sous 24 h</span><span className="border-l border-[#c7c0b6] pl-6">Sans engagement</span>
                         </div>
-                        <a href="#demande" className="sea-button mt-8">Trouver ma fiduciaire <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
+                        <a href="#demande" className="sea-form-guide">
+                            <span>Trouver ma fiduciaire</span>
+                            <svg className="sea-form-guide-arrow" viewBox="0 0 180 64" aria-hidden="true" focusable="false" fill="none">
+                                <path d="M6 42C61 64 99 9 174 14M159 4L174 14L160 27" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            <svg className="sea-form-guide-mobile" viewBox="0 0 28 36" aria-hidden="true" focusable="false" fill="none">
+                                <path d="M4 4C15 4 20 13 20 30M14 24L20 30L26 24" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </a>
                     </PremiumReveal>
                     <PremiumReveal delay={0.1} className="sea-form-card scroll-mt-6" id="demande">
                         <div className="sea-form-heading">
