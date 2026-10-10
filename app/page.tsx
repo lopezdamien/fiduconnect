@@ -22,8 +22,8 @@ const steps = [
 
 const needs = [
     'Création d’entreprise',
-    'Domiciliation à Genève',
-    'Administration de société à Genève',
+    'Domiciliation',
+    'Administration d’entreprise',
     'Comptabilité',
     'Fiscalité',
     'TVA',

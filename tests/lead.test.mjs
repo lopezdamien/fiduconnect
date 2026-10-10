@@ -83,6 +83,43 @@ test('valid request is normalized, escaped, sent once and never echoed', async (
     assert.equal(f.logs.length, 0);
 });
 
+for (const mainNeed of ['Domiciliation', 'Administration d’entreprise']) {
+    test(`new need ${mainNeed} is accepted and included in the lead email`, async () => {
+        const f = fixture();
+        const response = await f.POST(request({ ...validLead, mainNeed }));
+        assert.equal(response.status, 200);
+        assert.deepEqual(await response.json(), { ok: true });
+        assert.equal(f.sent.length, 1);
+        assert.ok(f.sent[0].text.includes(`Besoin : ${mainNeed}`));
+        assert.ok(f.sent[0].html.includes(mainNeed));
+        assert.equal(f.logs.length, 0);
+    });
+}
+
+test('landing and shared form choices use the same new need labels', () => {
+    const page = readFileSync(resolve(root, 'app/page.tsx'), 'utf8');
+    const fields = readFileSync(resolve(root, 'lib/lead-fields.ts'), 'utf8');
+    const form = readFileSync(resolve(root, 'components/SeaLeadForm.tsx'), 'utf8');
+    for (const label of ['Domiciliation', 'Administration d’entreprise']) {
+        assert.ok(page.includes(`'${label}'`));
+        assert.ok(fields.includes(`'${label}'`));
+    }
+    assert.match(form, /name="mainNeed"[^>]*options=\{needs\}/);
+    assert.doesNotMatch(page + fields, /Domiciliation à Genève|Administration de société/);
+});
+
+test('mobile select labels wrap and menu items remain touch friendly', () => {
+    const styles = readFileSync(resolve(root, 'app/globals.css'), 'utf8');
+    const label = styles.match(/\.sea-select-trigger > span:first-child\s*\{([^}]+)\}/)?.[1];
+    const item = styles.match(/\.sea-select-item\s*\{([^}]+)\}/)?.[1];
+    assert.ok(label && item);
+    assert.match(label, /min-width:\s*0/);
+    assert.match(label, /white-space:\s*normal/);
+    assert.match(label, /overflow-wrap:\s*anywhere/);
+    assert.doesNotMatch(label, /nowrap|ellipsis/);
+    assert.match(item, /min-height:\s*44px/);
+});
+
 test('invalid fields do not reach the provider', async t => {
     const cases = [
         ['empty first name', { firstName: '   ' }], ['empty last name', { lastName: '' }],
