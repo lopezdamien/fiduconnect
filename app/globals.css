@@ -87,8 +87,13 @@ body { background: var(--background); color: var(--foreground); font-family: var
 }
 /* Compact desktop layout; keep natural page scrolling for short windows/zoom. */
 @media (min-width: 1024px) {
+  /* Include the real header height; the separator begins just below the fold. */
+  .sea-first-screen { display: flex; flex-direction: column; min-height: calc(100vh + 2px); min-height: calc(100dvh + 2px); }
+  .sea-header { flex-shrink: 0; }
   .sea-header > div { padding-block: 12px; }
-  .sea-hero { padding: 20px 0 40px; }
+  .sea-hero { flex: 1 0 auto; display: flex; align-items: center; padding: clamp(24px, 4vh, 64px) 0; }
+  .sea-hero > div { width: 100%; align-items: center; }
+  .sea-hero-copy { padding-top: 0; }
   .sea-form-guide { gap: 24px; font-family: var(--font-display); font-size: 24px; font-weight: 400; font-style: italic; }
   .sea-form-guide > span { border-bottom: 0; padding-bottom: 0; }
   .sea-form-guide-arrow { display: block; width: clamp(100px, 12vw, 180px); height: auto; }
@@ -113,6 +118,21 @@ body { background: var(--background); color: var(--foreground); font-family: var
   .sea-privacy-note { margin-top: 10px; line-height: 16px; }
   .sea-submit { margin-top: 12px; }
   .sea-form-reassurance { display: none; }
+}
+/* Use extra vertical room only when the entire first form can benefit. */
+@media (min-width: 1024px) and (min-height: 800px) {
+  .sea-hero .sea-form-card { padding: 24px; }
+  .sea-hero .sea-form-heading { padding-bottom: 14px; margin-bottom: 16px; }
+  .sea-hero .sea-form-heading .sea-title { font-size: 26px; }
+  .sea-hero .sea-field { gap: 6px; }
+  .sea-hero .sea-label { font-size: 12px; }
+  .sea-hero .sea-input { min-height: 44px; }
+  .sea-hero .sea-textarea { min-height: 60px; }
+  .sea-hero .sea-contact-fields > :not(legend) + :not(legend) { margin-top: 10px; }
+  .sea-hero .sea-need-fields { margin-top: 16px; padding-top: 16px; }
+  .sea-hero .sea-need-fields > :not(legend) + :not(legend) { margin-top: 14px; }
+  .sea-hero .sea-privacy-note { margin-top: 14px; }
+  .sea-hero .sea-submit { margin-top: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -93,7 +93,7 @@ test('desktop compaction preserves all form fields and avoids an inner scroll ar
     }
     const styles = readFileSync(resolve(root, 'app/globals.css'), 'utf8');
     const desktop = styles.slice(styles.indexOf('@media (min-width: 1024px)'), styles.indexOf('@media (prefers-reduced-motion'));
-    assert.match(desktop, /\.sea-hero\s*\{ padding: 20px 0 40px/);
+    assert.match(desktop, /\.sea-hero\s*\{ flex: 1 0 auto; display: flex; align-items: center/);
     assert.match(desktop, /\.sea-form-card\s*\{ padding: 20px/);
     assert.match(desktop, /\.sea-textarea\s*\{ min-height: 52px/);
     assert.match(desktop, /\.sea-contact-fields > :not\(legend\), \.sea-need-fields > :not\(legend\)\s*\{ margin-block: 0/);
@@ -101,6 +101,25 @@ test('desktop compaction preserves all form fields and avoids an inner scroll ar
     assert.doesNotMatch(desktop, /\.(sea-contact-fields|sea-need-fields|sea-input|sea-submit)[^{]*\{[^}]*display:\s*none/);
     const mobile = styles.slice(0, styles.indexOf('@media (min-width: 640px)'));
     assert.match(mobile, /\.sea-input\s*\{[^}]*min-height: 44px[^}]*font-size: 16px/s);
+});
+
+test('desktop first screen includes the header and keeps following content below the viewport without clipping', () => {
+    const page = readFileSync(resolve(root, 'app/page.tsx'), 'utf8');
+    assert.match(page, /<div className="sea-first-screen">\s*<header className="sea-header">/);
+    assert.match(page, /<section className="sea-hero">[\s\S]*?<\/section>\s*<\/div>\s*<section/);
+    const styles = readFileSync(resolve(root, 'app/globals.css'), 'utf8');
+    const desktopStart = styles.indexOf('@media (min-width: 1024px)');
+    const desktop = styles.slice(desktopStart, styles.indexOf('@media (prefers-reduced-motion'));
+    assert.doesNotMatch(styles.slice(0, desktopStart), /\.sea-first-screen\s*\{/);
+    assert.match(desktop, /\.sea-first-screen\s*\{[^}]*min-height: calc\(100vh \+ 2px\); min-height: calc\(100dvh \+ 2px\)/);
+    assert.match(desktop, /\.sea-hero > div\s*\{ width: 100%; align-items: center/);
+    assert.match(desktop, /@media \(min-width: 1024px\) and \(min-height: 800px\)/);
+    assert.match(desktop, /\.sea-hero \.sea-input\s*\{ min-height: 44px/);
+    for (const selector of ['sea-first-screen', 'sea-hero']) {
+        const rule = desktop.match(new RegExp(`\\.${selector}\\s*\\{[^}]*\\}`))?.[0];
+        assert.ok(rule);
+        assert.doesNotMatch(rule, /(?<!-)\bheight:|overflow:|position:\s*(fixed|sticky)/);
+    }
 });
 
 test('hero guide points to the form without a duplicate filled button, with a downward arrow on mobile', () => {

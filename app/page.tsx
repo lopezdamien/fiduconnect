@@ -45,45 +45,47 @@ export default function Home() {
     return (
         <main className="sea-page">
             <JsonLd schema={organizationSchema()} />
-            <header className="sea-header">
-                <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
-                    <Link href="/" className="shrink-0"><FiduLogo className="w-[150px] sm:w-[190px]" /></Link>
-                    <a href="#demande" className="sea-header-link">Trouver ma fiduciaire <ArrowDownRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
-                </div>
-            </header>
+            <div className="sea-first-screen">
+                <header className="sea-header">
+                    <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
+                        <Link href="/" className="shrink-0"><FiduLogo className="w-[150px] sm:w-[190px]" /></Link>
+                        <a href="#demande" className="sea-header-link">Trouver ma fiduciaire <ArrowDownRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
+                    </div>
+                </header>
 
-            <section className="sea-hero">
-                <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_minmax(440px,.86fr)] lg:gap-16">
-                    <PremiumReveal className="pt-2 lg:pt-8">
-                        <h1 className="sea-title max-w-3xl text-[2.75rem] sm:text-6xl lg:text-[4.5rem]">
-                            Trouvez la fiduciaire <em className="font-normal text-[#9c513b]">adaptée</em> à votre entreprise à Genève.
-                        </h1>
-                        <p className="mt-7 max-w-xl text-base leading-7 text-[#605b54] sm:text-lg sm:leading-8">
-                            Décrivez-nous votre besoin. FiduConnect vous aide à identifier et comparer des partenaires adaptés, gratuitement et sans engagement.
-                        </p>
-                        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-medium text-[#605b54]">
-                            <span>Rappel gratuit sous 24 h</span><span className="border-l border-[#c7c0b6] pl-6">Sans engagement</span>
-                        </div>
-                        <a href="#demande" className="sea-form-guide">
-                            <span>Trouver ma fiduciaire</span>
-                            <svg className="sea-form-guide-arrow" viewBox="0 0 180 64" aria-hidden="true" focusable="false" fill="none">
-                                <path d="M6 42C61 64 99 9 174 14M159 4L174 14L160 27" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            <svg className="sea-form-guide-mobile" viewBox="0 0 28 36" aria-hidden="true" focusable="false" fill="none">
-                                <path d="M4 4C15 4 20 13 20 30M14 24L20 30L26 24" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </a>
-                    </PremiumReveal>
-                    <PremiumReveal delay={0.1} className="sea-form-card scroll-mt-6" id="demande">
-                        <div className="sea-form-heading">
-                            <p className="sea-eyebrow">Votre premier pas</p>
-                            <h2 className="sea-title mt-3 text-[1.9rem]">Parlez-nous de votre besoin.</h2>
-                            <p className="mt-2 text-sm leading-6 text-[#6c665e]">Nous vous rappelons gratuitement sous 24 heures.</p>
-                        </div>
-                        <SeaLeadForm idPrefix="hero" />
-                    </PremiumReveal>
-                </div>
-            </section>
+                <section className="sea-hero">
+                    <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_minmax(440px,.86fr)] lg:gap-16">
+                        <PremiumReveal className="sea-hero-copy pt-2">
+                            <h1 className="sea-title max-w-3xl text-[2.75rem] sm:text-6xl lg:text-[4.5rem]">
+                                Trouvez la fiduciaire <em className="font-normal text-[#9c513b]">adaptée</em> à votre entreprise à Genève.
+                            </h1>
+                            <p className="mt-7 max-w-xl text-base leading-7 text-[#605b54] sm:text-lg sm:leading-8">
+                                Décrivez-nous votre besoin. FiduConnect vous aide à identifier et comparer des partenaires adaptés, gratuitement et sans engagement.
+                            </p>
+                            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-medium text-[#605b54]">
+                                <span>Rappel gratuit sous 24 h</span><span className="border-l border-[#c7c0b6] pl-6">Sans engagement</span>
+                            </div>
+                            <a href="#demande" className="sea-form-guide">
+                                <span>Trouver ma fiduciaire</span>
+                                <svg className="sea-form-guide-arrow" viewBox="0 0 180 64" aria-hidden="true" focusable="false" fill="none">
+                                    <path d="M6 42C61 64 99 9 174 14M159 4L174 14L160 27" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                <svg className="sea-form-guide-mobile" viewBox="0 0 28 36" aria-hidden="true" focusable="false" fill="none">
+                                    <path d="M4 4C15 4 20 13 20 30M14 24L20 30L26 24" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </a>
+                        </PremiumReveal>
+                        <PremiumReveal delay={0.1} className="sea-form-card scroll-mt-6" id="demande">
+                            <div className="sea-form-heading">
+                                <p className="sea-eyebrow">Votre premier pas</p>
+                                <h2 className="sea-title mt-3 text-[1.9rem]">Parlez-nous de votre besoin.</h2>
+                                <p className="mt-2 text-sm leading-6 text-[#6c665e]">Nous vous rappelons gratuitement sous 24 heures.</p>
+                            </div>
+                            <SeaLeadForm idPrefix="hero" />
+                        </PremiumReveal>
+                    </div>
+                </section>
+            </div>
 
             <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
                 <PremiumReveal className="max-w-2xl">
