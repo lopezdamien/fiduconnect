@@ -94,7 +94,7 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
             <Field.Root name="website" className="hidden" aria-hidden="true">
                 <Field.Control type="text" name="website" tabIndex={-1} autoComplete="off" />
             </Field.Root>
-            <fieldset disabled={loading} className="space-y-4">
+            <fieldset disabled={loading} className="sea-contact-fields space-y-4">
                 <legend className="sea-form-legend">Vos coordonnées</legend>
                 <div className="grid grid-cols-2 gap-3">
                     <TextField label="Prénom" id={`${idPrefix}-firstName`} name="firstName" maxLength={leadLimits.firstName} required autoComplete="given-name" />
@@ -106,7 +106,7 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                 </div>
                 <TextField label="Entreprise" optional id={`${idPrefix}-company`} name="company" maxLength={leadLimits.company} autoComplete="organization" />
             </fieldset>
-            <fieldset disabled={loading} className="mt-6 space-y-4 border-t border-[#e5dfd5] pt-5">
+            <fieldset disabled={loading} className="sea-need-fields mt-6 space-y-4 border-t border-[#e5dfd5] pt-5">
                 <legend className="sr-only">Votre besoin</legend>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
                     <SelectField id={`${idPrefix}-situation`} name="situation" label="Votre situation" options={situations} />
@@ -115,10 +115,10 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                 <Field.Root name="message" className="sea-field">
                     <Field.Label className="sea-label">Quelques précisions <span className="sea-optional">Facultatif</span></Field.Label>
                     <Field.Control id={`${idPrefix}-message`} render={<textarea rows={2} maxLength={leadLimits.message} aria-describedby={`${idPrefix}-message-help`} />} className="sea-input sea-textarea" placeholder="Votre activité, vos attentes…" />
-                    <p id={`${idPrefix}-message-help`} className="text-[11px] leading-5 text-[#6c665e]">2 000 caractères maximum. N’indiquez pas de données bancaires, salariales, fiscales confidentielles ou de pièces d’identité.</p>
+                    <p id={`${idPrefix}-message-help`} className="sea-message-help text-[11px] leading-5 text-[#6c665e]">2 000 caractères maximum. N’indiquez pas de données bancaires, salariales, fiscales confidentielles ou de pièces d’identité.</p>
                 </Field.Root>
             </fieldset>
-            <p aria-label="Utilisation de vos données" className="mt-4 text-[11px] leading-5 text-[#6c665e]">
+            <p aria-label="Utilisation de vos données" className="sea-privacy-note mt-4 text-[11px] leading-5 text-[#6c665e]">
                 Vos informations servent à vous rappeler et vous orienter.{' '}
                 <a href="/confidentialite" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Confidentialité<span className="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>.
             </p>
@@ -126,7 +126,7 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                 {loading ? 'Envoi en cours…' : 'Trouver ma fiduciaire'}
                 {loading ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin motion-reduce:animate-none" /> : <ArrowRight aria-hidden="true" className="h-4 w-4" />}
             </button>
-            <p className="mt-3 text-center text-xs font-medium text-[#223b4a]">Rappel gratuit sous 24 h · Sans engagement</p>
+            <p className="sea-form-reassurance mt-3 text-center text-xs font-medium text-[#223b4a]">Rappel gratuit sous 24 h · Sans engagement</p>
         </Form>
     );
 }

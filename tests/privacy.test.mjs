@@ -76,3 +76,28 @@ test('privacy page explains transfers without claiming European-only storage or 
     assert.doesNotMatch(html, /commission|rémunération|\bHobby\b|\bPro\b|\bScale\b|\$|CHF/);
     assert.match(readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8'), /Version locale de travail/);
 });
+
+test('desktop compaction preserves all form fields and avoids an inner scroll area', () => {
+    const { SeaLeadForm } = loadComponent('components/SeaLeadForm.tsx');
+    for (const idPrefix of ['hero', 'final']) {
+        const html = renderToStaticMarkup(React.createElement(SeaLeadForm, { idPrefix }));
+        for (const name of ['firstName', 'lastName', 'email', 'phone', 'company', 'situation', 'mainNeed', 'message']) {
+            assert.ok(html.includes(`name="${name}"`), name);
+        }
+        assert.match(html, /sea-contact-fields/);
+        assert.match(html, /sea-need-fields/);
+        assert.match(html, /type="submit"/);
+        assert.match(html, /2 000 caractères maximum/);
+        assert.match(html, /Confidentialité/);
+    }
+    const styles = readFileSync(resolve(root, 'app/globals.css'), 'utf8');
+    const desktop = styles.slice(styles.indexOf('@media (min-width: 1024px)'), styles.indexOf('@media (prefers-reduced-motion'));
+    assert.match(desktop, /\.sea-hero\s*\{ padding: 20px 0 40px/);
+    assert.match(desktop, /\.sea-form-card\s*\{ padding: 20px/);
+    assert.match(desktop, /\.sea-textarea\s*\{ min-height: 52px/);
+    assert.match(desktop, /\.sea-contact-fields > :not\(legend\), \.sea-need-fields > :not\(legend\)\s*\{ margin-block: 0/);
+    assert.doesNotMatch(desktop, /max-height|overflow-y|overflow:\s*(auto|scroll)/);
+    assert.doesNotMatch(desktop, /\.(sea-contact-fields|sea-need-fields|sea-input|sea-submit)[^{]*\{[^}]*display:\s*none/);
+    const mobile = styles.slice(0, styles.indexOf('@media (min-width: 640px)'));
+    assert.match(mobile, /\.sea-input\s*\{[^}]*min-height: 44px[^}]*font-size: 16px/s);
+});
