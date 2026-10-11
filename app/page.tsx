@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowDownRight } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { PremiumReveal } from '@/components/PremiumReveal';
 import { SeaLeadForm } from '@/components/SeaLeadForm';
@@ -47,9 +46,8 @@ export default function Home() {
             <JsonLd schema={organizationSchema()} />
             <div className="sea-first-screen">
                 <header className="sea-header">
-                    <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
-                        <Link href="/" className="shrink-0"><FiduLogo className="w-[150px] sm:w-[190px]" /></Link>
-                        <a href="#demande" className="sea-header-link"><span className="sea-header-cta-full">Trouver ma fiduciaire</span><span className="sea-header-cta-short">Ma demande</span><ArrowDownRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
+                    <div className="mx-auto flex max-w-7xl items-center px-5 py-5 sm:px-8">
+                        <Link href="/" className="inline-flex min-h-11 shrink-0 items-center lg:min-h-0"><FiduLogo className="w-[150px] sm:w-[190px]" /></Link>
                     </div>
                 </header>
 

@@ -115,6 +115,17 @@ test('desktop compaction preserves all form fields and avoids an inner scroll ar
     assert.match(mobile, /\.sea-input\s*\{[^}]*min-height: 44px[^}]*font-size: 16px/s);
 });
 
+test('landing header contains only the logo, with calls to action kept in the page', () => {
+    const page = readFileSync(resolve(root, 'app/page.tsx'), 'utf8');
+    const header = page.match(/<header className="sea-header">[\s\S]*?<\/header>/)?.[0];
+    assert.ok(header);
+    assert.match(header, /<Link href="\/"[^>]*><FiduLogo/);
+    assert.match(header, /min-h-11/);
+    assert.doesNotMatch(header, /Ma demande|Trouver ma fiduciaire|#demande|<button/);
+    assert.match(page, /<a href="#demande" className="sea-form-guide">/);
+    assert.equal((page.match(/<SeaLeadForm /g) || []).length, 2);
+});
+
 test('desktop first screen includes the header and keeps following content below the viewport without clipping', () => {
     const page = readFileSync(resolve(root, 'app/page.tsx'), 'utf8');
     assert.match(page, /<div className="sea-first-screen">\s*<header className="sea-header">/);

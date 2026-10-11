@@ -23,9 +23,6 @@ body { background: var(--background); color: var(--foreground); font-family: var
 .sea-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: #89503c; }
 .sea-eyebrow-light { color: #e0a68b; }
 .sea-header { border-bottom: 1px solid #ded7cb; }
-.sea-header-link { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; }
-.sea-header-link:hover { color: #756b5f; }
-.sea-header-cta-short { display: none; }
 .sea-hero { padding: 40px 0 56px; border-bottom: 1px solid #ded7cb; }
 .sea-form-guide { display: inline-flex; align-items: center; gap: 20px; min-height: 48px; max-width: 100%; margin-top: 32px; font-size: 14px; font-weight: 500; }
 .sea-form-guide > span { border-bottom: 1px solid #c7c0b6; padding-bottom: 3px; }
@@ -40,7 +37,7 @@ body { background: var(--background); color: var(--foreground); font-family: var
   transition: background .18s, border-color .18s, box-shadow .18s;
 }
 .sea-button:hover { background: #305061; border-color: #305061; }
-.sea-button:focus-visible, .sea-header-link:focus-visible, .sea-form-guide:focus-visible { outline: 2px solid #b36349; outline-offset: 4px; }
+.sea-button:focus-visible, .sea-form-guide:focus-visible { outline: 2px solid #b36349; outline-offset: 4px; }
 .sea-button:disabled { opacity: .65; cursor: wait; }
 .sea-form-card {
   border: 1px solid #ded7cb; border-top: 2px solid #b36349; border-radius: 8px; background: #fffdfa; color: #223b4a;
@@ -110,10 +107,7 @@ body { background: var(--background); color: var(--foreground); font-family: var
   .sea-legal-article { overflow-wrap: anywhere; }
 }
 @media (max-width: 639px) {
-  .sea-header > div { padding-block: 8px; gap: 12px; }
-  .sea-header-link { min-height: 44px; font-size: 12px; gap: 6px; }
-  .sea-header-cta-full { display: none; }
-  .sea-header-cta-short { display: inline; }
+  .sea-header > div { padding-block: 8px; }
   .sea-hero { padding: 24px 0 32px; }
   .sea-hero-copy { padding-top: 0; }
   .sea-hero h1 { font-size: clamp(34px, 9.5vw, 42px); line-height: 1.08; letter-spacing: -.04em; }
