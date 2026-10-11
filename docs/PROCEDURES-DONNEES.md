@@ -90,7 +90,7 @@ Ces contrôles techniques sont des moyens de vérifier une protection proportion
 
 ## 7. Protection de l’hébergement : Netlify retenu le 11 octobre
 
-Netlify Free remplace la piste Vercel pour le lancement. Voir `docs/NETLIFY.md`. La protection centralisée de POST /api/lead reste à définir selon les fonctions disponibles et leur coût ; le limiteur mémoire par processus ne suffit pas aux instances serverless. Aucun réglage de compte ni déploiement effectué. Le paragraphe suivant conserve la proposition historique Vercel, **non retenue et non activée**, pas une procédure à appliquer à Netlify.
+Netlify Free remplace la piste Vercel pour le lancement. Voir `docs/NETLIFY.md`. Une règle locale est préparée sur `/api/lead` : 10 requêtes / 60 secondes par IP et domaine, avec la limitation déclarative Netlify disponible sur Free. Elle n’est pas active ni validée sur l’infrastructure réelle. Le limiteur mémoire par processus est conservé en complément, sans prétendre protéger toutes les instances serverless. Aucun réglage de compte ni déploiement effectué. Le paragraphe suivant conserve la proposition historique Vercel, **non retenue et non activée**, pas une procédure à appliquer à Netlify.
 
 Point de départ proposé pour une règle dédiée : méthode **POST**, chemin exactement **/api/lead**, comptage par IP, fenêtre fixe de dix minutes, plafond de dix requêtes par IP, réponse 429. Ajuster après des tests, notamment pour les bureaux qui partagent une adresse IP. Cette règle ne remplace pas la validation du formulaire ni une stratégie contre des attaques distribuées ; les compteurs Vercel sont régionaux.
 

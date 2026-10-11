@@ -8,6 +8,7 @@ import { Input } from '@base-ui/react/input';
 import { Select } from '@base-ui/react/select';
 import { ArrowRight, ChevronDown, LoaderCircle } from 'lucide-react';
 import { leadLimits, needs, situations } from '@/lib/lead-fields';
+import { getLeadErrorMessage } from '@/lib/lead-response';
 
 type SeaLeadFormProps = { idPrefix: string };
 
@@ -78,8 +79,7 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                 body: JSON.stringify(payload),
             });
             if (!response.ok) {
-                const result = await response.json();
-                throw new Error(result.error || 'Vérifiez vos informations, puis réessayez.');
+                throw new Error(await getLeadErrorMessage(response));
             }
             router.push('/merci');
         } catch (err) {
