@@ -1,6 +1,6 @@
 # FIDUCONNECT — procédures internes pour les données
 
-Préparation locale mise à jour le 10 octobre 2026. Responsable : Damien Lopez, Smart Administration. Contact : contact@smartadministration.ch.
+Préparation locale mise à jour le 11 octobre 2026. Responsable : Damien Lopez, Smart Administration. Contact : contact@smartadministration.ch.
 
 Ces procédures sont préparées, mais leur application dans les comptes doit encore être vérifiée avant publication. Aucun e-mail n’a été supprimé, aucun compte modifié et aucun abonnement souscrit pendant cette préparation. Ne pas conserver de données réelles de prospects dans ce dépôt Git.
 
@@ -75,7 +75,9 @@ Infomaniak : console accessible, boîte vérifiée en lecture seule le 10 octobr
 
 La fenêtre de restauration affiche **30 jours maximum**, avec une sauvegarde datée du 10 octobre 2026 à 04:30. Consultation annulée, aucune restauration effectuée. La [FAQ de restauration](https://www.infomaniak.com/fr/support/faq/1203/restaurer-un-compte-mail-recuperer-des-e-mails-supprimes) décrit des sauvegardes quotidiennes et cette fenêtre selon l'offre. Les [conditions particulières Service Mail](https://welcome.infomaniak.com/api/web-components/1/cgu/latest?id=38&locale=fr_FR), révision du 27 mai 2026, mentionnent sept jours au §7.2 et une responsabilité du client pour sa sauvegarde au §5.3. Ne pas confondre fenêtre proposée par l'interface, conservation de toutes les copies et contrat applicable. Clarifier la différence avec le fournisseur si une durée contractuelle exacte ou une garantie d'effacement est nécessaire ; aucun nouveau service de sauvegarde installé.
 
-Transport : MX `mta-gw.infomaniak.ch` identifié. La tentative STARTTLS sur le port 25 avec vérification du certificat/nom n'a pas obtenu de réponse et a été arrêtée après 25 secondes, sans envoi d'e-mail ni authentification. Résultat **non concluant**, pas une preuve que la réception est dépourvue de TLS. Resend reste en mode Opportunistic, observé à nouveau le 10 octobre ; aucun réglage modifié. Une vérification d'en-têtes d'un test fictif identifié ou un test de livraison autorisé reste à effectuer pour établir le trajet réel. TLS Enforced est une option à décider séparément : il empêche le repli non chiffré mais peut refuser une livraison si TLS échoue.
+Transport : MX `mta-gw.infomaniak.ch` identifié. La tentative STARTTLS sur le port 25 avec vérification du certificat/nom n'a pas obtenu de réponse et a été arrêtée après 25 secondes, sans envoi d'e-mail ni authentification. Résultat **non concluant**, pas une preuve que la réception est dépourvue de TLS. Un contrôle ultérieur distinct du 10 octobre sur le test autorisé `FC-TLS-20261010-A` a confirmé dans les en-têtes Infomaniak une réception ESMTPS depuis Amazon SES eu-west-1 et des résultats SPF/DKIM/DMARC réussis. Cela établit le transport constaté pour ce message, pas une garantie sur tous les futurs envois. Resend reste en mode Opportunistic, observé à nouveau le 10 octobre ; aucun réglage modifié. TLS Enforced est une option à décider séparément : il empêche le repli non chiffré mais peut refuser une livraison si TLS échoue.
+
+Parcours formulaire vérifié le 11 octobre : une seule demande fictive autorisée `FC-MOBILE-20261011-A`, marquée « ne pas rappeler, ne pas transmettre à un partenaire », a conduit à la page Merci. L’exploitant confirme la réception du message. Aucun nouveau contrôle d’en-têtes effectué pour ce second message ; aucune coordonnée de prospect réel utilisée.
 
 Ces contrôles techniques sont des moyens de vérifier une protection proportionnée, pas des obligations légales universelles imposant une double authentification précise, un nouveau service de sauvegarde ou TLS Enforced à tout formulaire. Les conditions des fournisseurs doivent être examinées séparément par l'exploitant.
 
@@ -83,7 +85,7 @@ Ces contrôles techniques sont des moyens de vérifier une protection proportion
 
 - Accords de sous-traitance effectivement applicables, versions et date, sous-traitants, pays et garanties de transfert. Les pages publiques des fournisseurs ne prouvent pas les réglages ni les accords du compte.
 - Liste des personnes autorisées, double authentification, récupération des comptes et permissions limitées de la clé Resend. Ne pas copier les secrets dans ce document.
-- Réception Infomaniak avec TLS et possibilité d’activer TLS Enforced dans Resend, avec test de livraison autorisé. Le réglage Resend Opportunistic a été confirmé le 9 octobre 2026.
+- Possibilité d’activer TLS Enforced dans Resend à décider séparément, avec nouveau test autorisé si le réglage change. La réception TLS d’un message est déjà constatée ; le réglage Opportunistic reste le dernier observé.
 - Conservation réelle des journaux, sauvegardes et e-mails, procédures de suppression et d’incident du prestataire.
 
 ## 7. Protection Vercel à préparer, pas encore activée

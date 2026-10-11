@@ -1,6 +1,19 @@
 # FIDUCONNECT — validation avant publication
 
-Version locale du 10 octobre 2026. Aucun déploiement autorisé.
+Version locale mise à jour le 11 octobre 2026. Aucun déploiement autorisé.
+
+## État actuel au 11 octobre
+
+- Présentation desktop et responsive terminée ; l’exploitant indique que tout est bien après le contrôle sur téléphone. Le clavier, l’autofill et les différents navigateurs physiques n’ont pas été inspectés directement par l’agent. Les dix formats contrôlés dans le navigateur intégré sont décrits dans `docs/RESPONSIVE-QA.md`.
+- L’en-tête conserve uniquement le logo : suppression du lien desktop « Trouver ma fiduciaire » et mobile « Ma demande ». Les deux formulaires et le guide du hero sont conservés.
+- Une seule demande fictive autorisée, référence `FC-MOBILE-20261011-A`, a été soumise depuis le véritable formulaire. Besoin : « Administration d’entreprise », situation : « Autre » ; message marqué « ne pas rappeler, ne pas transmettre à un partenaire ». Redirection vers `/merci` constatée ; réception dans la boîte destinataire confirmée par l’exploitant le 11 octobre. Ce test ne constitue pas une nouvelle inspection des en-têtes de transport.
+- L’accès temporaire par Wi-Fi a été refermé. Serveur de développement désormais lié uniquement à `127.0.0.1:3001` ; page rouverte et vérifiée. Aucun tunnel, déploiement, changement DNS ou abonnement.
+- Dernière version du code : lint, **47 tests** et build `npm run build -- --webpack` réussis. Nouvel audit npm : **zéro alerte de production**, cinq entrées élevées dans la chaîne de lint de développement décrite plus bas. Aucune correction automatique ni installation effectuée.
+- Le verrou d’envoi en production reste actif ; aucun fichier `.env` ou secret modifié. L’envoi local et le rendu mobile ne valident pas à eux seuls l’environnement final.
+
+La prochaine décision est le domaine public et l’hébergement commercial autorisé. Les protections centralisées anti-abus, les paramètres des comptes et l’application effective des procédures restent à vérifier avant lancement. Les contrats restent à valider par l’exploitant. Aucun suivi publicitaire n’est installé ; ses choix et tests de consentement devront précéder son éventuelle activation.
+
+Les résultats des 9 et 10 octobre ci-dessous sont historiques : leurs limitations de navigateur et nombres de tests ne décrivent plus la dernière passe locale.
 
 ## Corrections locales
 
@@ -34,7 +47,8 @@ Cette liste distingue les obligations de protection et d'information, les condit
 - [ ] Examiner le modèle de rémunération avec l’exploitant et, si nécessaire, un juriste. Ne pas promettre une comparaison exhaustive ou une indépendance non démontrée. La gratuité concerne FIDUCONNECT, pas les services ultérieurs de la fiduciaire.
 - [ ] Activer une protection centralisée anti-abus pour POST /api/lead sur Vercel (règle WAF ou limiteur durable), avec limites, exceptions et tests adaptés au trafic attendu. Ne pas se fier uniquement au limiteur mémoire ni au contrôle d’origine : un bot peut fabriquer des en-têtes.
 - [ ] Vérifier les accès, la double authentification et les permissions de la clé d’envoi. Aucun secret n’a été lu en clair ou modifié pour ces corrections.
-- [ ] Vérifier la réception Infomaniak avec TLS, puis envisager TLS Enforced dans Resend et retester. Le réglage observé lors de l’audit était Opportunistic ; aucun paramètre de compte n’a été changé.
+- [x] Trajet d’un test identifié vérifié le 10 octobre : message `FC-TLS-20261010-A`, réception ESMTPS depuis Amazon SES eu-west-1 vers Infomaniak, contrôles SPF/DKIM/DMARC réussis. Ce constat porte uniquement sur ce message, pas sur tous les envois futurs.
+- [ ] Décider séparément si TLS Enforced doit être activé dans Resend, puis retester si le réglage change. Option de sécurité à apprécier, pas obligation universelle ; le mode observé reste Opportunistic et aucun paramètre n’a été changé.
 - [x] Procédure d’accès, de rectification et de suppression rédigée ; responsable désigné : Damien Lopez. Voir `docs/PROCEDURES-DONNEES.md`.
 - [x] Procédure d’incident rédigée : contenir, évaluer le risque, documenter et examiner les notifications requises. Voir `docs/PROCEDURES-DONNEES.md`.
 - [ ] Vérifier l’application effective de ces procédures : surveillance de la boîte, calendrier de suppression, suivi restreint et moyens de réponse/gestion d’incident. Une procédure écrite ne prouve pas sa mise en œuvre.
@@ -58,6 +72,7 @@ Lecture seule Resend : domaine Verified, région d’envoi Irlande, TLS Opportun
 - La [FAQ Infomaniak](https://www.infomaniak.com/fr/support/faq/1203/restaurer-un-compte-mail-recuperer-des-e-mails-supprimes) décrit des sauvegardes quotidiennes et une restauration jusqu'à 30 jours selon l'offre. Les [conditions particulières Service Mail](https://welcome.infomaniak.com/api/web-components/1/cgu/latest?id=38&locale=fr_FR), révision du 27 mai 2026, mentionnent sept jours au §7.2 et la responsabilité du client de conserver une sauvegarde au §5.3. L'interface confirme la fenêtre de restauration proposée, pas la durée de toutes les copies internes ni la version contractuelle applicable au compte. Ne pas garantir un effacement immédiat ou fixer publiquement une durée globale sur cette seule base. Aucun service de sauvegarde supplémentaire souscrit.
 - Resend : domaine Verified, région Ireland, **Opportunistic** à nouveau observé. Ce mode tente TLS mais autorise un repli sans chiffrement ; [TLS Enforced](https://resend.com/docs/dashboard/domains/tls) refuse l'envoi si TLS ne peut pas être établi. Aucun changement appliqué.
 - Le MX du domaine destinataire est `mta-gw.infomaniak.ch`. Une tentative STARTTLS SMTP sur le port 25, avec vérification du certificat et du nom de serveur demandée, n'a donné aucune réponse et a été arrêtée après 25 secondes. Aucun message ni identifiant de connexion envoyé. **Résultat non concluant** : ni succès TLS, ni preuve d'une absence de TLS. Vérifier un en-tête de réception d'un test fictif identifié ou réaliser un test de livraison distinct autorisé avant d'affirmer que le trajet Resend → Infomaniak a été vérifié.
+- Contrôle ultérieur distinct le 10 octobre : le test autorisé `FC-TLS-20261010-A` a été reçu et ses en-têtes consultés dans Infomaniak. Réception ESMTPS depuis Amazon SES eu-west-1, SPF/DKIM/DMARC réussis. La tentative SMTP non concluante ci-dessus n’est donc plus le seul élément disponible ; aucune garantie générale sur les envois futurs n’en découle. Aucun e-mail réel de prospect archivé dans le dépôt.
 - Aucun compte, secret, fichier `.env` ou texte public de la landing modifié ; aucun déploiement. Seule la documentation interne a été actualisée.
 
 `npm test` teste le véritable handler avec Resend simulé, sans lire de fichier .env ni envoyer d’e-mail. Compléter avec `npm run lint`, `npm run build`, `npm audit` et `npm audit --omit=dev`. Un envoi réel doit être un test distinct autorisé, avec données fictives clairement identifiées.
@@ -68,7 +83,7 @@ Next.js et sa configuration ESLint sont alignés sur 16.4.0. Resend est conserv�
 
 L’audit complet conserve cinq entrées élevées dans la chaîne **de développement uniquement** : eslint-config-next → @next/eslint-plugin-next → fast-glob → micromatch → braces 3.0.3. Elles remontent à la même alerte de récursion sur des motifs imbriqués. L’avis consulté ne propose aucune version corrigée de braces. Ne pas lancer `npm audit fix --force` : npm propose ici un retour à eslint-config-next 14, incompatible avec l’alignement actuel. Réévaluer dès qu’une correction amont existe ; ne pas donner à l’outil de lint des motifs non fiables. [Avis braces](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm).
 
-### Résultats locaux
+### Résultats locaux historiques, avant les dernières modifications visuelles
 
 - Tests : 36 réussis, dont 34 pour le handler avec Resend simulé et 2 pour l’information sur les données. Le rendu du véritable formulaire est vérifié pour les instances hero/final : notice courte avant l’envoi, lien de confidentialité accessible dans un nouvel onglet et absence du long bloc de prestataires. Le rendu du contenu de confidentialité vérifie l’identité, le contact, la finalité, l’accord avant transmission, les destinataires/pays, la conservation, les droits, l’absence de newsletter, les garanties et l’absence de promesse de validation terminée. Aucun envoi réel par ces tests.
 - Lint : réussi, sans erreur ni avertissement.
