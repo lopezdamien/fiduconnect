@@ -38,9 +38,9 @@ function loadComponent(path) {
     return cjsModule.exports;
 }
 
-test('both form instances keep a short purpose notice and an accessible privacy link before submission', () => {
+test('lead form keeps a short purpose notice and an accessible privacy link before submission', () => {
     const { SeaLeadForm } = loadComponent('components/SeaLeadForm.tsx');
-    for (const idPrefix of ['hero', 'final']) {
+    for (const idPrefix of ['hero']) {
         const html = renderToStaticMarkup(React.createElement(SeaLeadForm, { idPrefix }));
         const noticeStart = html.indexOf('<p aria-label="Utilisation de vos données"');
         const submitStart = html.indexOf('<button type="submit"');
@@ -177,7 +177,12 @@ test('landing header contains only the logo, with calls to action kept in the pa
     assert.match(header, /min-h-11/);
     assert.doesNotMatch(header, /Ma demande|Trouver ma fiduciaire|#demande|<button/);
     assert.match(page, /<a href="#demande" className="sea-form-guide">/);
-    assert.equal((page.match(/<SeaLeadForm /g) || []).length, 2);
+    assert.equal((page.match(/<SeaLeadForm /g) || []).length, 1);
+    assert.doesNotMatch(page, /idPrefix="final"/);
+    const finalCta = page.slice(page.indexOf('<Eyebrow light>Votre demande</Eyebrow>'));
+    assert.match(finalCta, /<a href="#demande"/);
+    assert.match(finalCta, /Trouver ma fiduciaire/);
+    assert.doesNotMatch(finalCta, /<SeaLeadForm/);
 });
 
 test('desktop first screen includes the header and keeps following content below the viewport without clipping', () => {

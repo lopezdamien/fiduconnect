@@ -141,16 +141,16 @@ export default function Home() {
             </section>
 
             <section className="sea-section bg-[#223b4a] px-5 py-16 text-[#f6f2e9] sm:px-8 sm:py-24">
-                <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:gap-16">
+                <div className="mx-auto max-w-3xl">
                     <PremiumReveal>
                         <Eyebrow light>Votre demande</Eyebrow>
                         <h2 className="sea-title mt-5 max-w-lg text-4xl sm:text-5xl">Prêt à trouver une fiduciaire adaptée ?</h2>
                         <p className="mt-6 max-w-md text-base leading-7 text-[#c8c3b9]">Expliquez-nous votre situation. Nous vous aidons à avancer simplement, avec une orientation cohérente avec votre entreprise.</p>
-                        <p className="mt-8 text-sm tracking-wide text-[#efd6c9]">Rappel gratuit sous 24 h · Sans engagement</p>
-                    </PremiumReveal>
-                    <PremiumReveal delay={0.1} className="sea-form-card">
-                        <div className="sea-form-heading"><h3 className="sea-title text-[1.9rem]">Commençons par votre besoin.</h3><p className="mt-2 text-sm leading-6 text-[#6c665e]">Nous vous rappelons gratuitement sous 24 heures.</p></div>
-                        <SeaLeadForm idPrefix="final" />
+                        <p className="mt-8 text-sm tracking-wide text-[#efd6c9]">Gratuit · Rappel sous 24 h · Sans engagement</p>
+                        <a href="#demande" className="mt-8 inline-flex min-h-14 w-full items-center justify-between gap-4 rounded-md bg-[#f6f2e9] px-6 py-4 text-base font-semibold text-[#223b4a] transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#efd6c9] sm:w-auto sm:min-w-72">
+                            Trouver ma fiduciaire
+                            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+                        </a>
                     </PremiumReveal>
                 </div>
             </section>
