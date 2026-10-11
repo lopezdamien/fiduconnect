@@ -1,0 +1,8 @@
+# Préparation uniquement : ne pas importer ou déployer sans validation préalable.
+# L’adaptateur Next.js est fourni automatiquement par Netlify.
+[build]
+  command = "npm run build -- --webpack"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "24"

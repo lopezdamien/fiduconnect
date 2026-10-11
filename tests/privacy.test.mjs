@@ -51,7 +51,7 @@ test('both form instances keep a short purpose notice and an accessible privacy 
         assert.match(notice, /Confidentialité/);
         assert.match(notice, /s’ouvre dans un nouvel onglet/);
         assert.ok(notice.replace(/<[^>]*>/g, '').length < 200);
-        assert.doesNotMatch(html, /<details|<summary|Vercel|Resend|Infomaniak|Smart Administration|newsletter/);
+        assert.doesNotMatch(html, /<details|<summary|Vercel|Netlify|Resend|Infomaniak|Smart Administration|newsletter/);
     }
 });
 
@@ -63,7 +63,7 @@ test('privacy page explains transfers without claiming European-only storage or 
     assert.match(html, /vous rappeler gratuitement sous 24 heures/);
     assert.match(html, /après l’appel et votre validation d’un rendez-vous avec le partenaire concerné/);
     assert.match(html, /ne vous inscrit pas à une newsletter/);
-    for (const text of ['Vercel', 'Resend', 'Infomaniak', 'États-Unis', 'Irlande', 'Suisse']) assert.ok(html.includes(text), text);
+    for (const text of ['Netlify', 'Resend', 'Infomaniak', 'États-Unis', 'Irlande', 'Suisse']) assert.ok(html.includes(text), text);
     assert.match(html, /6\. Conservation/);
     assert.match(html, /9\. Vos droits/);
     assert.match(html, /id="prestataires"/);
@@ -72,7 +72,8 @@ test('privacy page explains transfers without claiming European-only storage or 
     assert.match(html, /depuis la Suisse/);
     assert.match(html, /ne signifie donc pas que les données restent en Europe/);
     assert.match(html, /doivent encore être confirmées avant publication/);
-    for (const url of ['https://vercel.com/legal/dpa', 'https://resend.com/legal/dpa']) assert.ok(html.includes(url));
+    for (const url of ['https://www.netlify.com/pdf/netlify-dpa.pdf', 'https://resend.com/legal/dpa']) assert.ok(html.includes(url));
+    assert.doesNotMatch(html, /Vercel|vercel\.com/);
     assert.doesNotMatch(html, /commission|rémunération|\bHobby\b|\bPro\b|\bScale\b|\$|CHF/);
     assert.match(readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8'), /Version locale de travail/);
 });

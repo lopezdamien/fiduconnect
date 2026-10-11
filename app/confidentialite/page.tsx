@@ -33,19 +33,19 @@ export default function Confidentialite() {
             </section>
             <section>
                 <h2>4. Qui reçoit votre demande ?</h2>
-                <p>Smart Administration – Damien Lopez reçoit votre demande et prépare votre rappel. Vercel, Resend et Infomaniak interviennent dans le fonctionnement du site et l’acheminement de cette demande, comme expliqué ci-dessous.</p>
+                <p>Smart Administration – Damien Lopez reçoit votre demande et prépare votre rappel. Netlify, Resend et Infomaniak sont les prestataires prévus pour le fonctionnement du site publié et l’acheminement de cette demande, comme expliqué ci-dessous.</p>
                 <p className="mt-3">Vos coordonnées et les informations utiles ne sont transmises à une fiduciaire partenaire qu’après l’appel et votre validation d’un rendez-vous avec le partenaire concerné. Le formulaire n’envoie aucune demande automatiquement aux fiduciaires. Le partenaire vous informe de ses propres traitements.</p>
             </section>
             <section>
                 <h2 id="prestataires">5. Où vos données sont-elles traitées ?</h2>
                 <ul>
-                    <li><strong>Vercel Inc.</strong> héberge la version prévue pour publication et exécute le formulaire. Cela concerne les informations de votre demande ainsi que les données techniques du site. Son accord prévoit notamment des traitements aux <strong>États-Unis</strong> et le recours à d’autres prestataires. <a href="https://vercel.com/legal/dpa" rel="noopener noreferrer">Informations sur le traitement par Vercel</a>.</li>
+                    <li><strong>Netlify Inc.</strong> est l’hébergeur prévu pour publication et le traitement du formulaire. Cela concerne les informations de votre demande ainsi que les données techniques du site. Des traitements sont prévus notamment aux <strong>États-Unis</strong>, avec le recours à d’autres prestataires. Les régions et les autres pays effectivement concernés restent à confirmer avant publication. <a href="https://www.netlify.com/trust-center/" rel="noopener noreferrer">Informations sur le traitement et les sous-traitants de Netlify</a>.</li>
                     <li><strong>Resend</strong> achemine votre demande par e-mail. L’envoi est configuré depuis l’<strong>Irlande</strong>, mais les e-mails et journaux sont stockés aux <strong>États-Unis</strong>. Choisir une région d’envoi européenne ne signifie donc pas que les données restent en Europe. <a href="https://resend.com/security" rel="noopener noreferrer">Informations sur le traitement par Resend</a>.</li>
                     <li><strong>Infomaniak</strong> reçoit et conserve les e-mails dans notre messagerie, hébergée en <strong>Suisse</strong>. <a href="https://www.infomaniak.com/fr/ksuite/service-mail" rel="noopener noreferrer">Informations sur le Service Mail Infomaniak</a>.</li>
                 </ul>
                 <h3 id="garanties" className="mb-2 mt-5 font-semibold text-[#223b4a]">Quelles garanties sont prévues ?</h3>
-                <p>Les accords publiés par Vercel et Resend prévoient notamment des « clauses contractuelles types », avec des dispositions pour les transferts depuis la Suisse. Ce sont des engagements encadrant l’utilisation et la protection des données lors d’un transfert à l’étranger. Ils ne signifient pas que les données restent en Suisse.</p>
-                <p className="mt-3">Vous pouvez consulter ces engagements dans les <a href="https://vercel.com/legal/dpa" rel="noopener noreferrer">dispositions de protection des données de Vercel</a> et de <a href="https://resend.com/legal/dpa" rel="noopener noreferrer">Resend</a>, ou nous contacter pour des précisions sur les garanties applicables à votre demande.</p>
+                <p>Les accords publiés par Netlify et Resend prévoient notamment des « clauses contractuelles types », avec des dispositions pour les transferts depuis la Suisse. Ce sont des engagements encadrant l’utilisation et la protection des données lors d’un transfert à l’étranger. Ils ne signifient pas que les données restent en Suisse.</p>
+                <p className="mt-3">Vous pouvez consulter ces engagements dans les <a href="https://www.netlify.com/pdf/netlify-dpa.pdf" rel="noopener noreferrer">dispositions de protection des données de Netlify</a> et de <a href="https://resend.com/legal/dpa" rel="noopener noreferrer">Resend</a>, ou nous contacter pour des précisions sur les garanties applicables à votre demande.</p>
                 <p className="mt-3">Pour cette version locale de travail, l’application de ces accords à nos comptes et la liste complète des pays concernés par les autres prestataires doivent encore être confirmées avant publication.</p>
             </section>
             <section>

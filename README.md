@@ -1,39 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FIDUCONNECT
 
-## Getting Started
+Landing SEA locale : orientation vers une fiduciaire adaptée à l’entreprise à Genève. Next.js, TypeScript, Tailwind ; envoi des demandes par Resend.
 
-First, run the development server:
+## Travail local
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev -- --webpack --hostname 127.0.0.1 --port 3001
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir http://127.0.0.1:3001/. Le port 3000 est utilisé par une autre application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Vérifications
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm test
+npm run build -- --webpack
+```
 
-## Learn More
+Le formulaire fonctionne en développement avec la configuration Resend existante. En production, le verrou `PRODUCTION_LEADS_ENABLED = false` bloque l’envoi : cela concerne aussi `npm run start` en local.
 
-To learn more about Next.js, take a look at the following resources:
+## Hébergement prévu : Netlify Free
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Configuration préparée dans `netlify.toml`, sans déploiement. Ne pas importer le dépôt ni lancer un téléversement : ces actions peuvent publier immédiatement le site.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Voir [la préparation Netlify](docs/NETLIFY.md), [les contrôles avant publication](docs/AVANT-PUBLICATION.md), [les procédures de données](docs/PROCEDURES-DONNEES.md) et [les contrôles responsive](docs/RESPONSIVE-QA.md).
 
-## Deploy on Vercel
+Ne pas modifier les fichiers `.env` ou les secrets. Ne pas lever le verrou ni publier sans validation explicite de l’exploitant.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
----
-_Last deployment trigger: 2026-02-13 12:18:00_
+L’ancien site est conservé dans la branche `archive/pre-landing-sea`. La nouvelle version est travaillée sur `landing-sea`.

@@ -88,7 +88,9 @@ Ces contrôles techniques sont des moyens de vérifier une protection proportion
 - Possibilité d’activer TLS Enforced dans Resend à décider séparément, avec nouveau test autorisé si le réglage change. La réception TLS d’un message est déjà constatée ; le réglage Opportunistic reste le dernier observé.
 - Conservation réelle des journaux, sauvegardes et e-mails, procédures de suppression et d’incident du prestataire.
 
-## 7. Protection Vercel à préparer, pas encore activée
+## 7. Protection de l’hébergement : Netlify retenu le 11 octobre
+
+Netlify Free remplace la piste Vercel pour le lancement. Voir `docs/NETLIFY.md`. La protection centralisée de POST /api/lead reste à définir selon les fonctions disponibles et leur coût ; le limiteur mémoire par processus ne suffit pas aux instances serverless. Aucun réglage de compte ni déploiement effectué. Le paragraphe suivant conserve la proposition historique Vercel, **non retenue et non activée**, pas une procédure à appliquer à Netlify.
 
 Point de départ proposé pour une règle dédiée : méthode **POST**, chemin exactement **/api/lead**, comptage par IP, fenêtre fixe de dix minutes, plafond de dix requêtes par IP, réponse 429. Ajuster après des tests, notamment pour les bureaux qui partagent une adresse IP. Cette règle ne remplace pas la validation du formulaire ni une stratégie contre des attaques distribuées ; les compteurs Vercel sont régionaux.
 
