@@ -4,6 +4,8 @@ Mis à jour le 11 octobre 2026. Premier déploiement technique privé autorisé 
 
 ## Contrôle du premier déploiement privé
 
+Après ce contrôle, l’exploitant choisit la boîte dédiée `contact@fiduconnect.ch`, confirme ses dossiers de suivi et le changement de `LEAD_TO_EMAIL` dans Netlify. Coordonnées publiques, contact des droits, métadonnées et erreurs API adaptés localement ; identité de l’exploitant inchangée. Livraison à cette nouvelle adresse encore à tester. Aucun secret ou fichier `.env` modifié par l’agent, aucun push ou nouveau déploiement pour ce changement local. Les mentions de la boîte Smart Administration dans les anciens tests ci-dessous sont historiques.
+
 - Projet Netlify `fiduconnect-sea`, branche `landing-sea`, commit `47958a8`, déploiement `6acb9ec946e0a1d3e4c6a766` : succès. Next.js Runtime 5.16.2 ; une fonction serveur et une fonction edge déployées. Post-processing confirme une règle programmatique valide : 10 requêtes / 60 secondes, agrégation IP + domaine, réponse 429, cible `^/api/lead/?$` (slash final inclus). Le rejet effectif reste à tester ; aucune validation des chemins internes alternatifs n’en découle.
 - Adresse technique : `https://fiduconnect-sea.netlify.app/`. Protection privée constatée dans le navigateur ; une requête extérieure sans connexion reçoit HTTP 401. HSTS présent sur cette réponse. Les en-têtes applicatifs et le compteur anti-abus ne sont pas validés par ce contrôle de la porte d’accès.
 - Région serveur affichée par Netlify : **CMH (Ohio, US East)**. Changement de région proposé seulement après mise à niveau ; aucun abonnement changé. Après réflexion sur Vercel, l’exploitant conserve Netlify Free.

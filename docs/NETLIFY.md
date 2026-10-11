@@ -4,6 +4,8 @@ Hébergeur retenu : Netlify Free. **Premier déploiement technique privé autori
 
 ## État réel du projet
 
+Changement ultérieur du destinataire : l’exploitant confirme avoir renseigné `LEAD_TO_EMAIL=contact@fiduconnect.ch` dans Netlify pour utiliser sa boîte dédiée. L’agent ne modifie ni cette variable, ni l’expéditeur, ni la clé. Une nouvelle livraison doit encore être testée après un déploiement autorisé ; la version privée actuelle reste au commit `47958a8`.
+
 - `fiduconnect-sea`, dépôt GitHub `lopezdamien/fiduconnect`, branche `landing-sea`, commit `47958a8`.
 - Déploiement `6acb9ec946e0a1d3e4c6a766` réussi ; adresse `https://fiduconnect-sea.netlify.app/`, accès privé Netlify. HTTP 401 sans connexion, HSTS sur cette réponse.
 - Next.js Runtime 5.16.2, une fonction serveur et une fonction edge déployées. Post-processing confirme une règle valide : 10 requêtes / 60 secondes par IP + domaine, réponse 429, chemin `^/api/lead/?$`. Compteur effectif et chemins internes alternatifs encore à tester. L’affichage « No active rules » du Web security center ne suffit pas à invalider cette preuve pour une règle définie dans le code : la documentation demande de vérifier le journal de post-processing.

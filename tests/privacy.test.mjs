@@ -59,7 +59,7 @@ test('privacy page explains transfers without claiming European-only storage or 
     const { default: PrivacyPage } = loadComponent('app/confidentialite/page.tsx');
     const html = renderToStaticMarkup(React.createElement(PrivacyPage));
     assert.match(html, /Smart Administration – Damien Lopez/);
-    assert.match(html, /contact@smartadministration.ch/);
+    assert.match(html, /mailto:contact@fiduconnect\.ch/);
     assert.match(html, /vous rappeler gratuitement sous 24 heures/);
     assert.match(html, /après l’appel et votre validation d’un rendez-vous avec le partenaire concerné/);
     assert.match(html, /ne vous inscrit pas à une newsletter/);
@@ -76,6 +76,21 @@ test('privacy page explains transfers without claiming European-only storage or 
     assert.doesNotMatch(html, /Vercel|vercel\.com/);
     assert.doesNotMatch(html, /commission|rémunération|\bHobby\b|\bPro\b|\bScale\b|\$|CHF/);
     assert.match(readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8'), /Version locale de travail/);
+});
+
+test('public contacts use the dedicated mailbox while the operator and email configuration remain unchanged', () => {
+    for (const path of ['app/confidentialite/page.tsx', 'app/mentions-legales/page.tsx', 'lib/seo.ts', 'app/api/lead/route.ts']) {
+        const source = readFileSync(resolve(root, path), 'utf8');
+        assert.ok(source.includes('contact@fiduconnect.ch'), path);
+        assert.ok(!source.includes('contact@smartadministration.ch'), path);
+    }
+    const { default: LegalPage } = loadComponent('app/mentions-legales/page.tsx');
+    const html = renderToStaticMarkup(React.createElement(LegalPage));
+    assert.match(html, /Smart Administration – Damien Lopez/);
+    assert.match(html, /mailto:contact@fiduconnect\.ch/);
+    const handler = readFileSync(resolve(root, 'app/api/lead/route.ts'), 'utf8');
+    assert.match(handler, /process\.env\.LEAD_FROM_EMAIL/);
+    assert.match(handler, /process\.env\.LEAD_TO_EMAIL/);
 });
 
 test('footer Cookies link reaches the information section without pretending to manage inactive trackers', () => {

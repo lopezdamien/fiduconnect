@@ -14,7 +14,7 @@ export default function MentionsLegales() {
             <section>
                 <h2>1. Exploitant et contact</h2>
                 <p>FIDUCONNECT est un service exploité par <strong>Smart Administration – Damien Lopez</strong>.</p>
-                <p>Avenue d’Aïre 73C, 1203 Genève, Suisse.<br />Responsable du site : Damien Lopez.<br />E-mail : <a href="mailto:contact@smartadministration.ch">contact@smartadministration.ch</a>.</p>
+                <p>Avenue d’Aïre 73C, 1203 Genève, Suisse.<br />Responsable du site : Damien Lopez.<br />E-mail : <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>.</p>
             </section>
             <section>
                 <h2>2. Le rôle de FIDUCONNECT</h2>

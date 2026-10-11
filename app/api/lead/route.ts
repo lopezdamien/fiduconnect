@@ -48,7 +48,7 @@ export async function POST(request: Request) {
             return failure(403, 'Merci d’envoyer votre demande depuis le formulaire FiduConnect.');
         }
         if (process.env.NODE_ENV === 'production' && !PRODUCTION_LEADS_ENABLED) {
-            return failure(503, 'Le formulaire est temporairement indisponible. Écrivez-nous à contact@smartadministration.ch.');
+            return failure(503, 'Le formulaire est temporairement indisponible. Écrivez-nous à contact@fiduconnect.ch.');
         }
         const body = await readLeadBody(request);
 
@@ -87,7 +87,7 @@ export async function POST(request: Request) {
 
         if (!resendApiKey || !fromEmail || !toEmail) {
             console.error('lead.configuration_missing');
-            return failure(503, 'Le formulaire est temporairement indisponible. Écrivez-nous à contact@smartadministration.ch.');
+            return failure(503, 'Le formulaire est temporairement indisponible. Écrivez-nous à contact@fiduconnect.ch.');
         }
 
         const resend = new Resend(resendApiKey);
@@ -113,7 +113,7 @@ export async function POST(request: Request) {
 
         if (error) {
             console.error('lead.send_failed');
-            return failure(502, 'L’envoi a échoué. Merci de réessayer ou de nous écrire à contact@smartadministration.ch.');
+            return failure(502, 'L’envoi a échoué. Merci de réessayer ou de nous écrire à contact@fiduconnect.ch.');
         }
 
         return NextResponse.json({ ok: true }, { headers: responseHeaders });

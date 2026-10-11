@@ -1,6 +1,8 @@
 # FIDUCONNECT — procédures internes pour les données
 
-Préparation locale mise à jour le 11 octobre 2026. Responsable : Damien Lopez, Smart Administration. Contact : contact@smartadministration.ch.
+Préparation locale mise à jour le 11 octobre 2026. Responsable : Damien Lopez, Smart Administration. Contact du service et des demandes relatives aux données : contact@fiduconnect.ch.
+
+L’exploitant confirme la préparation de la boîte dédiée `contact@fiduconnect.ch` et le remplacement de `LEAD_TO_EMAIL` dans Netlify. Réception dans cette nouvelle boîte encore à tester ; aucune modification de l’expéditeur Resend, de la clé ou des fichiers `.env` par l’agent. Les anciens tests reçus dans Smart Administration restent des constats historiques et n’ont pas été déplacés.
 
 Ces procédures sont préparées, mais leur application dans les comptes doit encore être vérifiée avant publication. Aucun e-mail n’a été supprimé, aucun compte modifié et aucun abonnement souscrit pendant cette préparation. Ne pas conserver de données réelles de prospects dans ce dépôt Git.
 

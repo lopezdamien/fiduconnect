@@ -14,7 +14,7 @@ export default function Confidentialite() {
             <section>
                 <h2>1. Responsable du traitement</h2>
                 <p>Smart Administration – Damien Lopez, Avenue d’Aïre 73C, 1203 Genève, Suisse, exploite FIDUCONNECT et est responsable du traitement de vos demandes.</p>
-                <p>Contact pour vos données : <a href="mailto:contact@smartadministration.ch">contact@smartadministration.ch</a>.</p>
+                <p>Contact pour vos données : <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>.</p>
             </section>
             <section>
                 <h2>2. Informations recueillies</h2>
@@ -67,7 +67,7 @@ export default function Confidentialite() {
             <section>
                 <h2>9. Vos droits</h2>
                 <p>Dans les conditions prévues par la loi, vous pouvez demander l’accès à vos données, leur rectification ou leur suppression, et faire valoir les autres droits applicables. Vous pouvez nous indiquer que vous ne souhaitez plus donner suite.</p>
-                <p className="mt-3">Écrivez à <a href="mailto:contact@smartadministration.ch">contact@smartadministration.ch</a>. Nous pouvons vérifier votre identité de manière proportionnée avant de communiquer des informations personnelles. Vous pouvez également contacter le <a href="https://www.edoeb.admin.ch/fr" rel="noopener noreferrer">Préposé fédéral à la protection des données et à la transparence</a>.</p>
+                <p className="mt-3">Écrivez à <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>. Nous pouvons vérifier votre identité de manière proportionnée avant de communiquer des informations personnelles. Vous pouvez également contacter le <a href="https://www.edoeb.admin.ch/fr" rel="noopener noreferrer">Préposé fédéral à la protection des données et à la transparence</a>.</p>
             </section>
         </LegalPage>
     );

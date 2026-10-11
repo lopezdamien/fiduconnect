@@ -79,7 +79,7 @@ export function organizationSchema() {
         url: SITE_URL,
         description:
             "FiduConnect aide les entreprises genevoises à identifier et comparer des partenaires fiduciaires adaptés, gratuitement et sans engagement.",
-        email: 'contact@smartadministration.ch',
+        email: 'contact@fiduconnect.ch',
         areaServed: {
             '@type': 'AdministrativeArea',
             name: AREA_SERVED,
