@@ -6,3 +6,5 @@
 
 [build.environment]
   NODE_VERSION = "24"
+  # Public landing address, not a secret or a DNS/domain registration.
+  NEXT_PUBLIC_SITE_URL = "https://contact.fiduconnect.ch"

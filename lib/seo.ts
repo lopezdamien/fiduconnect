@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
-const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "https://www.fiduconnect.ch";
+// SEA landing only; the main domain is reserved for the future SEO website.
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "https://contact.fiduconnect.ch";
 
 export const SITE_URL = rawUrl.replace(/&$/, '').replace(/\/$/, '');
 

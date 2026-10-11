@@ -1,10 +1,15 @@
 # Préparation Netlify — 11 octobre 2026
 
-Hébergeur retenu : Netlify Free. **Aucune publication autorisée ou effectuée.** L’exploitant a ouvert son compte. Inspection en lecture seule : offre Free, 300 crédits disponibles, zéro projet créé, aucune carte bancaire enregistrée. Aucun contrat accepté par l’agent, dépôt connecté, DNS modifié ou secret transféré. Double authentification non activée lors du dernier contrôle ; activation laissée à l’exploitant, à confirmer.
+Hébergeur retenu : Netlify Free. **Aucune publication autorisée ou effectuée.** L’exploitant a ouvert son compte. Inspection en lecture seule : offre Free, 300 crédits disponibles, zéro projet créé, aucune carte bancaire enregistrée. Aucun contrat accepté par l’agent, dépôt connecté, DNS modifié ou secret transféré. Double authentification : activation confirmée par l’exploitant après ce contrôle, sans nouvelle inspection directe par l’agent.
+
+Adresse confirmée par l’exploitant : **https://contact.fiduconnect.ch/** pour la landing SEA. **https://www.fiduconnect.ch/** est réservé au futur site SEO. `contact` est un sous-domaine du domaine déjà détenu : aucun nouvel achat nécessaire. La configuration locale ne crée pas le sous-domaine et ne modifie ni DNS, ni certificat, ni site existant.
+
+Après préparation de cette adresse : lint, 54 tests et build webpack réussis. Vérification du HTML compilé : canonical et URL OpenGraph pointent bien vers `https://contact.fiduconnect.ch`. Les secrets et fichiers `.env` sont inchangés ; la landing reste non indexable et le verrou d’envoi en production reste actif. Le sous-domaine n’est pas encore raccordé à cette version.
 
 ## Configuration locale
 
 - Node 24 ; build `npm run build -- --webpack` ; sortie `.next`.
+- Adresse publique non secrète `NEXT_PUBLIC_SITE_URL` préparée dans `netlify.toml` ; valeur de repli dans `lib/seo.ts` identique. Les URL des métadonnées, de l’organisation et du sitemap utilisent cette base. Les variables existantes restent prioritaires ; vérifier qu’aucune valeur du compte Netlify ne la remplace avant lancement. Aucun fichier `.env` modifié.
 - Adaptateur Next.js automatique fourni par Netlify, sans dépendance ajoutée ni version forcée.
 - Pas d’export statique, de redirection SPA ou de Netlify Forms : `/api/lead` et Resend sont conservés. Netlify exécutera les routes serveur dans ses fonctions.
 - Aucun secret dans `netlify.toml`. Aucun fichier `.env` modifié.
@@ -27,7 +32,7 @@ Le compte est ouvert. Ne pas importer de dépôt, cliquer sur Deploy/Publish, ut
 
 ## Avant toute publication ultérieure
 
-1. Confirmer le domaine public ; la valeur de repli actuelle `www.fiduconnect.ch` n’est pas une confirmation. Pas de modification DNS sans autorisation.
+1. Adresse confirmée : `contact.fiduconnect.ch`. Vérifier la maîtrise de la zone DNS, puis préparer le rattachement du **seul sous-domaine** à Netlify après autorisation. Ne pas remplacer les enregistrements du domaine principal, de `www` ou de la messagerie. Aucun changement DNS, certificat ou rattachement effectué ici ; ne pas deviner la cible CNAME avant la création autorisée du projet.
 2. Valider les accords du compte, les sous-traitants et les pays réellement concernés ; compléter la confidentialité. Le DPA public prévoit des clauses contractuelles types adaptées à la Suisse, mais aucun accord n’a été accepté ici. Ne pas promettre un hébergement exclusivement européen.
 3. Valider la règle anti-abus préparée ci-dessus, ses limites et l’absence de chemin de contournement. Elle ne remplace pas une surveillance des crédits, des erreurs et des abus. Réexaminer les seuils selon le trafic réel, sans abonnement supplémentaire automatique.
 4. Faire saisir les secrets côté serveur par l’exploitant, sans les recopier dans Git, les documents ou le navigateur client. Vérifier la configuration Resend existante ; aucune migration de messagerie requise.
