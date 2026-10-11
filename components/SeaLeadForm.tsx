@@ -96,15 +96,15 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
             </Field.Root>
             <fieldset disabled={loading} className="sea-contact-fields space-y-4">
                 <legend className="sea-form-legend">Vos coordonnées</legend>
-                <div className="grid grid-cols-2 gap-3">
-                    <TextField label="Prénom" id={`${idPrefix}-firstName`} name="firstName" maxLength={leadLimits.firstName} required autoComplete="given-name" />
-                    <TextField label="Nom" id={`${idPrefix}-lastName`} name="lastName" maxLength={leadLimits.lastName} required autoComplete="family-name" />
+                <div className="grid grid-cols-1 gap-4 min-[360px]:grid-cols-2 min-[360px]:gap-3">
+                    <TextField label="Prénom" id={`${idPrefix}-firstName`} name="firstName" maxLength={leadLimits.firstName} required autoComplete="given-name" enterKeyHint="next" />
+                    <TextField label="Nom" id={`${idPrefix}-lastName`} name="lastName" maxLength={leadLimits.lastName} required autoComplete="family-name" enterKeyHint="next" />
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
-                    <TextField label="E-mail" id={`${idPrefix}-email`} name="email" type="email" maxLength={leadLimits.email} required autoComplete="email" placeholder="vous@entreprise.ch" />
-                    <TextField label="Téléphone" id={`${idPrefix}-phone`} name="phone" type="tel" maxLength={leadLimits.phone} required autoComplete="tel" placeholder="+41 79 000 00 00" />
+                    <TextField label="E-mail" id={`${idPrefix}-email`} name="email" type="email" inputMode="email" autoCapitalize="none" spellCheck={false} enterKeyHint="next" maxLength={leadLimits.email} required autoComplete="email" placeholder="vous@entreprise.ch" />
+                    <TextField label="Téléphone" id={`${idPrefix}-phone`} name="phone" type="tel" inputMode="tel" enterKeyHint="next" maxLength={leadLimits.phone} required autoComplete="tel" placeholder="+41 79 000 00 00" />
                 </div>
-                <TextField label="Entreprise" optional id={`${idPrefix}-company`} name="company" maxLength={leadLimits.company} autoComplete="organization" />
+                <TextField label="Entreprise" optional id={`${idPrefix}-company`} name="company" maxLength={leadLimits.company} autoComplete="organization" enterKeyHint="next" />
             </fieldset>
             <fieldset disabled={loading} className="sea-need-fields mt-6 space-y-4 border-t border-[#e5dfd5] pt-5">
                 <legend className="sr-only">Votre besoin</legend>

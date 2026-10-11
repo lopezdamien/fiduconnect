@@ -49,7 +49,7 @@ export default function Home() {
                 <header className="sea-header">
                     <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
                         <Link href="/" className="shrink-0"><FiduLogo className="w-[150px] sm:w-[190px]" /></Link>
-                        <a href="#demande" className="sea-header-link">Trouver ma fiduciaire <ArrowDownRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
+                        <a href="#demande" className="sea-header-link"><span className="sea-header-cta-full">Trouver ma fiduciaire</span><span className="sea-header-cta-short">Ma demande</span><ArrowDownRight aria-hidden="true" className="h-4 w-4 shrink-0" /></a>
                     </div>
                 </header>
 
@@ -59,10 +59,10 @@ export default function Home() {
                             <h1 className="sea-title max-w-3xl text-[2.75rem] sm:text-6xl lg:text-[4.5rem]">
                                 Trouvez la fiduciaire <em className="font-normal text-[#9c513b]">adaptée</em> à votre entreprise à Genève.
                             </h1>
-                            <p className="mt-7 max-w-xl text-base leading-7 text-[#605b54] sm:text-lg sm:leading-8">
+                            <p className="sea-hero-description mt-7 max-w-xl text-base leading-7 text-[#605b54] sm:text-lg sm:leading-8">
                                 Décrivez-nous votre besoin. FiduConnect vous aide à identifier et comparer des partenaires adaptés, gratuitement et sans engagement.
                             </p>
-                            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-medium text-[#605b54]">
+                            <div className="sea-hero-reassurance mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-medium text-[#605b54]">
                                 <span>Rappel gratuit sous 24 h</span><span className="border-l border-[#c7c0b6] pl-6">Sans engagement</span>
                             </div>
                             <a href="#demande" className="sea-form-guide">
@@ -87,14 +87,14 @@ export default function Home() {
                 </section>
             </div>
 
-            <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+            <section className="sea-section mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
                 <PremiumReveal className="max-w-2xl">
                     <Eyebrow>Comment ça fonctionne</Eyebrow>
                     <h2 className="sea-title mt-5 text-4xl sm:text-5xl">Un chemin clair, de votre besoin à la bonne orientation.</h2>
                 </PremiumReveal>
-                <div className="mt-12 grid gap-9 md:grid-cols-3 md:gap-8">
+                <div className="sea-steps mt-12 grid gap-9 md:grid-cols-3 md:gap-8">
                     {steps.map(([number, title, text], index) => (
-                        <PremiumReveal key={number} delay={index * 0.08} className="border-t border-[#cfc8bc] pt-5">
+                        <PremiumReveal key={number} delay={index * 0.08} className="sea-step border-t border-[#cfc8bc] pt-5">
                             <span className="font-[family-name:var(--font-display)] text-3xl text-[#9c513b]">{number}</span>
                             <h3 className="mt-7 max-w-xs text-lg font-semibold tracking-tight">{title}</h3>
                             <p className="mt-3 max-w-xs text-sm leading-7 text-[#6c665e]">{text}</p>
@@ -112,14 +112,14 @@ export default function Home() {
                 </figure>
             </section>
 
-            <section className="border-y border-[#c8d3dc] bg-[#e5eaf0] py-16 sm:py-24">
+            <section className="sea-section border-y border-[#c8d3dc] bg-[#e5eaf0] py-16 sm:py-24">
                 <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[.85fr_1.15fr] lg:gap-16">
                     <PremiumReveal>
                         <Eyebrow>Vos besoins</Eyebrow>
                         <h2 className="sea-title mt-5 max-w-md text-4xl sm:text-5xl">À chaque étape, le bon partenaire.</h2>
                         <p className="mt-6 max-w-sm text-sm leading-7 text-[#6c665e]">Du lancement de votre entreprise à la recherche d’un nouveau partenaire, nous commençons par comprendre votre besoin.</p>
                     </PremiumReveal>
-                    <ul className="divide-y divide-[#c0ccd5]">
+                    <ul className="sea-needs-list divide-y divide-[#c0ccd5]">
                         {needs.map((need, index) => (
                             <li key={need} className="flex items-center gap-5 py-4">
                                 <span aria-hidden="true" className="w-5 shrink-0 text-xs tabular-nums text-[#9c513b]">0{index + 1}</span>
@@ -130,9 +130,9 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+            <section className="sea-section mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
                 <PremiumReveal><Eyebrow>Pourquoi FiduConnect</Eyebrow><h2 className="sea-title mt-5 text-4xl sm:text-5xl">Avancer avec plus de clarté.</h2></PremiumReveal>
-                <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="sea-reassurances mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                     {reassurances.map(([title, text], index) => (
                         <PremiumReveal key={title} delay={index * 0.08} className="border-t border-[#cfc8bc] pt-5">
                             <h3 className="text-base font-semibold">{title}</h3>
@@ -142,7 +142,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="bg-[#223b4a] px-5 py-16 text-[#f6f2e9] sm:px-8 sm:py-24">
+            <section className="sea-section bg-[#223b4a] px-5 py-16 text-[#f6f2e9] sm:px-8 sm:py-24">
                 <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:gap-16">
                     <PremiumReveal>
                         <Eyebrow light>Votre demande</Eyebrow>

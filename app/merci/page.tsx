@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
 
 export default function Merci() {
     return (
-        <main className="sea-page flex min-h-screen items-center justify-center px-5 py-12">
+        <main className="sea-page sea-thanks flex min-h-screen items-center justify-center px-5 py-12">
             <div className="sea-form-card w-full max-w-lg p-7 sm:p-10">
                 <Link href="/" className="inline-block"><FiduLogo className="w-[180px]" /></Link>
                 <p className="sea-eyebrow mt-10">Demande reçue</p>

@@ -3,13 +3,13 @@ import { FiduLogo } from '@/components/FiduLogo';
 
 export function LegalPage({ title, children }: { title: string; children: React.ReactNode }) {
     return (
-        <main className="sea-page min-h-screen px-5 py-8 sm:px-8 sm:py-12">
+        <main className="sea-page sea-legal-page min-h-screen px-5 py-8 sm:px-8 sm:py-12">
             <div className="mx-auto max-w-3xl">
                 <header className="flex flex-wrap items-center justify-between gap-5">
                     <Link href="/" aria-label="FIDUCONNECT — accueil"><FiduLogo className="w-[170px]" /></Link>
                     <Link href="/" className="text-sm underline underline-offset-4">Retour à l’accueil</Link>
                 </header>
-                <article className="mt-10 rounded-lg border border-[#ded7cb] bg-[#fffdfa] p-6 sm:p-10">
+                <article className="sea-legal-article mt-10 rounded-lg border border-[#ded7cb] bg-[#fffdfa] p-6 sm:p-10">
                     <p className="sea-eyebrow">Version du 9 octobre 2026</p>
                     <h1 className="sea-title mt-4 text-4xl sm:text-5xl">{title}</h1>
                     <p className="mt-5 border-l-2 border-[#b36349] pl-4 text-xs leading-6 text-[#6c665e]">Version locale de travail. Publication après validation des paramètres des prestataires et des procédures de conservation.</p>

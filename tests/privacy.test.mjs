@@ -152,3 +152,32 @@ test('hero guide points to the form without a duplicate filled button, with a do
     assert.match(desktop, /\.sea-form-guide-mobile\s*\{ display: none/);
     assert.match(styles, /\.sea-form-guide:focus-visible\s*\{ outline:/);
 });
+
+test('touch forms preserve keyboard hints, autocomplete and all fields at narrow widths', () => {
+    const { SeaLeadForm } = loadComponent('components/SeaLeadForm.tsx');
+    for (const idPrefix of ['hero', 'final']) {
+        const html = renderToStaticMarkup(React.createElement(SeaLeadForm, { idPrefix }));
+        assert.match(html, /inputMode="email"/i);
+        assert.match(html, /autoCapitalize="none"/i);
+        assert.match(html, /spellCheck="false"/i);
+        assert.match(html, /inputMode="tel"/i);
+        assert.match(html, /enterKeyHint="next"/i);
+        for (const value of ['given-name', 'family-name', 'email', 'tel', 'organization']) assert.ok(html.includes(`autoComplete="${value}"`), value);
+        assert.ok(html.includes('min-[360px]:grid-cols-2'));
+        assert.doesNotMatch(html, /autofocus|<details/i);
+    }
+    const styles = readFileSync(resolve(root, 'app/globals.css'), 'utf8');
+    const touch = styles.slice(styles.indexOf('@media (max-width: 1023px)'), styles.indexOf('/* Compact desktop layout'));
+    assert.match(touch, /\.sea-input\s*\{ min-height: 48px/);
+    assert.match(touch, /\.sea-select-item\s*\{ min-height: 48px; font-size: 16px/);
+    assert.match(touch, /\.sea-submit\s*\{ min-height: 52px/);
+    assert.doesNotMatch(touch, /position:\s*(fixed|sticky)|font-size:\s*13px[^}]*\.sea-input/);
+});
+
+test('content wrappers are visible in initial HTML without viewport animations or client JavaScript', () => {
+    const { PremiumReveal } = loadComponent('components/PremiumReveal.tsx');
+    const html = renderToStaticMarkup(React.createElement(PremiumReveal, { id: 'demande', className: 'sea-form-card', delay: 0.1 }, 'Formulaire visible'));
+    assert.equal(html, '<div class="sea-form-card" id="demande">Formulaire visible</div>');
+    const source = readFileSync(resolve(root, 'components/PremiumReveal.tsx'), 'utf8');
+    assert.doesNotMatch(source, /framer-motion|use client|opacity|whileInView/);
+});
