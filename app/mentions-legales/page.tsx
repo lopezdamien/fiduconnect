@@ -24,7 +24,7 @@ export default function MentionsLegales() {
             </section>
             <section>
                 <h2>3. Hébergement et prestataires techniques</h2>
-                <p>L’hébergeur prévu pour la version publiée est <a href="https://www.netlify.com/privacy/" rel="noopener noreferrer">Netlify Inc.</a>, États-Unis. L’envoi des demandes utilise Resend ; la messagerie de réception est hébergée par Infomaniak en Suisse.</p>
+                <p>Le site est hébergé par <a href="https://www.netlify.com/privacy/" rel="noopener noreferrer">Netlify Inc.</a>, États-Unis. Le traitement du formulaire est configuré dans la région Ohio, aux États-Unis. L’envoi des demandes utilise Resend ; la messagerie contact@fiduconnect.ch est hébergée par Infomaniak en Suisse.</p>
                 <p className="mt-3">Les traitements associés sont décrits dans la <a href="/confidentialite">déclaration de confidentialité</a>.</p>
             </section>
             <section>

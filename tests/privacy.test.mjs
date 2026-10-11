@@ -71,11 +71,49 @@ test('privacy page explains transfers without claiming European-only storage or 
     assert.match(html, /clauses contractuelles types/);
     assert.match(html, /depuis la Suisse/);
     assert.match(html, /ne signifie donc pas que les données restent en Europe/);
-    assert.match(html, /doivent encore être confirmées avant publication/);
+    assert.match(html, /conditions standard des prestataires/);
+    assert.match(html, /traitements complémentaires reste à confirmer avant l’ouverture au public/);
     for (const url of ['https://www.netlify.com/pdf/netlify-dpa.pdf', 'https://resend.com/legal/dpa']) assert.ok(html.includes(url));
     assert.doesNotMatch(html, /Vercel|vercel\.com/);
     assert.doesNotMatch(html, /commission|rémunération|\bHobby\b|\bPro\b|\bScale\b|\$|CHF/);
-    assert.match(readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8'), /Version locale de travail/);
+    assert.doesNotMatch(readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8'), /Version de préparation au lancement|contrôle anti-abus/);
+});
+
+test('retention reflects the operator-confirmed Friday procedure without promising immediate backup erasure', () => {
+    const { default: PrivacyPage } = loadComponent('app/confidentialite/page.tsx');
+    const html = renderToStaticMarkup(React.createElement(PrivacyPage));
+    assert.match(html, /au plus tard trois mois après sa réception/);
+    assert.match(html, /Un rappel ne remet pas ce délai à zéro/);
+    assert.match(html, /La suppression est assurée manuellement/);
+    assert.match(html, /y compris dans la corbeille/);
+    assert.doesNotMatch(html, /chaque vendredi/);
+    const procedure = readFileSync(resolve(root, 'docs/PROCEDURES-DONNEES.md'), 'utf8');
+    assert.match(procedure, /Chaque vendredi, Damien Lopez/);
+    assert.match(procedure, /avant le vendredi suivant/);
+    assert.match(html, /ne signifie pas l’effacement immédiat des sauvegardes/);
+    assert.match(html, /sept jours pour ses sauvegardes/);
+    assert.match(html, /restent à préciser avant l’ouverture au public/);
+    assert.match(html, /nous la supprimons de nouveau/);
+});
+
+test('legal content reflects verified private hosting without promising complete security or retention validation', () => {
+    const { default: PrivacyPage } = loadComponent('app/confidentialite/page.tsx');
+    const { default: MentionsPage } = loadComponent('app/mentions-legales/page.tsx');
+    const privacy = renderToStaticMarkup(React.createElement(PrivacyPage));
+    const mentions = renderToStaticMarkup(React.createElement(MentionsPage));
+    for (const html of [privacy, mentions]) {
+        assert.match(html, /Ohio/);
+        assert.doesNotMatch(html, /hébergeur prévu|prestataires prévus|version locale de travail/);
+    }
+    assert.match(privacy, /HTTPS/);
+    assert.match(privacy, /confirmée par l’exploitant/);
+    assert.match(privacy, /ne garantit pas le chiffrement de bout en bout/);
+    assert.match(privacy, /Le site ne supprime pas automatiquement les e-mails/);
+    assert.doesNotMatch(privacy, /Le contrôle effectif du limiteur/);
+    assert.match(privacy, /Cette région ne couvre pas nécessairement tous les traitements/);
+    const layout = readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8');
+    assert.match(layout, /Version du 11 octobre 2026/);
+    assert.doesNotMatch(layout, /avant l’ouverture au public/);
 });
 
 test('public contacts use the dedicated mailbox while the operator and email configuration remain unchanged', () => {

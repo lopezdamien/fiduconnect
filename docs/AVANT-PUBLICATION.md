@@ -1,8 +1,24 @@
 # FIDUCONNECT — validation avant publication
 
-Mis à jour le 11 octobre 2026. Premier déploiement technique privé autorisé et effectué ; ouverture publique et activation des demandes encore en attente de validation.
+Mis à jour le 11 octobre 2026. Déploiement technique privé et test autorisés et effectués ; livraison au serveur de la boîte dédiée confirmée par Resend, ouverture publique non validée.
+
+## Dernière clôture documentaire — 11 octobre
+
+Simplification autorisée ensuite par l’exploitant sur les changements existants : retrait de l’encadré de préparation des pages légales ; calendrier du vendredi réservé à la procédure interne ; confidentialité conserve la suppression manuelle, la corbeille et les limites des sauvegardes. Les constats de test et le test fonctionnel 429 restent ici, pas dans le texte visiteurs. Les incertitudes factuelles sur les autres pays et les sauvegardes Infomaniak ne sont pas supprimées ni présentées comme vérifiées. L’exploitant refuse les sollicitations aux supports ; aucun message envoyé. Ce choix ne constitue pas une certification de conformité ni une autorisation de déploiement ou d’ouverture publique.
+
+L’exploitant confirme la revue manuelle chaque vendredi des demandes sans rendez-vous et de leurs copies/corbeille, avec suppression anticipée des échéances de trois mois avant la revue suivante. Il confirme l’utilisation professionnelle des trois comptes avec leurs conditions standard, sans contrat dérogatoire. DPA Netlify, Resend (document pré-signé disponible dans le compte) et Infomaniak relus et référencés dans `docs/PROCEDURES-DONNEES.md` ; aucun accord signé ou accepté par l’agent. Confidentialité et encadré de préparation adaptés localement : ces deux confirmations ne sont plus présentées comme manquantes.
+
+Restent précisément : pays des traitements complémentaires et délais/cycle de suppression des sauvegardes à clarifier auprès des prestataires ; contrôle fonctionnel du rejet anti-abus 429 sans envois en boucle. Questions préparées dans le document de procédures, non envoyées. Pas d’ouverture publique, de push ou de déploiement pour ces changements ; aucun secret ou fichier `.env` touché. Les passages suivants sont l’historique des contrôles et ne remplacent pas ce dernier état.
+
+Vérifications locales après ces confirmations : `npm run lint`, les 60 tests et `npm run build -- --webpack` réussis ; `git diff --check` sans anomalie. Ces contrôles ne valident pas le compteur réel Netlify ni les procédures internes des fournisseurs.
 
 ## Contrôle du premier déploiement privé
+
+Actualisation locale du 11 octobre : réception du test B confirmée par l’exploitant. TXT de propriété ajouté avec autorisation chez Infomaniak, sous-domaine accepté par Netlify, puis CNAME `contact` → `fiduconnect-sea.netlify.app` ajouté avec autorisation, sans toucher aux enregistrements du domaine principal ou de la messagerie. Certificat Let’s Encrypt émis pour `contact.fiduconnect.ch`, landing accessible en HTTPS après protection d’équipe Netlify, toujours privée. Contrôles à 360 et 390 px sans débordement horizontal ; pages légales et ancres présentes. Textes juridiques actualisés localement (hébergement effectif, Ohio, HTTPS, garanties limitées du transport). Réserves conservées sur les accords des comptes, pays supplémentaires, conservation/sauvegardes et vérification effective du limiteur centralisé. Lint, 59 tests et build webpack réussis ; aucun push, déploiement ou nouvel e-mail pour ces corrections locales.
+
+Contrôle final : après correction de l’expéditeur par l’exploitant, redéploiement privé `6acbc0710dec4c31d56938ca` réussi. Nouveau test unique autorisé `FC-NETLIFY-20261011-B` : formulaire redirigé vers `/merci`, e-mail Resend `01a12be9-b16d-7c34-a3a0-a1feea71e1f3` marqué Sent et Delivered vers `contact@fiduconnect.ch` le 11 octobre à 19:01 (Europe/Zurich). Réception visible dans la boîte à confirmer par l’exploitant. Aucune ouverture publique ni modification DNS/secrets par l’agent. Les résultats suivants sont historiques.
+
+Dernier résultat : version `f1bcb40`, déploiement `6acbbe8c15dedb00080fce2f` réussi, site toujours privé ; lint, 58 tests et build webpack réussis. Unique test `FC-NETLIFY-20261011-A` rejeté par Resend (HTTP 422, `from` invalide : guillemets littéraux autour de l’adresse d’expédition). Formulaire conservé avec message d’échec, aucun second envoi tenté. Retirer les guillemets de `LEAD_FROM_EMAIL` dans Netlify, puis obtenir l’autorisation d’un nouveau test. Aucun secret ou fichier `.env` modifié par l’agent ; aucun DNS changé. Les passages suivants sont historiques.
 
 État courant : activation de l’envoi autorisée par l’exploitant pour une seule demande fictive à la boîte dédiée, en conservant l’accès privé Netlify. `PRODUCTION_LEADS_ENABLED = true` pour ce contrôle, sans modifier la configuration Resend ni les fichiers `.env`. Ouverture publique, DNS et résultat de livraison encore en attente ; les mentions de verrou `false` ci-dessous décrivent les contrôles précédents.
 
