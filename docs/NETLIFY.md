@@ -1,6 +1,18 @@
 # Préparation Netlify — 11 octobre 2026
 
-Hébergeur retenu : Netlify Free. **Aucune publication autorisée ou effectuée.** L’exploitant a ouvert son compte. Inspection en lecture seule : offre Free, 300 crédits disponibles, zéro projet créé, aucune carte bancaire enregistrée. Aucun contrat accepté par l’agent, dépôt connecté, DNS modifié ou secret transféré. Double authentification : activation confirmée par l’exploitant après ce contrôle, sans nouvelle inspection directe par l’agent.
+Hébergeur retenu : Netlify Free. **Premier déploiement technique privé autorisé et effectué le 11 octobre ; site pas encore ouvert au public.** L’inspection initiale du compte affichait 300 crédits disponibles et zéro projet ; ce solde n’a pas été recontrôlé après déploiement. Double authentification confirmée par l’exploitant. Aucun abonnement ni DNS modifié.
+
+## État réel du projet
+
+- `fiduconnect-sea`, dépôt GitHub `lopezdamien/fiduconnect`, branche `landing-sea`, commit `47958a8`.
+- Déploiement `6acb9ec946e0a1d3e4c6a766` réussi ; adresse `https://fiduconnect-sea.netlify.app/`, accès privé Netlify. HTTP 401 sans connexion, HSTS sur cette réponse.
+- Next.js Runtime 5.16.2, une fonction serveur et une fonction edge déployées. Post-processing confirme une règle valide : 10 requêtes / 60 secondes par IP + domaine, réponse 429, chemin `^/api/lead/?$`. Compteur effectif et chemins internes alternatifs encore à tester. L’affichage « No active rules » du Web security center ne suffit pas à invalider cette preuve pour une règle définie dans le code : la documentation demande de vérifier le journal de post-processing.
+- Région de la fonction serveur : **CMH (Ohio, US East)**, constatée dans Functions → Region. Aucun changement de région ni mise à niveau ; Netlify Free conservé après comparaison avec Vercel.
+- Les trois variables Resend ont été saisies directement par l’exploitant ; noms et présence vérifiés sans révéler les valeurs. Le verrou d’envoi reste actif, aucun test e-mail de production réalisé.
+- Aucune permission GitHub élargie par l’agent : installation limitée à `lopezdamien/fiduconnect`, constatée avant l’import.
+- Pages légales encore provisoires. Aucun raccordement de `contact.fiduconnect.ch`, aucun changement du domaine principal, de `www` ou de la messagerie.
+
+Les sections de préparation ci-dessous sont historiques lorsqu’elles indiquent qu’aucun projet ou déploiement n’existe. Le déploiement de la fonction edge ne prouve pas encore l’application de sa règle de limitation.
 
 Adresse confirmée par l’exploitant : **https://contact.fiduconnect.ch/** pour la landing SEA. **https://www.fiduconnect.ch/** est réservé au futur site SEO. `contact` est un sous-domaine du domaine déjà détenu : aucun nouvel achat nécessaire. La configuration locale ne crée pas le sous-domaine et ne modifie ni DNS, ni certificat, ni site existant.
 
@@ -26,7 +38,7 @@ Le formulaire traite désormais les réponses 429 même si Netlify renvoie du te
 
 Contrôles après ajout de la règle : lint, 52 tests et build webpack réussis. Aucun paquet installé, aucune modification des fichiers `.env`, aucun envoi réel ni déploiement.
 
-## Étape actuelle : compte uniquement
+## Étape historique : compte uniquement
 
 Le compte est ouvert. Ne pas importer de dépôt, cliquer sur Deploy/Publish, utiliser le glisser-déposer ou modifier un abonnement à ce stade. Vérifier les accès et la récupération du compte.
 

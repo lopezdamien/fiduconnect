@@ -1,6 +1,19 @@
 # FIDUCONNECT — validation avant publication
 
-Version locale mise à jour le 11 octobre 2026. Aucun déploiement autorisé.
+Mis à jour le 11 octobre 2026. Premier déploiement technique privé autorisé et effectué ; ouverture publique et activation des demandes encore en attente de validation.
+
+## Contrôle du premier déploiement privé
+
+- Projet Netlify `fiduconnect-sea`, branche `landing-sea`, commit `47958a8`, déploiement `6acb9ec946e0a1d3e4c6a766` : succès. Next.js Runtime 5.16.2 ; une fonction serveur et une fonction edge déployées. Post-processing confirme une règle programmatique valide : 10 requêtes / 60 secondes, agrégation IP + domaine, réponse 429, cible `^/api/lead/?$` (slash final inclus). Le rejet effectif reste à tester ; aucune validation des chemins internes alternatifs n’en découle.
+- Adresse technique : `https://fiduconnect-sea.netlify.app/`. Protection privée constatée dans le navigateur ; une requête extérieure sans connexion reçoit HTTP 401. HSTS présent sur cette réponse. Les en-têtes applicatifs et le compteur anti-abus ne sont pas validés par ce contrôle de la porte d’accès.
+- Région serveur affichée par Netlify : **CMH (Ohio, US East)**. Changement de région proposé seulement après mise à niveau ; aucun abonnement changé. Après réflexion sur Vercel, l’exploitant conserve Netlify Free.
+- Variables `RESEND_API_KEY`, `LEAD_FROM_EMAIL`, `LEAD_TO_EMAIL` saisies par l’exploitant. Présence des trois champs vérifiée, clé marquée secrète ; aucune valeur révélée ni nouvelle preuve de livraison en production.
+- Landing et pages légales accessibles dans la session autorisée. Largeur mobile 390 px : pas de débordement horizontal, champs usuels 48 px de haut et texte de saisie 16 px. Canonical : `https://contact.fiduconnect.ch` ; robots : `noindex, follow`.
+- Les textes légaux conservent leurs réserves de travail : accords applicables, pays des sous-traitants et mise en œuvre de la conservation restent à finaliser. Aucun transfert réel de prospect ni nouveau test e-mail effectué.
+- Aucun DNS, fichier `.env` ou secret modifié. Domaine principal, `www` et messagerie inchangés. `PRODUCTION_LEADS_ENABLED = false` reste actif. Aucun passage du projet en accès public.
+- Nouvelle passe locale après actualisation documentaire : lint, 54 tests et build webpack réussis ; tests sans envoi réel. Seuls les deux documents de suivi ont été modifiés, sans commit ni push susceptible de déclencher un nouveau déploiement.
+
+La section suivante décrit la préparation locale antérieure à ce déploiement ; ses mentions « aucun déploiement » sont historiques.
 
 ## État actuel au 11 octobre
 
