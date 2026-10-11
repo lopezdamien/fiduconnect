@@ -4,6 +4,18 @@ Hébergeur retenu : Netlify Free. **Premier déploiement technique privé autori
 
 ## État réel du projet
 
+### Activation autorisée pour le test privé
+
+Après la vérification du refus d’envoi, l’exploitant autorise explicitement l’activation des envois sur la version toujours privée et une seule demande fictive vers `contact@fiduconnect.ch`, marquée « ne pas rappeler, ne pas transmettre ». `PRODUCTION_LEADS_ENABLED` passe à `true` ; aucune variable, clé, adresse d’expédition ou fichier `.env` modifié par l’agent. Visibilité privée vérifiée avant activation. Cela ne vaut ni ouverture publique, ni livraison confirmée : résultat du test encore à constater. Les mentions antérieures du verrou actif ci-dessous sont historiques.
+
+### Mise à jour privée des coordonnées
+
+Déploiement autorisé et réussi le 11 octobre : commit `0550995`, déploiement `6acbbd00592b7200084c27a2`, branche `landing-sea`. Le projet est toujours privé ; aucun DNS modifié. Le post-processing confirme la même règle 10 / 60 secondes IP + domaine, réponse 429, cible `^/api/lead/?$`.
+
+Test du véritable formulaire avec uniquement des données fictives, verrou de production actif : message d’indisponibilité affiché avec `contact@fiduconnect.ch`, saisie conservée, champs réactivés. Aucun e-mail envoyé. La navigation directe de test GET vers `/api/lead` a été bloquée par le navigateur (`ERR_BLOCKED_BY_CLIENT`) ; aucun contournement tenté. Le rejet effectif 429 et la livraison dans la nouvelle boîte restent à vérifier. Ce refus applicatif ne valide pas les valeurs Resend, le handler retournant avant leur lecture.
+
+La version initiale décrite ci-dessous est conservée pour l’historique ; la version privée courante est maintenant `0550995`.
+
 Changement ultérieur du destinataire : l’exploitant confirme avoir renseigné `LEAD_TO_EMAIL=contact@fiduconnect.ch` dans Netlify pour utiliser sa boîte dédiée. L’agent ne modifie ni cette variable, ni l’expéditeur, ni la clé. Une nouvelle livraison doit encore être testée après un déploiement autorisé ; la version privée actuelle reste au commit `47958a8`.
 
 - `fiduconnect-sea`, dépôt GitHub `lopezdamien/fiduconnect`, branche `landing-sea`, commit `47958a8`.

@@ -22,7 +22,7 @@ test('Netlify preparation keeps a server-capable Next build without secrets or S
     assert.match(config, /NEXT_PUBLIC_SITE_URL = "https:\/\/contact\.fiduconnect\.ch"/);
     assert.doesNotMatch(config, /RESEND_API_KEY|re_[A-Za-z0-9]+|redirects|index\.html|NODE_ENV|plugin-nextjs/);
     const security = readFileSync(new URL('../lib/lead-security.ts', import.meta.url), 'utf8');
-    assert.match(security, /PRODUCTION_LEADS_ENABLED = false/);
+    assert.match(security, /PRODUCTION_LEADS_ENABLED = true/);
 });
 
 test('landing URLs use the confirmed subdomain without depending on real environment files', () => {

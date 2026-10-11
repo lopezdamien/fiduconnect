@@ -1,8 +1,9 @@
 import { createHmac, randomBytes } from 'node:crypto';
 
-// Fail closed in production until the account-level protections and privacy
-// checklist have been validated. Local development remains usable.
-export const PRODUCTION_LEADS_ENABLED = false;
+// Sending authorized for the private Netlify delivery test. This switch does
+// not grant public access: Netlify project visibility remains private.
+// Set false again to stop production sends; public launch is a separate decision.
+export const PRODUCTION_LEADS_ENABLED = true;
 export const MAX_BODY_BYTES = 16 * 1024;
 
 export function hasAllowedLeadOrigin(request: Request): boolean {

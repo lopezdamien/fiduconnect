@@ -220,10 +220,35 @@ test('global per-process cap and window expiration', () => {
     assert.equal(limiter.consume('another@example.invalid', 901000), null);
 });
 
-test('production sending is locked pending release checks', async () => {
+test('production sending can still be stopped with the server-side switch', async () => {
     const f = fixture({ production: true });
+    f.security.PRODUCTION_LEADS_ENABLED = false;
     assert.equal((await f.POST(request())).status, 503);
     assert.equal(f.sent.length, 0);
+});
+
+test('authorized production sends once with mocked provider and keeps no-store response', async () => {
+    const f = fixture({ production: true });
+    const response = await f.POST(request());
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('cache-control'), 'no-store');
+    assert.equal(f.sent.length, 1);
+    assert.equal(f.sent[0].to, 'inbox@example.invalid');
+    assert.equal(f.logs.length, 0);
+});
+
+test('enabled production still rejects foreign origins and invalid requests without sending', async () => {
+    const f = fixture({ production: true });
+    assert.equal((await f.POST(request(validLead, { origin: 'https://foreign.example.invalid' }))).status, 403);
+    assert.equal((await f.POST(request({ ...validLead, email: 'invalid' }))).status, 400);
+    assert.equal(f.sent.length, 0);
+});
+
+test('enabled production without configuration fails safely without sending', async () => {
+    const f = fixture({ production: true, configured: false });
+    assert.equal((await f.POST(request())).status, 503);
+    assert.equal(f.sent.length, 0);
+    assert.deepEqual(f.logs, [['lead.configuration_missing']]);
 });
 
 test('missing configuration fails safely', async () => {
