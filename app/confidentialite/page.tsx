@@ -54,7 +54,7 @@ export default function Confidentialite() {
                 <p className="mt-3">Cette règle concerne les e-mails et les copies dans les éventuels exports ou outils de suivi. Sa mise en œuvre dans la messagerie, y compris la corbeille et les modalités de sauvegarde, doit être vérifiée avant publication. Le site ne supprime pas automatiquement les e-mails. Resend annonce trente jours de conservation des e-mails et journaux pour l’offre utilisée, indépendamment de notre boîte de réception.</p>
                 <p className="mt-3">Une obligation légale ou la défense d’un droit peut justifier une conservation distincte, limitée aux informations nécessaires et à la durée justifiée.</p>
             </section>
-            <section>
+            <section id="cookies" className="scroll-mt-8">
                 <h2>7. Cookies et publicité</h2>
                 <p>Cette version n’active ni Google Tag Manager, ni mesure de conversion Google, ni cookies publicitaires. Aucun accord publicitaire n’est nécessaire pour utiliser le formulaire.</p>
                 <p className="mt-3">Si une mesure publicitaire est ajoutée, les informations et les choix proposés seront mis à jour avant son activation. Votre demande ne vaut pas consentement à une future publicité.</p>

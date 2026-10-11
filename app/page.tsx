@@ -160,7 +160,11 @@ export default function Home() {
             <footer className="border-t border-white/10 bg-[#223b4a] px-5 py-7 text-xs text-[#c8c3b9] sm:px-8">
                 <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4">
                     <div className="space-y-3"><Link href="/"><FiduLogo inverse className="w-[150px]" /></Link><p>© {new Date().getFullYear()} FIDUCONNECT.</p></div>
-                    <div className="flex gap-5"><Link href="/mentions-legales" className="hover:underline">Mentions légales</Link><Link href="/confidentialite" className="hover:underline">Confidentialité</Link></div>
+                    <nav aria-label="Informations légales et cookies" className="flex flex-wrap gap-x-5 gap-y-2">
+                        <Link href="/mentions-legales" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Mentions légales</Link>
+                        <Link href="/confidentialite" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Confidentialité</Link>
+                        <Link href="/confidentialite#cookies" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Cookies</Link>
+                    </nav>
                 </div>
             </footer>
         </main>

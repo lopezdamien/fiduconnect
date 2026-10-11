@@ -77,6 +77,18 @@ test('privacy page explains transfers without claiming European-only storage or 
     assert.match(readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8'), /Version locale de travail/);
 });
 
+test('footer Cookies link reaches the information section without pretending to manage inactive trackers', () => {
+    const page = readFileSync(resolve(root, 'app/page.tsx'), 'utf8');
+    assert.match(page, /<nav aria-label="Informations légales et cookies" className="flex flex-wrap/);
+    assert.match(page, /<Link href="\/confidentialite#cookies"[^>]*min-h-11[^>]*>Cookies<\/Link>/);
+    const { default: PrivacyPage } = loadComponent('app/confidentialite/page.tsx');
+    const html = renderToStaticMarkup(React.createElement(PrivacyPage));
+    assert.match(html, /<section id="cookies" class="scroll-mt-8">/);
+    assert.match(html, /ni mesure de conversion Google, ni cookies publicitaires/);
+    assert.match(html, /Votre demande ne vaut pas consentement à une future publicité/);
+    assert.doesNotMatch(page, /document\.cookie|localStorage|sessionStorage|gtag\(|dataLayer\.push/);
+});
+
 test('desktop compaction preserves all form fields and avoids an inner scroll area', () => {
     const { SeaLeadForm } = loadComponent('components/SeaLeadForm.tsx');
     for (const idPrefix of ['hero', 'final']) {
