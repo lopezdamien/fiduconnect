@@ -112,7 +112,7 @@ test('legal content reflects verified private hosting without promising complete
     assert.doesNotMatch(privacy, /Le contrôle effectif du limiteur/);
     assert.match(privacy, /Cette région ne couvre pas nécessairement tous les traitements/);
     const layout = readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8');
-    assert.match(layout, /Version du 11 octobre 2026/);
+    assert.match(layout, /version = '11 octobre 2026'/);
     assert.doesNotMatch(layout, /avant l’ouverture au public/);
 });
 
@@ -131,15 +131,18 @@ test('public contacts use the dedicated mailbox while the operator and email con
     assert.match(handler, /process\.env\.LEAD_TO_EMAIL/);
 });
 
-test('footer Cookies link reaches the information section without pretending to manage inactive trackers', () => {
+test('footer Cookies opens real optional measurement preferences, explained in privacy', () => {
     const page = readFileSync(resolve(root, 'app/page.tsx'), 'utf8');
     assert.match(page, /<nav aria-label="Informations légales et cookies" className="flex flex-wrap/);
-    assert.match(page, /<Link href="\/confidentialite#cookies"[^>]*min-h-11[^>]*>Cookies<\/Link>/);
+    assert.match(page, /<CookiePreferencesButton className="[^\"]*min-h-11/);
     const { default: PrivacyPage } = loadComponent('app/confidentialite/page.tsx');
     const html = renderToStaticMarkup(React.createElement(PrivacyPage));
     assert.match(html, /<section id="cookies" class="scroll-mt-8">/);
-    assert.match(html, /ni mesure de conversion Google, ni cookies publicitaires/);
-    assert.match(html, /Votre demande ne vaut pas consentement à une future publicité/);
+    assert.match(html, /aucune balise ni requête de mesure Google n’est chargée avant votre accord/);
+    assert.match(html, /Votre demande ne vaut pas consentement publicitaire/);
+    assert.match(html, /180 jours/);
+    assert.match(html, /90 jours/);
+    assert.match(html, /ne transmettons pas à Google le nom/);
     assert.doesNotMatch(page, /document\.cookie|localStorage|sessionStorage|gtag\(|dataLayer\.push/);
 });
 

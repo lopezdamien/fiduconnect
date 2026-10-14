@@ -270,13 +270,13 @@ test('provider errors and exceptions never expose private error content', async 
     }
 });
 
-test('no advertising tag is shipped in the layout or form', () => {
+test('layout and form never unconditionally ship an advertising script', () => {
     for (const path of ['app/layout.tsx', 'components/SeaLeadForm.tsx']) {
         assert.doesNotMatch(readFileSync(resolve(root, path), 'utf8'), /googletagmanager\.com|google-analytics\.com|window\.gtag|GTM-W4QKQ8GH/);
     }
 });
 
-test('production headers block third-party scripts and framing', async () => {
+test('production headers narrowly allow Ads, without Analytics, wildcards or framing', async () => {
     const source = readFileSync(resolve(root, 'next.config.ts'), 'utf8');
     const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
     const cjsModule = { exports: {} };
@@ -286,6 +286,8 @@ test('production headers block third-party scripts and framing', async () => {
     assert.equal(headers['X-Content-Type-Options'], 'nosniff');
     assert.equal(headers['X-Frame-Options'], 'DENY');
     assert.match(headers['Content-Security-Policy'], /frame-ancestors 'none'/);
-    assert.doesNotMatch(headers['Content-Security-Policy'], /unsafe-eval|google|localhost|127\.0\.0\.1/);
+    assert.doesNotMatch(headers['Content-Security-Policy'], /unsafe-eval|google-analytics|https:\/\/\*|localhost|127\.0\.0\.1/);
+    assert.match(headers['Content-Security-Policy'], /https:\/\/www\.googletagmanager\.com/);
+    assert.match(headers['Content-Security-Policy'], /script-src-attr 'none'/);
     assert.deepEqual(Array.from(cjsModule.exports.default.images.remotePatterns), []);
 });

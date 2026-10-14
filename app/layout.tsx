@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { AdsConsent } from '@/components/AdsConsent';
 
 const DEFAULT_TITLE = "FiduConnect | Trouvez une fiduciaire adaptée à Genève";
 const DEFAULT_DESCRIPTION =
@@ -38,8 +39,8 @@ export default function RootLayout({
       <body
         className="antialiased font-sans bg-slate-50 text-slate-900 flex flex-col min-h-screen"
       >
-        {/* Advertising tags stay disabled until the consent flow is audited. */}
         {children}
+        <AdsConsent />
       </body>
     </html>
   );

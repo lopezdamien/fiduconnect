@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { PremiumReveal } from '@/components/PremiumReveal';
 import { SeaLeadForm } from '@/components/SeaLeadForm';
 import { FiduLogo } from '@/components/FiduLogo';
+import { CookiePreferencesButton } from '@/components/AdsConsent';
 import { organizationSchema, pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
@@ -161,7 +162,7 @@ export default function Home() {
                     <nav aria-label="Informations légales et cookies" className="flex flex-wrap gap-x-5 gap-y-2">
                         <Link href="/mentions-legales" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Mentions légales</Link>
                         <Link href="/confidentialite" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Confidentialité</Link>
-                        <Link href="/confidentialite#cookies" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Cookies</Link>
+                        <CookiePreferencesButton className="inline-flex min-h-11 items-center hover:underline focus-visible:underline" />
                     </nav>
                 </div>
             </footer>

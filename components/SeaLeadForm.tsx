@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ComponentProps } from 'react';
+import { useRef, useState, type ComponentProps } from 'react';
 import { useRouter } from 'next/navigation';
 import { Field } from '@base-ui/react/field';
 import { Form } from '@base-ui/react/form';
@@ -9,6 +9,7 @@ import { Select } from '@base-ui/react/select';
 import { ArrowRight, ChevronDown, LoaderCircle } from 'lucide-react';
 import { leadLimits, needs, situations } from '@/lib/lead-fields';
 import { getLeadErrorMessage } from '@/lib/lead-response';
+import { beginLeadSubmission, endLeadSubmission, measureLeadSuccess } from '@/lib/google-ads';
 
 type SeaLeadFormProps = { idPrefix: string };
 
@@ -56,9 +57,12 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const sending = useRef(false);
 
     async function handleSubmit(data: Record<string, unknown>) {
-        if (loading) return;
+        if (sending.current) return;
+        sending.current = true;
+        beginLeadSubmission();
         setLoading(true);
         setError(null);
         const payload = {
@@ -81,8 +85,13 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
             if (!response.ok) {
                 throw new Error(await getLeadErrorMessage(response));
             }
-            router.push('/merci');
+            const result = await response.json();
+            if (result?.ok !== true) throw new Error('L’envoi n’a pas pu être confirmé. Merci de réessayer.');
+            await measureLeadSuccess(payload.website);
+            if (!endLeadSubmission(true)) router.push('/merci');
         } catch (err) {
+            endLeadSubmission(false);
+            sending.current = false;
             setError(err instanceof Error ? err.message : 'Une erreur est survenue.');
             setLoading(false);
         }

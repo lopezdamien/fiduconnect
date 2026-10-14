@@ -1,5 +1,6 @@
 import { LegalPage } from '@/components/LegalPage';
 import { pageMetadata } from '@/lib/seo';
+import { CookiePreferencesButton } from '@/components/AdsConsent';
 
 export const metadata = pageMetadata({
     title: 'Confidentialité',
@@ -10,7 +11,7 @@ export const metadata = pageMetadata({
 
 export default function Confidentialite() {
     return (
-        <LegalPage title="Votre confidentialité">
+        <LegalPage title="Votre confidentialité" version="14 octobre 2026">
             <section>
                 <h2>1. Responsable du traitement</h2>
                 <p>Smart Administration – Damien Lopez, Avenue d’Aïre 73C, 1203 Genève, Suisse, exploite FIDUCONNECT et est responsable du traitement de vos demandes.</p>
@@ -57,8 +58,13 @@ export default function Confidentialite() {
             </section>
             <section id="cookies" className="scroll-mt-8">
                 <h2>7. Cookies et publicité</h2>
-                <p>Cette version n’active ni Google Tag Manager, ni mesure de conversion Google, ni cookies publicitaires. Aucun accord publicitaire n’est nécessaire pour utiliser le formulaire.</p>
-                <p className="mt-3">Si une mesure publicitaire est ajoutée, les informations et les choix proposés seront mis à jour avant son activation. Votre demande ne vaut pas consentement à une future publicité.</p>
+                <p>Sur contact.fiduconnect.ch, nous proposons une mesure Google Ads pour savoir si nos publicités génèrent des demandes. Elle est facultative : aucune balise ni requête de mesure Google n’est chargée avant votre accord ou lorsque vous refusez. Le formulaire fonctionne sans cet accord. Votre demande ne vaut pas consentement publicitaire.</p>
+                <p className="mt-3">Après acceptation, Google peut traiter des informations techniques, notamment l’adresse IP, le navigateur, la page consultée et des identifiants de clic ou de cookies. Un événement est envoyé après l’acceptation de l’envoi du formulaire par notre service d’e-mail ; il ne confirme pas un rendez-vous ni la réception dans notre boîte. L’événement comprend un identifiant aléatoire de déduplication, sans lien avec vos coordonnées. Nous ne transmettons pas à Google le nom, l’e-mail, le téléphone, l’entreprise ou le texte de votre demande.</p>
+                <p className="mt-3">Cette intégration n’utilise ni Google Analytics, ni conteneur Google Tag Manager, ni suivi avancé des conversions. La personnalisation publicitaire est désactivée. La balise Google est distribuée depuis googletagmanager.com, même sans utiliser un conteneur Tag Manager.</p>
+                <p className="mt-3">Votre choix, sa date et la version du texte sont mémorisés dans le stockage local de ce navigateur pendant 180 jours au maximum, puis redemandés. Il ne contient aucune donnée du formulaire. Cette durée est notre choix de fonctionnement, pas un délai légal universel. Si ce stockage est indisponible, la mesure reste désactivée. Après accord, les cookies de mesure Google commençant par _gcl_ sont prévus pour une durée de 90 jours ; le navigateur peut limiter cette durée. Les données déjà envoyées à Google ont leur propre conservation, distincte de celle des cookies.</p>
+                <p className="mt-3">Le destinataire de cette mesure est Google, pour son service Google Ads. Des traitements peuvent avoir lieu aux États-Unis et dans d’autres pays où Google ou ses prestataires opèrent. Consultez les <a href="https://policies.google.com/privacy?hl=fr">règles de confidentialité de Google</a>, ses informations sur les <a href="https://policies.google.com/technologies/cookies?hl=fr">cookies</a> et ses <a href="https://policies.google.com/privacy/frameworks?hl=fr">garanties de transfert</a>. Cela ne signifie pas que les données restent en Suisse.</p>
+                <p className="mt-3">Vous pouvez changer votre choix à tout moment avec le bouton Cookies. Un retrait empêche les nouveaux événements de notre formulaire et supprime les cookies de mesure accessibles sur ce site. Si la balise a déjà été chargée, la page se recharge pour l’arrêter ; une demande en cours d’envoi est d’abord laissée se terminer. Les informations déjà envoyées ne sont pas effacées rétroactivement, et notre site ne peut pas supprimer les cookies appartenant à un domaine Google.</p>
+                <CookiePreferencesButton className="mt-3 min-h-11 underline underline-offset-4" />
             </section>
             <section>
                 <h2>8. Sécurité</h2>
