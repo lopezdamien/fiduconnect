@@ -1,11 +1,14 @@
-// Google Ads only: no Analytics destination, user-provided data or remarketing.
+import { OPENAI_ADS_ENABLED, startOpenAiTracking, stopOpenAiTracking, measureOpenAiLeadSuccess } from '@/lib/openai-ads';
+
+// Google Ads: no Analytics destination, user-provided data or remarketing.
 export const ADS_ID = 'AW-17635546413';
 export const ADS_CONVERSION = `${ADS_ID}/BQ99CODZ8pwdEK2qpNlB`;
 // Existing connected destination discovered by the real-tag network test.
 // Disable it only on this site, without altering shared Google account settings.
 export const LEGACY_ANALYTICS_ID = 'G-TRG36EY6PG';
 export const CONSENT_KEY = 'fiduconnect.ads-consent';
-export const CONSENT_VERSION = 1;
+// Version 1 covered Google only. Never reuse it for OpenAI measurement.
+export const CONSENT_VERSION = OPENAI_ADS_ENABLED ? 2 : 1;
 export const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
 export const CONSENT_OPEN_EVENT = 'fiduconnect:open-cookies';
 export const CONSENT_CHANGE_EVENT = 'fiduconnect:consent-change';
@@ -60,10 +63,11 @@ function clearAdsCookies() {
 
 export function stopAdsTracking() {
     blocked = true;
+    const openAiStarted = stopOpenAiTracking();
     for (const finish of pendingEvents) finish();
     if (!allowedHost()) return;
     clearAdsCookies();
-    if (tagStarted) {
+    if (tagStarted || openAiStarted) {
         // An already executed external script cannot be unloaded by removing its
         // element. Discard queued conversions and replace the document instead.
         window.dataLayer = [];
@@ -99,6 +103,8 @@ function measurementUrl() {
 }
 
 export function startAdsTracking() {
+    // Independent of Google SDK loading/failure, but shares the fresh consent.
+    startOpenAiTracking(hasAdsConsent);
     if (typeof window === 'undefined' || !allowedHost() || !hasAdsConsent() || tagStarted) return;
     tagStarted = true;
     window['ga-disable-G-TRG36EY6PG'] = true;
@@ -164,6 +170,7 @@ export function syncAdsConsent() {
 
 export async function measureLeadSuccess(honeypot: unknown) {
     if ((honeypot != null && (typeof honeypot !== 'string' || honeypot.trim())) || !hasAdsConsent()) return;
+    measureOpenAiLeadSuccess(honeypot, hasAdsConsent);
     try {
         startAdsTracking();
         if (!tagStarted || tagFailed || !window.gtag || !hasAdsConsent()) return;

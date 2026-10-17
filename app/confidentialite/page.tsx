@@ -1,6 +1,7 @@
 import { LegalPage } from '@/components/LegalPage';
 import { pageMetadata } from '@/lib/seo';
 import { CookiePreferencesButton } from '@/components/AdsConsent';
+import { OPENAI_ADS_ENABLED } from '@/lib/openai-ads';
 
 export const metadata = pageMetadata({
     title: 'Confidentialité',
@@ -11,7 +12,7 @@ export const metadata = pageMetadata({
 
 export default function Confidentialite() {
     return (
-        <LegalPage title="Votre confidentialité" version="14 octobre 2026">
+        <LegalPage title="Votre confidentialité" version={OPENAI_ADS_ENABLED ? '17 octobre 2026' : '14 octobre 2026'}>
             <section>
                 <h2>1. Responsable du traitement</h2>
                 <p>Smart Administration – Damien Lopez, Avenue d’Aïre 73C, 1203 Genève, Suisse, exploite FIDUCONNECT et est responsable du traitement de vos demandes.</p>
@@ -63,6 +64,13 @@ export default function Confidentialite() {
                 <p className="mt-3">Cette intégration n’utilise ni Google Analytics, ni conteneur Google Tag Manager, ni suivi avancé des conversions. La personnalisation publicitaire est désactivée. La balise Google est distribuée depuis googletagmanager.com, même sans utiliser un conteneur Tag Manager.</p>
                 <p className="mt-3">Votre choix, sa date et la version du texte sont mémorisés dans le stockage local de ce navigateur pendant 180 jours au maximum, puis redemandés. Il ne contient aucune donnée du formulaire. Cette durée est notre choix de fonctionnement, pas un délai légal universel. Si ce stockage est indisponible, la mesure reste désactivée. Après accord, les cookies de mesure Google commençant par _gcl_ sont prévus pour une durée de 90 jours ; le navigateur peut limiter cette durée. Les données déjà envoyées à Google ont leur propre conservation, distincte de celle des cookies.</p>
                 <p className="mt-3">Le destinataire de cette mesure est Google, pour son service Google Ads. Des traitements peuvent avoir lieu aux États-Unis et dans d’autres pays où Google ou ses prestataires opèrent. Consultez les <a href="https://policies.google.com/privacy?hl=fr">règles de confidentialité de Google</a>, ses informations sur les <a href="https://policies.google.com/technologies/cookies?hl=fr">cookies</a> et ses <a href="https://policies.google.com/privacy/frameworks?hl=fr">garanties de transfert</a>. Cela ne signifie pas que les données restent en Suisse.</p>
+                {OPENAI_ADS_ENABLED && <>
+                    <h3 className="mb-2 mt-5 font-semibold text-[#223b4a]">Mesure ChatGPT Ads</h3>
+                    <p>Avec votre accord à la mesure publicitaire, nous chargeons également le pixel OpenAI pour attribuer les demandes à nos publicités ChatGPT. Les prestataires sont présentés dans Personnaliser avant votre choix. Aucun script ni appel de mesure OpenAI n’est chargé avant cet accord. Un ancien accord à Google seul n’active pas ce pixel. Refuser n’empêche pas l’envoi de votre demande.</p>
+                    <p className="mt-3">Le destinataire est OpenAI. Le pixel traite des informations techniques et des identifiants de navigation ou de clic. Sa correspondance automatique avancée peut détecter des coordonnées prises en charge sur la page et envoyer leurs empreintes après normalisation et hachage dans le navigateur. Le hachage n’est pas une anonymisation. Notre appel d’événement ne contient ni le contenu libre de la demande, ni sa valeur commerciale, ni de coordonnées ajoutées manuellement. Nous demandons l’exclusion des événements d’une future personnalisation publicitaire au niveau utilisateur.</p>
+                    <p className="mt-3">Après accord, le cookie __oppref conserve l’identifiant de clic pendant 30 jours après son écriture ; une nouvelle capture de cet identifiant renouvelle ce délai. Le cookie __obref conserve un identifiant aléatoire du navigateur pendant 365 jours, sans renouvellement à sa simple lecture. Le navigateur peut raccourcir ces durées. Le retrait bloque les nouveaux événements et supprime les cookies accessibles ; il n’efface pas les données déjà transmises. La conservation chez OpenAI est distincte de ces durées de cookies.</p>
+                    <p className="mt-3">Les conditions publicitaires d’OpenAI prévoient un traitement des données suisses par OpenAI Ireland Limited et un mécanisme de transfert valable pour les transferts ultérieurs vers des pays sans protection adéquate. Cela n’impose pas un stockage en Suisse ou en Europe : des traitements peuvent notamment avoir lieu aux États-Unis. Consultez la <a href="https://openai.com/policies/eu-privacy-policy/">politique de confidentialité OpenAI pour la Suisse</a>, les <a href="https://openai.com/policies/conversion-terms/">conditions de conversion</a> et l’<a href="https://openai.com/policies/ad-tools-dpa/">accord de protection des données des outils publicitaires</a>.</p>
+                </>}
                 <p className="mt-3">Vous pouvez changer votre choix à tout moment avec le bouton Cookies. Un retrait empêche les nouveaux événements de notre formulaire et supprime les cookies de mesure accessibles sur ce site. Si la balise a déjà été chargée, la page se recharge pour l’arrêter ; une demande en cours d’envoi est d’abord laissée se terminer. Les informations déjà envoyées ne sont pas effacées rétroactivement, et notre site ne peut pas supprimer les cookies appartenant à un domaine Google.</p>
                 <CookiePreferencesButton className="mt-3 min-h-11 underline underline-offset-4" />
             </section>

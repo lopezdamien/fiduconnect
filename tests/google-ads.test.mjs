@@ -11,13 +11,14 @@ const root = new URL('../', import.meta.url);
 
 // Execute the real client runtime and real form handler. Google and /api/lead
 // are entirely mocked: these tests send neither email nor advertising events.
-function fixture({ storageThrows = false, googleBlocked = false, callback = true, host = 'contact.fiduconnect.ch' } = {}) {
+function fixture({ storageThrows = false, googleBlocked = false, callback = true, host = 'contact.fiduconnect.ch', openAiEnabled = false, openAiBlocked = false } = {}) {
     const storage = new Map();
     const commands = [];
     const scripts = [];
     const navigations = [];
     const events = [];
     const cookies = [];
+    const pixelCommands = [];
     const cache = new Map();
     const window = {
         location: { hostname: host, href: `https://${host}/?gclid=test-click&email=private@example.invalid`,
@@ -35,6 +36,12 @@ function fixture({ storageThrows = false, googleBlocked = false, callback = true
         getElementById: () => ({ remove: () => {} }),
         head: { appendChild: script => {
             scripts.push(script);
+            if (script.id === 'fiduconnect-openai-ads') {
+                if (openAiBlocked) { script.onerror(); return; }
+                pixelCommands.push(...window.oaiq.q);
+                window.oaiq = (...args) => pixelCommands.push(args);
+                return;
+            }
             if (googleBlocked) { script.onerror(); return; }
             commands.push(...window.dataLayer);
             window.gtag = (...args) => {
@@ -51,7 +58,9 @@ function fixture({ storageThrows = false, googleBlocked = false, callback = true
     function load(path) {
         if (cache.has(path)) return cache.get(path);
         const m = { exports: {} };
-        const code = ts.transpileModule(readFileSync(new URL(path, root), 'utf8'), {
+        let source = readFileSync(new URL(path, root), 'utf8');
+        if (path === 'lib/openai-ads.ts') source = source.replace(/OPENAI_ADS_ENABLED = (true|false)/, `OPENAI_ADS_ENABLED = ${openAiEnabled}`);
+        const code = ts.transpileModule(source, {
             compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022,
                 jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true },
         }).outputText;
@@ -74,7 +83,8 @@ function fixture({ storageThrows = false, googleBlocked = false, callback = true
     }
     const ads = load('lib/google-ads.ts');
     const form = () => load('components/SeaLeadForm.tsx').SeaLeadForm({ idPrefix: 'test' }).props.onFormSubmit;
-    return { ads, window, storage, commands, scripts, navigations, requests, cookies, form,
+    return { ads, window, storage, commands, scripts, navigations, requests, cookies, form, pixelCommands,
+        pixelEvents: () => pixelCommands.filter(args => args[0] === 'measure'),
         setResponse: fn => { response = fn; }, conversions: () => commands.filter(args => args[0] === 'event') };
 }
 
@@ -216,4 +226,151 @@ test('a readable but unwritable old acceptance cannot resume after a failed with
     assert.equal(f.ads.saveAdsConsent(false), false);
     assert.equal(f.ads.readAdsConsent(), null);
     assert.equal(f.ads.hasAdsConsent(), false);
+});
+
+test('OpenAI kill switch blocks measurement, including after Google consent and a successful form', async () => {
+    const f = fixture();
+    f.ads.saveAdsConsent(true);
+    await f.form()({ website: '' });
+    assert.equal(f.pixelCommands.length, 0);
+    assert.ok(f.scripts.every(script => !script.src.includes('openai.com')));
+});
+
+test('OpenAI requires a fresh version-2 agreement; no script on refusal or old Google-only agreement', async () => {
+    const f = fixture({ openAiEnabled: true });
+    assert.equal(f.ads.CONSENT_VERSION, 2);
+    f.storage.set(f.ads.CONSENT_KEY, JSON.stringify({ version: 1, accepted: true, savedAt: Date.now() }));
+    f.ads.syncAdsConsent();
+    await f.form()({ website: '' });
+    assert.equal(f.scripts.length, 0);
+    assert.equal(f.pixelEvents().length, 0);
+    f.ads.saveAdsConsent(false);
+    assert.equal(f.scripts.length, 0);
+});
+
+test('OpenAI initializes once, consent denied before init, no debug or manually supplied identity', async () => {
+    const f = fixture({ openAiEnabled: true });
+    f.ads.saveAdsConsent(true);
+    f.ads.syncAdsConsent();
+    assert.equal(f.scripts.filter(script => script.id === 'fiduconnect-openai-ads').length, 1);
+    assert.deepEqual(JSON.parse(JSON.stringify(f.pixelCommands)), [
+        ['consent', false], ['init', { pixelId: '6D5tyKYCNSbDkUQaLHpVbs', debug: false }], ['consent', true],
+    ]);
+    await f.form()({ website: '', firstName: 'Private Alice', email: 'private@example.invalid', message: 'Private message' });
+    assert.equal(f.pixelEvents().length, 1);
+    assert.equal(f.conversions().length, 1);
+    const event = f.pixelEvents()[0];
+    assert.equal(event[1], 'lead_created');
+    assert.equal(event[2].type, 'customer_action');
+    assert.equal(event[3].opt_out, true);
+    assert.match(event[3].event_id, /^[\da-f-]{36}$/);
+    assert.doesNotMatch(JSON.stringify(f.pixelCommands), /Private|Alice|email|phone|message|value|amount/);
+    assert.deepEqual(f.navigations, ['/merci']);
+});
+
+test('OpenAI does not measure failures, honeypots, malformed success or duplicate submit', async () => {
+    for (const response of [() => Response.json({ ok: false }), () => new Response('broken'),
+        () => Response.json({}, { status: 429 }), () => Response.json({}, { status: 502 }),
+        () => { throw new Error('offline'); }]) {
+        const f = fixture({ openAiEnabled: true });
+        f.ads.saveAdsConsent(true);
+        f.setResponse(response);
+        await f.form()({ website: '' });
+        assert.equal(f.pixelEvents().length, 0);
+        assert.equal(f.navigations.length, 0);
+    }
+    const bot = fixture({ openAiEnabled: true });
+    bot.ads.saveAdsConsent(true);
+    await bot.form()({ website: 'bot' });
+    assert.equal(bot.pixelEvents().length, 0);
+    const f = fixture({ openAiEnabled: true });
+    f.ads.saveAdsConsent(true);
+    const submit = f.form();
+    await Promise.all([submit({ website: '' }), submit({ website: '' })]);
+    assert.equal(f.requests.length, 1);
+    assert.equal(f.pixelEvents().length, 1);
+});
+
+test('blocked OpenAI does not block Google or Merci, and blocked Google does not block OpenAI', async () => {
+    const blocked = fixture({ openAiEnabled: true, openAiBlocked: true });
+    blocked.ads.saveAdsConsent(true);
+    await blocked.form()({ website: '' });
+    assert.equal(blocked.pixelEvents().length, 0);
+    assert.equal(blocked.conversions().length, 1);
+    assert.deepEqual(blocked.navigations, ['/merci']);
+    const f = fixture({ openAiEnabled: true, googleBlocked: true });
+    f.ads.saveAdsConsent(true);
+    await f.form()({ website: '' });
+    assert.equal(f.pixelEvents().length, 1);
+    assert.equal(f.conversions().length, 0);
+    assert.deepEqual(f.navigations, ['/merci']);
+});
+
+test('OpenAI withdrawal during submission blocks measurement, clears cookies and preserves confirmation', async () => {
+    const f = fixture({ openAiEnabled: true });
+    f.ads.saveAdsConsent(true);
+    let deliver;
+    f.setResponse(() => new Promise(resolve => { deliver = resolve; }));
+    const pending = f.form()({ website: '' });
+    f.ads.saveAdsConsent(false);
+    assert.equal(f.pixelCommands.at(-1)[0], 'consent');
+    assert.equal(f.pixelCommands.at(-1)[1], false);
+    assert.equal(f.navigations.length, 0);
+    deliver(Response.json({ ok: true }));
+    await pending;
+    assert.equal(f.pixelEvents().length, 0);
+    assert.equal(f.conversions().length, 0);
+    assert.deepEqual(f.navigations, ['/merci']);
+    for (const name of ['__oppref', '__obref']) assert.ok(f.cookies.some(cookie => cookie.startsWith(`${name}=; Max-Age=0;`)));
+});
+
+test('OpenAI does not load on SEO or arbitrary previews, or with unavailable/expired storage', async () => {
+    for (const host of ['www.fiduconnect.ch', 'fiduconnect.ch', 'preview.example.com']) {
+        const f = fixture({ host, openAiEnabled: true });
+        f.ads.saveAdsConsent(true);
+        await f.form()({ website: '' });
+        assert.equal(f.scripts.length, 0);
+        assert.equal(f.pixelEvents().length, 0);
+    }
+    const f = fixture({ storageThrows: true, openAiEnabled: true });
+    f.ads.saveAdsConsent(true);
+    assert.equal(f.scripts.length, 0);
+    const expired = fixture({ openAiEnabled: true });
+    expired.ads.saveAdsConsent(true);
+    expired.storage.set(expired.ads.CONSENT_KEY, JSON.stringify({ version: 2, accepted: true, savedAt: Date.now() - 181 * 86400000 }));
+    await expired.form()({ website: '' });
+    assert.equal(expired.pixelEvents().length, 0);
+});
+
+test('OpenAI late-loading queue is purged on withdrawal, and another integration is not taken over', async () => {
+    const f = fixture({ openAiEnabled: true });
+    f.ads.saveAdsConsent(true);
+    // Simulate a downloaded-but-not-yet-executed SDK queue.
+    const queue = (...args) => queue.q.push(args);
+    queue.q = [['measure', 'lead_created', { type: 'customer_action' }]];
+    f.window.oaiq = queue;
+    f.ads.saveAdsConsent(false);
+    assert.deepEqual(queue.q, [['consent', false]]);
+    assert.deepEqual(f.navigations, ['reload']);
+    const other = fixture({ openAiEnabled: true });
+    other.window.oaiq = () => { throw new Error('Must not use another pixel'); };
+    other.ads.saveAdsConsent(true);
+    await other.form()({ website: '' });
+    assert.ok(other.scripts.every(script => !script.src.includes('openai.com')));
+    assert.equal(other.conversions().length, 1);
+    assert.deepEqual(other.navigations, ['/merci']);
+});
+
+test('OpenAI rechecks storage at success even before cross-tab consent sync occurs', async () => {
+    const f = fixture({ openAiEnabled: true });
+    f.ads.saveAdsConsent(true);
+    let deliver;
+    f.setResponse(() => new Promise(resolve => { deliver = resolve; }));
+    const pending = f.form()({ website: '' });
+    f.storage.set(f.ads.CONSENT_KEY, JSON.stringify({ version: 2, accepted: false, savedAt: Date.now() }));
+    deliver(Response.json({ ok: true }));
+    await pending;
+    assert.equal(f.pixelEvents().length, 0);
+    assert.equal(f.conversions().length, 0);
+    assert.deepEqual(f.navigations, ['/merci']);
 });

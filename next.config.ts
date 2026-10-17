@@ -8,17 +8,17 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     const development = process.env.NODE_ENV === 'development';
-    // Next.js hydration needs inline scripts. Only exact Google Ads endpoints
+    // Next.js hydration needs inline scripts. Only exact measurement endpoints
     // are allowed; the client loads the tag only after measurement consent.
     // Only the development mobile preview may frame the page.
     const csp = [
       "default-src 'self'",
-      `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com${development ? " 'unsafe-eval'" : ''}`,
+      `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://bzrcdn.openai.com${development ? " 'unsafe-eval'" : ''}`,
       "script-src-attr 'none'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.ch",
+      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.ch https://bzr.openai.com",
       "font-src 'self'",
-      `connect-src 'self' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.ch https://ad.doubleclick.net${development ? ' ws://localhost:* ws://127.0.0.1:*' : ''}`,
+      `connect-src 'self' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.ch https://ad.doubleclick.net https://bzr.openai.com https://bzrcdn.openai.com${development ? ' ws://localhost:* ws://127.0.0.1:*' : ''}`,
       "frame-src https://www.googletagmanager.com",
       "object-src 'none'",
       "base-uri 'self'",

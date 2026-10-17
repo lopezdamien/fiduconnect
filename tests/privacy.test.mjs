@@ -14,9 +14,11 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 // Render the real form and privacy content without a browser, secrets or sending.
 // Only Next routing/metadata and the surrounding legal-page layout are stubbed.
-function loadComponent(path) {
+function loadComponent(path, openAiEnabled = false) {
     const cjsModule = { exports: {} };
-    const compiled = ts.transpileModule(readFileSync(resolve(root, path), 'utf8'), {
+    let source = readFileSync(resolve(root, path), 'utf8');
+    if (path === 'lib/openai-ads.ts') source = source.replace(/OPENAI_ADS_ENABLED = (true|false)/, `OPENAI_ADS_ENABLED = ${openAiEnabled}`);
+    const compiled = ts.transpileModule(source, {
         compilerOptions: {
             module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022,
             jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true,
@@ -30,7 +32,7 @@ function loadComponent(path) {
         };
         if (name.startsWith('@/')) {
             const base = name.slice(2);
-            return loadComponent(existsSync(resolve(root, `${base}.ts`)) ? `${base}.ts` : `${base}.tsx`);
+            return loadComponent(existsSync(resolve(root, `${base}.ts`)) ? `${base}.ts` : `${base}.tsx`, openAiEnabled);
         }
         return require(name);
     };
@@ -52,6 +54,30 @@ test('lead form keeps a short purpose notice and an accessible privacy link befo
         assert.match(notice, /s’ouvre dans un nouvel onglet/);
         assert.ok(notice.replace(/<[^>]*>/g, '').length < 200);
         assert.doesNotMatch(html, /<details|<summary|Vercel|Netlify|Resend|Infomaniak|Smart Administration|newsletter/);
+    }
+});
+
+test('prepared OpenAI notice discloses advanced matching and cookie lifetimes only when enabled', () => {
+    const disabled = loadComponent('app/confidentialite/page.tsx').default;
+    assert.doesNotMatch(renderToStaticMarkup(React.createElement(disabled)), /Mesure ChatGPT Ads/);
+    const enabled = loadComponent('app/confidentialite/page.tsx', true).default;
+    const html = renderToStaticMarkup(React.createElement(enabled));
+    for (const text of ['Mesure ChatGPT Ads', 'hachage n’est pas une anonymisation',
+        '__oppref', '__obref', '30 jours', '365 jours', 'Un ancien accord à Google seul',
+        'OpenAI Ireland Limited', 'conditions de conversion']) assert.ok(html.includes(text), text);
+    const banner = readFileSync(resolve(root, 'components/AdsConsent.tsx'), 'utf8');
+    assert.match(banner, /Google Ads et OpenAI \(ChatGPT Ads\)/);
+    assert.match(banner, /Vos préférences de cookies/);
+    assert.match(banner, /Personnaliser/);
+    assert.match(banner, /Ces empreintes ne sont pas anonymes/);
+    const csp = readFileSync(resolve(root, 'next.config.ts'), 'utf8');
+    for (const [directive, origins] of [
+        ['script-src', ['https://bzrcdn.openai.com']],
+        ['connect-src', ['https://bzr.openai.com', 'https://bzrcdn.openai.com']],
+        ['img-src', ['https://bzr.openai.com']],
+    ]) {
+        const line = csp.split('\n').find(line => line.includes(`${directive} 'self'`));
+        for (const origin of origins) assert.ok(line.includes(origin), `${directive} ${origin}`);
     }
 });
 
