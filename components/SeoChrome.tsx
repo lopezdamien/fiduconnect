@@ -7,6 +7,7 @@ export function SeoHeader() {
   const links = [
     { href: '/services', label: 'Vos besoins' },
     { href: '/comment-ca-marche', label: 'Comment ça marche' },
+    { href: '/ressources', label: 'Ressources' },
     { href: '/a-propos', label: 'À propos' },
   ];
   const contact = '/contact';
