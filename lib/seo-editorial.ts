@@ -2,6 +2,56 @@ import type { Editorial } from '@/components/SeoEditorialPage';
 
 export const editorialPages: Editorial[] = [
     {
+        path: '/ressources/choisir-fiduciaire-geneve', label: 'Choisir une fiduciaire à Genève',
+        title: 'Comment choisir une fiduciaire à Genève ? Les critères utiles',
+        description: 'Mandat, interlocuteur, compétences, outils et honoraires : les critères et questions pour comparer des fiduciaires à Genève avant de vous engager.',
+        heading: 'Comment choisir une fiduciaire à Genève ?',
+        intro: 'Le bon partenaire n’est pas forcément celui qui propose le plus de prestations ou le prix le plus bas. C’est celui dont le mandat, les échanges et les méthodes correspondent à votre entreprise. Voici une démarche concrète pour comparer des propositions.',
+        article: {
+            published: '2026-10-17', displayDate: '17 octobre 2026',
+            sources: [
+                { href: 'https://www.kmu.admin.ch/fr/tenir-soi-meme-la-comptabilite-ou-la-sous-traiter', label: 'Portail PME du SECO — Tenir soi-même la comptabilité ou la sous-traiter ?', context: 'Pour réfléchir à la répartition du travail entre l’entreprise et un spécialiste externe. Le SECO souligne aussi l’importance de la confiance et des qualifications dans le choix du partenaire.' },
+                { href: 'https://www.ge.ch/document/guide-entreprendre-geneve', label: 'Canton de Genève — Guide Entreprendre à Genève', context: 'Pour situer votre recherche dans le contexte genevois : le guide aborde notamment la comptabilité, la révision, la fiscalité et les assurances sociales. Les règles applicables à votre situation sont à vérifier avec le professionnel concerné.' },
+            ],
+        },
+        sections: [
+            { title: '1. Définir ce que vous souhaitez déléguer', paragraphs: [
+                'Avant de demander un devis, notez ce que vous faites aujourd’hui et ce qui vous prend du temps. Cherchez-vous une tenue comptable régulière, une clôture annuelle, un accompagnement TVA, la gestion des salaires ou simplement des explications plus claires sur vos chiffres ?',
+                'La répartition n’est pas forcément « tout en interne » ou « tout à la fiduciaire ». Le Portail PME du SECO présente aussi une organisation mixte. L’important est de décider qui prépare les pièces, qui les traite, qui effectue les contrôles et qui valide les démarches.',
+                'Par exemple, un indépendant qui classe déjà ses justificatifs n’a pas les mêmes attentes qu’une Sàrl avec plusieurs salariés qui souhaite un suivi mensuel. Décrivez votre volume d’activité et votre organisation sans transmettre de documents confidentiels au stade de la première recherche.',
+            ] },
+            { title: '2. Identifier votre interlocuteur réel', paragraphs: [
+                'Un premier rendez-vous convaincant ne suffit pas à décrire la relation au quotidien. Demandez qui suivra effectivement votre dossier, comment joindre cette personne et comment les échanges sont organisés pendant ses absences.',
+                'Si vous souhaitez comprendre vos résultats régulièrement, faites préciser la fréquence des points de suivi et ce qu’ils comprennent. Un entretien annuel et un échange mensuel ne répondent pas au même besoin. Demandez aussi comment les demandes urgentes sont traitées, sans considérer qu’une disponibilité immédiate est acquise.',
+            ], questions: ['Qui sera responsable de mon dossier au quotidien ?', 'Par quel canal communiquons-nous et dans quels délais habituels ?', 'Les rendez-vous de suivi sont-ils inclus dans le mandat ?'] },
+            { title: '3. Vérifier les compétences adaptées à votre activité', paragraphs: [
+                'Présentez ce qui rend votre activité particulière : type de clients, salariés, outils utilisés, opérations à l’étranger ou changement de structure envisagé. Demandez au professionnel de vous expliquer comment il aborderait ces sujets et quelles compétences il mobiliserait.',
+                'Les diplômes annoncés et l’appartenance à une association professionnelle sont des éléments à vérifier, notamment dans les annuaires des organismes concernés. Ils ne remplacent pas un échange sur la personne qui interviendra et le périmètre qu’elle accepte. Une qualification mentionnée sur un site ne signifie pas que toutes les prestations vous sont proposées.',
+                'Pour une entreprise genevoise, demandez notamment comment le cabinet organise les démarches cantonales pertinentes pour votre dossier. Une adresse proche peut faciliter les rendez-vous, mais elle ne suffit pas à établir la qualité ou l’adéquation du suivi.',
+            ] },
+            { title: '4. Comparer les honoraires sur le même périmètre', paragraphs: [
+                'Deux montants ne sont comparables que si les tâches et les hypothèses sont comparables. Envoyez une description similaire à chaque interlocuteur : volume indicatif de pièces, nombre de salariés, état des dossiers, outils en place et rythme de suivi souhaité.',
+                'Demandez une proposition écrite distinguant les prestations comprises, les travaux ponctuels et les suppléments possibles. Faites préciser le mode de facturation, les hypothèses du forfait éventuel et la façon dont un dépassement vous serait signalé. Il n’est pas utile de chercher un prix universel sans connaître votre dossier.',
+            ], questions: ['La clôture, les échanges courants et les démarches discutées sont-ils inclus ?', 'La mise en place, la reprise du dossier ou le logiciel sont-ils facturés à part ?', 'Comment sont chiffrés et validés les travaux supplémentaires ?'] },
+            { title: '5. Clarifier les outils et les accès aux informations', paragraphs: [
+                'Expliquez si vous souhaitez garder votre logiciel, transmettre des pièces numérisées ou consulter vos chiffres à distance. Vérifiez la compatibilité réelle de l’organisation proposée, plutôt que de vous fier seulement à la promesse d’un service « digital ».',
+                'Faites préciser qui possède les accès, ce que vous pouvez consulter, les possibilités d’export et la marche à suivre à la fin du mandat. Demandez aussi quel canal utiliser pour les informations sensibles. Évitez de partager des mots de passe ou des dossiers complets dans une simple demande de devis.',
+            ] },
+            { title: '6. Préparer le démarrage avant de signer', paragraphs: [
+                'Un mandat clair doit permettre de comprendre les tâches confiées, les informations attendues de votre part, les validations, les honoraires et le calendrier convenu. Demandez quelles seront les premières étapes et ce qui pourrait retarder le démarrage.',
+                'Si vous changez de fiduciaire, signalez les échéances connues et faites organiser la reprise avec les professionnels concernés. Vérifiez les modalités de votre contrat actuel avant toute résiliation. La disponibilité du nouveau cabinet et la transmission des dossiers doivent être confirmées : une prise de contact ne vaut pas prise en charge.',
+            ] },
+            { title: '7. La liste à garder pour votre premier entretien', paragraphs: [
+                'Préparez une courte fiche identique pour chaque rendez-vous. Notez les réponses obtenues et les points encore flous. Vous pourrez ainsi comparer une manière de travailler, pas seulement une brochure ou un montant.',
+            ], questions: ['Mon besoin principal et les tâches que je garde en interne sont-ils compris ?', 'L’interlocuteur et les modalités de suivi sont-ils identifiés ?', 'Le périmètre, les exclusions et les suppléments sont-ils écrits ?', 'Le fonctionnement des outils et mes accès sont-ils clairs ?', 'Le démarrage, les documents attendus et les échéances sont-ils convenus ?'] },
+            { title: 'Comment FIDUCONNECT peut vous aider', paragraphs: [
+                'Vous n’avez pas besoin de rédiger seul un cahier des charges complet. Décrivez votre activité et votre attente principale : nous vous rappelons gratuitement sous 24 heures pour clarifier votre recherche et vous orienter vers un partenaire de notre réseau à Genève.',
+                'FIDUCONNECT n’est pas une fiduciaire et ne compare pas l’ensemble du marché. Notre service de mise en relation est rémunéré par les partenaires fiduciaires ; la demande, le rappel et l’orientation restent gratuits pour vous. Vos coordonnées ne sont transmises qu’après votre appel et votre validation du rendez-vous. Le mandat et les honoraires du partenaire restent à convenir directement avec lui.',
+            ] },
+        ],
+        related: [{ href: '/services/comptabilite', label: 'Préciser votre besoin de suivi comptable' }, { href: '/ressources/changer-fiduciaire-geneve', label: 'Préparer un changement de fiduciaire' }, { href: '/contact', label: 'Décrire votre recherche à FIDUCONNECT' }],
+    },
+    {
         path: '/a-propos', label: 'À propos', title: 'À propos de FIDUCONNECT : la mise en relation fiduciaire à Genève',
         description: 'Découvrez le rôle de FIDUCONNECT : accompagner les entreprises et indépendants du canton de Genève dans leur recherche de fiduciaire.',
         heading: 'Un besoin compris. Une recherche plus claire.',

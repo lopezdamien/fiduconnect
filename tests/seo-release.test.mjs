@@ -29,7 +29,7 @@ test('approved release would expose only genuine content URLs; thank-you remains
     assert.equal(release.seoRobots().index, true);
     assert.equal(release.seoRobots(false).index, false);
     const urls = load('app/sitemap.ts', true).default().map(entry => entry.url);
-    assert.equal(urls.length, 13);
+    assert.equal(urls.length, 14);
     assert.equal(new Set(urls).size, urls.length);
     for (const url of urls) {
         assert.ok(url.startsWith('https://www.fiduconnect.ch'));

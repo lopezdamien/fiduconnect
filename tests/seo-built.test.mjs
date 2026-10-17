@@ -20,7 +20,7 @@ test('operator identity remains in legal pages only, including metadata and stru
     }
 });
 
-test('all 17 built pages have a unique title, one H1, canonical and preview noindex', () => {
+test('all built pages have a unique title, one H1, canonical and correct indexation', () => {
     const titles = new Set();
     for (const [path, page] of html) {
         assert.equal((page.match(/<h1[ >]/g) || []).length, 1, path);
@@ -33,6 +33,27 @@ test('all 17 built pages have a unique title, one H1, canonical and preview noin
         assert.match(page, /id="contenu"/, path);
         assert.doesNotMatch(page, /<script[^>]+src="https?:\/\//, path);
     }
+});
+
+test('choosing a fiduciary article has sources, navigable sections and accurate article metadata', () => {
+    const path = '/ressources/choisir-fiduciaire-geneve';
+    const page = html.get(path);
+    assert.ok(page);
+    assert.match(page, /Sommaire de l’article/);
+    assert.match(page, /Sources et repères officiels/);
+    assert.match(page, /www\.kmu\.admin\.ch/);
+    assert.match(page, /www\.ge\.ch/);
+    assert.match(page, /dateTime="2026-10-17"/i);
+    assert.match(page, /<ul class="seo-article-questions"/);
+    assert.ok(html.get('/ressources').includes('href="' + path + '"'));
+    const schemas = [...page.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/g)].map(([, value]) => JSON.parse(value));
+    const article = schemas.find(schema => schema['@type'] === 'Article');
+    assert.equal(article.headline, 'Comment choisir une fiduciaire à Genève ?');
+    assert.equal(article.datePublished, '2026-10-17');
+    assert.equal(article.mainEntityOfPage, 'https://www.fiduconnect.ch' + path);
+    assert.equal(article.author.name, 'FIDUCONNECT');
+    const breadcrumbs = schemas.find(schema => schema['@type'] === 'BreadcrumbList');
+    assert.ok(breadcrumbs.itemListElement.some(item => item.name === 'Ressources'));
 });
 
 test('built internal links and fragments point to real pages, anchors or assets', () => {
