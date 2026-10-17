@@ -3,6 +3,17 @@ import test from 'node:test';
 import { readFile } from 'node:fs/promises';
 import { seoServices, getSeoService } from '../lib/seo-services.ts';
 
+test('SEO shared typography keeps secondary copy readable across all templates', async () => {
+  const css = await readFile(new URL('../app/seo.css', import.meta.url), 'utf8');
+  const form = await readFile(new URL('../app/seo-form.css', import.meta.url), 'utf8');
+  assert.doesNotMatch(css + form, /font-size:\s*(?:9|10|11)px/);
+  assert.match(css, /\.seo-footer\s*\{[^}]*font-size: 14px/);
+  assert.match(css, /\.seo-footer > div\s*\{[^}]*display: grid/);
+  assert.match(css, /\.seo-site \.sea-legal-article > div\s*\{[^}]*font-size: 16px/);
+  assert.match(css, /\.seo-site \.sea-label\s*\{[^}]*font-size: 15px/);
+  assert.match(form, /\.seo-form-help\s*\{[^}]*font-size: 14px/);
+});
+
 test('four services retain the planned historical paths and have unique metadata', () => {
   assert.deepEqual(seoServices.map(s => s.slug), ['comptabilite', 'tva', 'charges-salaires', 'changer-fiduciaire']);
   for (const field of ['title', 'description', 'heading']) {

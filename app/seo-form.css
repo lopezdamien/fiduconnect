@@ -4,14 +4,14 @@
 .seo-contact-timeline { margin-top: 35px; list-style: none; }
 .seo-contact-timeline li { display: flex; gap: 19px; padding-block: 19px; border-top: 1px solid #d8d1c4; }
 .seo-contact-timeline li > span { font-family: var(--font-display); color: #9c513b; font-size: 23px; }
-.seo-contact-timeline h2 { font-size: 15px; line-height: 1.6; font-weight: 500; }
-.seo-contact-timeline p { font-size: 13px; line-height: 1.9; margin-top: 7px; color: #686259; }
+.seo-contact-timeline h2 { font-size: 16px; line-height: 1.6; font-weight: 500; }
+.seo-contact-timeline p { font-size: 15px; line-height: 1.9; margin-top: 7px; color: #686259; }
 .seo-contact-direct { padding-top: 25px; margin-top: 15px; border-top: 1px solid #d8d1c4; }
-.seo-contact-direct > p { font-size: 12px; line-height: 1.85; color: #686259; max-width: 400px; }
+.seo-contact-direct > p { font-size: 15px; line-height: 1.85; color: #686259; max-width: 400px; }
 .seo-contact-direct a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-display); font-size: 26px; overflow-wrap: anywhere; max-width: 100%; }
 .seo-contact-direct p:last-child { margin-top: 12px; }
-.seo-preview-notice { padding: 13px 15px; border: 1px solid #d2bda3; background: #f5ead9; color: #64513b; border-radius: 4px; font-size: 12px; line-height: 1.8; margin-bottom: 22px; }
-.seo-form-help { margin-top: 10px; font-size: 11px; line-height: 1.8; color: #686259; }
+.seo-preview-notice { padding: 13px 15px; border: 1px solid #d2bda3; background: #f5ead9; color: #64513b; border-radius: 4px; font-size: 15px; line-height: 1.8; margin-bottom: 22px; }
+.seo-form-help { margin-top: 10px; font-size: 14px; line-height: 1.8; color: #686259; }
 .seo-lead-form .sea-submit-error:focus { outline: 2px solid #983f35; outline-offset: 3px; }
 .seo-lead-form .sea-submit:focus-visible { outline: 2px solid #9c513b; outline-offset: 4px; }
 .seo-lead-form .sea-input { font-size: 16px; }
@@ -20,7 +20,7 @@
 .seo-confirmation .seo-intro { max-width: 630px; font-size: 18px; line-height: 1.8; }
 .seo-receipt-note { display: flex; align-items: start; gap: 18px; padding-block: 26px; margin-top: 25px; border-block: 1px solid #d8d1c4; }
 .seo-receipt-note svg { color: #9c513b; flex-shrink: 0; margin-top: 2px; }
-.seo-receipt-note p, .seo-confirmation-hint { font-size: 14px; line-height: 1.9; color: #686259; }
+.seo-receipt-note p, .seo-confirmation-hint { font-size: 16px; line-height: 1.9; color: #686259; }
 .seo-confirmation-hint { margin-top: 22px; max-width: 630px; }
 .seo-confirmation .seo-button { margin-top: 30px; }
 @media (max-width: 1000px) { .seo-contact-page { gap: 35px; grid-template-columns: .9fr 1.1fr; } .seo-contact-form { padding: 22px; } }
