@@ -1,171 +1,67 @@
-import Link from 'next/link';
+import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowUpRight, ArrowDown, Files, Compass, Users, RefreshCw } from 'lucide-react';
+import { SeoHeader, SeoFooter } from '@/components/SeoChrome';
+import { seoRobots } from '@/lib/seo-release';
 import { JsonLd } from '@/components/JsonLd';
-import { PremiumReveal } from '@/components/PremiumReveal';
-import { SeaLeadForm } from '@/components/SeaLeadForm';
-import { FiduLogo } from '@/components/FiduLogo';
-import { CookiePreferencesButton } from '@/components/AdsConsent';
-import { organizationSchema, pageMetadata } from '@/lib/seo';
+import { organizationSchema } from '@/lib/seo';
 
-export const metadata = pageMetadata({
-    title: 'Trouvez la fiduciaire adaptée à votre entreprise à Genève',
-    description: 'Décrivez votre besoin : FiduConnect vous aide à identifier et comparer des partenaires fiduciaires adaptés, gratuitement et sans engagement.',
-    path: '/',
-    noIndex: true,
-});
-
-const steps = [
-    ['01', 'Vous décrivez votre besoin', 'Quelques informations suffisent pour comprendre votre activité et vos priorités.'],
-    ['02', 'Nous analysons votre situation', 'Nous clarifions votre demande pour identifier les compétences utiles à votre entreprise.'],
-    ['03', 'Nous vous orientons vers un partenaire adapté', 'Vous recevez une orientation claire, sans engagement de votre part.'],
-];
+export const metadata: Metadata = {
+  title: 'Trouvez une fiduciaire adaptée à votre entreprise à Genève',
+  description: 'FIDUCONNECT clarifie votre besoin et vous oriente vers un partenaire fiduciaire à Genève. Orientation gratuite et sans engagement.',
+  alternates: { canonical: 'https://www.fiduconnect.ch/' },
+  robots: seoRobots(),
+};
 
 const needs = [
-    'Création d’entreprise',
-    'Domiciliation',
-    'Administration d’entreprise',
-    'Comptabilité',
-    'Fiscalité',
-    'TVA',
-    'Salaires',
-    'Comparaison ou changement de fiduciaire',
+  { icon: Files, slug: 'comptabilite', title: 'Comptabilité', text: 'Votre activité évolue. Vous recherchez un partenaire pour organiser le suivi comptable de votre entreprise.' },
+  { icon: Compass, slug: 'tva', title: 'Fiscalité & TVA', text: 'Vous souhaitez identifier un interlocuteur compétent pour les questions fiscales de votre entreprise.' },
+  { icon: Users, slug: 'charges-salaires', title: 'Salaires & administration', text: 'Vous cherchez un partenaire pour accompagner la gestion des salaires et vos démarches administratives.' },
+  { icon: RefreshCw, slug: 'changer-fiduciaire', title: 'Changer de fiduciaire', text: 'Votre collaboration actuelle ne vous convient plus. Prenons le temps de clarifier vos attentes.' },
 ];
-const reassurances = [
-    ['Gratuit', 'Aucun coût pour votre demande.'],
-    ['Sans engagement', 'Vous restez libre de votre décision.'],
-    ['Gain de temps', 'Un besoin clarifié dès le départ.'],
-    ['Orientation adaptée', 'Selon votre activité et votre situation.'],
+const steps = [
+  ['Vous nous parlez de votre entreprise.', 'Votre activité, votre organisation, ce que vous attendez : nous commençons par vous écouter.'],
+  ['Nous clarifions votre besoin.', 'Un échange permet de préciser votre situation et les compétences recherchées chez un partenaire.'],
+  ['Vous décidez de la suite.', 'Nous vous orientons vers un partenaire adapté. Vos coordonnées sont transmises uniquement après votre validation du rendez-vous.'],
 ];
-
-function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
-    return <p className={`sea-eyebrow ${light ? 'sea-eyebrow-light' : ''}`}>{children}</p>;
-}
+const faq = [
+  ['FIDUCONNECT est-il une fiduciaire ?', 'Non. FIDUCONNECT est un service de mise en relation. Les prestations comptables, fiscales et administratives sont réalisées par le partenaire fiduciaire, dans le cadre d’un accord distinct avec vous.'],
+  ['Qu’est-ce qui est gratuit ?', 'Votre demande, le rappel et l’orientation FIDUCONNECT sont gratuits et sans engagement. Les prestations que vous choisissez ensuite de confier à une fiduciaire sont facturées selon ses propres tarifs et conditions.'],
+  ['À qui s’adresse le service ?', 'Aux entreprises et aux indépendants qui recherchent un partenaire fiduciaire dans le canton de Genève, pour une première recherche ou un changement de partenaire.'],
+  ['Mes coordonnées sont-elles transmises immédiatement ?', 'Non. Nous échangeons d’abord avec vous. Vos coordonnées ne sont transmises au partenaire concerné qu’après votre appel et votre validation du rendez-vous.'],
+  ['Comparez-vous toutes les fiduciaires du canton ?', 'Non. Notre orientation porte sur des partenaires de notre réseau. Elle ne constitue pas une comparaison exhaustive du marché genevois.'],
+];
+function Arrow() { return <ArrowUpRight size={18} aria-hidden="true" />; }
 
 export default function Home() {
-    return (
-        <main className="sea-page">
-            <JsonLd schema={organizationSchema()} />
-            <div className="sea-first-screen">
-                <header className="sea-header">
-                    <div className="mx-auto flex max-w-7xl items-center px-5 py-5 sm:px-8">
-                        <Link href="/" className="inline-flex min-h-11 shrink-0 items-center lg:min-h-0"><FiduLogo className="w-[150px] sm:w-[190px]" /></Link>
-                    </div>
-                </header>
-
-                <section className="sea-hero">
-                    <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_minmax(440px,.86fr)] lg:gap-16">
-                        <PremiumReveal className="sea-hero-copy pt-2">
-                            <h1 className="sea-title max-w-3xl text-[2.75rem] sm:text-6xl lg:text-[4.5rem]">
-                                Trouvez la fiduciaire <em className="font-normal text-[#9c513b]">adaptée</em> à votre entreprise à Genève.
-                            </h1>
-                            <p className="sea-hero-description mt-7 max-w-xl text-base leading-7 text-[#605b54] sm:text-lg sm:leading-8">
-                                Décrivez-nous votre besoin. FiduConnect vous aide à identifier et comparer des partenaires adaptés, gratuitement et sans engagement.
-                            </p>
-                            <div className="sea-hero-reassurance mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-medium text-[#605b54]">
-                                <span>Rappel gratuit sous 24 h</span><span className="border-l border-[#c7c0b6] pl-6">Sans engagement</span>
-                            </div>
-                            <a href="#demande" className="sea-form-guide">
-                                <span>Trouver ma fiduciaire</span>
-                                <svg className="sea-form-guide-arrow" viewBox="0 0 180 64" aria-hidden="true" focusable="false" fill="none">
-                                    <path d="M6 42C61 64 99 9 174 14M159 4L174 14L160 27" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                                <svg className="sea-form-guide-mobile" viewBox="0 0 28 36" aria-hidden="true" focusable="false" fill="none">
-                                    <path d="M4 4C15 4 20 13 20 30M14 24L20 30L26 24" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </a>
-                        </PremiumReveal>
-                        <PremiumReveal delay={0.1} className="sea-form-card scroll-mt-6" id="demande">
-                            <div className="sea-form-heading">
-                                <p className="sea-eyebrow">Votre premier pas</p>
-                                <h2 className="sea-title mt-3 text-[1.9rem]">Parlez-nous de votre besoin.</h2>
-                                <p className="mt-2 text-sm leading-6 text-[#6c665e]">Nous vous rappelons gratuitement sous 24 heures.</p>
-                            </div>
-                            <SeaLeadForm idPrefix="hero" />
-                        </PremiumReveal>
-                    </div>
-                </section>
-            </div>
-
-            <section className="sea-section mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
-                <PremiumReveal className="max-w-2xl">
-                    <Eyebrow>Comment ça fonctionne</Eyebrow>
-                    <h2 className="sea-title mt-5 text-4xl sm:text-5xl">Un chemin clair, de votre besoin à la bonne orientation.</h2>
-                </PremiumReveal>
-                <div className="sea-steps mt-12 grid gap-9 md:grid-cols-3 md:gap-8">
-                    {steps.map(([number, title, text], index) => (
-                        <PremiumReveal key={number} delay={index * 0.08} className="sea-step border-t border-[#cfc8bc] pt-5">
-                            <span className="font-[family-name:var(--font-display)] text-3xl text-[#9c513b]">{number}</span>
-                            <h3 className="mt-7 max-w-xs text-lg font-semibold tracking-tight">{title}</h3>
-                            <p className="mt-3 max-w-xs text-sm leading-7 text-[#6c665e]">{text}</p>
-                        </PremiumReveal>
-                    ))}
-                </div>
-                <figure className="mt-10 border-t border-[#ded7cb] pt-8">
-                    <Image
-                        src="/brand/orientation-illustration.svg"
-                        alt="FIDUCONNECT relie votre entreprise à un partenaire fiduciaire adapté."
-                        width={760}
-                        height={230}
-                        className="mx-auto h-auto w-full max-w-2xl"
-                    />
-                </figure>
-            </section>
-
-            <section className="sea-section border-y border-[#c8d3dc] bg-[#e5eaf0] py-16 sm:py-24">
-                <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[.85fr_1.15fr] lg:gap-16">
-                    <PremiumReveal>
-                        <Eyebrow>Vos besoins</Eyebrow>
-                        <h2 className="sea-title mt-5 max-w-md text-4xl sm:text-5xl">À chaque étape, le bon partenaire.</h2>
-                        <p className="mt-6 max-w-sm text-sm leading-7 text-[#6c665e]">Du lancement de votre entreprise à la recherche d’un nouveau partenaire, nous commençons par comprendre votre besoin.</p>
-                    </PremiumReveal>
-                    <ul className="sea-needs-list divide-y divide-[#c0ccd5]">
-                        {needs.map((need, index) => (
-                            <li key={need} className="flex items-center gap-5 py-4">
-                                <span aria-hidden="true" className="w-5 shrink-0 text-xs tabular-nums text-[#9c513b]">0{index + 1}</span>
-                                <span className="text-base font-medium sm:text-lg">{need}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </section>
-
-            <section className="sea-section mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
-                <PremiumReveal><Eyebrow>Pourquoi FiduConnect</Eyebrow><h2 className="sea-title mt-5 text-4xl sm:text-5xl">Avancer avec plus de clarté.</h2></PremiumReveal>
-                <div className="sea-reassurances mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                    {reassurances.map(([title, text], index) => (
-                        <PremiumReveal key={title} delay={index * 0.08} className="border-t border-[#cfc8bc] pt-5">
-                            <h3 className="text-base font-semibold">{title}</h3>
-                            <p className="mt-3 text-sm leading-6 text-[#6c665e]">{text}</p>
-                        </PremiumReveal>
-                    ))}
-                </div>
-            </section>
-
-            <section className="sea-section bg-[#223b4a] px-5 py-16 text-[#f6f2e9] sm:px-8 sm:py-24">
-                <div className="mx-auto max-w-3xl">
-                    <PremiumReveal>
-                        <Eyebrow light>Votre demande</Eyebrow>
-                        <h2 className="sea-title mt-5 max-w-lg text-4xl sm:text-5xl">Prêt à trouver une fiduciaire adaptée ?</h2>
-                        <p className="mt-6 max-w-md text-base leading-7 text-[#c8c3b9]">Expliquez-nous votre situation. Nous vous aidons à avancer simplement, avec une orientation cohérente avec votre entreprise.</p>
-                        <p className="mt-8 text-sm tracking-wide text-[#efd6c9]">Gratuit · Rappel sous 24 h · Sans engagement</p>
-                        <a href="#demande" className="mt-8 inline-flex min-h-14 w-full items-center justify-between gap-4 rounded-md bg-[#f6f2e9] px-6 py-4 text-base font-semibold text-[#223b4a] transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#efd6c9] sm:w-auto sm:min-w-72">
-                            Trouver ma fiduciaire
-                            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
-                        </a>
-                    </PremiumReveal>
-                </div>
-            </section>
-
-            <footer className="border-t border-white/10 bg-[#223b4a] px-5 py-7 text-xs text-[#c8c3b9] sm:px-8">
-                <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4">
-                    <div className="space-y-3"><Link href="/"><FiduLogo inverse className="w-[150px]" /></Link><p>© {new Date().getFullYear()} FIDUCONNECT.</p></div>
-                    <nav aria-label="Informations légales et cookies" className="flex flex-wrap gap-x-5 gap-y-2">
-                        <Link href="/mentions-legales" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Mentions légales</Link>
-                        <Link href="/confidentialite" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Confidentialité</Link>
-                        <CookiePreferencesButton className="inline-flex min-h-11 items-center hover:underline focus-visible:underline" />
-                    </nav>
-                </div>
-            </footer>
-        </main>
-    );
+  return <div className="seo-site">
+    <SeoHeader />
+    <main id="contenu">
+      <JsonLd schema={organizationSchema()} />
+      <section className="seo-hero seo-wrap">
+        <div><p className="sea-eyebrow">Entreprises & indépendants · Canton de Genève</p>
+          <h1 className="sea-title">La bonne fiduciaire.<br />Pour <em>votre</em> entreprise.</h1>
+          <p className="seo-intro">Trouver un partenaire fiduciaire à Genève commence par comprendre ce dont vous avez vraiment besoin.</p>
+          <p className="seo-hero-text">FIDUCONNECT vous écoute, clarifie votre situation et vous oriente vers un partenaire adapté. Simplement, et sans engagement.</p>
+          <div className="seo-actions"><Link href="/contact" className="seo-button">Trouver ma fiduciaire <Arrow /></Link><a href="#fonctionnement" className="seo-text-link">Découvrir notre approche <ArrowDown size={15} aria-hidden="true" /></a></div>
+          <p className="seo-checks"><span>✓ Orientation gratuite</span><span>✓ Vous gardez le choix</span></p>
+        </div>
+        <div className="seo-visual"><div className="seo-visual-top"><span>Un lien qui fait la différence.</span><span>01 — GE</span></div>
+          <div className="seo-visual-center"><span>Votre entreprise</span><Image src="/brand/orientation-illustration.svg" width={760} height={230} alt="Mise en relation de votre entreprise avec un partenaire fiduciaire." priority /><span>Un partenaire adapté</span></div>
+          <div className="seo-visual-note"><i aria-hidden="true" /><p>Un besoin compris.<br /><strong>Une orientation plus claire.</strong></p></div>
+        </div>
+      </section>
+      <div className="seo-positioning"><div className="seo-wrap"><span>Notre rôle, en toute transparence</span><p>Nous ne sommes pas une fiduciaire. Nous vous aidons à trouver la vôtre.</p></div></div>
+      <section id="besoins" className="seo-section seo-wrap">
+        <div className="seo-section-head"><div><p className="sea-eyebrow">Partir de votre réalité</p><h2 className="sea-title">Un partenaire pour<br />ce qui compte pour vous.</h2></div><p>Une création, une activité qui grandit ou une collaboration à repenser : votre besoin est le point de départ.</p></div>
+        <div className="seo-needs">{needs.map(({ icon: Icon, slug, title, text }, i) => <article key={title}><div className="seo-card-top"><Icon size={26} strokeWidth={1.2} aria-hidden="true" /><span>0{i + 1}</span></div><h3><Link href={'/services/' + slug}>{title}</Link></h3><p>{text}</p><Link href={'/services/' + slug}>Explorer ce besoin <Arrow /><span className="sr-only"> : {title}</span></Link></article>)}</div>
+      </section>
+      <section id="fonctionnement" className="seo-process"><div className="seo-wrap seo-section"><div className="seo-section-head"><div><p className="sea-eyebrow">Comment ça marche</p><h2 className="sea-title">Moins de recherches.<br />Plus de clarté.</h2></div><p>Un échange humain pour avancer, sans vous engager à confier un mandat.</p></div><ol className="seo-steps">{steps.map(([title, text], i) => <li key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></div></section>
+      <section id="a-propos" className="seo-section seo-wrap seo-about"><div><p className="sea-eyebrow">L’esprit FIDUCONNECT</p><h2 className="sea-title">Choisir un partenaire,<br />pas seulement<br /><em>une prestation.</em></h2></div><div><p className="seo-about-lead">Derrière chaque entreprise, il y a une façon de travailler, des attentes et des priorités.</p><p>Notre rôle est de les comprendre avant de vous orienter. Pas de liste interminable à parcourir : nous prenons le temps de clarifier ce qui compte dans votre recherche.</p><p>FIDUCONNECT est un service exploité par Smart Administration – Damien Lopez, à Genève. Notre périmètre est aujourd’hui le canton de Genève.</p><div className="seo-signature">Une approche locale. Un premier échange humain.</div></div></section>
+      <section className="seo-section seo-wrap seo-faq"><div><p className="sea-eyebrow">Avant de vous lancer</p><h2 className="sea-title">Vos questions.<br />Nos réponses.</h2></div><div>{faq.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
+      <section id="contact" className="seo-contact"><div className="seo-wrap"><div><p className="sea-eyebrow sea-eyebrow-light">Votre prochain pas</p><h2 className="sea-title">Et si nous commencions<br />par <em>votre besoin ?</em></h2><p>Décrivez votre activité et ce que vous recherchez.<br />Nous vous rappelons gratuitement sous 24 heures.</p><Link className="seo-button seo-button-light" href="/contact">Décrire mon besoin <Arrow /></Link><p className="seo-contact-small">Orientation gratuite · Sans engagement</p></div><aside><span>Un premier contact, simplement.</span><a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a><p>Vos coordonnées ne sont transmises à un partenaire qu’après votre validation du rendez-vous.</p></aside></div></section>
+    </main>
+    <SeoFooter />
+  </div>;
 }

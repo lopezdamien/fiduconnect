@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { SEO_FORM_SENDS_ENABLED } from '@/lib/seo-form-config';
 import { z } from 'zod';
 import { leadLimits, needs, situations } from '@/lib/lead-fields';
 import { createLeadLimiter, hasAllowedLeadOrigin, LeadRequestError, PRODUCTION_LEADS_ENABLED, readLeadBody } from '@/lib/lead-security';
@@ -46,6 +47,9 @@ export async function POST(request: Request) {
     try {
         if (!hasAllowedLeadOrigin(request)) {
             return failure(403, 'Merci d’envoyer votre demande depuis le formulaire FiduConnect.');
+        }
+        if (!SEO_FORM_SENDS_ENABLED) {
+            return failure(503, 'Aperçu de travail : les envois sont désactivés. Votre saisie est conservée et aucune demande n’a été transmise.');
         }
         if (process.env.NODE_ENV === 'production' && !PRODUCTION_LEADS_ENABLED) {
             return failure(503, 'Le formulaire est temporairement indisponible. Écrivez-nous à contact@fiduconnect.ch.');
@@ -94,8 +98,8 @@ export async function POST(request: Request) {
         const { error } = await resend.emails.send({
             from: fromEmail,
             to: toEmail,
-            subject: 'Nouvelle demande FIDUCONNECT',
-            text: `Nouvelle demande FIDUCONNECT\nNom : ${name}\nEntreprise : ${company || 'Non renseignée'}\nE-mail : ${email}\nTéléphone : ${phone}\nSituation : ${situation}\nBesoin : ${mainNeed}\nPrécisions : ${message || 'Non renseignées'}\n\nÀ rappeler sous 24 h. Ne transmettre au partenaire qu’après l’appel et la validation du rendez-vous par le client.`,
+            subject: 'Nouvelle demande FIDUCONNECT — Site SEO',
+            text: `Nouvelle demande FIDUCONNECT — Site SEO\nNom : ${name}\nEntreprise : ${company || 'Non renseignée'}\nE-mail : ${email}\nTéléphone : ${phone}\nSituation : ${situation}\nBesoin : ${mainNeed}\nPrécisions : ${message || 'Non renseignées'}\n\nÀ rappeler sous 24 h. Ne transmettre au partenaire qu’après l’appel et la validation du rendez-vous par le client.`,
             html: `
         <h2>Nouveau Lead Reçu</h2>
         <p><strong>Nom :</strong> ${safe.name}</p>
@@ -106,7 +110,7 @@ export async function POST(request: Request) {
         <p><strong>Besoin principal :</strong> ${safe.mainNeed}</p>
         ${safe.message ? `<p style="white-space:pre-wrap"><strong>Précisions :</strong> ${safe.message}</p>` : ''}
         <br/>
-        <p><strong>Origine :</strong> Landing SEA FIDUCONNECT</p>
+        <p><strong>Origine :</strong> Site SEO FIDUCONNECT</p>
         <p>À rappeler sous 24 h. Ne transmettre au partenaire qu’après l’appel et la validation du rendez-vous par le client.</p>
       `,
         });

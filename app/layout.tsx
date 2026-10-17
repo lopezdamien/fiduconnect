@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./seo.css";
+import "./seo-form.css";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
-import { AdsConsent } from '@/components/AdsConsent';
+import { seoRobots } from '@/lib/seo-release';
 
 const DEFAULT_TITLE = "FiduConnect | Trouvez une fiduciaire adaptée à Genève";
 const DEFAULT_DESCRIPTION =
   "FiduConnect aide les entreprises genevoises à identifier une fiduciaire partenaire adaptée, gratuitement et sans engagement.";
 
 export const metadata: Metadata = {
+  robots: seoRobots(),
   metadataBase: new URL(SITE_URL),
   title: {
     default: DEFAULT_TITLE,
@@ -40,7 +43,6 @@ export default function RootLayout({
         className="antialiased font-sans bg-slate-50 text-slate-900 flex flex-col min-h-screen"
       >
         {children}
-        <AdsConsent />
       </body>
     </html>
   );

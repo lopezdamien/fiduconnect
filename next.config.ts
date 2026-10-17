@@ -1,25 +1,26 @@
 import type { NextConfig } from "next";
+import { seoRedirects } from './lib/seo-redirects';
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() { return seoRedirects; },
   turbopack: { root: process.cwd() },
   images: {
     remotePatterns: [],
   },
   async headers() {
     const development = process.env.NODE_ENV === 'development';
-    // Next.js hydration needs inline scripts. Only exact Google Ads endpoints
-    // are allowed; the client loads the tag only after measurement consent.
+    // SEO: Next.js hydration needs inline scripts, but no third-party tracking.
     // Only the development mobile preview may frame the page.
     const csp = [
       "default-src 'self'",
-      `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com${development ? " 'unsafe-eval'" : ''}`,
+      `script-src 'self' 'unsafe-inline'${development ? " 'unsafe-eval'" : ''}`,
       "script-src-attr 'none'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.ch",
+      "img-src 'self' data: blob:",
       "font-src 'self'",
-      `connect-src 'self' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.ch https://ad.doubleclick.net${development ? ' ws://localhost:* ws://127.0.0.1:*' : ''}`,
-      "frame-src https://www.googletagmanager.com",
+      `connect-src 'self'${development ? ' ws://localhost:* ws://127.0.0.1:*' : ''}`,
+      "frame-src 'none'",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",

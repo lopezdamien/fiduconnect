@@ -1,81 +1,78 @@
 import { LegalPage } from '@/components/LegalPage';
 import { pageMetadata } from '@/lib/seo';
-import { CookiePreferencesButton } from '@/components/AdsConsent';
 
 export const metadata = pageMetadata({
     title: 'Confidentialité',
-    description: 'Comment FIDUCONNECT utilise les informations de votre demande.',
+    description: 'Les données de votre demande de mise en relation fiduciaire à Genève, leur utilisation et vos droits.',
     path: '/confidentialite',
     noIndex: true,
 });
+metadata.robots = { index: false, follow: false };
 
 export default function Confidentialite() {
     return (
-        <LegalPage title="Votre confidentialité" version="14 octobre 2026">
-            <section>
-                <h2>1. Responsable du traitement</h2>
-                <p>Smart Administration – Damien Lopez, Avenue d’Aïre 73C, 1203 Genève, Suisse, exploite FIDUCONNECT et est responsable du traitement de vos demandes.</p>
-                <p>Contact pour vos données : <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>.</p>
+        <LegalPage title="Votre confidentialité" version="17 octobre 2026">
+            <section aria-label="L’essentiel de votre confidentialité">
+                <h2>Votre demande, en bref</h2>
+                <p>Le site principal www.fiduconnect.ch présente le service de mise en relation, sans suivi publicitaire. Votre demande sert au rappel et à l’orientation, sans transmission automatique aux fiduciaires ni inscription à une newsletter.</p>
+                <nav aria-label="Sommaire de la confidentialité" className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                    <a href="#responsable">Responsable</a><a href="#donnees">Données</a><a href="#destinataires">Destinataires</a><a href="#prestataires">Pays et prestataires</a><a href="#conservation">Conservation</a><a href="#cookies">Stockage technique</a><a href="#droits">Vos droits</a>
+                </nav>
+            </section>
+            <section id="responsable">
+                <h2>1. Responsable et périmètre</h2>
+                <p>Smart Administration – Damien Lopez, Avenue d’Aïre 73C, 1203 Genève, Suisse, exploite FIDUCONNECT et est responsable du traitement de vos demandes. Pour toute question : <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>.</p>
+                <p className="mt-3">Cette déclaration concerne le site SEO destiné à www.fiduconnect.ch, pour les entreprises et indépendants du canton de Genève. Elle ne décrit pas la mesure publicitaire de la page distincte contact.fiduconnect.ch.</p>
             </section>
             <section>
-                <h2>2. Informations recueillies</h2>
+                <h2>2. Envoi de votre demande</h2>
+                <p>Lorsque vous confirmez le formulaire, les informations sont transmises au serveur du site, puis au service Resend pour acheminer un e-mail à contact@fiduconnect.ch. Elles ne sont pas enregistrées dans une base de prospects par ce site. Vous pouvez aussi nous écrire directement à cette adresse.</p>
+            </section>
+            <section id="donnees">
+                <h2>3. Informations demandées et finalités</h2>
                 <ul>
-                    <li>Votre prénom, nom, e-mail et téléphone, nécessaires pour vous recontacter.</li>
-                    <li>Votre situation et votre besoin principal, pour préparer le rappel.</li>
-                    <li>Le nom de votre entreprise et vos précisions, si vous les fournissez.</li>
+                    <li>Prénom, nom, e-mail et téléphone : pour vous identifier et vous recontacter.</li>
+                    <li>Situation et besoin principal : pour préparer le premier échange.</li>
+                    <li>Entreprise et précisions facultatives : pour mieux comprendre votre recherche.</li>
                 </ul>
-                <p className="mt-3">Les serveurs peuvent traiter des informations techniques, notamment l’adresse IP, la date et la page demandée, pour le fonctionnement et la sécurité du site. Un identifiant dérivé de l’e-mail est conservé temporairement en mémoire pour limiter les demandes répétées, sans garder cet e-mail en clair dans le limiteur.</p>
-                <p className="mt-3">Ne transmettez pas de pièces d’identité, de données bancaires, de données salariales ou de documents fiscaux confidentiels dans le champ libre. Aucun dépôt de document n’est proposé.</p>
+                <p className="mt-3">La demande, le rappel prévu sous 24 heures et l’orientation FIDUCONNECT sont gratuits et sans engagement. Les données ne servent pas à vous inscrire à une newsletter ni à une prospection sans rapport avec votre demande. FIDUCONNECT ne fournit pas de conseil comptable, fiscal ou juridique personnalisé.</p>
+                <p className="mt-3">Ne saisissez pas de pièces d’identité, de données bancaires, salariales ou de documents fiscaux confidentiels. Aucun dépôt de fichier n’est proposé.</p>
+            </section>
+            <section id="destinataires">
+                <h2>4. Destinataires et choix du partenaire</h2>
+                <p>L’exploitant reçoit et traite votre demande pour préparer votre rappel. Les prestataires techniques retenus pour l’hébergement et l’e-mail interviennent uniquement dans le cadre de leurs services.</p>
+                <p className="mt-3">Le formulaire ne transmet rien automatiquement aux fiduciaires. Après l’appel, vos coordonnées et les informations utiles ne sont communiquées au partenaire concerné que si vous validez un rendez-vous avec lui. Vous restez libre de ne pas poursuivre. Le partenaire est responsable de ses propres traitements et prestations et vous en informe séparément.</p>
+            </section>
+            <section id="prestataires">
+                <h2>5. Prestataires et traitements à l’étranger</h2>
+                <p>Vercel héberge et exécute le site, avec les fonctions du formulaire dans la région américaine iad1. Son réseau de diffusion et ses sous-traitants ne sont pas limités à la Suisse. Resend achemine les coordonnées et le contenu de la demande vers notre messagerie ; Resend indique stocker les données aux États-Unis. Infomaniak héberge notre messagerie en Suisse. Le choix d’une région d’envoi ne garantit pas le lieu de stockage de tous les e-mails, journaux et sauvegardes.</p>
+                <p className="mt-3">Le site utilise actuellement l’offre Hobby de Vercel. L’accord de traitement publié par Vercel ne couvre que Pro et Enterprise : nous ne présentons donc pas cet accord comme une garantie applicable à cette offre. Voir les <a href="https://vercel.com/legal/dpa">conditions de traitement Vercel</a>, les <a href="https://resend.com/legal/dpa">conditions Resend</a> et les <a href="https://www.infomaniak.com/fr/cgv/reglement-general-protection-donnees">informations Infomaniak</a>. Les pays et modalités complémentaires des sous-traitants, journaux et sauvegardes restent à préciser ; aucune localisation exclusivement suisse n’est promise.</p>
+                <p className="mt-3">Le devoir d’informer sur une communication à l’étranger est expliqué par le <a href="https://www.edoeb.admin.ch/fr/communication-de-donnees-a-letranger" rel="noopener noreferrer">Préposé fédéral à la protection des données et à la transparence</a>. Les conditions générales d’un fournisseur ne remplacent pas la vérification de notre configuration effective.</p>
+            </section>
+            <section id="conservation">
+                <h2>6. Conservation et suppression</h2>
+                <p>Nous supprimons les demandes sans rendez-vous au plus tard trois mois après leur réception, sans prolonger ce délai à chaque rappel. Pour les mises en relation suivies, nous supprimons les données au plus tard six mois après le dernier échange lié à cette mise en relation, hors obligation légale justifiée.</p>
+                <p className="mt-3">L’exploitant assure manuellement ces suppressions dans les e-mails, copies et corbeilles qu’il gère. Le site ne supprime pas automatiquement les messages d’une boîte mail. Les durées des journaux et sauvegardes des prestataires ainsi que la procédure après restauration restent à confirmer. Aucune durée de fournisseur non vérifiée n’est promise dans cette version de travail.</p>
+                <p className="mt-3">Une conservation distincte peut être nécessaire pour une obligation légale ou la défense d’un droit, limitée aux informations et à la durée justifiées.</p>
+            </section>
+            <section id="cookies">
+                <h2>7. Stockage dans le navigateur et mesure d’audience</h2>
+                <p className="mb-3">Les finalités et la durée du stockage technique sont aussi présentées sur la page <a href="/cookies">Cookies et stockage du navigateur</a>.</p>
+                <p>Cette version du site SEO ne charge pas de balise Google Ads, Google Analytics ou Google Tag Manager. Elle ne met pas en place de mesure publicitaire ni de cookie de suivi. Votre demande ne vaut pas consentement à la publicité. Tout ajout ultérieur d’une mesure nécessitera de revoir cette information et le dispositif applicable avant son activation.</p>
+                <p className="mt-3">Après une réponse positive du service d’envoi, un marqueur technique nommé <code>fiduconnect.seo-receipt</code> peut être enregistré dans le stockage de session de l’onglet. Il contient uniquement une date d’expiration, pas vos coordonnées ou votre message. Il permet à la page de remerciement de reconnaître une confirmation récente, sans prouver la livraison dans la boîte de réception.</p>
+                <p className="mt-3">Ce marqueur n’est reconnu que pendant trente minutes au maximum. Le navigateur peut conserver sa valeur au-delà de ce délai tant que la session subsiste, mais elle est alors ignorée. Il est remplacé ou supprimé lors d’une nouvelle tentative ; vous pouvez aussi effacer les données du site dans le navigateur. Si ce stockage est bloqué, une confirmation temporaire en mémoire permet la navigation courante.</p>
+                <p className="mt-3">Les données saisies dans le formulaire ne sont pas enregistrées par le site dans le stockage local, le stockage de session ou l’adresse de la page. Elles restent affichées en cas d’erreur tant que la page reste ouverte. Votre navigateur peut gérer séparément ses fonctions de saisie automatique.</p>
             </section>
             <section>
-                <h2>3. À quoi servent vos informations ?</h2>
-                <p>Vos informations servent à vous rappeler gratuitement sous 24 heures, à comprendre votre situation et à préparer une orientation vers un partenaire adapté. Les informations techniques servent au fonctionnement du site et à la prévention des abus.</p>
-                <p className="mt-3">Votre demande ne vous inscrit pas à une newsletter et n’autorise pas une prospection sans rapport avec votre besoin. Le traitement est soumis à la Loi fédérale suisse sur la protection des données.</p>
+                <h2>8. Fonctionnement technique et sécurité</h2>
+                <p>Le formulaire vérifie l’origine et les champs côté serveur, limite la taille des demandes et utilise un champ anti-robot ainsi qu’un limiteur de fréquence. Ce limiteur conserve temporairement en mémoire un identifiant dérivé de l’e-mail, sans y conserver l’e-mail en clair. Les erreurs applicatives sont conçues pour ne pas journaliser le contenu de la demande.</p>
+                <p className="mt-3">L’hébergement peut traiter des données techniques telles que l’adresse IP, la date, la page demandée et le navigateur pour assurer son fonctionnement et sa sécurité. Le site utilise HTTPS. Les durées détaillées des journaux et sauvegardes des prestataires restent à préciser ; ces traitements ne servent pas à une prospection publicitaire par ce site.</p>
+                <p className="mt-3">L’envoi par e-mail n’offre pas une garantie de chiffrement de bout en bout. Ne transmettez pas de documents confidentiels pour cette simple demande d’orientation.</p>
             </section>
-            <section>
-                <h2>4. Qui reçoit votre demande ?</h2>
-                <p>Smart Administration – Damien Lopez reçoit votre demande dans la boîte contact@fiduconnect.ch et prépare votre rappel. Netlify, Resend et Infomaniak interviennent pour le fonctionnement du site et l’acheminement de cette demande, comme expliqué ci-dessous.</p>
-                <p className="mt-3">Vos coordonnées et les informations utiles ne sont transmises à une fiduciaire partenaire qu’après l’appel et votre validation d’un rendez-vous avec le partenaire concerné. Le formulaire n’envoie aucune demande automatiquement aux fiduciaires. Le partenaire vous informe de ses propres traitements.</p>
-            </section>
-            <section>
-                <h2 id="prestataires">5. Où vos données sont-elles traitées ?</h2>
-                <ul>
-                    <li><strong>Netlify Inc.</strong> héberge le site et traite le formulaire. La fonction qui traite votre demande est configurée dans la région Ohio, aux <strong>États-Unis</strong>. Cela concerne les informations de votre demande ainsi que les données techniques du site. Cette région ne couvre pas nécessairement tous les traitements : Netlify utilise aussi un réseau de diffusion et d’autres prestataires. Les autres pays effectivement concernés restent à confirmer avant l’ouverture au public. <a href="https://www.netlify.com/trust-center/" rel="noopener noreferrer">Informations sur le traitement et les sous-traitants de Netlify</a>.</li>
-                    <li><strong>Resend</strong> achemine votre demande par e-mail. L’envoi est configuré depuis l’<strong>Irlande</strong>, mais les e-mails et journaux sont stockés aux <strong>États-Unis</strong>. Choisir une région d’envoi européenne ne signifie donc pas que les données restent en Europe. <a href="https://resend.com/security" rel="noopener noreferrer">Informations sur le traitement par Resend</a>.</li>
-                    <li><strong>Infomaniak</strong> reçoit et conserve les e-mails dans notre messagerie, hébergée en <strong>Suisse</strong>. <a href="https://www.infomaniak.com/fr/ksuite/service-mail" rel="noopener noreferrer">Informations sur le Service Mail Infomaniak</a>.</li>
-                </ul>
-                <h3 id="garanties" className="mb-2 mt-5 font-semibold text-[#223b4a]">Quelles garanties sont prévues ?</h3>
-                <p>Les accords publiés par Netlify et Resend prévoient notamment des « clauses contractuelles types », avec des dispositions pour les transferts depuis la Suisse. Ce sont des engagements encadrant l’utilisation et la protection des données lors d’un transfert à l’étranger. Ils ne signifient pas que les données restent en Suisse.</p>
-                <p className="mt-3">Vous pouvez consulter ces engagements dans les <a href="https://www.netlify.com/pdf/netlify-dpa.pdf" rel="noopener noreferrer">dispositions de protection des données de Netlify</a> et de <a href="https://resend.com/legal/dpa" rel="noopener noreferrer">Resend</a>, ou nous contacter pour des précisions sur les garanties applicables à votre demande.</p>
-                <p className="mt-3">Nos comptes professionnels utilisent les conditions standard des prestataires, dont font partie leurs accords de traitement des données. Infomaniak prévoit également un <a href="https://www.infomaniak.com/documents/privacy/DPA/Accord_sur_le_traitement_des_donnees_%28DPA%29.pdf" rel="noopener noreferrer">accord de traitement des données</a>. La liste complète des pays concernés par les traitements complémentaires reste à confirmer avant l’ouverture au public.</p>
-            </section>
-            <section>
-                <h2>6. Conservation</h2>
-                <p>Si votre demande n’aboutit pas à un rendez-vous, nous supprimons les e-mails et copies que nous gérons au plus tard trois mois après sa réception. Un rappel ne remet pas ce délai à zéro. Si un rendez-vous est validé, les informations utiles sont conservées uniquement le temps nécessaire au suivi de la mise en relation, puis supprimées.</p>
-                <p className="mt-3">La suppression est assurée manuellement dans notre messagerie et comprend les copies que nous gérons, y compris dans la corbeille. Le site ne supprime pas automatiquement les e-mails.</p>
-                <p className="mt-3">La suppression dans notre boîte ne signifie pas l’effacement immédiat des sauvegardes internes des prestataires. Resend annonce trente jours de conservation des e-mails et journaux pour l’offre utilisée et sept jours pour ses sauvegardes. Les modalités applicables aux sauvegardes de notre boîte Infomaniak restent à préciser avant l’ouverture au public. Si une restauration réintroduit une demande supprimée, nous la supprimons de nouveau.</p>
-                <p className="mt-3">Une obligation légale ou la défense d’un droit peut justifier une conservation distincte, limitée aux informations nécessaires et à la durée justifiée.</p>
-            </section>
-            <section id="cookies" className="scroll-mt-8">
-                <h2>7. Cookies et publicité</h2>
-                <p>Sur contact.fiduconnect.ch, nous proposons une mesure Google Ads pour savoir si nos publicités génèrent des demandes. Elle est facultative : aucune balise ni requête de mesure Google n’est chargée avant votre accord ou lorsque vous refusez. Le formulaire fonctionne sans cet accord. Votre demande ne vaut pas consentement publicitaire.</p>
-                <p className="mt-3">Après acceptation, Google peut traiter des informations techniques, notamment l’adresse IP, le navigateur, la page consultée et des identifiants de clic ou de cookies. Un événement est envoyé après l’acceptation de l’envoi du formulaire par notre service d’e-mail ; il ne confirme pas un rendez-vous ni la réception dans notre boîte. L’événement comprend un identifiant aléatoire de déduplication, sans lien avec vos coordonnées. Nous ne transmettons pas à Google le nom, l’e-mail, le téléphone, l’entreprise ou le texte de votre demande.</p>
-                <p className="mt-3">Cette intégration n’utilise ni Google Analytics, ni conteneur Google Tag Manager, ni suivi avancé des conversions. La personnalisation publicitaire est désactivée. La balise Google est distribuée depuis googletagmanager.com, même sans utiliser un conteneur Tag Manager.</p>
-                <p className="mt-3">Votre choix, sa date et la version du texte sont mémorisés dans le stockage local de ce navigateur pendant 180 jours au maximum, puis redemandés. Il ne contient aucune donnée du formulaire. Cette durée est notre choix de fonctionnement, pas un délai légal universel. Si ce stockage est indisponible, la mesure reste désactivée. Après accord, les cookies de mesure Google commençant par _gcl_ sont prévus pour une durée de 90 jours ; le navigateur peut limiter cette durée. Les données déjà envoyées à Google ont leur propre conservation, distincte de celle des cookies.</p>
-                <p className="mt-3">Le destinataire de cette mesure est Google, pour son service Google Ads. Des traitements peuvent avoir lieu aux États-Unis et dans d’autres pays où Google ou ses prestataires opèrent. Consultez les <a href="https://policies.google.com/privacy?hl=fr">règles de confidentialité de Google</a>, ses informations sur les <a href="https://policies.google.com/technologies/cookies?hl=fr">cookies</a> et ses <a href="https://policies.google.com/privacy/frameworks?hl=fr">garanties de transfert</a>. Cela ne signifie pas que les données restent en Suisse.</p>
-                <p className="mt-3">Vous pouvez changer votre choix à tout moment avec le bouton Cookies. Un retrait empêche les nouveaux événements de notre formulaire et supprime les cookies de mesure accessibles sur ce site. Si la balise a déjà été chargée, la page se recharge pour l’arrêter ; une demande en cours d’envoi est d’abord laissée se terminer. Les informations déjà envoyées ne sont pas effacées rétroactivement, et notre site ne peut pas supprimer les cookies appartenant à un domaine Google.</p>
-                <CookiePreferencesButton className="mt-3 min-h-11 underline underline-offset-4" />
-            </section>
-            <section>
-                <h2>8. Sécurité</h2>
-                <p>Le site utilise HTTPS pour le transport entre votre navigateur et le site. Le formulaire limite la taille des données, contrôle les champs côté serveur et refuse les demandes provenant d’une autre origine. Des limites de fréquence réduisent les demandes répétées. Les erreurs applicatives ne journalisent pas le contenu de votre demande et la clé d’envoi reste côté serveur.</p>
-                <p className="mt-3">Les accès d’administration Netlify et Infomaniak sont protégés par une double authentification, confirmée par l’exploitant. Le transport chiffré d’un e-mail ne garantit pas le chiffrement de bout en bout de la messagerie. Ne transmettez pas de documents confidentiels pour cette simple demande de mise en relation.</p>
-                <p className="mt-3">La protection concerne aussi la messagerie et les échanges avec les partenaires ; le site seul ne garantit pas la sécurité de l’ensemble du parcours.</p>
-            </section>
-            <section>
-                <h2>9. Vos droits</h2>
-                <p>Dans les conditions prévues par la loi, vous pouvez demander l’accès à vos données, leur rectification ou leur suppression, et faire valoir les autres droits applicables. Vous pouvez nous indiquer que vous ne souhaitez plus donner suite.</p>
-                <p className="mt-3">Écrivez à <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>. Nous pouvons vérifier votre identité de manière proportionnée avant de communiquer des informations personnelles. Vous pouvez également contacter le <a href="https://www.edoeb.admin.ch/fr" rel="noopener noreferrer">Préposé fédéral à la protection des données et à la transparence</a>.</p>
+            <section id="droits">
+                <h2>9. Vos droits et notre contact</h2>
+                <p>Dans les conditions prévues par la loi fédérale suisse sur la protection des données, vous pouvez notamment demander l’accès à vos données, leur rectification ou leur suppression et nous indiquer que vous ne souhaitez plus poursuivre la mise en relation.</p>
+                <p className="mt-3">Écrivez à <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>. Une vérification proportionnée de votre identité peut être nécessaire avant de communiquer des données personnelles. Vous pouvez également contacter le <a href="https://www.edoeb.admin.ch/fr" rel="noopener noreferrer">Préposé fédéral à la protection des données et à la transparence</a>.</p>
             </section>
         </LegalPage>
     );

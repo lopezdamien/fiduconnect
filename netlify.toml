@@ -1,10 +1,10 @@
 # Préparation uniquement : ne pas importer ou déployer sans validation préalable.
 # L’adaptateur Next.js est fourni automatiquement par Netlify.
 [build]
-  command = "npm run build -- --webpack"
+  command = "npm run check:seo-deploy && npm run build -- --webpack"
   publish = ".next"
 
 [build.environment]
   NODE_VERSION = "24"
-  # Public landing address, not a secret or a DNS/domain registration.
-  NEXT_PUBLIC_SITE_URL = "https://contact.fiduconnect.ch"
+  # Public SEO address, not a secret or a DNS/domain registration.
+  NEXT_PUBLIC_SITE_URL = "https://www.fiduconnect.ch"
