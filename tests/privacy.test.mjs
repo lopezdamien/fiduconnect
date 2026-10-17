@@ -12,6 +12,34 @@ import ts from 'typescript';
 const require = createRequire(import.meta.url);
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
+test('dedicated SEA cookie page describes real storage, recipients and withdrawal without changing consent', () => {
+    const Cookies = loadComponent('app/cookies/page.tsx', true).default;
+    const html = renderToStaticMarkup(React.createElement(Cookies));
+    for (const value of ['contact.fiduconnect.ch', 'fiduconnect.ads-consent', '180 jours', '_gcl_*',
+        '90 jours', '__oppref', '30 jours', '__obref', '365 jours', 'ne sont pas anonymes',
+        'Gérer mes cookies', 'États-Unis']) assert.ok(html.includes(value), value);
+    assert.match(html, /stockage local/);
+    assert.match(html, /href="\/confidentialite#cookies"/);
+    assert.doesNotMatch(html, /<script|<iframe|pil_consent|Supabase|Meta/);
+    const shell = readFileSync(resolve(root, 'components/LegalPage.tsx'), 'utf8');
+    const home = readFileSync(resolve(root, 'app/page.tsx'), 'utf8');
+    for (const content of [shell, home]) assert.match(content, /href="\/cookies"/);
+});
+
+test('privacy summary anchors resolve and legal page keeps each domain explicit', () => {
+    const Privacy = loadComponent('app/confidentialite/page.tsx').default;
+    const html = renderToStaticMarkup(React.createElement(Privacy));
+    for (const [, anchor] of html.matchAll(/href="#([^"]+)"/g)) assert.ok(html.includes(`id="${anchor}"`), anchor);
+    const Mentions = loadComponent('app/mentions-legales/page.tsx').default;
+    const mentions = renderToStaticMarkup(React.createElement(Mentions));
+    assert.match(mentions, /contact\.fiduconnect\.ch/);
+    assert.match(mentions, /<dl/);
+    assert.match(mentions, /href="\/cookies"/);
+    assert.match(mentions, /FIDUCONNECT est rémunéré par ses partenaires fiduciaires pour son service de mise en relation/);
+    assert.match(mentions, /restent gratuits pour vous/);
+    assert.doesNotMatch(mentions, /sans surcoût|rémunération n’influence pas|commission de|uniquement si vous signez/);
+});
+
 // Render the real form and privacy content without a browser, secrets or sending.
 // Only Next routing/metadata and the surrounding legal-page layout are stubbed.
 function loadComponent(path, openAiEnabled = false) {

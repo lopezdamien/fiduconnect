@@ -18,7 +18,8 @@ export function LegalPage({ title, children, version = '11 octobre 2026' }: { ti
                 <nav aria-label="Informations légales" className="mt-6 flex flex-wrap gap-5 text-xs text-[#6c665e]">
                     <Link href="/mentions-legales" className="underline underline-offset-4">Mentions légales</Link>
                     <Link href="/confidentialite" className="underline underline-offset-4">Confidentialité</Link>
-                    <CookiePreferencesButton className="min-h-11 underline underline-offset-4" />
+                    <Link href="/cookies" className="underline underline-offset-4">Cookies</Link>
+                    <CookiePreferencesButton label="Gérer mes cookies" className="min-h-11 underline underline-offset-4" />
                 </nav>
             </div>
         </main>

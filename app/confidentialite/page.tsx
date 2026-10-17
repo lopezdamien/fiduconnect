@@ -13,12 +13,19 @@ export const metadata = pageMetadata({
 export default function Confidentialite() {
     return (
         <LegalPage title="Votre confidentialité" version={OPENAI_ADS_ENABLED ? '17 octobre 2026' : '14 octobre 2026'}>
-            <section>
+            <section aria-label="L’essentiel de votre confidentialité">
+                <h2>Votre demande, en bref</h2>
+                <p>Cette déclaration concerne <strong>contact.fiduconnect.ch</strong>. Votre demande est traitée par l’exploitant pour vous rappeler et vous orienter. Elle n’est pas envoyée automatiquement aux fiduciaires et ne vous inscrit pas à une newsletter. La mesure publicitaire est facultative ; son refus n’empêche pas l’envoi du formulaire.</p>
+                <nav aria-label="Sommaire de la confidentialité" className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                    <a href="#responsable">Responsable</a><a href="#donnees">Données</a><a href="#destinataires">Destinataires</a><a href="#prestataires">Pays et prestataires</a><a href="#conservation">Conservation</a><a href="#cookies">Cookies</a><a href="#droits">Vos droits</a>
+                </nav>
+            </section>
+            <section id="responsable">
                 <h2>1. Responsable du traitement</h2>
                 <p>Smart Administration – Damien Lopez, Avenue d’Aïre 73C, 1203 Genève, Suisse, exploite FIDUCONNECT et est responsable du traitement de vos demandes.</p>
                 <p>Contact pour vos données : <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>.</p>
             </section>
-            <section>
+            <section id="donnees">
                 <h2>2. Informations recueillies</h2>
                 <ul>
                     <li>Votre prénom, nom, e-mail et téléphone, nécessaires pour vous recontacter.</li>
@@ -33,7 +40,7 @@ export default function Confidentialite() {
                 <p>Vos informations servent à vous rappeler gratuitement sous 24 heures, à comprendre votre situation et à préparer une orientation vers un partenaire adapté. Les informations techniques servent au fonctionnement du site et à la prévention des abus.</p>
                 <p className="mt-3">Votre demande ne vous inscrit pas à une newsletter et n’autorise pas une prospection sans rapport avec votre besoin. Le traitement est soumis à la Loi fédérale suisse sur la protection des données.</p>
             </section>
-            <section>
+            <section id="destinataires">
                 <h2>4. Qui reçoit votre demande ?</h2>
                 <p>Smart Administration – Damien Lopez reçoit votre demande dans la boîte contact@fiduconnect.ch et prépare votre rappel. Netlify, Resend et Infomaniak interviennent pour le fonctionnement du site et l’acheminement de cette demande, comme expliqué ci-dessous.</p>
                 <p className="mt-3">Vos coordonnées et les informations utiles ne sont transmises à une fiduciaire partenaire qu’après l’appel et votre validation d’un rendez-vous avec le partenaire concerné. Le formulaire n’envoie aucune demande automatiquement aux fiduciaires. Le partenaire vous informe de ses propres traitements.</p>
@@ -50,7 +57,7 @@ export default function Confidentialite() {
                 <p className="mt-3">Vous pouvez consulter ces engagements dans les <a href="https://www.netlify.com/pdf/netlify-dpa.pdf" rel="noopener noreferrer">dispositions de protection des données de Netlify</a> et de <a href="https://resend.com/legal/dpa" rel="noopener noreferrer">Resend</a>, ou nous contacter pour des précisions sur les garanties applicables à votre demande.</p>
                 <p className="mt-3">Nos comptes professionnels utilisent les conditions standard des prestataires, dont font partie leurs accords de traitement des données. Infomaniak prévoit également un <a href="https://www.infomaniak.com/documents/privacy/DPA/Accord_sur_le_traitement_des_donnees_%28DPA%29.pdf" rel="noopener noreferrer">accord de traitement des données</a>. La liste complète des pays concernés par les traitements complémentaires reste à confirmer avant l’ouverture au public.</p>
             </section>
-            <section>
+            <section id="conservation">
                 <h2>6. Conservation</h2>
                 <p>Si votre demande n’aboutit pas à un rendez-vous, nous supprimons les e-mails et copies que nous gérons au plus tard trois mois après sa réception. Un rappel ne remet pas ce délai à zéro. Si un rendez-vous est validé, les informations utiles sont conservées uniquement le temps nécessaire au suivi de la mise en relation, puis supprimées.</p>
                 <p className="mt-3">La suppression est assurée manuellement dans notre messagerie et comprend les copies que nous gérons, y compris dans la corbeille. Le site ne supprime pas automatiquement les e-mails.</p>
@@ -59,6 +66,7 @@ export default function Confidentialite() {
             </section>
             <section id="cookies" className="scroll-mt-8">
                 <h2>7. Cookies et publicité</h2>
+                <p className="mb-3">Pour une présentation synthétique des outils, de leurs durées et de vos choix, consultez la page <a href="/cookies">Cookies et préférences</a>.</p>
                 <p>Sur contact.fiduconnect.ch, nous proposons une mesure Google Ads pour savoir si nos publicités génèrent des demandes. Elle est facultative : aucune balise ni requête de mesure Google n’est chargée avant votre accord ou lorsque vous refusez. Le formulaire fonctionne sans cet accord. Votre demande ne vaut pas consentement publicitaire.</p>
                 <p className="mt-3">Après acceptation, Google peut traiter des informations techniques, notamment l’adresse IP, le navigateur, la page consultée et des identifiants de clic ou de cookies. Un événement est envoyé après l’acceptation de l’envoi du formulaire par notre service d’e-mail ; il ne confirme pas un rendez-vous ni la réception dans notre boîte. L’événement comprend un identifiant aléatoire de déduplication, sans lien avec vos coordonnées. Nous ne transmettons pas à Google le nom, l’e-mail, le téléphone, l’entreprise ou le texte de votre demande.</p>
                 <p className="mt-3">Cette intégration n’utilise ni Google Analytics, ni conteneur Google Tag Manager, ni suivi avancé des conversions. La personnalisation publicitaire est désactivée. La balise Google est distribuée depuis googletagmanager.com, même sans utiliser un conteneur Tag Manager.</p>
@@ -80,10 +88,11 @@ export default function Confidentialite() {
                 <p className="mt-3">Les accès d’administration Netlify et Infomaniak sont protégés par une double authentification, confirmée par l’exploitant. Le transport chiffré d’un e-mail ne garantit pas le chiffrement de bout en bout de la messagerie. Ne transmettez pas de documents confidentiels pour cette simple demande de mise en relation.</p>
                 <p className="mt-3">La protection concerne aussi la messagerie et les échanges avec les partenaires ; le site seul ne garantit pas la sécurité de l’ensemble du parcours.</p>
             </section>
-            <section>
+            <section id="droits">
                 <h2>9. Vos droits</h2>
                 <p>Dans les conditions prévues par la loi, vous pouvez demander l’accès à vos données, leur rectification ou leur suppression, et faire valoir les autres droits applicables. Vous pouvez nous indiquer que vous ne souhaitez plus donner suite.</p>
                 <p className="mt-3">Écrivez à <a href="mailto:contact@fiduconnect.ch">contact@fiduconnect.ch</a>. Nous pouvons vérifier votre identité de manière proportionnée avant de communiquer des informations personnelles. Vous pouvez également contacter le <a href="https://www.edoeb.admin.ch/fr" rel="noopener noreferrer">Préposé fédéral à la protection des données et à la transparence</a>.</p>
+                <p className="mt-3">Si une obligation ou un autre motif légal empêche une suppression, nous vous en expliquons la raison. Le retrait d’un accord publicitaire concerne les envois futurs ; il ne remplace pas une demande d’accès ou de suppression adressée à l’exploitant ou au destinataire concerné.</p>
             </section>
         </LegalPage>
     );

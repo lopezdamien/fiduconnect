@@ -162,7 +162,8 @@ export default function Home() {
                     <nav aria-label="Informations légales et cookies" className="flex flex-wrap gap-x-5 gap-y-2">
                         <Link href="/mentions-legales" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Mentions légales</Link>
                         <Link href="/confidentialite" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Confidentialité</Link>
-                        <CookiePreferencesButton className="inline-flex min-h-11 items-center hover:underline focus-visible:underline" />
+                        <Link href="/cookies" className="inline-flex min-h-11 items-center hover:underline focus-visible:underline">Cookies</Link>
+                        <CookiePreferencesButton className="inline-flex min-h-11 items-center hover:underline focus-visible:underline" label="Gérer mes cookies" />
                     </nav>
                 </div>
             </footer>

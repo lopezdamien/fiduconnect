@@ -7,8 +7,8 @@ import {
     readAdsConsent, saveAdsConsent, syncAdsConsent,
 } from '@/lib/google-ads';
 
-export function CookiePreferencesButton({ className = '' }: { className?: string }) {
-    return <button type="button" className={className} onClick={() => window.dispatchEvent(new Event(CONSENT_OPEN_EVENT))}>Cookies</button>;
+export function CookiePreferencesButton({ className = '', label = 'Cookies' }: { className?: string; label?: string }) {
+    return <button type="button" className={className} onClick={() => window.dispatchEvent(new Event(CONSENT_OPEN_EVENT))}>{label}</button>;
 }
 
 export function AdsConsent() {
