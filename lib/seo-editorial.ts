@@ -3,11 +3,11 @@ import type { Editorial } from '@/components/SeoEditorialPage';
 export const editorialPages: Editorial[] = [
     {
         path: '/a-propos', label: 'À propos', title: 'À propos de FIDUCONNECT : la mise en relation fiduciaire à Genève',
-        description: 'Découvrez le rôle de FIDUCONNECT, service de Smart Administration – Damien Lopez pour les entreprises et indépendants du canton de Genève.',
+        description: 'Découvrez le rôle de FIDUCONNECT : accompagner les entreprises et indépendants du canton de Genève dans leur recherche de fiduciaire.',
         heading: 'Un besoin compris. Une recherche plus claire.',
         intro: 'FIDUCONNECT aide les entreprises et les indépendants du canton de Genève à préciser leur recherche avant une mise en relation avec un partenaire fiduciaire.',
         sections: [
-            { title: 'Un service porté à Genève', paragraphs: ['FIDUCONNECT est exploité par Smart Administration – Damien Lopez, Avenue d’Aïre 73C, 1203 Genève. Notre périmètre actuel est le canton de Genève.', 'Le premier échange sert à comprendre votre activité, votre organisation, vos attentes et les échéances à signaler. Il ne demande pas de documents comptables ou de dossiers confidentiels.'] },
+            { title: 'Une approche locale, à Genève', paragraphs: ['FIDUCONNECT accompagne les entreprises et les indépendants du canton de Genève dans leur recherche d’un partenaire fiduciaire adapté à leurs besoins.', 'Le premier échange sert à comprendre votre activité, votre organisation, vos attentes et les échéances à signaler. Il ne demande pas de documents comptables ou de dossiers confidentiels.'] },
             { title: 'Un intermédiaire, pas une fiduciaire', paragraphs: ['Nous ne tenons pas votre comptabilité, ne préparons pas vos déclarations et ne fournissons pas de conseil comptable, fiscal ou juridique personnalisé. Ces prestations relèvent du professionnel que vous choisissez de mandater.', 'Notre orientation porte sur des partenaires de notre réseau, sans comparaison exhaustive du marché. Nous ne promettons ni économie chiffrée ni résultat fiscal.'] },
             { title: 'Une décision qui vous appartient', paragraphs: ['Votre demande, le rappel et l’orientation FIDUCONNECT sont gratuits et sans engagement. Les honoraires et conditions d’un éventuel mandat sont à convenir directement avec la fiduciaire.', 'Nous échangeons avec vous avant toute transmission de coordonnées. Vous validez le rendez-vous avec le partenaire concerné et restez libre de ne pas poursuivre.'] },
         ], related: [{ href: '/comment-ca-marche', label: 'Comprendre les étapes' }, { href: '/mentions-legales', label: 'Identité et mentions légales' }],

@@ -9,6 +9,17 @@ import { seoRedirects } from '../lib/seo-redirects.ts';
 const paths = [...SEO_INDEXABLE_PATHS, '/mentions-legales', '/confidentialite', '/cookies', '/merci'];
 const html = new Map(paths.map(path => [path, readFileSync(new URL('../.next/server/app/' + (path === '/' ? 'index' : path.slice(1)) + '.html', import.meta.url), 'utf8')]));
 
+test('operator identity remains in legal pages only, including metadata and structured data', () => {
+    for (const [path, page] of html) {
+        if (['/mentions-legales', '/confidentialite'].includes(path)) {
+            assert.match(page, /Smart Administration/);
+            assert.match(page, /Damien Lopez/);
+        } else {
+            assert.doesNotMatch(page, /Smart Administration|Damien Lopez|Avenue d’Aïre|Avenue d&#x27;Aïre/, path);
+        }
+    }
+});
+
 test('all 17 built pages have a unique title, one H1, canonical and preview noindex', () => {
     const titles = new Set();
     for (const [path, page] of html) {
