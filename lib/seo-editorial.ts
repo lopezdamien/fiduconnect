@@ -3,7 +3,7 @@ import type { Editorial } from '@/components/SeoEditorialPage';
 export const editorialPages: Editorial[] = [
     {
         path: '/ressources/choisir-fiduciaire-geneve', label: 'Choisir une fiduciaire à Genève',
-        title: 'Comment choisir une fiduciaire à Genève ? Les critères utiles',
+        title: 'Choisir une fiduciaire à Genève : les critères',
         description: 'Mandat, interlocuteur, compétences, outils et honoraires : les critères et questions pour comparer des fiduciaires à Genève avant de vous engager.',
         heading: 'Comment choisir une fiduciaire à Genève ?',
         intro: 'Le bon partenaire n’est pas forcément celui qui propose le plus de prestations ou le prix le plus bas. C’est celui dont le mandat, les échanges et les méthodes correspondent à votre entreprise. Voici une démarche concrète pour comparer des propositions.',
@@ -52,7 +52,7 @@ export const editorialPages: Editorial[] = [
         related: [{ href: '/services/comptabilite', label: 'Préciser votre besoin de suivi comptable' }, { href: '/ressources/changer-fiduciaire-geneve', label: 'Préparer un changement de fiduciaire' }, { href: '/contact', label: 'Décrire votre recherche à FIDUCONNECT' }],
     },
     {
-        path: '/a-propos', label: 'À propos', title: 'À propos de FIDUCONNECT : la mise en relation fiduciaire à Genève',
+        path: '/a-propos', label: 'À propos', title: 'La mise en relation fiduciaire à Genève',
         description: 'Découvrez le rôle de FIDUCONNECT : accompagner les entreprises et indépendants du canton de Genève dans leur recherche de fiduciaire.',
         heading: 'Un besoin compris. Une recherche plus claire.',
         intro: 'FIDUCONNECT aide les entreprises et les indépendants du canton de Genève à préciser leur recherche avant une mise en relation avec un partenaire fiduciaire.',
@@ -63,7 +63,7 @@ export const editorialPages: Editorial[] = [
         ], related: [{ href: '/comment-ca-marche', label: 'Comprendre les étapes' }, { href: '/mentions-legales', label: 'Identité et mentions légales' }],
     },
     {
-        path: '/comment-ca-marche', label: 'Comment ça marche', title: 'Comment fonctionne la mise en relation FIDUCONNECT à Genève ?',
+        path: '/comment-ca-marche', label: 'Comment ça marche', title: 'Mise en relation fiduciaire : comment ça marche ?',
         description: 'Demande, rappel et orientation : les étapes pour rechercher un partenaire fiduciaire à Genève, sans transmission automatique de vos coordonnées.',
         heading: 'Un premier échange. Puis votre décision.',
         intro: 'Vous n’avez pas besoin de connaître le nom exact du mandat à confier. Quelques informations générales suffisent pour commencer.',
@@ -74,9 +74,9 @@ export const editorialPages: Editorial[] = [
         ], related: [{ href: '/services', label: 'Explorer les besoins' }, { href: '/confidentialite', label: 'Comprendre le traitement des données' }],
     },
     {
-        path: '/services/pilotage', label: 'Suivi et pilotage', title: 'Trouver un interlocuteur pour le suivi de votre entreprise à Genève',
+        path: '/services/pilotage', label: 'Suivi et pilotage', title: 'Suivi comptable et pilotage à Genève',
         description: 'Tableaux de bord, échanges comptables et visibilité sur l’activité : préparez votre recherche de partenaire pour le suivi de votre entreprise à Genève.',
-        heading: 'Des chiffres. Mais surtout des échanges utiles.',
+        heading: 'Suivi comptable à Genève : des échanges utiles.',
         intro: 'Vous souhaitez mieux comprendre les informations de votre entreprise et convenir d’un suivi régulier avec un professionnel ? Commençons par préciser les décisions que vous devez préparer.',
         sections: [
             { title: 'Définir ce que vous souhaitez suivre', paragraphs: ['Votre demande peut concerner la fréquence des échanges, la compréhension des résultats, le suivi des factures ou la préparation d’un budget. Présentez les difficultés concrètes plutôt qu’une liste d’indicateurs imposés.', 'FIDUCONNECT vous aide à formuler la recherche. La disponibilité d’un accompagnement de pilotage et son périmètre restent à confirmer avec le partenaire ; nous ne produisons pas nous-mêmes de tableaux de bord.'] },
@@ -85,9 +85,9 @@ export const editorialPages: Editorial[] = [
         ], related: [{ href: '/services/comptabilite', label: 'Comptabilité et organisation' }, { href: '/services/changer-fiduciaire', label: 'Repenser votre collaboration' }],
     },
     {
-        path: '/tva-suisse', label: 'Préparer une demande TVA', title: 'TVA en Suisse : préparer votre échange avec un professionnel à Genève',
+        path: '/tva-suisse', label: 'Préparer une demande TVA', title: 'TVA : préparer un rendez-vous à Genève',
         description: 'Les informations générales à réunir pour discuter de la TVA de votre entreprise avec un professionnel à Genève, sans diagnostic fiscal en ligne.',
-        heading: 'TVA : commencer par les bonnes informations.',
+        heading: 'TVA : préparer votre rendez-vous à Genève.',
         intro: 'Cette page vous aide à préparer une demande de mise en relation. Elle ne détermine pas vos obligations fiscales et ne remplace pas un conseil adapté à votre activité.',
         sections: [
             { title: 'Décrire votre activité et vos échanges', paragraphs: ['Présentez les biens ou services proposés, les pays avec lesquels vous travaillez et votre organisation actuelle. Précisez si vous démarrez, si votre activité change ou si vous cherchez un suivi régulier.', 'Le professionnel pourra alors vous indiquer les éléments à examiner. Aucun seuil, taux ou traitement ne doit être appliqué à votre situation sur la seule base de cette page.'] },
@@ -96,16 +96,62 @@ export const editorialPages: Editorial[] = [
         ], related: [{ href: '/services/tva', label: 'Rechercher un partenaire fiscalité & TVA' }, { href: 'https://www.estv.admin.ch/fr/taxe-sur-la-valeur-ajoutee', label: 'Informations officielles de l’AFC sur la TVA' }],
     },
     {
-        path: '/ressources/changer-fiduciaire-geneve', label: 'Préparer un changement de fiduciaire', title: 'Changer de fiduciaire à Genève : préparer la transition',
-        description: 'Attentes, mandat actuel, calendrier et reprise des dossiers : les points à clarifier avec les professionnels avant de changer de fiduciaire à Genève.',
-        heading: 'Changer de fiduciaire : préparer, puis décider.',
-        intro: 'Une nouvelle collaboration se prépare en identifiant ce qui doit changer et les points à organiser avec les professionnels concernés. Aucune continuité automatique n’est garantie par une simple mise en relation.',
+        path: '/ressources/changer-fiduciaire-geneve', label: 'Préparer un changement de fiduciaire', title: 'Changer de fiduciaire : la checklist de transition',
+        description: 'Changer de fiduciaire à Genève : checklist, dossiers, accès et étapes à organiser avec les professionnels pour préparer votre transition.',
+        heading: 'Changer de fiduciaire à Genève : préparer la transition.',
+        intro: 'Vous envisagez une nouvelle collaboration, mais ne savez pas par où commencer ? Cette méthode vous aide à organiser vos questions, la reprise des informations et les validations avec les professionnels, avant de décider du changement.',
+        article: {
+            updated: '2026-10-17', displayUpdatedDate: '17 octobre 2026',
+            sources: [
+                { href: 'https://www.kmu.admin.ch/fr/tenir-soi-meme-la-comptabilite-ou-la-sous-traiter', label: 'Portail PME du SECO — Tenir soi-même la comptabilité ou la sous-traiter ?', context: 'Pour réfléchir à la répartition des tâches et au choix d’un partenaire de confiance. La checklist de transition de ce guide est proposée par FIDUCONNECT, pas par le SECO.' },
+                { href: 'https://www.ge.ch/document/guide-entreprendre-geneve', label: 'Canton de Genève — Guide Entreprendre à Genève', context: 'Un point d’entrée officiel sur la gestion d’entreprise, notamment la comptabilité, la fiscalité et les assurances sociales. Il ne fixe pas le calendrier de votre changement de prestataire.' },
+            ],
+        },
         sections: [
-            { title: 'Partir des difficultés concrètes', paragraphs: ['Distinguez le manque de disponibilité, la communication, le périmètre du mandat ou l’évolution de votre activité. Notez également ce qui fonctionne et que vous souhaitez conserver.', 'Présenter les mêmes attentes à plusieurs interlocuteurs permet de comparer des propositions sur une base plus claire, sans se limiter au montant des honoraires.'] },
-            { title: 'Examiner le contrat avant une résiliation', paragraphs: ['Relisez les conditions de votre mandat actuel et faites confirmer les modalités applicables par le professionnel compétent. Il n’existe pas de délai de résiliation universel que FIDUCONNECT pourrait vous garantir.', 'Vous pouvez commencer à explorer une alternative sans résilier immédiatement. Précisez vos échéances et vérifiez la disponibilité du nouveau partenaire avant de décider.'] },
-            { title: 'Cadrer la reprise des informations', paragraphs: ['Échangez sur l’inventaire des dossiers, les accès aux outils, les responsabilités de chacun et le calendrier de transmission. Les données salariales, comptables et fiscales nécessitent un moyen de transmission adapté.', 'Faites préciser les travaux de reprise inclus et leurs éventuels honoraires. FIDUCONNECT ne récupère pas votre dossier et ne contacte pas votre fiduciaire actuelle à la suite du formulaire.'] },
-            { title: 'Confirmer la collaboration', paragraphs: ['Le périmètre du mandat, les modalités de suivi et les échéances doivent être convenus avec la fiduciaire. Ne considérez pas la mise en relation comme une promesse d’absence de risque ou de résultat fiscal.', 'La demande et l’orientation FIDUCONNECT restent gratuites et sans engagement. Vos coordonnées ne sont transmises au partenaire concerné qu’après l’appel et votre validation du rendez-vous.'] },
-        ], related: [{ href: '/services/changer-fiduciaire', label: 'Votre recherche de nouveau partenaire' }, { href: '/services/comptabilite', label: 'Clarifier le suivi comptable attendu' }],
+            { title: '1. Définir ce qui doit changer', paragraphs: [
+                'Avant de comparer des cabinets, notez les difficultés que vous rencontrez : réponses peu claires, manque de disponibilité, outils inadaptés ou tâches qui ne correspondent plus à votre activité. Distinguez un incident ponctuel d’une attente durable.',
+                'Transformez chaque difficulté en critère concret. « Je veux davantage de suivi » peut devenir « je souhaite un point trimestriel avec un interlocuteur identifié ». Notez aussi ce qui fonctionne et que vous voulez conserver. Une nouvelle fiduciaire ne peut pas deviner ces priorités.',
+            ], questions: ['Quelles tâches est-ce que je souhaite déléguer ou garder en interne ?', 'Quel interlocuteur, quels outils et quelle fréquence d’échange me conviendraient ?', 'Quelles échéances dois-je signaler dès la première conversation ?'] },
+            { title: '2. Clarifier le mandat avant de résilier', paragraphs: [
+                'Vous pouvez explorer une alternative sans annoncer immédiatement une résiliation. Relisez votre accord actuel et faites confirmer les modalités de fin du mandat, les travaux encore prévus et les questions de facturation par les professionnels concernés. FIDUCONNECT ne peut pas déterminer le délai applicable à votre contrat.',
+                'Avec le futur partenaire, demandez une proposition écrite précisant le périmètre, les exclusions, l’interlocuteur et les conditions de reprise. Faites distinguer les honoraires récurrents des travaux de démarrage ou de remise en ordre. Un prix annoncé ne permet pas, seul, de comparer deux offres.',
+            ], questions: ['Qui termine les travaux déjà engagés et jusqu’à quelle période ?', 'Qui reprend le suivi, à partir de quand et sous quelles conditions ?', 'Quels coûts de reprise, exports ou logiciels doivent être clarifiés ?'] },
+            { title: '3. Faire l’inventaire des dossiers et des accès', paragraphs: [
+                'Préparez avec les interlocuteurs un inventaire des informations utiles à la reprise. Le tableau suivant est une base de discussion, à adapter à votre activité et au mandat : ce n’est ni une liste d’obligations ni une demande de nous envoyer vos dossiers.',
+                'Pour chaque élément, identifiez qui le détient, le format disponible, le destinataire et la manière de confirmer sa réception. Un accès à un outil ne remplace pas toujours un export exploitable. Faites vérifier au nouveau partenaire ce dont il a réellement besoin.',
+            ], table: { caption: 'Inventaire de reprise à adapter avec les professionnels', columns: ['Sujet', 'Éléments à identifier', 'Point à confirmer'], rows: [
+                ['Comptabilité', 'Dossiers, pièces, derniers états disponibles et travaux en cours.', 'Période couverte, format des exports et informations manquantes.'],
+                ['TVA et fiscalité', 'Démarches suivies, échanges en cours et échéances connues.', 'Interlocuteur responsable de chaque sujet avant et après la reprise.'],
+                ['Salaires, si concernés', 'Organisation de la paie, travaux en cours et accès autorisés.', 'Canal sécurisé et périmètre strictement nécessaire des données transmises.'],
+                ['Logiciels et accès', 'Outils comptables, facturation et droits accordés aux intervenants.', 'Propriétaire des comptes, accès à maintenir puis à retirer et possibilité d’export.'],
+            ] } },
+            { title: '4. Convenir d’un calendrier de transition', paragraphs: [
+                'Il n’existe pas de calendrier universel de changement. Votre activité, les travaux en cours, les engagements contractuels et la disponibilité du nouveau cabinet déterminent l’organisation possible. Demandez un enchaînement d’étapes et des validations, plutôt qu’une date de bascule supposée acquise.',
+                'Commencez par confirmer le périmètre et la disponibilité, puis faites préciser les modalités de fin de collaboration. Organisez ensuite la transmission et son contrôle avant de valider le démarrage effectif. Pour chaque échéance proche, faites nommer la personne qui accepte de s’en charger. Si une responsabilité reste floue, demandez sa clarification avant de compter sur une intervention.',
+            ], questions: ['Avant la décision : attentes, proposition et disponibilité confirmées.', 'Avant la transmission : modalités de fin du mandat et responsabilités clarifiées.', 'Pendant la reprise : inventaire, réception et éléments manquants vérifiés.', 'Au démarrage : première période traitée et prochain point de suivi convenus.'] },
+            { title: '5. Sécuriser la transmission et contrôler la reprise', paragraphs: [
+                'Les dossiers comptables et salariaux peuvent contenir des informations sensibles. Faites convenir d’un canal adapté entre les destinataires autorisés. Évitez d’envoyer un dossier complet dans un formulaire de mise en relation ou de partager un mot de passe commun par e-mail.',
+                'Quand l’outil le permet, privilégiez des accès individuels et vérifiez avec les professionnels les droits nécessaires. Le retrait d’un ancien accès doit être coordonné avec la continuité du travail et la vérification de vos propres accès : ne supprimez rien précipitamment.',
+                'Prévoyez un point de contrôle après la transmission. Demandez quels éléments ont été reçus, lesquels restent manquants et qui doit les fournir. La réception d’un dossier ne signifie pas automatiquement que son contenu a déjà été analysé ou que toutes les échéances sont prises en charge.',
+            ] },
+            { title: '6. Un exemple pour préparer la discussion', paragraphs: [
+                'Exemple fictif : une PME genevoise veut conserver son logiciel, déléguer le suivi courant et mieux comprendre ses chiffres. Elle identifie d’abord ses priorités et les dates qu’elle connaît. Le cabinet envisagé vérifie la compatibilité de l’outil et décrit son accompagnement ainsi que les travaux de reprise.',
+                'L’entreprise fait ensuite clarifier avec les interlocuteurs la dernière période traitée par l’ancien partenaire, la première période du nouveau et le responsable des démarches en cours. Une transmission est organisée, suivie d’un contrôle des éléments reçus et d’un premier rendez-vous de suivi. Cet exemple illustre une démarche ; il ne fixe ni durée, ni prix, ni résultat garanti.',
+            ] },
+            { title: '7. La checklist avant de valider le changement', paragraphs: ['Gardez ces points à portée de main lors de vos échanges. Une case encore incertaine est une question à résoudre avec le professionnel, pas un motif pour supposer que la reprise est impossible.'], questions: [
+                'Mes attentes et le périmètre du nouveau mandat sont écrits.',
+                'La disponibilité, les honoraires et les travaux de reprise ont été précisés.',
+                'Les modalités de fin du mandat actuel ont été clarifiées.',
+                'Les périodes traitées et le responsable de chaque échéance sont identifiés.',
+                'L’inventaire, les accès et le canal de transmission sont convenus.',
+                'Les éléments reçus ou manquants seront vérifiés lors d’un point de reprise.',
+                'Le premier échange de suivi avec le nouveau partenaire est prévu.',
+            ] },
+            { title: 'Comment FIDUCONNECT vous accompagne', paragraphs: [
+                'Vous pouvez nous parler de votre recherche avant de prendre une décision de résiliation. Nous clarifions votre besoin et vous orientons vers un partenaire de notre réseau à Genève. Nous ne comparons pas toutes les fiduciaires du canton et ne réalisons pas la reprise de votre dossier.',
+                'La demande, le rappel et l’orientation sont gratuits et sans engagement pour vous ; FIDUCONNECT est rémunéré par les partenaires fiduciaires. Vos coordonnées ne sont transmises qu’après l’appel et votre validation du rendez-vous. Le mandat, les honoraires et la disponibilité restent à convenir directement avec le partenaire. Le formulaire ne déclenche ni résiliation ni contact avec votre fiduciaire actuelle.',
+            ] },
+        ], related: [{ href: '/services/changer-fiduciaire', label: 'Rechercher un nouveau partenaire à Genève' }, { href: '/ressources/choisir-fiduciaire-geneve', label: 'Comparer les critères de choix d’une fiduciaire' }, { href: '/services/comptabilite', label: 'Clarifier le suivi comptable attendu' }],
     },
 ];
 

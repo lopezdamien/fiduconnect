@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
-import { seoRedirects } from './lib/seo-redirects';
+import { seoRedirects, canonicalHostRedirects } from './lib/seo-redirects';
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  async redirects() { return seoRedirects; },
+  async redirects() { return [...canonicalHostRedirects, ...seoRedirects]; },
   turbopack: { root: process.cwd() },
   images: {
     remotePatterns: [],

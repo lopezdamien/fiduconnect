@@ -9,6 +9,7 @@ export type SeoService = {
   accent: string;
   intro: string;
   number: string;
+  resources: { href: string; label: string }[];
   situations: Section[];
   preparation: string[];
   criteria: Section[];
@@ -17,9 +18,10 @@ export type SeoService = {
 export const seoServices: SeoService[] = [
   {
     slug: 'comptabilite', label: 'Comptabilité', number: '01',
-    title: 'Trouver une fiduciaire pour votre comptabilité à Genève',
+    title: 'Fiduciaire pour votre comptabilité à Genève',
     description: 'Vous recherchez un partenaire pour la comptabilité de votre entreprise à Genève ? FIDUCONNECT clarifie vos attentes et facilite la mise en relation.',
-    heading: 'Votre comptabilité.', accent: 'Le bon interlocuteur.',
+    heading: 'Comptabilité à Genève.', accent: 'Trouver votre partenaire.',
+    resources: [{ href: '/ressources/choisir-fiduciaire-geneve', label: 'Les critères pour choisir une fiduciaire' }, { href: '/services/pilotage', label: 'Organiser le suivi de votre activité' }],
     intro: 'Vous souhaitez confier votre comptabilité, mieux organiser les échanges ou trouver un suivi adapté à votre activité ? Nous vous aidons à préciser ce que vous attendez d’un partenaire fiduciaire à Genève.',
     situations: [
       { title: 'Vous démarrez votre activité', text: 'Vous cherchez à définir ce que vous pouvez gérer vous-même et ce que vous souhaitez confier à une fiduciaire. Votre organisation de départ fait partie des éléments à discuter.' },
@@ -40,9 +42,10 @@ export const seoServices: SeoService[] = [
   },
   {
     slug: 'tva', label: 'Fiscalité & TVA', number: '02',
-    title: 'Trouver un partenaire en fiscalité d’entreprise et TVA à Genève',
+    title: 'Fiscalité et TVA à Genève : trouver un partenaire',
     description: 'Identifiez un partenaire pour vos besoins de fiscalité d’entreprise et de TVA à Genève. FIDUCONNECT vous aide à clarifier la demande, sans conseil fiscal personnalisé.',
-    heading: 'Fiscalité & TVA.', accent: 'Clarifier votre besoin.',
+    heading: 'Fiscalité & TVA à Genève.', accent: 'Le partenaire adapté.',
+    resources: [{ href: '/tva-suisse', label: 'Préparer votre échange sur la TVA' }],
     intro: 'Vous recherchez un interlocuteur pour les questions fiscales de votre entreprise ou son suivi TVA ? Nous vous aidons à formuler votre demande avant de vous orienter vers un partenaire à Genève.',
     situations: [
       { title: 'Un besoin ponctuel', text: 'Vous avez une question précise ou un document à faire examiner. Présentez le sujet, le contexte et votre échéance pour rechercher un interlocuteur en mesure d’étudier la demande.' },
@@ -63,9 +66,10 @@ export const seoServices: SeoService[] = [
   },
   {
     slug: 'charges-salaires', label: 'Salaires & administration', number: '03',
-    title: 'Trouver un partenaire pour les salaires de votre entreprise à Genève',
+    title: 'Gestion des salaires à Genève : trouver un partenaire',
     description: 'Recherchez un partenaire pour la gestion des salaires et l’administration de votre entreprise à Genève. FIDUCONNECT vous aide à définir les tâches à confier.',
-    heading: 'Vos salaires.', accent: 'Une organisation plus claire.',
+    heading: 'Vos salaires à Genève.', accent: 'Une organisation plus claire.',
+    resources: [{ href: '/ressources/choisir-fiduciaire-geneve', label: 'Les questions à poser à votre futur partenaire' }],
     intro: 'Vous souhaitez confier la préparation des salaires ou certaines tâches administratives à un partenaire ? Commençons par comprendre votre fonctionnement, vos outils et ce que vous voulez déléguer.',
     situations: [
       { title: 'Votre équipe s’agrandit', text: 'Vous préparez une première embauche ou votre effectif évolue. Vous cherchez un interlocuteur pour discuter de l’organisation de la paie et des tâches qui pourraient lui être confiées.' },
@@ -86,9 +90,10 @@ export const seoServices: SeoService[] = [
   },
   {
     slug: 'changer-fiduciaire', label: 'Changer de fiduciaire', number: '04',
-    title: 'Changer de fiduciaire à Genève : préparer votre recherche',
+    title: 'Changer de fiduciaire à Genève : trouver un partenaire',
     description: 'Vous envisagez de changer de fiduciaire à Genève ? Clarifiez vos attentes et préparez vos échanges avec un nouveau partenaire grâce à FIDUCONNECT.',
-    heading: 'Changer de fiduciaire.', accent: 'Avec un besoin bien défini.',
+    heading: 'Changer de fiduciaire à Genève.', accent: 'Selon vos besoins.',
+    resources: [{ href: '/ressources/changer-fiduciaire-geneve', label: 'La checklist pour préparer votre transition' }, { href: '/ressources/choisir-fiduciaire-geneve', label: 'Comparer les futurs partenaires' }],
     intro: 'Vous manquez de visibilité, les échanges sont difficiles ou votre entreprise a évolué ? Avant de chercher un nouveau partenaire à Genève, prenons le temps de préciser ce que vous souhaitez voir changer.',
     situations: [
       { title: 'La communication ne vous convient plus', text: 'Vous aimeriez des réponses plus compréhensibles, un interlocuteur identifié ou des échanges plus réguliers. Décrire ces attentes aide à cadrer votre prochaine collaboration.' },

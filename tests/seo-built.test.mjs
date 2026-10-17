@@ -4,7 +4,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync, existsSync } from 'node:fs';
 import { SEO_INDEXABLE_PATHS } from '../lib/seo-release.ts';
-import { seoRedirects } from '../lib/seo-redirects.ts';
+import { seoRedirects, canonicalHostRedirects } from '../lib/seo-redirects.ts';
+import { seoServices } from '../lib/seo-services.ts';
 import { seoResources } from '../lib/seo-resources.ts';
 
 const paths = [...SEO_INDEXABLE_PATHS, '/mentions-legales', '/confidentialite', '/cookies', '/merci'];
@@ -96,6 +97,46 @@ test('built internal links and fragments point to real pages, anchors or assets'
             if (fragment) assert.ok(targetHtml.includes('id="' + fragment + '"'), path + ' -> ' + href);
         } else assert.ok(existsSync(new URL('../public' + destination, import.meta.url)), path + ' -> ' + href);
     }
+});
+
+test('service pages link directly to their practical resources and clarify the local need', () => {
+    for (const service of seoServices) {
+        const page = html.get('/services/' + service.slug);
+        const resources = page.match(/<nav aria-label="Ressources pour ce besoin">(.*?)<\/nav>/s)?.[1];
+        assert.ok(resources, service.slug);
+        for (const resource of service.resources) assert.ok(resources.includes('href="' + resource.href + '"'), resource.href);
+        assert.match(page.match(/<h1\b[^>]*>(.*?)<\/h1>/s)[1], /Genève/);
+    }
+});
+
+test('transition guide provides an accessible inventory, checklist, sources and an honest update date', () => {
+    const path = '/ressources/changer-fiduciaire-geneve';
+    const page = html.get(path);
+    assert.match(page, /Sommaire de l’article/);
+    assert.match(page, /Inventaire de reprise à adapter avec les professionnels/);
+    assert.match(page, /scope="col"/);
+    assert.match(page, /scope="row"/);
+    assert.match(page, /Exemple fictif/);
+    assert.match(page, /La checklist avant de valider le changement/);
+    assert.match(page, /Mis à jour le/);
+    assert.match(page, /www\.kmu\.admin\.ch/);
+    assert.ok(page.includes('href="/services/changer-fiduciaire"'));
+    const article = [...page.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/g)].map(([, value]) => JSON.parse(value)).find(schema => schema['@type'] === 'Article');
+    assert.equal(article.dateModified, '2026-10-17');
+    assert.ok(!('datePublished' in article), 'Original publication date is unknown, not invented');
+    assert.equal(article.mainEntityOfPage, 'https://www.fiduconnect.ch' + path);
+});
+
+test('canonical redirect is permanent and strictly limited to the SEO apex host', () => {
+    const manifest = JSON.parse(readFileSync(new URL('../.next/routes-manifest.json', import.meta.url), 'utf8'));
+    const expected = canonicalHostRedirects[0];
+    const rule = manifest.redirects.find(item => item.source === expected.source && item.destination === expected.destination);
+    assert.ok(rule);
+    assert.equal(rule.statusCode, 308);
+    assert.deepEqual(rule.has, expected.has);
+    const host = new RegExp('^' + rule.has[0].value + '$');
+    assert.ok(host.test('fiduconnect.ch'));
+    for (const other of ['www.fiduconnect.ch', 'contact.fiduconnect.ch', 'fiduconnectXch', 'fiduconnect.ch.example.org', 'localhost', 'preview.vercel.app']) assert.ok(!host.test(other), other);
 });
 
 test('built structured data is valid JSON and contains no invented reviews', () => {

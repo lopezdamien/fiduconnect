@@ -69,6 +69,17 @@
 .seo-article-summary a { display: block; padding-block: 9px; font-size: 15px; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; }
 .seo-article-questions { list-style: disc; padding-left: 22px; margin-top: 20px; font-size: 16px; color: #605b54; line-height: 1.85; }
 .seo-article-questions li + li { margin-top: 10px; }
+.seo-article-table-scroll { max-width: 100%; overflow-x: auto; margin-top: 24px; border: 1px solid #d8d1c4; border-radius: 5px; }
+.seo-article-table-hint { display: none; }
+.seo-article-table-scroll:focus-visible { outline: 2px solid #9c513b; outline-offset: 4px; }
+.seo-article-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.7; background: #fffdfa; }
+.seo-article-table caption { text-align: left; padding: 18px; font-size: 16px; font-weight: 500; background: #e7e9df; }
+.seo-article-table th, .seo-article-table td { text-align: left; vertical-align: top; padding: 18px; border-top: 1px solid #d8d1c4; }
+.seo-article-table th { font-weight: 500; }
+.seo-article-table th[scope="row"] { min-width: 140px; overflow-wrap: normal; }
+.seo-article-table thead { background: #eee9df; }
+.seo-article-table td { color: #605b54; }
+@media (max-width: 760px) { .seo-editorial-body p.seo-article-table-hint { display: block; font-size: 14px; color: #605b54; } }
 .seo-article-sources { max-width: 720px; border-top: 1px solid #d8d1c4; padding-top: 28px; margin-top: 45px; }
 .seo-article-sources h2 { font-size: 20px; margin-bottom: 18px; }
 .seo-article-sources ul { list-style: none; }
@@ -117,7 +128,7 @@
 .seo-needs article { padding: 27px 23px; display: flex; flex-direction: column; background: #fffdfa66; }
 .seo-needs article + article { border-left: 1px solid #d8d1c4; }
 .seo-card-top { display: flex; justify-content: space-between; align-items: center; color: #9c513b; margin-bottom: 38px; }
-.seo-card-top span { font-size: 14px; color: #82776a; }
+.seo-card-top span { font-size: 14px; color: #60574c; }
 .seo-needs h3 { font-size: 16px; font-weight: 500; line-height: 1.4; }
 .seo-needs p { font-size: 15px; line-height: 1.9; color: #686259; margin-top: 14px; margin-bottom: 26px; }
 .seo-needs article > a { margin-top: auto; display: flex; justify-content: space-between; min-height: 44px; align-items: center; font-size: 15px; border-top: 1px solid #ded7cb; padding-top: 12px; }
