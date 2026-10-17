@@ -40,6 +40,10 @@ test('approved release would expose only genuine content URLs; thank-you remains
 test('known historic URLs are retained or redirected once to equivalent content', () => {
     const release = load('lib/seo-release.ts');
     const redirects = load('lib/seo-redirects.ts').seoRedirects;
+    const legacyChange = redirects.find(item => item.source === '/changer-fiduciaire');
+    assert.ok(legacyChange);
+    assert.equal(legacyChange.destination, '/services/changer-fiduciaire');
+    assert.equal(legacyChange.permanent, true);
     const destinations = new Set([...release.SEO_INDEXABLE_PATHS, '/mentions-legales', '/confidentialite', '/cookies', '/merci']);
     const historic = ['/', '/a-propos', '/contact', '/diagnostic', '/services', '/services/comptabilite', '/services/tva', '/services/charges-salaires', '/services/pilotage', '/services/changer-fiduciaire', '/ressources', '/ressources/changer-fiduciaire-geneve', '/tva-suisse', '/cookies', '/mentions-legales', '/confidentialite', '/merci', '/lp/changer-fiduciaire-geneve'];
     for (const path of historic) {
