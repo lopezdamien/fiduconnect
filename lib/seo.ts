@@ -15,6 +15,14 @@ export function absoluteUrl(path: string): string {
     return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
+export function socialMetadata(params: { title: string; description: string; path: string; type?: 'website' | 'article' }): Metadata {
+    const image = { url: absoluteUrl('/partage'), width: 1200, height: 630, alt: 'FIDUCONNECT — Une fiduciaire adaptée à votre entreprise à Genève' };
+    return {
+        openGraph: { type: params.type ?? 'website', locale: 'fr_CH', siteName: SITE_NAME, url: absoluteUrl(params.path), title: params.title, description: params.description, images: [image] },
+        twitter: { card: 'summary_large_image', title: params.title, description: params.description, images: [image.url] },
+    };
+}
+
 /**
  * Métadonnées d'une page : titre (sans suffixe de marque, ajouté par le
  * template du layout), canonical absolu et OpenGraph/Twitter cohérents.
@@ -26,27 +34,13 @@ export function pageMetadata(params: {
     type?: 'website' | 'article';
     noIndex?: boolean;
 }): Metadata {
-    const url = absoluteUrl(params.path);
-
     return {
         title: params.title,
         description: params.description,
         alternates: {
             canonical: params.path,
         },
-        openGraph: {
-            type: params.type ?? 'website',
-            locale: 'fr_CH',
-            siteName: SITE_NAME,
-            url,
-            title: params.title,
-            description: params.description,
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: params.title,
-            description: params.description,
-        },
+        ...socialMetadata(params),
         ...(params.noIndex
             ? { robots: { index: false, follow: true } }
             : {}),

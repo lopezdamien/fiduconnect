@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./seo.css";
 import "./seo-form.css";
-import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { SITE_NAME, SITE_URL, socialMetadata } from "@/lib/seo";
 import { seoRobots } from '@/lib/seo-release';
 
 const DEFAULT_TITLE = "FiduConnect | Trouvez une fiduciaire adaptée à Genève";
@@ -17,19 +17,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
-  openGraph: {
-    type: "website",
-    locale: "fr_CH",
-    siteName: SITE_NAME,
-    url: SITE_URL,
-    title: DEFAULT_TITLE,
-    description: DEFAULT_DESCRIPTION,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: DEFAULT_TITLE,
-    description: DEFAULT_DESCRIPTION,
-  },
+  ...socialMetadata({ title: DEFAULT_TITLE, description: DEFAULT_DESCRIPTION, path: '/' }),
 };
 
 export default function RootLayout({

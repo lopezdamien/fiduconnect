@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { SeoHeader, SeoFooter } from '@/components/SeoChrome';
 import { JsonLd } from '@/components/JsonLd';
-import { breadcrumbSchema } from '@/lib/seo';
+import { breadcrumbSchema, socialMetadata } from '@/lib/seo';
 import { seoRobots } from '@/lib/seo-release';
 import { seoServices, type SeoService } from '@/lib/seo-services';
 
@@ -14,8 +14,7 @@ export function serviceMetadata(service: SeoService): Metadata {
     description: service.description,
     alternates: { canonical: url },
     robots: seoRobots(),
-    openGraph: { title: service.title, description: service.description, url, type: 'website', locale: 'fr_CH', siteName: 'FIDUCONNECT' },
-    twitter: { card: 'summary', title: service.title, description: service.description },
+    ...socialMetadata({ title: service.title, description: service.description, path: '/services/' + service.slug }),
   };
 }
 

@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { SeoHeader, SeoFooter } from '@/components/SeoChrome';
 import { seoServices } from '@/lib/seo-services';
 import { JsonLd } from '@/components/JsonLd';
-import { breadcrumbSchema } from '@/lib/seo';
+import { breadcrumbSchema, socialMetadata } from '@/lib/seo';
 import { seoRobots } from '@/lib/seo-release';
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Comptabilité, fiscalité d’entreprise, salaires ou changement de fiduciaire : précisez votre besoin avec FIDUCONNECT à Genève.',
   alternates: { canonical: 'https://www.fiduconnect.ch/services' },
   robots: seoRobots(),
-  openGraph: { title: 'Vos besoins fiduciaires à Genève', description: 'Identifiez votre besoin et préparez votre recherche de partenaire avec FIDUCONNECT.', url: 'https://www.fiduconnect.ch/services' },
+  ...socialMetadata({ title: 'Vos besoins fiduciaires à Genève', description: 'Comptabilité, fiscalité d’entreprise, salaires ou changement de fiduciaire : précisez votre besoin avec FIDUCONNECT à Genève.', path: '/services' }),
 };
 
 export default function Services() {

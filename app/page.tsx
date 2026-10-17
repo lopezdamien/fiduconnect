@@ -5,7 +5,7 @@ import { ArrowUpRight, ArrowDown, Files, Compass, Users, RefreshCw } from 'lucid
 import { SeoHeader, SeoFooter } from '@/components/SeoChrome';
 import { seoRobots } from '@/lib/seo-release';
 import { JsonLd } from '@/components/JsonLd';
-import { organizationSchema } from '@/lib/seo';
+import { organizationSchema, socialMetadata } from '@/lib/seo';
 import { SeoResourceCards } from '@/components/SeoResourceCards';
 import { seoResources } from '@/lib/seo-resources';
 
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description: 'FIDUCONNECT clarifie votre besoin et vous oriente vers un partenaire fiduciaire à Genève. Orientation gratuite et sans engagement.',
   alternates: { canonical: 'https://www.fiduconnect.ch/' },
   robots: seoRobots(),
+  ...socialMetadata({ title: 'Trouvez une fiduciaire adaptée à votre entreprise à Genève', description: 'FIDUCONNECT clarifie votre besoin et vous oriente vers un partenaire fiduciaire à Genève. Orientation gratuite et sans engagement.', path: '/' }),
 };
 
 const needs = [
@@ -28,6 +29,7 @@ const steps = [
   ['Vous décidez de la suite.', 'Nous vous orientons vers un partenaire adapté. Vos coordonnées sont transmises uniquement après votre validation du rendez-vous.'],
 ];
 const faq = [
+  ['Comment FIDUCONNECT est-il rémunéré ?', 'FIDUCONNECT est rémunéré par ses partenaires fiduciaires. Votre demande, le rappel et l’orientation restent gratuits et sans engagement pour vous. Notre réseau ne représente pas l’ensemble du marché ; les honoraires d’un éventuel mandat sont à convenir directement avec le partenaire.'],
   ['FIDUCONNECT est-il une fiduciaire ?', 'Non. FIDUCONNECT est un service de mise en relation. Les prestations comptables, fiscales et administratives sont réalisées par le partenaire fiduciaire, dans le cadre d’un accord distinct avec vous.'],
   ['Qu’est-ce qui est gratuit ?', 'Votre demande, le rappel et l’orientation FIDUCONNECT sont gratuits et sans engagement. Les prestations que vous choisissez ensuite de confier à une fiduciaire sont facturées selon ses propres tarifs et conditions.'],
   ['À qui s’adresse le service ?', 'Aux entreprises et aux indépendants qui recherchent un partenaire fiduciaire dans le canton de Genève, pour une première recherche ou un changement de partenaire.'],

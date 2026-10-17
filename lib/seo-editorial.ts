@@ -59,6 +59,7 @@ export const editorialPages: Editorial[] = [
         sections: [
             { title: 'Une approche locale, à Genève', paragraphs: ['FIDUCONNECT accompagne les entreprises et les indépendants du canton de Genève dans leur recherche d’un partenaire fiduciaire adapté à leurs besoins.', 'Le premier échange sert à comprendre votre activité, votre organisation, vos attentes et les échéances à signaler. Il ne demande pas de documents comptables ou de dossiers confidentiels.'] },
             { title: 'Un intermédiaire, pas une fiduciaire', paragraphs: ['Nous ne tenons pas votre comptabilité, ne préparons pas vos déclarations et ne fournissons pas de conseil comptable, fiscal ou juridique personnalisé. Ces prestations relèvent du professionnel que vous choisissez de mandater.', 'Notre orientation porte sur des partenaires de notre réseau, sans comparaison exhaustive du marché. Nous ne promettons ni économie chiffrée ni résultat fiscal.'] },
+            { title: 'Comment notre service est financé', paragraphs: ['FIDUCONNECT est rémunéré par ses partenaires fiduciaires. Votre demande, le rappel et l’orientation sont gratuits et sans engagement pour vous. Notre réseau ne représente pas l’ensemble des fiduciaires du marché genevois.', 'Cette rémunération ne remplace pas les honoraires du partenaire pour les prestations que vous décidez de lui confier. Demandez-lui un périmètre et des conditions clairs avant d’accepter un mandat.'] },
             { title: 'Une décision qui vous appartient', paragraphs: ['Votre demande, le rappel et l’orientation FIDUCONNECT sont gratuits et sans engagement. Les honoraires et conditions d’un éventuel mandat sont à convenir directement avec la fiduciaire.', 'Nous échangeons avec vous avant toute transmission de coordonnées. Vous validez le rendez-vous avec le partenaire concerné et restez libre de ne pas poursuivre.'] },
         ], related: [{ href: '/comment-ca-marche', label: 'Comprendre les étapes' }, { href: '/mentions-legales', label: 'Identité et mentions légales' }],
     },
@@ -89,10 +90,42 @@ export const editorialPages: Editorial[] = [
         description: 'Les informations générales à réunir pour discuter de la TVA de votre entreprise avec un professionnel à Genève, sans diagnostic fiscal en ligne.',
         heading: 'TVA : préparer votre rendez-vous à Genève.',
         intro: 'Cette page vous aide à préparer une demande de mise en relation. Elle ne détermine pas vos obligations fiscales et ne remplace pas un conseil adapté à votre activité.',
+        article: {
+            updated: '2026-10-17', displayUpdatedDate: '17 octobre 2026',
+            sources: [{ href: 'https://www.estv.admin.ch/fr/taxe-sur-la-valeur-ajoutee', label: 'Administration fédérale des contributions — TVA', context: 'Point d’entrée officiel pour l’assujettissement, les décomptes, les paiements et les démarches TVA. La préparation de rendez-vous ci-dessous est proposée par FIDUCONNECT ; elle ne permet pas de trancher votre situation fiscale.' }],
+        },
         sections: [
             { title: 'Décrire votre activité et vos échanges', paragraphs: ['Présentez les biens ou services proposés, les pays avec lesquels vous travaillez et votre organisation actuelle. Précisez si vous démarrez, si votre activité change ou si vous cherchez un suivi régulier.', 'Le professionnel pourra alors vous indiquer les éléments à examiner. Aucun seuil, taux ou traitement ne doit être appliqué à votre situation sur la seule base de cette page.'] },
             { title: 'Identifier la question et l’échéance', paragraphs: ['Votre besoin concerne-t-il un démarrage, une démarche existante, une demande de l’administration ou un changement d’organisation ? Signalez la date d’une éventuelle échéance dès le premier échange.', 'Pour consulter les règles et démarches officielles à jour, reportez-vous à l’Administration fédérale des contributions. Un professionnel doit apprécier leur application à votre cas.'] },
+            { title: 'Préparer les informations, sans transmettre un dossier complet', paragraphs: [
+                'Pour le premier appel, une synthèse de votre activité, des pays concernés et du sujet à résoudre suffit. Distinguez les informations que vous connaissez de celles que vous souhaitez faire vérifier. Ne déduisez pas un traitement TVA du seul pays de votre client ou du libellé d’une facture.',
+                'Le tableau sert à préparer le rendez-vous avec le professionnel. Il ne s’agit ni d’une liste de pièces obligatoires, ni d’une demande de documents à envoyer au formulaire FIDUCONNECT. Conservez les justificatifs confidentiels jusqu’à ce que le partenaire confirme un canal adapté.',
+            ], table: { caption: 'Informations à préparer pour votre rendez-vous TVA', columns: ['Sujet', 'À préparer pour le professionnel', 'Question à lui poser'], rows: [
+                ['Votre activité', 'Une description des biens ou services, du type de clientèle et des pays concernés.', 'Quels points de mon activité devez-vous examiner en priorité ?'],
+                ['Votre organisation actuelle', 'Qui établit les factures, tient la comptabilité et suit les démarches existantes.', 'Quelles tâches pouvez-vous reprendre, et lesquelles restent à ma charge ?'],
+                ['Vos documents disponibles', 'Un inventaire des factures, décomptes ou courriers déjà en votre possession.', 'Quels justificatifs sont nécessaires, et comment les transmettre en sécurité ?'],
+                ['Une demande ou une échéance', 'La date indiquée et une description générale de la demande reçue.', 'Pouvez-vous examiner la demande et confirmer votre disponibilité avant cette date ?'],
+            ] } },
+            { title: 'Poser les questions qui rendent le mandat clair', paragraphs: [
+                'Deux propositions ne couvrent pas forcément les mêmes tâches. Faites distinguer l’examen de votre situation, la préparation des éléments, leur validation et les démarches auprès de l’administration. Ne présumez pas qu’une première conversation inclut toutes ces prestations.',
+            ], questions: [
+                'Qui analyse ma situation et m’explique les points à confirmer ?',
+                'Quelles tâches sont comprises dans le prix, et lesquelles sont facturées séparément ?',
+                'Qui prépare, vérifie et valide les informations avant une transmission ?',
+                'Qui suit les demandes de l’administration et me signale les actions attendues ?',
+                'Quelles sont vos disponibilités et à quelle fréquence devons-nous échanger ?',
+                'Comment seront organisés les accès et la transmission sécurisée des documents ?',
+            ] },
             { title: 'Clarifier le mandat avant de déléguer', paragraphs: ['Faites préciser les tâches prises en charge, les informations à fournir, les validations attendues et le calendrier. Vérifiez la disponibilité du professionnel avant de compter sur son intervention.', 'FIDUCONNECT organise l’orientation, sans effectuer de diagnostic TVA ni garantir une économie fiscale. Votre première demande ne vaut pas mandat ou prise en charge d’une échéance.'] },
+            { title: 'Votre checklist avant le premier échange', paragraphs: [
+                'L’objectif est de repartir avec un prochain pas explicite : un examen à réaliser, les documents à réunir, un devis à recevoir ou un mandat à discuter. Une mise en relation ne confirme pas votre assujettissement et ne suspend aucune échéance.',
+            ], questions: [
+                'J’ai résumé mon activité et les pays avec lesquels je travaille.',
+                'J’ai identifié ma question principale et les informations encore incertaines.',
+                'J’ai noté les échéances connues et qui les suit actuellement.',
+                'J’ai préparé un inventaire des documents disponibles, sans envoyer de pièces confidentielles au premier contact.',
+                'Je vais faire confirmer le périmètre, les honoraires, les responsabilités et la disponibilité du partenaire.',
+            ] },
         ], related: [{ href: '/services/tva', label: 'Rechercher un partenaire fiscalité & TVA' }, { href: 'https://www.estv.admin.ch/fr/taxe-sur-la-valeur-ajoutee', label: 'Informations officielles de l’AFC sur la TVA' }],
     },
     {

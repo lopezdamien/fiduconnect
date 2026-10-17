@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SeoHeader, SeoFooter } from '@/components/SeoChrome';
 import { JsonLd } from '@/components/JsonLd';
-import { breadcrumbSchema } from '@/lib/seo';
+import { breadcrumbSchema, socialMetadata } from '@/lib/seo';
 import { seoRobots } from '@/lib/seo-release';
 
 type Section = { title: string; paragraphs: string[]; questions?: string[]; table?: { caption: string; columns: string[]; rows: string[][] } };
@@ -17,7 +17,7 @@ export function editorialMetadata(page: Editorial): Metadata {
     const url = 'https://www.fiduconnect.ch' + page.path;
     return { title: page.title, description: page.description,
         alternates: { canonical: url }, robots: seoRobots(),
-        openGraph: { title: page.title, description: page.description, url, type: page.article ? 'article' : 'website', locale: 'fr_CH' },
+        ...socialMetadata({ title: page.title, description: page.description, path: page.path, type: page.article ? 'article' : 'website' }),
     };
 }
 

@@ -4,13 +4,14 @@ import { SeoHeader, SeoFooter } from '@/components/SeoChrome';
 import { SeoLeadForm } from '@/components/SeoLeadForm';
 import { SEO_FORM_SENDS_ENABLED } from '@/lib/seo-form-config';
 import { seoRobots } from '@/lib/seo-release';
+import { socialMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = {
     title: 'Votre demande de mise en relation fiduciaire à Genève',
     description: 'Décrivez votre besoin professionnel à Genève. FIDUCONNECT vous rappelle pour préparer une orientation gratuite et sans engagement.',
     alternates: { canonical: 'https://www.fiduconnect.ch/contact' },
     robots: seoRobots(),
-    openGraph: { title: 'Parlez-nous de votre besoin à Genève', description: 'Une première demande gratuite et sans engagement auprès de FIDUCONNECT.', url: 'https://www.fiduconnect.ch/contact' },
+    ...socialMetadata({ title: 'Votre demande de mise en relation fiduciaire à Genève', description: 'Décrivez votre besoin professionnel à Genève. FIDUCONNECT vous rappelle pour préparer une orientation gratuite et sans engagement.', path: '/contact' }),
 };
 
 export default function Contact() {

@@ -11,6 +11,38 @@ import { seoResources } from '../lib/seo-resources.ts';
 const paths = [...SEO_INDEXABLE_PATHS, '/mentions-legales', '/confidentialite', '/cookies', '/merci'];
 const html = new Map(paths.map(path => [path, readFileSync(new URL('../.next/server/app/' + (path === '/' ? 'index' : path.slice(1)) + '.html', import.meta.url), 'utf8')]));
 
+test('indexable pages have page-specific sharing titles and the branded sharing image', () => {
+    const titles = new Set();
+    for (const path of SEO_INDEXABLE_PATHS) {
+        const page = html.get(path);
+        const og = page.match(/property="og:title" content="([^"]+)"/)?.[1];
+        const twitter = page.match(/name="twitter:title" content="([^"]+)"/)?.[1];
+        assert.ok(og, path);
+        assert.equal(twitter, og, path);
+        assert.ok(!titles.has(og), path + ' duplicate sharing title');
+        titles.add(og);
+        assert.match(page, /property="og:image" content="https:\/\/www\.fiduconnect\.ch\/partage"/, path);
+        assert.match(page, /name="twitter:image" content="https:\/\/www\.fiduconnect\.ch\/partage"/, path);
+    }
+});
+
+test('TVA preparation guide has a checklist, official source and honest update date', () => {
+    const page = html.get('/tva-suisse');
+    assert.match(page, /Informations à préparer pour votre rendez-vous TVA/);
+    assert.match(page, /Votre checklist avant le premier échange/);
+    assert.match(page, /www\.estv\.admin\.ch\/fr\/taxe-sur-la-valeur-ajoutee/);
+    assert.match(page, /dateModified[^<]*2026-10-17/);
+    assert.doesNotMatch(page, /datePublished|100.?000|8,1\s*%/);
+});
+
+test('funding is transparent on home and about pages without implying exhaustive comparison', () => {
+    for (const path of ['/', '/a-propos']) {
+        const page = html.get(path);
+        assert.match(page, /rémunéré par ses partenaires fiduciaires/, path);
+        assert.match(page, /ne représente pas l’ensemble/, path);
+    }
+});
+
 test('resource cards expose existing content with headings, summaries and one whole-card link', () => {
     for (const [path, resources] of [['/ressources', seoResources], ['/', seoResources.slice(0, 3)]]) {
         const page = html.get(path);
