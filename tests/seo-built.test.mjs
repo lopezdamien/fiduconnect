@@ -5,9 +5,25 @@ import test from 'node:test';
 import { readFileSync, existsSync } from 'node:fs';
 import { SEO_INDEXABLE_PATHS } from '../lib/seo-release.ts';
 import { seoRedirects } from '../lib/seo-redirects.ts';
+import { seoResources } from '../lib/seo-resources.ts';
 
 const paths = [...SEO_INDEXABLE_PATHS, '/mentions-legales', '/confidentialite', '/cookies', '/merci'];
 const html = new Map(paths.map(path => [path, readFileSync(new URL('../.next/server/app/' + (path === '/' ? 'index' : path.slice(1)) + '.html', import.meta.url), 'utf8')]));
+
+test('resource cards expose existing content with headings, summaries and one whole-card link', () => {
+    for (const [path, resources] of [['/ressources', seoResources], ['/', seoResources.slice(0, 3)]]) {
+        const page = html.get(path);
+        const cards = [...page.matchAll(/<a\b[^>]*class="seo-resource-card [^"]*"[^>]*>(.*?)<\/a>/gs)];
+        assert.equal(cards.length, resources.length, path);
+        for (const [index, [card, body]] of cards.entries()) {
+            assert.ok(card.includes('href="' + resources[index].href + '"'));
+            assert.match(body, /<h3 class="sea-title">/);
+            assert.match(body, /class="seo-resource-description"/);
+            assert.doesNotMatch(body, /<a\b|<button\b/);
+            assert.ok(html.has(resources[index].href));
+        }
+    }
+});
 
 test('all SEO pages expose Resources in desktop and mobile header navigation', () => {
     for (const [path, page] of html) {

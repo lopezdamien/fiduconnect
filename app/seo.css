@@ -1,4 +1,45 @@
 .seo-site { background: #f5f1e9; color: #223b4a; font-size: 16px; line-height: 1.7; }
+.seo-resources-intro { padding-block: 58px 64px; max-width: 850px; }
+.seo-resources-intro h1 { font-size: clamp(40px, 5vw, 66px); line-height: 1.1; margin-block: 22px 26px; }
+.seo-resources-intro > p:last-child { max-width: 650px; font-size: 18px; line-height: 1.85; color: #605b54; }
+.seo-resources-library { padding-bottom: 80px; }
+.seo-resources-heading { border-top: 1px solid #d8d1c4; padding-top: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 30px; align-items: center; }
+.seo-resources-heading h2 { font-size: 30px; }
+.seo-resources-heading p { color: #686259; font-size: 15px; }
+.seo-resource-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 32px; }
+.seo-resource-grid-featured { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 40px; }
+.seo-resource-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid #d8d1c4; border-radius: 6px; overflow: hidden; background: #fffdfa; transition: border-color .2s, box-shadow .2s; }
+.seo-resource-card:hover { border-color: #9c513b; box-shadow: 0 8px 24px #223b4a0d; }
+.seo-resource-art { min-height: 190px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #e7e9df; border-bottom: 1px solid #d8d1c4; }
+.seo-resource-transition .seo-resource-art { background: #e5eaf0; }
+.seo-resource-files .seo-resource-art { background: #efe0d6; }
+.seo-resource-chart .seo-resource-art { background: #e1e7e4; }
+.seo-resource-orbit { position: absolute; width: 240px; height: 240px; border: 1px solid #223b4a20; border-radius: 50%; top: 28px; }
+.seo-resource-orbit::after { content: ''; position: absolute; inset: 25px; border: 1px solid #223b4a15; border-radius: 50%; }
+.seo-resource-icon { position: relative; display: grid; place-items: center; width: 100px; height: 100px; background: #fffdfa9e; border: 1px solid #223b4a30; border-radius: 50px 50px 5px 5px; color: #9c513b; }
+.seo-resource-kind { position: absolute; left: 24px; top: 18px; font-size: 14px; color: #405665; }
+.seo-resource-copy { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+.seo-resource-theme { font-size: 14px; color: #9c513b; margin-bottom: 14px; }
+.seo-resource-copy h3 { font-size: clamp(26px, 2.4vw, 32px); line-height: 1.2; text-wrap: balance; }
+.seo-resource-description { font-size: 16px; line-height: 1.85; color: #686259; margin-block: 18px 24px; }
+.seo-resource-link { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 15px; border-top: 1px solid #ded7cb; padding-top: 18px; margin-top: auto; }
+.seo-resource-link svg { flex-shrink: 0; }
+.seo-resource-card:hover .seo-resource-link { color: #9c513b; }
+.seo-resources-disclaimer { max-width: 760px; color: #686259; font-size: 15px; line-height: 1.85; margin-top: 30px; }
+.seo-home-resources { background: #eee9df; border-top: 1px solid #d8d1c4; }
+.seo-resources-all { margin-top: 32px; }
+@media (max-width: 1000px) { .seo-resource-grid-featured { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+ .seo-resources-intro { padding-block: 36px 42px; }
+ .seo-resources-intro > p:last-child { font-size: 16px; }
+ .seo-resource-grid, .seo-resource-grid-featured { grid-template-columns: 1fr; gap: 24px; margin-top: 28px; }
+ .seo-resources-library { padding-bottom: 52px; }
+ .seo-resources-heading h2 { font-size: 28px; }
+ .seo-resource-copy { padding: 24px; }
+ .seo-resource-copy h3 { font-size: 28px; }
+ .seo-resource-art { min-height: 180px; }
+}
+@media (prefers-reduced-motion: reduce) { .seo-resource-card { transition: none; } }
 .seo-site .sea-eyebrow { font-size: 12px; line-height: 1.7; letter-spacing: .14em; }
 .seo-site .sea-legal-article > div { font-size: 16px; line-height: 1.85; }
 .seo-site .sea-legal-article h2 { font-size: 20px; line-height: 1.5; }
