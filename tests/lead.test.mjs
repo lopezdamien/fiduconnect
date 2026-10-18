@@ -43,8 +43,9 @@ function fixture({ production = false, configured = true, providerError = false,
         }).outputText;
         const customRequire = name => {
             if (name === 'resend') return { Resend: MockResend };
-            if (name === 'next/server') return { NextResponse: { json: (body, init) => Response.json(body, init) } };
+            if (name === 'next/server') return { after: () => {}, NextResponse: { json: (body, init) => Response.json(body, init) } };
             if (name.startsWith('@/')) return load(`${name.slice(2)}.ts`);
+            if (name.startsWith('./')) return load(`lib/${name.slice(2)}.ts`);
             return require(name);
         };
         runInNewContext(compiled, {

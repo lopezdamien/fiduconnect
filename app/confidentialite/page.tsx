@@ -1,4 +1,5 @@
 import { LegalPage } from '@/components/LegalPage';
+import { crmIntakeEnabled } from '@/lib/crm-intake';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
@@ -10,8 +11,9 @@ export const metadata = pageMetadata({
 metadata.robots = { index: false, follow: false };
 
 export default function Confidentialite() {
+    const crmEnabled = crmIntakeEnabled();
     return (
-        <LegalPage title="Votre confidentialité" version="17 octobre 2026">
+        <LegalPage title="Votre confidentialité" version={crmEnabled ? '18 octobre 2026' : '17 octobre 2026'}>
             <section aria-label="L’essentiel de votre confidentialité">
                 <h2>Votre demande, en bref</h2>
                 <p>Le site principal www.fiduconnect.ch présente le service de mise en relation, sans suivi publicitaire. Votre demande sert au rappel et à l’orientation, sans transmission automatique aux fiduciaires ni inscription à une newsletter.</p>
@@ -26,7 +28,7 @@ export default function Confidentialite() {
             </section>
             <section>
                 <h2>2. Envoi de votre demande</h2>
-                <p>Lorsque vous confirmez le formulaire, les informations sont transmises au serveur du site, puis au service Resend pour acheminer un e-mail à contact@fiduconnect.ch. Elles ne sont pas enregistrées dans une base de prospects par ce site. Vous pouvez aussi nous écrire directement à cette adresse.</p>
+                <p>Lorsque vous confirmez le formulaire, les informations sont transmises au serveur du site. {crmEnabled ? 'Votre demande est enregistrée dans notre CRM privé, avec son origine formulaire et sa date de réception. Resend achemine ensuite une notification à contact@fiduconnect.ch ; une panne de messagerie n’efface pas la demande enregistrée.' : 'Resend achemine ensuite un e-mail à contact@fiduconnect.ch. Elles ne sont pas enregistrées dans une base de prospects par ce site.'} Vous pouvez aussi nous écrire directement à cette adresse.</p>
             </section>
             <section id="donnees">
                 <h2>3. Informations demandées et finalités</h2>
@@ -41,15 +43,18 @@ export default function Confidentialite() {
             <section id="destinataires">
                 <h2>4. Destinataires et choix du partenaire</h2>
                 <p>L’exploitant reçoit et traite votre demande pour préparer votre rappel. Les prestataires techniques retenus pour l’hébergement et l’e-mail interviennent uniquement dans le cadre de leurs services.</p>
+                {crmEnabled && <p className="mt-3">Seul l’exploitant accède au CRM après connexion et double vérification. Il peut y ajouter un statut de suivi, des notes et un rappel. Aucun accès partenaire n’est ouvert.</p>}
                 <p className="mt-3">Le formulaire ne transmet rien automatiquement aux fiduciaires. Après l’appel, vos coordonnées et les informations utiles ne sont communiquées au partenaire concerné que si vous validez un rendez-vous avec lui. Vous restez libre de ne pas poursuivre. Le partenaire est responsable de ses propres traitements et prestations et vous en informe séparément.</p>
             </section>
             <section id="prestataires">
+                {crmEnabled && <p className="mb-3">Supabase héberge la base du CRM dans la région configurée à Zurich, Suisse. Cela ne garantit pas que tous les traitements complémentaires, journaux et sous-traitants restent en Suisse. Vercel héberge aussi l’interface privée du CRM, sans clé serveur dans le navigateur.</p>}
                 <h2>5. Prestataires et traitements à l’étranger</h2>
                 <p>Vercel héberge et exécute le site, avec les fonctions du formulaire dans la région américaine iad1. Son réseau de diffusion et ses sous-traitants ne sont pas limités à la Suisse. Resend achemine les coordonnées et le contenu de la demande vers notre messagerie ; Resend indique stocker les données aux États-Unis. Infomaniak héberge notre messagerie en Suisse. Le choix d’une région d’envoi ne garantit pas le lieu de stockage de tous les e-mails, journaux et sauvegardes.</p>
                 <p className="mt-3">Le site utilise actuellement l’offre Hobby de Vercel. L’accord de traitement publié par Vercel ne couvre que Pro et Enterprise : nous ne présentons donc pas cet accord comme une garantie applicable à cette offre. Voir les <a href="https://vercel.com/legal/dpa">conditions de traitement Vercel</a>, les <a href="https://resend.com/legal/dpa">conditions Resend</a> et les <a href="https://www.infomaniak.com/fr/cgv/reglement-general-protection-donnees">informations Infomaniak</a>. Les pays et modalités complémentaires des sous-traitants, journaux et sauvegardes restent à préciser ; aucune localisation exclusivement suisse n’est promise.</p>
                 <p className="mt-3">Le devoir d’informer sur une communication à l’étranger est expliqué par le <a href="https://www.edoeb.admin.ch/fr/communication-de-donnees-a-letranger" rel="noopener noreferrer">Préposé fédéral à la protection des données et à la transparence</a>. Les conditions générales d’un fournisseur ne remplacent pas la vérification de notre configuration effective.</p>
             </section>
             <section id="conservation">
+                {crmEnabled && <p className="mb-3">Les délais ci-dessous s’appliquent aussi aux demandes, notes et rappels du CRM. L’exploitant assure leur suppression manuellement dans la base ; aucun effacement automatique n’est activé. Une restauration ne doit pas prolonger la conservation d’une demande déjà supprimée.</p>}
                 <h2>6. Conservation et suppression</h2>
                 <p>Nous supprimons les demandes sans rendez-vous au plus tard trois mois après leur réception, sans prolonger ce délai à chaque rappel. Pour les mises en relation suivies, nous supprimons les données au plus tard six mois après le dernier échange lié à cette mise en relation, hors obligation légale justifiée.</p>
                 <p className="mt-3">L’exploitant assure manuellement ces suppressions dans les e-mails, copies et corbeilles qu’il gère. Le site ne supprime pas automatiquement les messages d’une boîte mail. Les durées des journaux et sauvegardes des prestataires ainsi que la procédure après restauration restent à confirmer. Aucune durée de fournisseur non vérifiée n’est promise dans cette version de travail.</p>

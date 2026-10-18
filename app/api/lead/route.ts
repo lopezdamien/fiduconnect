@@ -1,9 +1,11 @@
-import { NextResponse } from 'next/server';
+import { after, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { SEO_FORM_SENDS_ENABLED } from '@/lib/seo-form-config';
 import { z } from 'zod';
 import { leadLimits, needs, situations } from '@/lib/lead-fields';
 import { createLeadLimiter, hasAllowedLeadOrigin, LeadRequestError, PRODUCTION_LEADS_ENABLED, readLeadBody } from '@/lib/lead-security';
+import { crmIntakeEnabled, receiveCrmLead } from '@/lib/crm-intake';
+import { processCrmNotifications } from '@/lib/crm-notifications';
 
 export const runtime = 'nodejs';
 
@@ -11,6 +13,7 @@ const singleLine = (max: number) => z.string().trim().min(1).max(max).refine(val
 const optionalLine = z.string().trim().max(leadLimits.company).refine(value => !/[\u0000-\u001f\u007f]/.test(value)).optional();
 
 const leadSchema = z.object({
+    submissionId: z.string().uuid().optional(),
     firstName: singleLine(leadLimits.firstName),
     lastName: singleLine(leadLimits.lastName),
     email: z.string().trim().max(leadLimits.email).email(),
@@ -69,9 +72,23 @@ export async function POST(request: Request) {
         }
 
         const { firstName, lastName, email, phone, company, situation, mainNeed, message } = validation.data;
+        if (crmIntakeEnabled() && !validation.data.submissionId) {
+            return failure(400, 'Rechargez la page avant de réessayer l’envoi.');
+        }
         const retryAfter = limiter.consume(email);
         if (retryAfter !== null) {
             return failure(429, 'Trop de demandes ont été envoyées. Merci de réessayer dans quelques minutes.', { 'Retry-After': String(retryAfter) });
+        }
+
+        if (crmIntakeEnabled()) {
+            await receiveCrmLead(validation.data.submissionId!, 'site_seo', {
+                firstName, lastName, email, phone, company, situation, mainNeed, message,
+            });
+            after(async () => {
+                try { await processCrmNotifications(); }
+                catch { console.error('crm.notification_deferred'); }
+            });
+            return NextResponse.json({ ok: true }, { headers: responseHeaders });
         }
 
         const name = `${firstName} ${lastName}`;

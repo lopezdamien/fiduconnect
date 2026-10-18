@@ -58,6 +58,7 @@ export function SeoLeadForm({ idPrefix }: SeoLeadFormProps) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const sending = useRef(false);
+    const submission = useRef<{ fingerprint: string; id: string } | null>(null);
 
     async function handleSubmit(data: Record<string, unknown>) {
         if (sending.current) return;
@@ -76,7 +77,12 @@ export function SeoLeadForm({ idPrefix }: SeoLeadFormProps) {
             website: data.website,
         };
         try {
-            await submitSeoLead(payload);
+            // Retry unchanged data with the same ID. Keep contact details in memory only.
+            const fingerprint = JSON.stringify(payload);
+            if (submission.current?.fingerprint !== fingerprint) {
+                submission.current = { fingerprint, id: window.crypto.randomUUID() };
+            }
+            await submitSeoLead({ ...payload, submissionId: submission.current.id });
             router.replace('/merci');
         } catch (err) {
             sending.current = false;

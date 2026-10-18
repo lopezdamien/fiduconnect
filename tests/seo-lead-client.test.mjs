@@ -99,5 +99,8 @@ test('SEO form transport and confirmation have no advertising integration', () =
     assert.match(form, /sending\.current = true/);
     assert.match(form, /sending\.current = false/);
     assert.match(form, /disabled=\{loading\}/);
-    assert.ok(form.indexOf('await submitSeoLead(payload)') < form.indexOf("router.replace('/merci')"));
+    const sendAt = form.indexOf('await submitSeoLead({ ...payload, submissionId: submission.current.id })');
+    assert.ok(sendAt > 0 && sendAt < form.indexOf("router.replace('/merci')"));
+    assert.match(form, /submission\.current\?\.fingerprint !== fingerprint/);
+    assert.match(form, /window\.crypto\.randomUUID\(\)/);
 });
