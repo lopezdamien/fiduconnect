@@ -58,6 +58,7 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const sending = useRef(false);
+    const submission = useRef<{ fingerprint: string; id: string } | null>(null);
 
     async function handleSubmit(data: Record<string, unknown>) {
         if (sending.current) return;
@@ -77,10 +78,16 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
             website: data.website,
         };
         try {
+            // Keep the same ID for network retries, but not for an edited request.
+            // Only memory: no coordinates or submission details in browser storage.
+            const fingerprint = JSON.stringify(payload);
+            if (submission.current?.fingerprint !== fingerprint) {
+                submission.current = { fingerprint, id: window.crypto.randomUUID() };
+            }
             const response = await fetch('/api/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
+                body: JSON.stringify({ ...payload, submissionId: submission.current.id }),
             });
             if (!response.ok) {
                 throw new Error(await getLeadErrorMessage(response));

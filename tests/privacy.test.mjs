@@ -42,7 +42,7 @@ test('privacy summary anchors resolve and legal page keeps each domain explicit'
 
 // Render the real form and privacy content without a browser, secrets or sending.
 // Only Next routing/metadata and the surrounding legal-page layout are stubbed.
-function loadComponent(path, openAiEnabled = false) {
+function loadComponent(path, openAiEnabled = false, crmEnabled = false) {
     const cjsModule = { exports: {} };
     let source = readFileSync(resolve(root, path), 'utf8');
     if (path === 'lib/openai-ads.ts') source = source.replace(/OPENAI_ADS_ENABLED = (true|false)/, `OPENAI_ADS_ENABLED = ${openAiEnabled}`);
@@ -53,6 +53,7 @@ function loadComponent(path, openAiEnabled = false) {
         },
     }).outputText;
     const customRequire = name => {
+        if (name === '@/lib/crm-intake') return { crmIntakeEnabled: () => crmEnabled };
         if (name === 'next/navigation') return { useRouter: () => ({ push: () => { throw new Error('No navigation expected'); } }) };
         if (name === '@/lib/seo') return { pageMetadata: value => value };
         if (name === '@/components/LegalPage') return {
@@ -60,13 +61,22 @@ function loadComponent(path, openAiEnabled = false) {
         };
         if (name.startsWith('@/')) {
             const base = name.slice(2);
-            return loadComponent(existsSync(resolve(root, `${base}.ts`)) ? `${base}.ts` : `${base}.tsx`, openAiEnabled);
+            return loadComponent(existsSync(resolve(root, `${base}.ts`)) ? `${base}.ts` : `${base}.tsx`, openAiEnabled, crmEnabled);
         }
         return require(name);
     };
     runInNewContext(compiled, { module: cjsModule, exports: cjsModule.exports, require: customRequire }, { filename: path });
     return cjsModule.exports;
 }
+
+test('CRM privacy reflects actual activation, private access, region and manual retention', () => {
+    const inactive = loadComponent('app/confidentialite/page.tsx').default;
+    assert.doesNotMatch(renderToStaticMarkup(React.createElement(inactive)), /Supabase|notre CRM privé/);
+    const active = loadComponent('app/confidentialite/page.tsx', false, true).default;
+    const html = renderToStaticMarkup(React.createElement(active));
+    for (const text of ['Supabase', 'Zurich', 'double vérification', 'notes et rappels', 'manuellement dans la base', 'aucun effacement automatique', 'après l’enregistrement de votre demande dans notre CRM']) assert.ok(html.includes(text), text);
+    assert.doesNotMatch(html, /Un événement est envoyé après l’acceptation/);
+});
 
 test('lead form keeps a short purpose notice and an accessible privacy link before submission', () => {
     const { SeaLeadForm } = loadComponent('components/SeaLeadForm.tsx');

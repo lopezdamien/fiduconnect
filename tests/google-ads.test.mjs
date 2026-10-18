@@ -65,7 +65,7 @@ function fixture({ storageThrows = false, googleBlocked = false, callback = true
                 jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true },
         }).outputText;
         const customRequire = name => {
-            if (name === 'react') return { ...require('react'), useState: () => [false, () => {}], useRef: () => ({ current: false }) };
+            if (name === 'react') return { ...require('react'), useState: () => [false, () => {}], useRef: initial => ({ current: initial }) };
             if (name === 'next/navigation') return { useRouter: () => ({ push: path => navigations.push(path) }) };
             if (name.startsWith('@/')) {
                 const base = name.slice(2);
@@ -98,6 +98,20 @@ test('no tag or conversion without consent, refusal does not block success', asy
     f.ads.saveAdsConsent(false);
     assert.equal(f.ads.hasAdsConsent(), false);
     assert.equal(f.scripts.length, 0);
+});
+
+test('form reuses submission ID on retry, changes it after editing, never stores coordinates', async () => {
+    const f = fixture();
+    const submit = f.form();
+    f.setResponse(() => new Response('', { status: 503 }));
+    await submit({ firstName: 'Test', email: 'test@example.invalid' });
+    await submit({ firstName: 'Test', email: 'test@example.invalid' });
+    await submit({ firstName: 'Test', email: 'other@example.invalid' });
+    const bodies = f.requests.map(r => JSON.parse(r.init.body));
+    assert.match(bodies[0].submissionId, /^[\da-f-]{36}$/);
+    assert.equal(bodies[0].submissionId, bodies[1].submissionId);
+    assert.notEqual(bodies[1].submissionId, bodies[2].submissionId);
+    assert.doesNotMatch(JSON.stringify([...f.storage]), /example.invalid/);
 });
 
 test('accepted success sends one zero-value event, no form fields or URL email', async () => {

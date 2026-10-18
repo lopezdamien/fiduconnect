@@ -2,6 +2,7 @@ import { LegalPage } from '@/components/LegalPage';
 import { pageMetadata } from '@/lib/seo';
 import { CookiePreferencesButton } from '@/components/AdsConsent';
 import { OPENAI_ADS_ENABLED } from '@/lib/openai-ads';
+import { crmIntakeEnabled } from '@/lib/crm-intake';
 
 export const metadata = pageMetadata({
     title: 'Confidentialité',
@@ -11,8 +12,9 @@ export const metadata = pageMetadata({
 });
 
 export default function Confidentialite() {
+    const crmEnabled = crmIntakeEnabled();
     return (
-        <LegalPage title="Votre confidentialité" version={OPENAI_ADS_ENABLED ? '17 octobre 2026' : '14 octobre 2026'}>
+        <LegalPage title="Votre confidentialité" version={crmEnabled ? '18 octobre 2026' : OPENAI_ADS_ENABLED ? '17 octobre 2026' : '14 octobre 2026'}>
             <section aria-label="L’essentiel de votre confidentialité">
                 <h2>Votre demande, en bref</h2>
                 <p>Cette déclaration concerne <strong>contact.fiduconnect.ch</strong>. Votre demande est traitée par l’exploitant pour vous rappeler et vous orienter. Elle n’est pas envoyée automatiquement aux fiduciaires et ne vous inscrit pas à une newsletter. La mesure publicitaire est facultative ; son refus n’empêche pas l’envoi du formulaire.</p>
@@ -42,11 +44,13 @@ export default function Confidentialite() {
             </section>
             <section id="destinataires">
                 <h2>4. Qui reçoit votre demande ?</h2>
+                {crmEnabled && <p className="mt-3">Votre demande est enregistrée dans notre CRM privé avec son origine formulaire et sa date de réception. Seul l’exploitant y accède après connexion et double vérification ; il peut ajouter un statut de suivi, des notes et un rappel. L’e-mail de notification est envoyé après l’enregistrement ; une panne de messagerie n’efface pas votre demande.</p>}
                 <p>Smart Administration – Damien Lopez reçoit votre demande dans la boîte contact@fiduconnect.ch et prépare votre rappel. Netlify, Resend et Infomaniak interviennent pour le fonctionnement du site et l’acheminement de cette demande, comme expliqué ci-dessous.</p>
                 <p className="mt-3">Vos coordonnées et les informations utiles ne sont transmises à une fiduciaire partenaire qu’après l’appel et votre validation d’un rendez-vous avec le partenaire concerné. Le formulaire n’envoie aucune demande automatiquement aux fiduciaires. Le partenaire vous informe de ses propres traitements.</p>
             </section>
             <section>
                 <h2 id="prestataires">5. Où vos données sont-elles traitées ?</h2>
+                {crmEnabled && <p className="mb-3">Supabase héberge la base du CRM dans la région configurée à Zurich, Suisse. Cela ne garantit pas que tous les traitements complémentaires, journaux et sous-traitants restent en Suisse. Vercel héberge l’interface privée du CRM, sans clé serveur dans le navigateur.</p>}
                 <ul>
                     <li><strong>Netlify Inc.</strong> héberge le site et traite le formulaire. La fonction qui traite votre demande est configurée dans la région Ohio, aux <strong>États-Unis</strong>. Cela concerne les informations de votre demande ainsi que les données techniques du site. Cette région ne couvre pas nécessairement tous les traitements : Netlify utilise aussi un réseau de diffusion et d’autres prestataires. Les autres pays effectivement concernés restent à confirmer avant l’ouverture au public. <a href="https://www.netlify.com/trust-center/" rel="noopener noreferrer">Informations sur le traitement et les sous-traitants de Netlify</a>.</li>
                     <li><strong>Resend</strong> achemine votre demande par e-mail. L’envoi est configuré depuis l’<strong>Irlande</strong>, mais les e-mails et journaux sont stockés aux <strong>États-Unis</strong>. Choisir une région d’envoi européenne ne signifie donc pas que les données restent en Europe. <a href="https://resend.com/security" rel="noopener noreferrer">Informations sur le traitement par Resend</a>.</li>
@@ -59,6 +63,7 @@ export default function Confidentialite() {
             </section>
             <section id="conservation">
                 <h2>6. Conservation</h2>
+                {crmEnabled && <p className="mb-3">Les délais ci-dessous s’appliquent aussi aux demandes, notes et rappels dans le CRM. L’exploitant assure leur suppression manuellement dans la base ; aucun effacement automatique n’est activé. Les durées des journaux et sauvegardes supplémentaires des prestataires restent à préciser. Une restauration ne doit pas prolonger la conservation d’une demande déjà supprimée.</p>}
                 <p>Si votre demande n’aboutit pas à un rendez-vous, nous supprimons les e-mails et copies que nous gérons au plus tard trois mois après sa réception. Un rappel ne remet pas ce délai à zéro. Si un rendez-vous est validé, les informations utiles sont conservées uniquement le temps nécessaire au suivi de la mise en relation, puis supprimées.</p>
                 <p className="mt-3">La suppression est assurée manuellement dans notre messagerie et comprend les copies que nous gérons, y compris dans la corbeille. Le site ne supprime pas automatiquement les e-mails.</p>
                 <p className="mt-3">La suppression dans notre boîte ne signifie pas l’effacement immédiat des sauvegardes internes des prestataires. Resend annonce trente jours de conservation des e-mails et journaux pour l’offre utilisée et sept jours pour ses sauvegardes. Les modalités applicables aux sauvegardes de notre boîte Infomaniak restent à préciser avant l’ouverture au public. Si une restauration réintroduit une demande supprimée, nous la supprimons de nouveau.</p>
@@ -68,7 +73,7 @@ export default function Confidentialite() {
                 <h2>7. Cookies et publicité</h2>
                 <p className="mb-3">Pour une présentation synthétique des outils, de leurs durées et de vos choix, consultez la page <a href="/cookies">Cookies et préférences</a>.</p>
                 <p>Sur contact.fiduconnect.ch, nous proposons une mesure Google Ads pour savoir si nos publicités génèrent des demandes. Elle est facultative : aucune balise ni requête de mesure Google n’est chargée avant votre accord ou lorsque vous refusez. Le formulaire fonctionne sans cet accord. Votre demande ne vaut pas consentement publicitaire.</p>
-                <p className="mt-3">Après acceptation, Google peut traiter des informations techniques, notamment l’adresse IP, le navigateur, la page consultée et des identifiants de clic ou de cookies. Un événement est envoyé après l’acceptation de l’envoi du formulaire par notre service d’e-mail ; il ne confirme pas un rendez-vous ni la réception dans notre boîte. L’événement comprend un identifiant aléatoire de déduplication, sans lien avec vos coordonnées. Nous ne transmettons pas à Google le nom, l’e-mail, le téléphone, l’entreprise ou le texte de votre demande.</p>
+                <p className="mt-3">Après acceptation, Google peut traiter des informations techniques, notamment l’adresse IP, le navigateur, la page consultée et des identifiants de clic ou de cookies. Un événement est envoyé {crmEnabled ? "après l’enregistrement de votre demande dans notre CRM" : "après l’acceptation de l’envoi du formulaire par notre service d’e-mail"} ; il ne confirme pas un rendez-vous ni la réception dans notre boîte. L’événement comprend un identifiant aléatoire de déduplication, sans lien avec vos coordonnées. Nous ne transmettons pas à Google le nom, l’e-mail, le téléphone, l’entreprise ou le texte de votre demande.</p>
                 <p className="mt-3">Cette intégration n’utilise ni Google Analytics, ni conteneur Google Tag Manager, ni suivi avancé des conversions. La personnalisation publicitaire est désactivée. La balise Google est distribuée depuis googletagmanager.com, même sans utiliser un conteneur Tag Manager.</p>
                 <p className="mt-3">Votre choix, sa date et la version du texte sont mémorisés dans le stockage local de ce navigateur pendant 180 jours au maximum, puis redemandés. Il ne contient aucune donnée du formulaire. Cette durée est notre choix de fonctionnement, pas un délai légal universel. Si ce stockage est indisponible, la mesure reste désactivée. Après accord, les cookies de mesure Google commençant par _gcl_ sont prévus pour une durée de 90 jours ; le navigateur peut limiter cette durée. Les données déjà envoyées à Google ont leur propre conservation, distincte de celle des cookies.</p>
                 <p className="mt-3">Le destinataire de cette mesure est Google, pour son service Google Ads. Des traitements peuvent avoir lieu aux États-Unis et dans d’autres pays où Google ou ses prestataires opèrent. Consultez les <a href="https://policies.google.com/privacy?hl=fr">règles de confidentialité de Google</a>, ses informations sur les <a href="https://policies.google.com/technologies/cookies?hl=fr">cookies</a> et ses <a href="https://policies.google.com/privacy/frameworks?hl=fr">garanties de transfert</a>. Cela ne signifie pas que les données restent en Suisse.</p>

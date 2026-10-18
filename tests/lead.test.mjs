@@ -17,11 +17,15 @@ const validLead = {
 
 // Compile the real handler and helpers, but replace Resend entirely. These
 // tests neither read .env files nor make any network requests/send real emails.
-function fixture({ production = false, configured = true, providerError = false, throws = false } = {}) {
+function fixture({ production = false, configured = true, providerError = false, throws = false, crm = false, dbResponse = () => Response.json({ id: 'test-lead', created: true }) } = {}) {
     const sent = [];
+    const databaseCalls = [];
+    const deferred = [];
     const logs = [];
     const cache = new Map();
     const environment = { NODE_ENV: production ? 'production' : 'test' };
+    if (crm) Object.assign(environment, { CRM_INTAKE_ENABLED: 'true',
+        CRM_SUPABASE_URL: 'https://nuhrxkwsqnbhzbbmdngy.supabase.co', CRM_SUPABASE_SECRET_KEY: 'sb_secret_fake_test_only' });
     if (configured) Object.assign(environment, {
         RESEND_API_KEY: 'test-only-not-a-real-key',
         LEAD_FROM_EMAIL: 'test@example.invalid', LEAD_TO_EMAIL: 'inbox@example.invalid',
@@ -43,20 +47,68 @@ function fixture({ production = false, configured = true, providerError = false,
         }).outputText;
         const customRequire = name => {
             if (name === 'resend') return { Resend: MockResend };
-            if (name === 'next/server') return { NextResponse: { json: (body, init) => Response.json(body, init) } };
+            if (name === 'next/server') return { after: task => deferred.push(task), NextResponse: { json: (body, init) => Response.json(body, init) } };
             if (name.startsWith('@/')) return load(`${name.slice(2)}.ts`);
+            if (name.startsWith('./')) return load(`lib/${name.slice(2)}.ts`);
             return require(name);
         };
         runInNewContext(compiled, {
             module: cjsModule, exports: cjsModule.exports, require: customRequire,
             process: { env: environment }, console: { error: (...args) => logs.push(args) },
-            URL, TextDecoder, Uint8Array, setTimeout, clearTimeout,
+            URL, TextDecoder, Uint8Array, setTimeout, clearTimeout, AbortSignal,
+            fetch: async (url, options) => { databaseCalls.push({ url, options }); return dbResponse(); },
         }, { filename: path });
         cache.set(path, cjsModule.exports);
         return cjsModule.exports;
     }
-    return { POST: load('app/api/lead/route.ts').POST, security: load('lib/lead-security.ts'), sent, logs };
+    return { POST: load('app/api/lead/route.ts').POST, security: load('lib/lead-security.ts'), sent, logs, databaseCalls, environment, deferred };
 }
+
+test('CRM mode commits to backend before success and never sends a second direct email', async () => {
+    const f = fixture({ crm: true, configured: false });
+    const payload = { ...validLead, submissionId: '00000000-0000-4000-8000-000000000005', source: 'spoofed' };
+    assert.equal((await f.POST(request(payload))).status, 200);
+    assert.equal(f.sent.length, 0);
+    assert.equal(f.databaseCalls.length, 1);
+    assert.equal(f.deferred.length, 1);
+    const { url, options } = f.databaseCalls[0];
+    assert.match(url, /\/rpc\/crm_receive_lead$/);
+    const data = JSON.parse(options.body);
+    assert.equal(data.p_form_source, 'landing_ads');
+    assert.equal(data.p_submission_id, payload.submissionId);
+    assert.equal(data.p_payload.website, undefined);
+    assert.equal(data.p_payload.source, undefined);
+    assert.equal(options.redirect, 'error');
+    assert.equal(options.cache, 'no-store');
+});
+
+test('CRM mode refuses missing ID and database failures without email fallback or false success', async () => {
+    const f = fixture({ crm: true });
+    assert.equal((await f.POST(request())).status, 400);
+    assert.equal(f.databaseCalls.length, 0);
+    for (const dbResponse of [() => { throw new Error('secret'); },
+        () => new Response('private failure', { status: 503 }),
+        () => Response.json({}), () => new Response('malformed')]) {
+        const broken = fixture({ crm: true, dbResponse });
+        const response = await broken.POST(request({ ...validLead, submissionId: '00000000-0000-4000-8000-000000000005' }));
+        assert.equal(response.status, 503);
+        assert.doesNotMatch(await response.text(), /private|secret/);
+        assert.equal(broken.sent.length, 0);
+        assert.equal(broken.deferred.length, 0);
+    }
+});
+
+test('CRM transport fails closed on wrong project, absent secret or reused conflicting ID', async () => {
+    for (const overrides of [{ CRM_SUPABASE_URL: 'https://wrong.example.invalid' }, { CRM_SUPABASE_SECRET_KEY: '' }]) {
+        const f = fixture({ crm: true });
+        Object.assign(f.environment, overrides);
+        assert.equal((await f.POST(request({ ...validLead, submissionId: '00000000-0000-4000-8000-000000000005' }))).status, 503);
+        assert.equal(f.databaseCalls.length, 0);
+    }
+    const f = fixture({ crm: true, dbResponse: () => Response.json({ message: 'submission_conflict' }, { status: 400 }) });
+    assert.equal((await f.POST(request({ ...validLead, submissionId: '00000000-0000-4000-8000-000000000005' }))).status, 409);
+    assert.equal(f.sent.length, 0);
+});
 
 function request(payload = validLead, { origin = 'http://localhost:3000', contentType = 'application/json', rawBody, headers = {} } = {}) {
     const values = { ...headers };
