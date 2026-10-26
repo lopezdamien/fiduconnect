@@ -11,6 +11,28 @@ import { seoResources } from '../lib/seo-resources.ts';
 const paths = [...SEO_INDEXABLE_PATHS, '/mentions-legales', '/confidentialite', '/cookies', '/merci'];
 const html = new Map(paths.map(path => [path, readFileSync(new URL('../.next/server/app/' + (path === '/' ? 'index' : path.slice(1)) + '.html', import.meta.url), 'utf8')]));
 
+test('honoraires guide publishes only the approved body with accessible comparison and incoming links', () => {
+    const path = '/ressources/honoraires-devis-fiduciaire-geneve';
+    const page = html.get(path);
+    assert.ok(page);
+    assert.doesNotMatch(page, /Fiche de publication|Contrôle avant intégration|Fenêtre proposée|Aucune publication automatique/);
+    assert.doesNotMatch(page.replace(/<script\b[^>]*>.*?<\/script>/gs, ''), /\]\(\//);
+    assert.match(page, /Grille de comparaison des devis fiduciaires/);
+    assert.match(page, /role="region"[^>]*tabindex="0"/i);
+    assert.equal((page.match(/scope="row"/g) || []).length, 8);
+    assert.match(page, /Exemple fictif/);
+    assert.match(page, /ne présente pas de tarif moyen/);
+    assert.match(page, /href="https:\/\/www.kmu.admin.ch\/fr\/tenir-soi-meme-la-comptabilite-ou-la-sous-traiter"/);
+    for (const source of ['/ressources', '/services/comptabilite', '/ressources/choisir-fiduciaire-geneve']) {
+        assert.ok(html.get(source).includes('href="' + path + '"'), source);
+    }
+    const schemas = [...page.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/g)].map(([, value]) => JSON.parse(value));
+    const article = schemas.find(schema => schema['@type'] === 'Article');
+    assert.equal(article.datePublished, '2026-10-26');
+    assert.equal(article.author.name, 'FIDUCONNECT');
+    assert.equal(article.mainEntityOfPage, 'https://www.fiduconnect.ch' + path);
+});
+
 test('indexable pages have page-specific sharing titles and the branded sharing image', () => {
     const titles = new Set();
     for (const path of SEO_INDEXABLE_PATHS) {

@@ -1,6 +1,166 @@
 import type { Editorial } from '@/components/SeoEditorialPage';
 
 export const editorialPages: Editorial[] = [
+{
+    "path": "/ressources/honoraires-devis-fiduciaire-geneve",
+    "label": "Comparer les honoraires fiduciaires",
+    "title": "Honoraires fiduciaires à Genève : comparer les devis",
+    "description": "Forfait, tarif horaire, reprise du dossier et suppléments : une grille pratique pour comparer des devis fiduciaires à Genève sur un périmètre clair.",
+    "heading": "Honoraires d’une fiduciaire à Genève : comment comparer les devis ?",
+    "intro": "Deux propositions peuvent afficher des montants différents sans couvrir le même travail. Avant de choisir une fiduciaire à Genève, il est utile de comprendre ce que chaque prix comprend, ce qui reste à votre charge et ce qui sera facturé séparément.",
+    "introDetails": [
+        "Ce guide vous propose une méthode de comparaison, une grille à remplir et des questions à poser. Il ne présente pas de tarif moyen : sans connaître les tâches confiées et l’état du dossier, un chiffre isolé ne permet pas de juger une offre."
+    ],
+    "sections": [
+        {
+            "title": "1. Donner la même description de votre besoin",
+            "paragraphs": [
+                "Commencez par une courte fiche que vous utiliserez pour chaque demande. Décrivez votre activité, votre forme d’entreprise, les outils en place et les tâches que vous souhaitez déléguer. Ajoutez un ordre de grandeur du volume de documents, l’effectif si les salaires sont concernés et la fréquence de suivi attendue.",
+                "Précisez également la période à prendre en charge. Un dossier tenu à jour et une comptabilité comportant des périodes à reprendre ne correspondent pas à la même demande. Si vous ne connaissez pas encore l’état exact des travaux, indiquez-le au lieu de présenter une estimation comme une certitude.",
+                "Décidez ce que vous souhaitez garder en interne : classement des pièces, facturation, préparation de certaines informations ou validation des travaux. Le Portail PME du SECO présente notamment la possibilité d’une organisation mêlant travail interne et intervention d’un spécialiste externe. Cette répartition doit être explicitée dans la proposition. [Source : Portail PME du SECO](https://www.kmu.admin.ch/fr/tenir-soi-meme-la-comptabilite-ou-la-sous-traiter).",
+                "Au stade du premier contact FIDUCONNECT, une description générale suffit. Ne joignez pas de factures, de relevés bancaires ou de dossiers salariaux confidentiels. Le professionnel précisera ensuite les pièces dont il a besoin et le canal adapté pour les recevoir."
+            ]
+        },
+        {
+            "title": "2. Comprendre comment le prix est calculé",
+            "paragraphs": [
+                "Si une proposition prévoit un forfait, demandez les tâches et les hypothèses couvertes : période, volume de documents, nombre de collaborateurs concernés, échanges inclus ou état initial du dossier. Faites préciser ce qui se passe si ces hypothèses changent. Le mot « forfait » ne décrit pas, à lui seul, toutes les prestations comprises.",
+                "Pour une facturation au temps passé, demandez comment les interventions sont comptabilisées, si les taux diffèrent selon les travaux et comment obtenir une estimation pour le périmètre envisagé. Distinguez cette estimation d’un plafond effectivement convenu. Demandez comment vous serez informé si le travail prévu augmente.",
+                "Une proposition peut aussi associer un montant récurrent et des interventions ponctuelles. L’essentiel est de pouvoir identifier les deux, sans supposer qu’une formule est toujours plus avantageuse que l’autre.",
+                "Questions à poser :"
+            ],
+            "questions": [
+                "Le montant couvre-t-il une période définie et des volumes précis ?",
+                "Quelles prestations sont incluses, exclues ou encore à chiffrer ?",
+                "Quels changements peuvent conduire à revoir le prix ?",
+                "Comment serai-je informé d’un supplément et comment sera-t-il validé ?",
+                "Les montants sont-ils présentés hors taxes ou toutes taxes comprises ?"
+            ]
+        },
+        {
+            "title": "3. Utiliser une grille commune pour lire les devis",
+            "paragraphs": [
+                "Pour chaque ligne, relevez la réponse de chaque cabinet : « inclus », « en supplément », « non proposé » ou « à confirmer ». Une case vide est une question à poser ; ce n’est pas une prestation implicitement comprise.",
+                "Cette grille est une aide à la lecture proposée par FIDUCONNECT. Elle ne décrit pas un mandat type obligatoire et ne signifie pas que chaque entreprise a besoin de toutes ces prestations."
+            ],
+            "table": {
+                "caption": "Grille de comparaison des devis fiduciaires",
+                "columns": [
+                    "Point à comparer",
+                    "Ce qu’il faut relever",
+                    "Question à faire préciser"
+                ],
+                "rows": [
+                    [
+                        "Périmètre courant",
+                        "Tâches, périodes et volumes pris en compte",
+                        "Quelle partie du travail reste à mon entreprise ?"
+                    ],
+                    [
+                        "Clôture et travaux annuels",
+                        "Travaux explicitement nommés dans l’offre",
+                        "Sont-ils compris dans le montant récurrent ou chiffrés à part ?"
+                    ],
+                    [
+                        "TVA et fiscalité, si concernées",
+                        "Démarches réellement acceptées",
+                        "Qui prépare, contrôle, valide et transmet les éléments ?"
+                    ],
+                    [
+                        "Salaires, si concernés",
+                        "Effectif et opérations couverts",
+                        "Les entrées, sorties ou demandes ponctuelles sont-elles prévues ?"
+                    ],
+                    [
+                        "Échanges et suivi",
+                        "Rendez-vous, réponses et comptes rendus prévus",
+                        "Quels échanges sont compris et lesquels peuvent être facturés ?"
+                    ],
+                    [
+                        "Outils et accès",
+                        "Logiciels, abonnements et accès nécessaires",
+                        "Qui règle chaque abonnement et quels accès est-ce que je conserve ?"
+                    ],
+                    [
+                        "Mise en place et reprise",
+                        "Analyse initiale, intégration ou travaux de reprise annoncés",
+                        "Quels frais sont ponctuels et lesquels reviennent ensuite ?"
+                    ],
+                    [
+                        "Travaux complémentaires",
+                        "Mode de chiffrage et de validation",
+                        "Quand m’informez-vous d’un besoin hors périmètre ?"
+                    ]
+                ]
+            }
+        },
+        {
+            "title": "4. Séparer démarrage et fonctionnement courant",
+            "paragraphs": [
+                "Faites distinguer les frais liés au lancement de la collaboration et ceux du suivi régulier. Une reprise de dossier, une mise en place d’outil ou un travail de remise en ordre mérite une ligne identifiable lorsqu’il est prévu.",
+                "Un devis avec des frais de démarrage n’est pas automatiquement moins intéressant. À l’inverse, un montant mensuel plus bas ne suffit pas à établir que le coût total sera inférieur. La comparaison doit porter sur la même période et sur des prestations équivalentes.",
+                "Pour préparer votre budget, regroupez les montants déjà chiffrés sur une période commune, puis notez séparément les travaux estimés et les éléments encore inconnus. Ne transformez pas une estimation en coût garanti, et n’additionnez pas des montants hors taxes et toutes taxes comprises sans clarification.",
+                "Si vous changez de prestataire, faites aussi préciser qui termine les travaux en cours et qui prend en charge la première période du nouveau mandat. Le [guide pour préparer un changement de fiduciaire](/ressources/changer-fiduciaire-geneve) détaille les questions d’inventaire et de transition."
+            ]
+        },
+        {
+            "title": "5. Un exemple pour éviter une fausse comparaison",
+            "paragraphs": [
+                "Exemple fictif : une petite entreprise genevoise reçoit deux propositions pour sa comptabilité. La première présente un montant mensuel, mais renvoie les travaux annuels à une estimation séparée. La seconde présente une enveloppe annuelle comprenant certains de ces travaux, tandis que l’outil utilisé reste à la charge de l’entreprise.",
+                "Comparer simplement le montant mensuel de la première offre avec l’enveloppe annuelle de la seconde ne permet pas de choisir. L’entreprise demande d’abord à chaque interlocuteur de préciser la même période, les travaux annuels, les outils et les échanges compris. Elle demande ensuite le chiffrage des lignes manquantes.",
+                "La conclusion n’est pas que l’une des formules serait toujours préférable. Le point utile est d’obtenir des propositions comparables avant de décider. Cet exemple n’est ni un cas client ni une indication des pratiques de tous les cabinets."
+            ]
+        },
+        {
+            "title": "6. Faire confirmer les points encore flous",
+            "paragraphs": [
+                "Un terme comme « accompagnement » ou « suivi complet » peut recouvrir des attentes différentes. Demandez des exemples de tâches prises en charge et de demandes qui sortiraient du périmètre.",
+                "Si une partie du dossier doit être examinée avant de pouvoir être chiffrée, demandez comment cet examen sera organisé et s’il est lui-même payant. Faites préciser le prochain point de décision avant de supposer qu’un travail complémentaire est accepté ou compris.",
+                "Avant de vous engager, vérifiez que vous pouvez répondre à ces questions :"
+            ],
+            "questions": [
+                "Est-ce que je sais ce que je confie et ce que je garde en interne ?",
+                "Les prestations, les exclusions et les hypothèses de prix sont-elles écrites ?",
+                "Les frais de démarrage sont-ils distincts du suivi courant ?",
+                "Les travaux annuels et les outils ont-ils été clarifiés ?",
+                "Le traitement des suppléments et des changements de volume est-il compréhensible ?",
+                "L’interlocuteur, le démarrage et les échéances acceptées sont-ils confirmés ?"
+            ]
+        },
+        {
+            "title": "7. Où FIDUCONNECT intervient",
+            "paragraphs": [
+                "Vous pouvez nous décrire votre activité et les tâches que vous souhaitez confier. Nous clarifions votre recherche et vous orientons vers un partenaire de notre réseau à Genève. Nous ne fixons pas les honoraires des fiduciaires, ne garantissons pas une baisse de prix et ne comparons pas l’ensemble du marché.",
+                "FIDUCONNECT est rémunéré par ses partenaires fiduciaires. Votre demande, le rappel et l’orientation restent gratuits et sans engagement pour vous. Le mandat, son périmètre et les honoraires sont à convenir directement avec le partenaire. Vos coordonnées ne lui sont transmises qu’après notre échange et votre validation du rendez-vous."
+            ]
+        }
+    ],
+    "related": [
+        {
+            "href": "/ressources/choisir-fiduciaire-geneve",
+            "label": "Les critères pour choisir une fiduciaire à Genève"
+        },
+        {
+            "href": "/services/comptabilite",
+            "label": "Rechercher un partenaire pour votre comptabilité"
+        },
+        {
+            "href": "/contact",
+            "label": "Décrire votre besoin à FIDUCONNECT"
+        }
+    ],
+    "article": {
+        "published": "2026-10-26",
+        "displayDate": "26 octobre 2026",
+        "sources": [
+            {
+                "href": "https://www.kmu.admin.ch/fr/tenir-soi-meme-la-comptabilite-ou-la-sous-traiter",
+                "label": "Portail PME du SECO — Tenir soi-même la comptabilité ou la sous-traiter ?",
+                "context": "Repères sur la répartition des tâches entre une entreprise et un intervenant externe. Cette source ne constitue pas un barème d’honoraires et ne valide pas les devis d’un partenaire. La méthode de comparaison, la grille et l’exemple fictif sont proposés par FIDUCONNECT. Ce guide ne fournit pas de conseil comptable, fiscal ou juridique personnalisé et ne remplace pas l’examen de votre situation par le professionnel concerné."
+            }
+        ]
+    }
+},
     {
         path: '/ressources/choisir-fiduciaire-geneve', label: 'Choisir une fiduciaire à Genève',
         title: 'Choisir une fiduciaire à Genève : les critères',
@@ -49,7 +209,7 @@ export const editorialPages: Editorial[] = [
                 'FIDUCONNECT n’est pas une fiduciaire et ne compare pas l’ensemble du marché. Notre service de mise en relation est rémunéré par les partenaires fiduciaires ; la demande, le rappel et l’orientation restent gratuits pour vous. Vos coordonnées ne sont transmises qu’après votre appel et votre validation du rendez-vous. Le mandat et les honoraires du partenaire restent à convenir directement avec lui.',
             ] },
         ],
-        related: [{ href: '/services/comptabilite', label: 'Préciser votre besoin de suivi comptable' }, { href: '/ressources/changer-fiduciaire-geneve', label: 'Préparer un changement de fiduciaire' }, { href: '/contact', label: 'Décrire votre recherche à FIDUCONNECT' }],
+        related: [{ href: '/ressources/honoraires-devis-fiduciaire-geneve', label: 'Comparer les honoraires et les devis' }, { href: '/services/comptabilite', label: 'Préciser votre besoin de suivi comptable' }, { href: '/ressources/changer-fiduciaire-geneve', label: 'Préparer un changement de fiduciaire' }, { href: '/contact', label: 'Décrire votre recherche à FIDUCONNECT' }],
     },
     {
         path: '/a-propos', label: 'À propos', title: 'La mise en relation fiduciaire à Genève',

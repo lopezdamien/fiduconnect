@@ -11,5 +11,5 @@ export const SEO_INDEXABLE_PATHS = [
     '/', '/services', '/services/comptabilite', '/services/tva',
     '/services/charges-salaires', '/services/changer-fiduciaire',
     '/services/pilotage', '/comment-ca-marche', '/a-propos', '/contact',
-    '/ressources', '/ressources/choisir-fiduciaire-geneve', '/ressources/changer-fiduciaire-geneve', '/tva-suisse',
+    '/ressources', '/ressources/choisir-fiduciaire-geneve', '/ressources/changer-fiduciaire-geneve', '/tva-suisse', '/ressources/honoraires-devis-fiduciaire-geneve',
 ];

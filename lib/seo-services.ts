@@ -21,7 +21,7 @@ export const seoServices: SeoService[] = [
     title: 'Fiduciaire pour votre comptabilité à Genève',
     description: 'Vous recherchez un partenaire pour la comptabilité de votre entreprise à Genève ? FIDUCONNECT clarifie vos attentes et facilite la mise en relation.',
     heading: 'Comptabilité à Genève.', accent: 'Trouver votre partenaire.',
-    resources: [{ href: '/ressources/choisir-fiduciaire-geneve', label: 'Les critères pour choisir une fiduciaire' }, { href: '/services/pilotage', label: 'Organiser le suivi de votre activité' }],
+    resources: [{ href: '/ressources/honoraires-devis-fiduciaire-geneve', label: 'Comparer les honoraires et les devis' }, { href: '/ressources/choisir-fiduciaire-geneve', label: 'Les critères pour choisir une fiduciaire' }, { href: '/services/pilotage', label: 'Organiser le suivi de votre activité' }],
     intro: 'Vous souhaitez confier votre comptabilité, mieux organiser les échanges ou trouver un suivi adapté à votre activité ? Nous vous aidons à préciser ce que vous attendez d’un partenaire fiduciaire à Genève.',
     situations: [
       { title: 'Vous démarrez votre activité', text: 'Vous cherchez à définir ce que vous pouvez gérer vous-même et ce que vous souhaitez confier à une fiduciaire. Votre organisation de départ fait partie des éléments à discuter.' },
