@@ -77,8 +77,8 @@ export function AdsConsent() {
     return (
         <section ref={panel} aria-labelledby="ads-consent-title" className="ads-consent">
             <div className="ads-consent-copy">
-                <h2 id="ads-consent-title">Vos préférences de cookies</h2>
-                <p>Avec votre accord, nous utilisons des cookies et technologies similaires pour mesurer l’efficacité de nos publicités et relier les demandes à leur origine publicitaire. Vous pouvez refuser sans modifier l’utilisation du formulaire. <a href="/confidentialite#cookies">En savoir plus</a>.</p>
+                <h2 id="ads-consent-title"><span className="ads-consent-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20.7 13.4A9 9 0 1 1 10.6 3.3a4.2 4.2 0 0 0 5.2 5.2 4.2 4.2 0 0 0 4.9 4.9Z" /><circle cx="8" cy="9" r=".7" /><circle cx="7" cy="15" r=".7" /><circle cx="12" cy="12" r=".7" /><circle cx="14" cy="17" r=".7" /></svg></span>Vos préférences de cookies</h2>
+                <p>Avec votre accord, des cookies permettent de mesurer l’efficacité de nos publicités. Le formulaire reste accessible si vous refusez. <a href="/confidentialite#cookies">En savoir plus</a>.</p>
                 {details && <div id="ads-consent-details" className="ads-consent-details">
                     <p><strong>Fonctionnement du site — toujours actif.</strong> Le formulaire reste accessible sans suivi publicitaire. Votre choix est mémorisé dans ce navigateur pendant 180 jours au maximum.</p>
                     <label className="ads-consent-option">
@@ -96,7 +96,7 @@ export function AdsConsent() {
             <div className="ads-consent-actions">
                 <button type="button" onClick={() => choose(false)}>Refuser</button>
                 <button type="button" onClick={() => choose(true)}>Accepter</button>
-                <button type="button" aria-expanded={details} aria-controls="ads-consent-details" onClick={() => setDetails(!details)}>{details ? 'Réduire' : 'Personnaliser'}</button>
+                <button type="button" className="ads-consent-customize" aria-expanded={details} aria-controls="ads-consent-details" onClick={() => setDetails(!details)}>{details ? 'Réduire' : 'Personnaliser'}</button>
                 {details && <button type="button" onClick={() => choose(measurement)}>Enregistrer mes choix</button>}
                 {storageError && <button type="button" onClick={() => setOpen(false)}>Fermer sans suivi</button>}
             </div>
