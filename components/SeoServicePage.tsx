@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { SeoHeader, SeoFooter } from '@/components/SeoChrome';
+import { SeoLeadSection } from '@/components/SeoLeadSection';
 import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbSchema, socialMetadata } from '@/lib/seo';
 import { seoRobots } from '@/lib/seo-release';
@@ -18,14 +19,14 @@ export function serviceMetadata(service: SeoService): Metadata {
   };
 }
 
-export function SeoServicePage({ service }: { service: SeoService }) {
+export function SeoServicePage({ service, showLeadForm = false }: { service: SeoService; showLeadForm?: boolean }) {
   return <div className="seo-site">
     <SeoHeader />
     <main id="contenu">
       <JsonLd schema={breadcrumbSchema([{ name: 'Vos besoins', path: '/services' }, { name: service.label, path: '/services/' + service.slug }])} />
       <div className="seo-wrap"><nav aria-label="Fil d’Ariane" className="seo-breadcrumb"><Link href="/">Accueil</Link><span aria-hidden="true">/</span><Link href="/services">Vos besoins</Link><span aria-hidden="true">/</span><span aria-current="page">{service.label}</span></nav></div>
       <section className="seo-wrap seo-service-hero">
-        <div><p className="sea-eyebrow">Mise en relation · Canton de Genève</p><h1 className="sea-title">{service.heading}<br /><em>{service.accent}</em></h1><p className="seo-intro">{service.intro}</p><Link href="/contact" className="seo-button">Parlons de votre besoin <ArrowUpRight size={18} aria-hidden="true" /></Link><p className="seo-checks">Orientation gratuite · Sans engagement</p></div>
+        <div><p className="sea-eyebrow">Mise en relation · Canton de Genève</p><h1 className="sea-title">{service.heading}<br /><em>{service.accent}</em></h1><p className="seo-intro">{service.intro}</p><Link href={showLeadForm ? "#demande" : "/contact"} className="seo-button">Parlons de votre besoin <ArrowUpRight size={18} aria-hidden="true" /></Link><p className="seo-checks">Orientation gratuite · Sans engagement</p></div>
         <aside className="seo-service-note"><span className="seo-service-index">{service.number}</span><p className="sea-eyebrow">Notre point de départ</p><h2 className="sea-title">Votre situation.<br />Vos attentes.<br /><em>Votre choix.</em></h2><p>Nous vous aidons à définir ce que vous recherchez. Le partenaire fiduciaire réalise les prestations que vous décidez de lui confier.</p><span className="seo-service-location">Genève et son canton</span></aside>
       </section>
       <div className="seo-positioning"><div className="seo-wrap"><span>Un rôle précis</span><p>FIDUCONNECT facilite la mise en relation. Nous ne réalisons pas les prestations fiduciaires.</p></div></div>
@@ -34,7 +35,7 @@ export function SeoServicePage({ service }: { service: SeoService }) {
       <section className="seo-wrap seo-section seo-service-criteria"><div><p className="sea-eyebrow">Préparer votre décision</p><h2 className="sea-title">Ce qu’il est utile<br />de clarifier.</h2><p>La mise en relation est un début. Le périmètre, les conditions et les honoraires du mandat sont à convenir directement avec le partenaire.</p></div><div>{service.criteria.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section>
       <section className="seo-section seo-wrap seo-faq"><div><p className="sea-eyebrow">Vos questions</p><h2 className="sea-title">Avant d’aller<br />plus loin.</h2></div><div>{service.faq.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
       <section className="seo-wrap seo-section seo-related"><p className="sea-eyebrow">Pour préparer votre échange</p><h2 className="sea-title">Des repères à garder.</h2><nav aria-label="Ressources pour ce besoin">{service.resources.map(resource => <Link key={resource.href} href={resource.href}><span>{resource.label}</span><ArrowUpRight size={18} aria-hidden="true" /></Link>)}</nav></section>
-      <section className="seo-contact seo-service-contact"><div className="seo-wrap"><div><p className="sea-eyebrow sea-eyebrow-light">Une première conversation</p><h2 className="sea-title">Commençons par<br /><em>votre entreprise.</em></h2><p>Parlez-nous de votre recherche à Genève. Nous vous rappelons gratuitement sous 24 heures pour clarifier votre besoin.</p><Link href="/contact" className="seo-button seo-button-light">Décrire mon besoin <ArrowUpRight size={18} aria-hidden="true" /></Link><p className="seo-contact-small">Gratuit et sans engagement pour votre orientation</p></div><aside><span>Vous gardez la maîtrise de la suite.</span><p>Vos coordonnées ne sont transmises au partenaire concerné qu’après votre appel et votre validation du rendez-vous. Les prestations du partenaire font l’objet d’un accord distinct.</p></aside></div></section>
+      {showLeadForm ? <SeoLeadSection idPrefix={"seo-" + service.slug} /> : <section className="seo-contact seo-service-contact"><div className="seo-wrap"><div><p className="sea-eyebrow sea-eyebrow-light">Une première conversation</p><h2 className="sea-title">Commençons par<br /><em>votre entreprise.</em></h2><p>Parlez-nous de votre recherche à Genève. Nous vous rappelons gratuitement sous 24 heures pour clarifier votre besoin.</p><Link href="/contact" className="seo-button seo-button-light">Décrire mon besoin <ArrowUpRight size={18} aria-hidden="true" /></Link><p className="seo-contact-small">Gratuit et sans engagement pour votre orientation</p></div><aside><span>Vous gardez la maîtrise de la suite.</span><p>Vos coordonnées ne sont transmises au partenaire concerné qu’après votre appel et votre validation du rendez-vous. Les prestations du partenaire font l’objet d’un accord distinct.</p></aside></div></section>}
       <section className="seo-wrap seo-section seo-related"><p className="sea-eyebrow">Votre besoin peut aussi concerner</p><h2 className="sea-title">D’autres sujets à explorer.</h2><nav aria-label="Autres besoins">{seoServices.filter(item => item.slug !== service.slug).map(item => <Link key={item.slug} href={'/services/' + item.slug}><span>{item.label}</span><ArrowUpRight size={18} aria-hidden="true" /></Link>)}</nav></section>
     </main>
     <SeoFooter />

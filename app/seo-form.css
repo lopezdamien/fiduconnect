@@ -25,3 +25,14 @@
 .seo-confirmation .seo-button { margin-top: 30px; }
 @media (max-width: 1000px) { .seo-contact-page { gap: 35px; grid-template-columns: .9fr 1.1fr; } .seo-contact-form { padding: 22px; } }
 @media (max-width: 760px) { .seo-contact-page { grid-template-columns: 1fr; gap: 35px; padding-block: 34px 50px; } .seo-contact-copy h1 { font-size: clamp(38px, 8.5vw, 52px); } .seo-contact-timeline { margin-top: 25px; } .seo-contact-form { padding: 20px; } .seo-confirmation { padding-block: 50px 65px; } .seo-confirmation .seo-intro { font-size: 16px; } }
+
+.seo-inline-lead { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; padding-block: 75px; border-top: 1px solid #d8d1c4; }
+.seo-inline-lead > div { min-width: 0; }
+.seo-inline-lead-copy h2 { font-size: clamp(36px, 4vw, 54px); margin-block: 22px; }
+.seo-inline-lead-copy > p:not(.sea-eyebrow) { font-size: 16px; line-height: 1.9; color: #686259; margin-top: 20px; }
+.seo-inline-lead-copy > p.seo-inline-lead-note { font-size: 14px; border-top: 1px solid #d8d1c4; padding-top: 22px; }
+.seo-inline-lead .sea-form-heading h3 { font-size: 30px; }
+@media (max-width: 1000px) { .seo-inline-lead { gap: 35px; } }
+@media (max-width: 760px) { .seo-inline-lead { grid-template-columns: 1fr; gap: 28px; padding-block: 45px; scroll-margin-top: 90px; } }
+
+.seo-inline-lead-form { scroll-margin-top: 100px; }

@@ -213,3 +213,25 @@ test('production route manifest contains exact permanent historical redirects', 
         assert.equal(rule.statusCode, 308);
     }
 });
+
+
+test('paid sitelink destinations expose one accessible inline lead form without spreading it to other pages', () => {
+    const inline = ['/services', '/services/changer-fiduciaire', '/tva-suisse'];
+    for (const path of inline) {
+        const page = html.get(path);
+        assert.equal((page.match(/<form\b/g) || []).length, 1, path);
+        assert.match(page, /<section[^>]*aria-labelledby="[^"]+"/, path);
+        assert.match(page, /id="demande" class="sea-form-card/, path);
+        assert.match(page, /href="#demande"/, path);
+        for (const field of ['firstName', 'lastName', 'email', 'phone', 'situation', 'mainNeed']) {
+            assert.ok(page.includes('name="' + field + '"'), path + ' ' + field);
+        }
+        const ids = [...page.matchAll(/\bid="([^"]+)"/g)].map(([, id]) => id);
+        assert.equal(new Set(ids).size, ids.length, path + ' duplicate IDs');
+        assert.match(page, /Envoyer ma demande/, path);
+        assert.ok(page.includes('href="/confidentialite"'), path);
+    }
+    for (const path of ['/a-propos', '/services/comptabilite', '/services/tva', '/services/charges-salaires', '/ressources/choisir-fiduciaire-geneve']) {
+        assert.doesNotMatch(html.get(path), /<form\b/, path);
+    }
+});
