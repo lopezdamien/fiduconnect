@@ -33,6 +33,29 @@ test('honoraires guide publishes only the approved body with accessible comparis
     assert.equal(article.mainEntityOfPage, 'https://www.fiduconnect.ch' + path);
 });
 
+test('payroll guide publishes approved content with source links, accessible table and incoming links', () => {
+    const path = '/ressources/externaliser-salaires-geneve';
+    const page = html.get(path);
+    assert.ok(page);
+    assert.doesNotMatch(page, /Fiche de publication interne|Contrôles internes|Statut : rédigé|URL proposée/);
+    assert.match(page, /Grille de comparaison des prestations de gestion des salaires/);
+    assert.match(page, /role="region"[^>]*tabindex="0"/i);
+    assert.equal((page.match(/scope="row"/g) || []).length, 9);
+    assert.match(page, /nous ne préparons pas les fiches de paie/);
+    assert.match(page, /Exemple fictif/);
+    for (const source of ['/ressources', '/services/charges-salaires', '/ressources/honoraires-devis-fiduciaire-geneve']) {
+        assert.ok(html.get(source).includes('href="' + path + '"'), source);
+    }
+    for (const url of ['https://www.edoeb.admin.ch/fr/externalisation-sous-traitance', 'https://www.ge.ch/impot-source-employeurs-assureurs-dpis', 'https://www.ocas.ch/demarches-et-formulaires/declaration-des-salaires-annuels']) {
+        assert.ok(page.includes('href="' + url + '"'), url);
+    }
+    const schemas = [...page.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/g)].map(([, value]) => JSON.parse(value));
+    const article = schemas.find(schema => schema['@type'] === 'Article');
+    assert.equal(article.datePublished, '2026-11-06');
+    assert.equal(article.author.name, 'FIDUCONNECT');
+    assert.equal(article.mainEntityOfPage, 'https://www.fiduconnect.ch' + path);
+});
+
 test('indexable pages have page-specific sharing titles and the branded sharing image', () => {
     const titles = new Set();
     for (const path of SEO_INDEXABLE_PATHS) {

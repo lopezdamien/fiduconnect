@@ -4,6 +4,7 @@ export const seoResources = [
   { href: '/tva-suisse', theme: 'Fiscalité & TVA', title: 'TVA\u00a0: préparer votre échange', description: 'Rassemblez les informations sur votre activité et les questions à poser à un professionnel.', visual: 'files', kind: 'Repères' },
   { href: '/services/pilotage', theme: 'Comptabilité & suivi', title: 'Un suivi plus clair de votre activité', description: 'Précisez les chiffres utiles, la fréquence des échanges et le suivi que vous attendez.', visual: 'chart', kind: 'Explorer ce besoin' },
   { href: '/ressources/honoraires-devis-fiduciaire-geneve', theme: 'Honoraires & devis', title: 'Honoraires fiduciaires : comparer les devis', description: 'Forfait, temps passé, reprise et suppléments : une grille pour comparer un périmètre clair.', visual: 'files', kind: 'Guide pratique' },
+  { href: '/ressources/externaliser-salaires-geneve', theme: 'Salaires & administration', title: 'Externaliser les salaires à Genève : choisir son prestataire', description: 'Prestations, fiches de paie, validations et confidentialité : une grille pour cadrer le mandat.', visual: 'files', kind: 'Guide pratique' },
 ] as const;
 
 export type SeoResource = (typeof seoResources)[number];

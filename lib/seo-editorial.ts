@@ -2,6 +2,191 @@ import type { Editorial } from '@/components/SeoEditorialPage';
 
 export const editorialPages: Editorial[] = [
 {
+    "path": "/ressources/externaliser-salaires-geneve",
+    "label": "Externaliser la gestion des salaires",
+    "title": "Externaliser les salaires à Genève : choisir un prestataire",
+    "description": "Prestations, fiches de paie, validations, confidentialité et devis : les questions à poser pour externaliser les salaires de votre PME à Genève.",
+    "heading": "Externaliser la gestion des salaires à Genève : comment choisir son prestataire ?",
+    "intro": "Vous souhaitez confier les fiches de paie de votre entreprise à une fiduciaire ou à un prestataire spécialisé ? Avant de comparer les prix, clarifiez ce que vous voulez déléguer, les informations que vous transmettrez chaque mois et les validations qui resteront dans votre entreprise.",
+    "introDetails": [
+        "Une offre de gestion des salaires peut couvrir la préparation des bulletins sans inclure toutes les démarches administratives ou l’accompagnement RH. Ce guide vous aide à poser les bonnes questions avant de convenir d’un mandat."
+    ],
+    "sections": [
+        {
+            "title": "1. Décrire votre organisation avant de demander un devis",
+            "paragraphs": [
+                "Préparez une description commune pour les prestataires que vous consultez :",
+                "Signalez les situations qui nécessitent une analyse particulière, par exemple un effectif réparti entre plusieurs cantons, des collaborateurs frontaliers ou une convention collective à prendre en compte. Demandez au professionnel si ces situations entrent dans son périmètre, sans supposer qu’une offre standard les couvre.",
+                "Pour une première demande de mise en relation, ces indications générales suffisent. N’envoyez pas de fiches de paie, de données bancaires de salariés ou de dossiers individuels à FIDUCONNECT."
+            ],
+            "questions": [
+                "votre activité et l’effectif approximatif ;",
+                "les rémunérations mensuelles ou horaires et les éléments variables à traiter ;",
+                "les outils déjà utilisés pour les salaires, les heures et la comptabilité ;",
+                "les tâches réalisées en interne et celles que vous souhaitez confier ;",
+                "la date de démarrage et les éventuelles périodes à reprendre."
+            ]
+        },
+        {
+            "title": "2. Faire préciser les prestations comprises",
+            "paragraphs": [
+                "Le terme « gestion des salaires » ne suffit pas à définir un mandat. Demandez une liste des tâches acceptées et des livrables prévus.",
+                "Cette grille est une aide à la comparaison proposée par FIDUCONNECT. Elle ne décrit pas les prestations de tous les cabinets et ne signifie pas que chaque entreprise doit déléguer toutes ces tâches.",
+                "À Genève, l’impôt à la source comporte des obligations propres pour les employeurs concernés, notamment en matière de prélèvement, de versement et de transmission des données. Faites préciser leur prise en charge dans le mandat. [Source : État de Genève](https://www.ge.ch/impot-source-employeurs-assureurs-dpis).",
+                "Les travaux annuels méritent aussi une ligne distincte : l’OCAS prévoit une déclaration annuelle des salaires pour les employeurs relevant de ses démarches. Vérifiez avec votre interlocuteur les obligations et échéances applicables à votre caisse. [Source : OCAS](https://www.ocas.ch/demarches-et-formulaires/declaration-des-salaires-annuels)."
+            ],
+            "table": {
+                "caption": "Grille de comparaison des prestations de gestion des salaires",
+                "columns": [
+                    "Point à comparer",
+                    "Question à poser"
+                ],
+                "rows": [
+                    [
+                        "Fiches de paie",
+                        "Qui prépare les bulletins, les contrôle et les remet aux collaborateurs ?"
+                    ],
+                    [
+                        "Éléments variables",
+                        "Comment transmettre les heures, primes, frais et autres éléments à traiter ?"
+                    ],
+                    [
+                        "Entrées et sorties",
+                        "Quelles opérations sont comprises lors d’un engagement ou d’un départ ?"
+                    ],
+                    [
+                        "Assurances sociales",
+                        "Quelles annonces et déclarations le prestataire prend-il en charge ?"
+                    ],
+                    [
+                        "Impôt à la source, si concerné",
+                        "Qui établit les données, effectue les transmissions et suit les échanges avec l’administration ?"
+                    ],
+                    [
+                        "Travaux annuels",
+                        "Les certificats de salaire et les déclarations annuelles sont-ils inclus ?"
+                    ],
+                    [
+                        "Comptabilité",
+                        "Quels journaux ou exports sont remis, et qui les intègre ?"
+                    ],
+                    [
+                        "Paiements",
+                        "Le prestataire prépare-t-il un fichier de paiement ? Qui le valide et donne l’ordre bancaire ?"
+                    ],
+                    [
+                        "Questions des salariés",
+                        "Quel interlocuteur répond, sur quels sujets et avec quelle procédure ?"
+                    ]
+                ]
+            }
+        },
+        {
+            "title": "3. Organiser un circuit mensuel de validation",
+            "paragraphs": [
+                "Avant le démarrage, convenez d’un calendrier : date de transmission des informations, remise du projet de paie, validation par l’entreprise et préparation des paiements.",
+                "Désignez une personne de contact de chaque côté et une solution de remplacement en cas d’absence. Prévoyez aussi une procédure pour les changements reçus après la date convenue ou les corrections nécessaires après validation.",
+                "Exemple fictif : une PME transmet chaque mois ses heures et ses primes, puis reçoit un projet de bulletins. Son responsable vérifie les changements avant de valider la paie. Si une information arrive tard, les deux parties savent qui contacter et comment traiter la correction. Ce fonctionnement doit être convenu ; il n’est pas automatiquement compris dans chaque offre.",
+                "L’objectif est de savoir qui prépare, qui vérifie, qui transmet et qui autorise le paiement. Externaliser la préparation ne doit pas laisser ces étapes sans responsable identifié."
+            ]
+        },
+        {
+            "title": "4. Vérifier la confidentialité avant de transmettre les dossiers",
+            "paragraphs": [
+                "Les données salariales concernent directement vos collaborateurs. Le PFPDT rappelle que confier le traitement de données à un sous-traitant ne transfère pas votre responsabilité en matière de protection des données. Le choix du prestataire, les instructions et les garanties de sécurité doivent être encadrés. [Source : PFPDT](https://www.edoeb.admin.ch/fr/externalisation-sous-traitance).",
+                "Demandez notamment :",
+                "La localisation du cabinet ne suffit pas à connaître celle de ses outils ou de ses sous-traitants. Faites préciser les éventuels traitements à l’étranger et les garanties prévues. Ne transmettez ensuite que les informations nécessaires aux tâches convenues, par le canal défini avec le professionnel."
+            ],
+            "questions": [
+                "quels collaborateurs et sous-traitants auront accès aux informations ;",
+                "où les données seront traitées et hébergées ;",
+                "quel canal sera utilisé pour les documents confidentiels ;",
+                "comment les accès seront attribués et retirés ;",
+                "comment vous serez averti et accompagné en cas d’incident ;",
+                "comment les données seront restituées en fin de mandat et leur conservation organisée."
+            ]
+        },
+        {
+            "title": "5. Comparer le coût sur un périmètre identique",
+            "paragraphs": [
+                "Demandez comment le prix évolue avec l’effectif et les opérations à réaliser. Une proposition peut distinguer les frais de démarrage, le traitement récurrent, les travaux annuels et les interventions ponctuelles.",
+                "Faites chiffrer ou clarifier les entrées et sorties, les corrections, la reprise d’historique, les outils et les demandes hors périmètre. Vérifiez également la présentation des taxes et la procédure de validation des suppléments.",
+                "Un prix par bulletin ne permet pas, à lui seul, de comparer deux offres. Regardez le coût pour votre organisation, sur une même période, avec les mêmes tâches. Pour approfondir cette méthode, consultez notre [guide pour comparer les honoraires d’une fiduciaire](/ressources/honoraires-devis-fiduciaire-geneve)."
+            ]
+        },
+        {
+            "title": "6. Distinguer la paie et l’accompagnement RH",
+            "paragraphs": [
+                "La préparation des fiches de salaire ne signifie pas nécessairement que le mandat comprend la rédaction des contrats, le recrutement, la gestion des conflits ou les questions de droit du travail.",
+                "Si vous recherchez aussi un soutien RH, listez ces besoins séparément. Demandez qui peut y répondre, dans quelles limites et à quelles conditions. Une promesse de « service complet » mérite d’être traduite en tâches précises.",
+                "Lors d’un changement de prestataire, faites également confirmer la répartition entre l’ancien et le nouveau mandat : dernière période traitée, travaux annuels, historiques à reprendre, accès et date de bascule. Le [guide Changer de fiduciaire](/ressources/changer-fiduciaire-geneve) aide à préparer cette transition."
+            ]
+        },
+        {
+            "title": "7. Préparer votre recherche avec FIDUCONNECT",
+            "paragraphs": [
+                "Vous cherchez un partenaire pour la gestion des salaires de votre entreprise à Genève ? Décrivez votre effectif approximatif, votre fonctionnement actuel et les tâches que vous souhaitez déléguer.",
+                "FIDUCONNECT facilite la mise en relation avec un partenaire fiduciaire ; nous ne préparons pas les fiches de paie et ne réalisons pas les prestations RH. Le périmètre du mandat, sa faisabilité et les honoraires sont à convenir directement avec le partenaire.",
+                "Votre demande, le rappel et l’orientation sont gratuits et sans engagement pour vous. FIDUCONNECT est rémunéré par ses partenaires fiduciaires. Vos coordonnées ne sont transmises au partenaire concerné qu’après notre échange et votre validation du rendez-vous.",
+                "[Décrire votre besoin en gestion des salaires](/contact) ou [découvrir notre mise en relation Salaires & administration](/services/charges-salaires)."
+            ]
+        },
+        {
+            "title": "Peut-on externaliser uniquement les fiches de paie ?",
+            "paragraphs": [
+                "Vous pouvez rechercher un mandat limité à certaines tâches. Faites confirmer ce que le prestataire accepte et ce qui restera dans votre entreprise, notamment pour les données d’entrée, les validations et les transmissions."
+            ]
+        },
+        {
+            "title": "Faut-il changer de logiciel ?",
+            "paragraphs": [
+                "Ne le supposez pas. Demandez quels outils le prestataire utilise, si votre organisation peut être conservée et quels accès, exports ou frais seraient nécessaires en cas de changement."
+            ]
+        },
+        {
+            "title": "Faut-il transmettre les dossiers des salariés dès le premier contact ?",
+            "paragraphs": [
+                "Non pour la première demande auprès de FIDUCONNECT. Une description générale du besoin suffit. Les pièces individuelles utiles seront définies ensuite avec le professionnel, dans un cadre adapté."
+            ]
+        }
+    ],
+    "related": [
+        {
+            "href": "/services/charges-salaires",
+            "label": "Rechercher un partenaire pour les salaires et l’administration"
+        },
+        {
+            "href": "/ressources/honoraires-devis-fiduciaire-geneve",
+            "label": "Comparer les honoraires et les devis"
+        },
+        {
+            "href": "/contact",
+            "label": "Décrire votre besoin à FIDUCONNECT"
+        }
+    ],
+    "article": {
+        "published": "2026-11-06",
+        "displayDate": "6 novembre 2026",
+        "sources": [
+            {
+                "href": "https://www.ge.ch/impot-source-employeurs-assureurs-dpis",
+                "label": "État de Genève — L’impôt à la source pour les employeurs et assureurs",
+                "context": "Obligations des employeurs concernés. Les démarches applicables à votre situation et leur prise en charge sont à préciser avec le professionnel."
+            },
+            {
+                "href": "https://www.ocas.ch/demarches-et-formulaires/declaration-des-salaires-annuels",
+                "label": "OCAS — Déclaration des salaires annuels",
+                "context": "Repères sur la déclaration annuelle auprès de l’OCAS. Vérifiez les obligations et échéances applicables à votre caisse."
+            },
+            {
+                "href": "https://www.edoeb.admin.ch/fr/externalisation-sous-traitance",
+                "label": "PFPDT — Externalisation des traitements de données",
+                "context": "Responsabilités et précautions en matière de sous-traitance, de sécurité et de traitement des données à l’étranger. Sources consultées le 6 novembre 2026. La grille, les questions et l’exemple fictif sont proposés par FIDUCONNECT."
+            }
+        ]
+    }
+},
+{
     "path": "/ressources/honoraires-devis-fiduciaire-geneve",
     "label": "Comparer les honoraires fiduciaires",
     "title": "Honoraires fiduciaires à Genève : comparer les devis",
@@ -144,6 +329,7 @@ export const editorialPages: Editorial[] = [
             "href": "/services/comptabilite",
             "label": "Rechercher un partenaire pour votre comptabilité"
         },
+        {"href": "/ressources/externaliser-salaires-geneve", "label": "Comparer les prestations de gestion des salaires"},
         {
             "href": "/contact",
             "label": "Décrire votre besoin à FIDUCONNECT"

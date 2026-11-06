@@ -69,7 +69,7 @@ export const seoServices: SeoService[] = [
     title: 'Gestion des salaires à Genève : trouver un partenaire',
     description: 'Recherchez un partenaire pour la gestion des salaires et l’administration de votre entreprise à Genève. FIDUCONNECT vous aide à définir les tâches à confier.',
     heading: 'Vos salaires à Genève.', accent: 'Une organisation plus claire.',
-    resources: [{ href: '/ressources/choisir-fiduciaire-geneve', label: 'Les questions à poser à votre futur partenaire' }],
+    resources: [{ href: '/ressources/externaliser-salaires-geneve', label: 'Externaliser les salaires : les questions et la grille de comparaison' }, { href: '/ressources/choisir-fiduciaire-geneve', label: 'Les questions à poser à votre futur partenaire' }],
     intro: 'Vous souhaitez confier la préparation des salaires ou certaines tâches administratives à un partenaire ? Commençons par comprendre votre fonctionnement, vos outils et ce que vous voulez déléguer.',
     situations: [
       { title: 'Votre équipe s’agrandit', text: 'Vous préparez une première embauche ou votre effectif évolue. Vous cherchez un interlocuteur pour discuter de l’organisation de la paie et des tâches qui pourraient lui être confiées.' },
