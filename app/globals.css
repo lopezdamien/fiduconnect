@@ -198,6 +198,14 @@ body { background: var(--background); color: var(--foreground); font-family: var
   html { scroll-behavior: auto; }
   .sea-button, .sea-input, .sea-select-popup { transition: none; }
 }
+/* Two-step lead form: the need comes first, contact details after "Continuer". */
+.sea-lead-form .sea-need-fields { margin-top: 0; padding-top: 0; border-top: 0; }
+.sea-step-note { text-align: center; font-size: 12px; line-height: 1.5; font-weight: 500; color: #223b4a; }
+.sea-need-summary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2px 12px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #e5dfd5; font-size: 13px; line-height: 1.5; font-weight: 500; color: #223b4a; }
+.sea-need-summary > span { min-width: 0; overflow-wrap: anywhere; }
+.sea-need-summary > button { min-height: 44px; padding: 0 2px; font-size: 13px; font-weight: 500; color: #9c513b; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.sea-need-summary > button:focus-visible { outline: 2px solid #b36349; outline-offset: 2px; }
+.sea-need-summary > button:disabled { opacity: .6; cursor: wait; }
 /* Consent choices have equal prominence and never block access to the form. */
 .ads-consent { position: fixed; z-index: 80; inset: auto auto 20px 20px; width: min(380px, calc(100% - 40px)); max-height: 70dvh; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; color: #223b4a; background: #fffdfa; border: 1px solid #e5dfd5; border-radius: 14px; box-shadow: 0 4px 20px #223b4a0d; }
 .ads-consent-copy { min-width: 0; }

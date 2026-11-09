@@ -24,11 +24,11 @@ function TextField({ label, optional, ...props }: ComponentProps<typeof Input> &
     );
 }
 
-function SelectField({ id, name, label, options }: { id: string; name: string; label: string; options: readonly string[] }) {
+function SelectField({ id, name, label, options, value, onValueChange }: { id: string; name: string; label: string; options: readonly string[]; value: string | null; onValueChange: (value: string | null) => void }) {
     return (
         <Field.Root name={name} className="sea-field">
             <Field.Label className="sea-label" nativeLabel={false} render={<div />}>{label}</Field.Label>
-            <Select.Root name={name} id={id} required items={options.map(value => ({ value, label: value }))}>
+            <Select.Root name={name} id={id} required value={value} onValueChange={onValueChange} items={options.map(option => ({ value: option, label: option }))}>
                 <Select.Trigger className="sea-input sea-select-trigger">
                     <Select.Value placeholder="Sélectionnez" />
                     <Select.Icon><ChevronDown aria-hidden="true" className="h-4 w-4" /></Select.Icon>
@@ -57,6 +57,11 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    // Two steps: the need first, contact details only after "Continuer".
+    // Both groups stay mounted so the form still submits every field.
+    const [contactOpen, setContactOpen] = useState(false);
+    const [situation, setSituation] = useState<string | null>(null);
+    const [mainNeed, setMainNeed] = useState<string | null>(null);
     const sending = useRef(false);
     const submission = useRef<{ fingerprint: string; id: string } | null>(null);
 
@@ -104,44 +109,66 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
         }
     }
 
+    function showContact() {
+        if (!situation || !mainNeed) {
+            setError('Choisissez votre situation et votre besoin pour continuer.');
+            return;
+        }
+        setError(null);
+        setContactOpen(true);
+        // Focus only after the visitor asked to continue, never on page load.
+        window.requestAnimationFrame(() => document.getElementById(`${idPrefix}-firstName`)?.focus());
+    }
+
     return (
         <Form onFormSubmit={handleSubmit} className="sea-lead-form" aria-busy={loading}>
             {error && <p role="alert" className="sea-submit-error">{error}</p>}
             <Field.Root name="website" className="hidden" aria-hidden="true">
                 <Field.Control type="text" name="website" tabIndex={-1} autoComplete="off" />
             </Field.Root>
-            <fieldset disabled={loading} className="sea-contact-fields space-y-4">
-                <legend className="sea-form-legend">Vos coordonnées</legend>
-                <div className="grid grid-cols-1 gap-4 min-[360px]:grid-cols-2 min-[360px]:gap-3">
-                    <TextField label="Prénom" id={`${idPrefix}-firstName`} name="firstName" maxLength={leadLimits.firstName} required autoComplete="given-name" enterKeyHint="next" />
-                    <TextField label="Nom" id={`${idPrefix}-lastName`} name="lastName" maxLength={leadLimits.lastName} required autoComplete="family-name" enterKeyHint="next" />
-                </div>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
-                    <TextField label="E-mail" id={`${idPrefix}-email`} name="email" type="email" inputMode="email" autoCapitalize="none" spellCheck={false} enterKeyHint="next" maxLength={leadLimits.email} required autoComplete="email" placeholder="vous@entreprise.ch" />
-                    <TextField label="Téléphone" id={`${idPrefix}-phone`} name="phone" type="tel" inputMode="tel" enterKeyHint="next" maxLength={leadLimits.phone} required autoComplete="tel" placeholder="+41 79 000 00 00" />
-                </div>
-                <TextField label="Entreprise" optional id={`${idPrefix}-company`} name="company" maxLength={leadLimits.company} autoComplete="organization" enterKeyHint="next" />
-            </fieldset>
-            <fieldset disabled={loading} className="sea-need-fields mt-6 space-y-4 border-t border-[#e5dfd5] pt-5">
+            <fieldset disabled={loading} hidden={contactOpen} className="sea-need-fields space-y-4">
                 <legend className="sr-only">Votre besoin</legend>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
-                    <SelectField id={`${idPrefix}-situation`} name="situation" label="Votre situation" options={situations} />
-                    <SelectField id={`${idPrefix}-need`} name="mainNeed" label="Besoin principal" options={needs} />
+                    <SelectField id={`${idPrefix}-situation`} name="situation" label="Votre situation" options={situations} value={situation} onValueChange={setSituation} />
+                    <SelectField id={`${idPrefix}-need`} name="mainNeed" label="Besoin principal" options={needs} value={mainNeed} onValueChange={setMainNeed} />
                 </div>
-                <Field.Root name="message" className="sea-field">
-                    <Field.Label className="sea-label">Quelques précisions <span className="sea-optional">Facultatif</span></Field.Label>
-                    <Field.Control id={`${idPrefix}-message`} render={<textarea rows={2} maxLength={leadLimits.message} />} className="sea-input sea-textarea" placeholder="Votre activité, vos attentes…" />
-                </Field.Root>
+                <button type="button" className="sea-button sea-submit sea-continue" onClick={showContact}>
+                    Continuer
+                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                </button>
+                <p className="sea-step-note">Étape 1 sur 2 · Gratuit · Sans engagement</p>
             </fieldset>
-            <p aria-label="Utilisation de vos données" className="sea-privacy-note mt-4 text-[11px] leading-5 text-[#6c665e]">
-                Vos informations servent à vous rappeler et vous orienter.{' '}
-                <a href="/confidentialite" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Confidentialité<span className="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>.
-            </p>
-            <button type="submit" className="sea-button sea-submit mt-4" disabled={loading}>
-                {loading ? 'Envoi en cours…' : 'Trouver ma fiduciaire'}
-                {loading ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin motion-reduce:animate-none" /> : <ArrowRight aria-hidden="true" className="h-4 w-4" />}
-            </button>
-            <p className="sea-form-reassurance mt-3 text-center text-xs font-medium text-[#223b4a]">Rappel gratuit sous 24 h · Sans engagement</p>
+            <div hidden={!contactOpen} className="sea-contact-step">
+                <p className="sea-need-summary">
+                    <span>{situation} · {mainNeed}</span>
+                    <button type="button" onClick={() => setContactOpen(false)} disabled={loading}>Modifier</button>
+                </p>
+                <fieldset disabled={loading} className="sea-contact-fields space-y-4">
+                    <legend className="sea-form-legend">Vos coordonnées</legend>
+                    <div className="grid grid-cols-1 gap-4 min-[360px]:grid-cols-2 min-[360px]:gap-3">
+                        <TextField label="Prénom" id={`${idPrefix}-firstName`} name="firstName" maxLength={leadLimits.firstName} required autoComplete="given-name" enterKeyHint="next" />
+                        <TextField label="Nom" id={`${idPrefix}-lastName`} name="lastName" maxLength={leadLimits.lastName} required autoComplete="family-name" enterKeyHint="next" />
+                    </div>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
+                        <TextField label="E-mail" id={`${idPrefix}-email`} name="email" type="email" inputMode="email" autoCapitalize="none" spellCheck={false} enterKeyHint="next" maxLength={leadLimits.email} required autoComplete="email" placeholder="vous@entreprise.ch" />
+                        <TextField label="Téléphone" id={`${idPrefix}-phone`} name="phone" type="tel" inputMode="tel" enterKeyHint="next" maxLength={leadLimits.phone} required autoComplete="tel" placeholder="+41 79 000 00 00" />
+                    </div>
+                    <TextField label="Entreprise" optional id={`${idPrefix}-company`} name="company" maxLength={leadLimits.company} autoComplete="organization" enterKeyHint="next" />
+                    <Field.Root name="message" className="sea-field">
+                        <Field.Label className="sea-label">Quelques précisions <span className="sea-optional">Facultatif</span></Field.Label>
+                        <Field.Control id={`${idPrefix}-message`} render={<textarea rows={2} maxLength={leadLimits.message} />} className="sea-input sea-textarea" placeholder="Votre activité, vos attentes…" />
+                    </Field.Root>
+                </fieldset>
+                <p aria-label="Utilisation de vos données" className="sea-privacy-note mt-4 text-[11px] leading-5 text-[#6c665e]">
+                    Vos informations servent à vous rappeler et vous orienter. Aucune transmission à une fiduciaire sans votre accord.{' '}
+                    <a href="/confidentialite" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Confidentialité<span className="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>.
+                </p>
+                <button type="submit" className="sea-button sea-submit mt-4" disabled={loading}>
+                    {loading ? 'Envoi en cours…' : 'Trouver ma fiduciaire'}
+                    {loading ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin motion-reduce:animate-none" /> : <ArrowRight aria-hidden="true" className="h-4 w-4" />}
+                </button>
+                <p className="sea-form-reassurance mt-3 text-center text-xs font-medium text-[#223b4a]">Rappel gratuit sous 24 h · Sans engagement</p>
+            </div>
         </Form>
     );
 }

@@ -59,14 +59,15 @@ async function scenario(name, callback, options = {}) {
         });
     });
     async function fill() {
-        await page.getByLabel('Prénom', { exact: true }).fill('Test');
-        await page.getByLabel('Nom', { exact: true }).fill('Fictif');
-        await page.getByLabel('E-mail', { exact: true }).fill('test@example.invalid');
-        await page.getByLabel('Téléphone', { exact: true }).fill('+41 79 000 00 00');
         await page.getByRole('combobox', { name: 'Votre situation' }).click();
         await page.getByRole('option', { name: 'Indépendant', exact: true }).click();
         await page.getByRole('combobox', { name: 'Besoin principal' }).click();
         await page.getByRole('option', { name: 'Comptabilité', exact: true }).click();
+        await page.getByRole('button', { name: 'Continuer', exact: true }).click();
+        await page.getByLabel('Prénom', { exact: true }).fill('Test');
+        await page.getByLabel('Nom', { exact: true }).fill('Fictif');
+        await page.getByLabel('E-mail', { exact: true }).fill('test@example.invalid');
+        await page.getByLabel('Téléphone', { exact: true }).fill('+41 79 000 00 00');
     }
     const state = { page, context, requests, errors, fill,
         counts: () => ({ leads: leadRequests, events }),
