@@ -3,7 +3,7 @@ import { crmRpc } from './crm-intake';
 
 type Job = {
     leaseId: string;
-    lead: { id: string; first_name: string; last_name: string; email: string; phone: string;
+    lead: { id: string; first_name: string; last_name: string; email: string | null; phone: string | null;
         company: string; situation: string; main_need: string; message: string; form_source: string };
 };
 
@@ -20,7 +20,7 @@ export async function processCrmNotifications() {
         try {
             const result = await resend.emails.send({
                 from, to, subject: 'Nouvelle demande FIDUCONNECT',
-                text: `Nouvelle demande FIDUCONNECT\n\nNom : ${lead.first_name} ${lead.last_name}\nEntreprise : ${lead.company || 'Non renseignée'}\nE-mail : ${lead.email}\nTéléphone : ${lead.phone}\nSituation : ${lead.situation}\nBesoin : ${lead.main_need}\nPrécisions : ${lead.message || 'Non renseignées'}\nOrigine formulaire : ${lead.form_source}\n\nLe lead est enregistré dans le CRM. Ne transmettre ses coordonnées à aucun partenaire sans validation préalable.`,
+                text: `Nouvelle demande FIDUCONNECT\n\nNom : ${lead.first_name} ${lead.last_name}\nEntreprise : ${lead.company || 'Non renseignée'}\nE-mail : ${lead.email || 'Non renseigné'}\nTéléphone : ${lead.phone || 'Non renseigné'}\nSituation : ${lead.situation}\nBesoin : ${lead.main_need}\nPrécisions : ${lead.message || 'Non renseignées'}\nOrigine formulaire : ${lead.form_source}\n\nLe lead est enregistré dans le CRM. Ne transmettre ses coordonnées à aucun partenaire sans validation préalable.`,
             }, { idempotencyKey: `crm-lead/${lead.id}` });
             if (!result.error && result.data?.id) providerId = result.data.id;
         } catch { /* Retain the durable job. Never log the provider error or coordinates. */ }

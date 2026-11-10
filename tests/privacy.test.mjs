@@ -86,7 +86,7 @@ test('lead form keeps a short purpose notice and an accessible privacy link befo
         const submitStart = html.indexOf('<button type="submit"');
         assert.ok(noticeStart >= 0 && noticeStart < submitStart);
         const notice = html.slice(noticeStart, html.indexOf('</p>', noticeStart) + 4);
-        assert.match(notice, /vous rappeler et vous orienter/);
+        assert.match(notice, /vous recontacter et vous orienter/);
         assert.match(notice, /href="\/confidentialite" target="_blank" rel="noopener noreferrer"/);
         assert.match(notice, /Confidentialité/);
         assert.match(notice, /s’ouvre dans un nouvel onglet/);
@@ -124,7 +124,7 @@ test('privacy page explains transfers without claiming European-only storage or 
     const html = renderToStaticMarkup(React.createElement(PrivacyPage));
     assert.match(html, /Smart Administration – Damien Lopez/);
     assert.match(html, /mailto:contact@fiduconnect\.ch/);
-    assert.match(html, /vous rappeler gratuitement sous 24 heures/);
+    assert.match(html, /vous recontacter gratuitement sous 24 heures/);
     assert.match(html, /après l’appel et votre validation d’un rendez-vous avec le partenaire concerné/);
     assert.match(html, /ne vous inscrit pas à une newsletter/);
     for (const text of ['Netlify', 'Resend', 'Infomaniak', 'États-Unis', 'Irlande', 'Suisse']) assert.ok(html.includes(text), text);
@@ -214,7 +214,7 @@ test('desktop compaction preserves all form fields and avoids an inner scroll ar
     const { SeaLeadForm } = loadComponent('components/SeaLeadForm.tsx');
     for (const idPrefix of ['hero', 'final']) {
         const html = renderToStaticMarkup(React.createElement(SeaLeadForm, { idPrefix }));
-        for (const name of ['firstName', 'lastName', 'email', 'phone', 'company', 'situation', 'mainNeed', 'message']) {
+        for (const name of ['firstName', 'lastName', 'email', 'company', 'situation', 'mainNeed', 'message']) {
             assert.ok(html.includes(`name="${name}"`), name);
         }
         assert.match(html, /sea-contact-fields/);
@@ -297,9 +297,10 @@ test('touch forms preserve keyboard hints, autocomplete and all fields at narrow
         assert.match(html, /inputMode="email"/i);
         assert.match(html, /autoCapitalize="none"/i);
         assert.match(html, /spellCheck="false"/i);
-        assert.match(html, /inputMode="tel"/i);
+        assert.doesNotMatch(html, /name="phone"/i);
+        assert.match(html, /Par téléphone/);
         assert.match(html, /enterKeyHint="next"/i);
-        for (const value of ['given-name', 'family-name', 'email', 'tel', 'organization']) assert.ok(html.includes(`autoComplete="${value}"`), value);
+        for (const value of ['given-name', 'family-name', 'email', 'organization']) assert.ok(html.includes(`autoComplete="${value}"`), value);
         assert.ok(html.includes('min-[360px]:grid-cols-2'));
         assert.doesNotMatch(html, /autofocus|<details/i);
     }

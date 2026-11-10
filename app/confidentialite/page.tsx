@@ -17,7 +17,7 @@ export default function Confidentialite() {
         <LegalPage title="Votre confidentialité" version={crmEnabled ? '18 octobre 2026' : OPENAI_ADS_ENABLED ? '17 octobre 2026' : '14 octobre 2026'}>
             <section aria-label="L’essentiel de votre confidentialité">
                 <h2>Votre demande, en bref</h2>
-                <p>Cette déclaration concerne <strong>contact.fiduconnect.ch</strong>. Votre demande est traitée par l’exploitant pour vous rappeler et vous orienter. Elle n’est pas envoyée automatiquement aux fiduciaires et ne vous inscrit pas à une newsletter. La mesure publicitaire est facultative ; son refus n’empêche pas l’envoi du formulaire.</p>
+                <p>Cette déclaration concerne <strong>contact.fiduconnect.ch</strong>. Votre demande est traitée par l’exploitant pour vous recontacter et vous orienter. Elle n’est pas envoyée automatiquement aux fiduciaires et ne vous inscrit pas à une newsletter. La mesure publicitaire est facultative ; son refus n’empêche pas l’envoi du formulaire.</p>
                 <nav aria-label="Sommaire de la confidentialité" className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
                     <a href="#responsable">Responsable</a><a href="#donnees">Données</a><a href="#destinataires">Destinataires</a><a href="#prestataires">Pays et prestataires</a><a href="#conservation">Conservation</a><a href="#cookies">Cookies</a><a href="#droits">Vos droits</a>
                 </nav>
@@ -30,22 +30,22 @@ export default function Confidentialite() {
             <section id="donnees">
                 <h2>2. Informations recueillies</h2>
                 <ul>
-                    <li>Votre prénom, nom, e-mail et téléphone, nécessaires pour vous recontacter.</li>
-                    <li>Votre situation et votre besoin principal, pour préparer le rappel.</li>
+                    <li>Votre prénom, votre nom et le moyen de contact choisi : e-mail ou téléphone.</li>
+                    <li>Votre situation et votre besoin principal, pour préparer la prise de contact.</li>
                     <li>Le nom de votre entreprise et vos précisions, si vous les fournissez.</li>
                 </ul>
-                <p className="mt-3">Les serveurs peuvent traiter des informations techniques, notamment l’adresse IP, la date et la page demandée, pour le fonctionnement et la sécurité du site. Un identifiant dérivé de l’e-mail est conservé temporairement en mémoire pour limiter les demandes répétées, sans garder cet e-mail en clair dans le limiteur.</p>
+                <p className="mt-3">Les serveurs peuvent traiter des informations techniques, notamment l’adresse IP, la date et la page demandée, pour le fonctionnement et la sécurité du site. Un identifiant dérivé de l’e-mail ou du numéro de téléphone est conservé temporairement en mémoire pour limiter les demandes répétées, sans garder cette coordonnée en clair dans le limiteur.</p>
                 <p className="mt-3">Ne transmettez pas de pièces d’identité, de données bancaires, de données salariales ou de documents fiscaux confidentiels dans le champ libre. Aucun dépôt de document n’est proposé.</p>
             </section>
             <section>
                 <h2>3. À quoi servent vos informations ?</h2>
-                <p>Vos informations servent à vous rappeler gratuitement sous 24 heures, à comprendre votre situation et à préparer une orientation vers un partenaire adapté. Les informations techniques servent au fonctionnement du site et à la prévention des abus.</p>
+                <p>Vos informations servent à vous recontacter gratuitement sous 24 heures, à comprendre votre situation et à préparer une orientation vers un partenaire adapté. Les informations techniques servent au fonctionnement du site et à la prévention des abus.</p>
                 <p className="mt-3">Votre demande ne vous inscrit pas à une newsletter et n’autorise pas une prospection sans rapport avec votre besoin. Le traitement est soumis à la Loi fédérale suisse sur la protection des données.</p>
             </section>
             <section id="destinataires">
                 <h2>4. Qui reçoit votre demande ?</h2>
                 {crmEnabled && <p className="mt-3">Votre demande est enregistrée dans notre CRM privé avec son origine formulaire et sa date de réception. Seul l’exploitant y accède après connexion et double vérification ; il peut ajouter un statut de suivi, des notes et un rappel. L’e-mail de notification est envoyé après l’enregistrement ; une panne de messagerie n’efface pas votre demande.</p>}
-                <p>Smart Administration – Damien Lopez reçoit votre demande dans la boîte contact@fiduconnect.ch et prépare votre rappel. Netlify, Resend et Infomaniak interviennent pour le fonctionnement du site et l’acheminement de cette demande, comme expliqué ci-dessous.</p>
+                <p>Smart Administration – Damien Lopez reçoit votre demande dans la boîte contact@fiduconnect.ch et prépare la prise de contact. Netlify, Resend et Infomaniak interviennent pour le fonctionnement du site et l’acheminement de cette demande, comme expliqué ci-dessous.</p>
                 <p className="mt-3">Vos coordonnées et les informations utiles ne sont transmises à une fiduciaire partenaire qu’après l’appel et votre validation d’un rendez-vous avec le partenaire concerné. Le formulaire n’envoie aucune demande automatiquement aux fiduciaires. Le partenaire vous informe de ses propres traitements.</p>
             </section>
             <section>

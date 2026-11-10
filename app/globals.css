@@ -227,3 +227,7 @@ body { background: var(--background); color: var(--foreground); font-family: var
 @media (max-width: 639px) {
     .ads-consent { inset: auto 12px 12px; width: auto; padding: 14px; gap: 10px; max-height: 60dvh; }
 }
+
+.sea-input.sea-contact-option { display: flex; align-items: center; gap: 6px; min-height: 44px; cursor: pointer; }
+.sea-contact-option input { flex: none; }
+.sea-contact-option:has(input:checked) { border-color: #223b4a; }

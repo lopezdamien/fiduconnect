@@ -65,7 +65,7 @@ function fixture({ storageThrows = false, googleBlocked = false, callback = true
                 jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true },
         }).outputText;
         const customRequire = name => {
-            if (name === 'react') return { ...require('react'), useState: () => [false, () => {}], useRef: initial => ({ current: initial }) };
+            if (name === 'react') return { ...require('react'), useState: initial => [initial, () => {}], useRef: initial => ({ current: initial }) };
             if (name === 'next/navigation') return { useRouter: () => ({ push: path => navigations.push(path) }) };
             if (name.startsWith('@/')) {
                 const base = name.slice(2);

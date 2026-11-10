@@ -62,6 +62,7 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
     const [contactOpen, setContactOpen] = useState(false);
     const [situation, setSituation] = useState<string | null>(null);
     const [mainNeed, setMainNeed] = useState<string | null>(null);
+    const [contactMethod, setContactMethod] = useState<"email" | "phone">("email");
     const sending = useRef(false);
     const submission = useRef<{ fingerprint: string; id: string } | null>(null);
 
@@ -74,8 +75,8 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
         const payload = {
             firstName: data.firstName,
             lastName: data.lastName,
-            email: data.email,
-            phone: data.phone,
+            email: contactMethod === "email" ? data.email : undefined,
+            phone: contactMethod === "phone" ? data.phone : undefined,
             company: data.company,
             situation: data.situation,
             mainNeed: data.mainNeed,
@@ -149,10 +150,22 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                         <TextField label="Prénom" id={`${idPrefix}-firstName`} name="firstName" maxLength={leadLimits.firstName} required autoComplete="given-name" enterKeyHint="next" />
                         <TextField label="Nom" id={`${idPrefix}-lastName`} name="lastName" maxLength={leadLimits.lastName} required autoComplete="family-name" enterKeyHint="next" />
                     </div>
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3">
-                        <TextField label="E-mail" id={`${idPrefix}-email`} name="email" type="email" inputMode="email" autoCapitalize="none" spellCheck={false} enterKeyHint="next" maxLength={leadLimits.email} required autoComplete="email" placeholder="vous@entreprise.ch" />
-                        <TextField label="Téléphone" id={`${idPrefix}-phone`} name="phone" type="tel" inputMode="tel" enterKeyHint="next" maxLength={leadLimits.phone} required autoComplete="tel" placeholder="+41 79 000 00 00" />
-                    </div>
+                    <fieldset className="space-y-2">
+                        <legend className="sea-label">Comment souhaitez-vous être contacté ?</legend>
+                        <div className="grid grid-cols-2 gap-2">
+                            {([['email', 'Par e-mail'], ['phone', 'Par téléphone']] as const).map(([value, label]) => (
+                                <label key={value} className="sea-input sea-contact-option">
+                                    <input type="radio" name={`${idPrefix}-contact-method`} checked={contactMethod === value} onChange={() => setContactMethod(value)} className="accent-[#223b4a]" />
+                                    {label}
+                                </label>
+                            ))}
+                        </div>
+                        {contactMethod === 'email' ? (
+                            <TextField key="email" label="E-mail" id={`${idPrefix}-email`} name="email" type="email" inputMode="email" autoCapitalize="none" spellCheck={false} enterKeyHint="next" maxLength={leadLimits.email} required autoComplete="email" placeholder="vous@entreprise.ch" />
+                        ) : (
+                            <TextField key="phone" label="Téléphone" id={`${idPrefix}-phone`} name="phone" type="tel" inputMode="tel" enterKeyHint="next" maxLength={leadLimits.phone} required autoComplete="tel" placeholder="+41 79 000 00 00" />
+                        )}
+                    </fieldset>
                     <TextField label="Entreprise" optional id={`${idPrefix}-company`} name="company" maxLength={leadLimits.company} autoComplete="organization" enterKeyHint="next" />
                     <Field.Root name="message" className="sea-field">
                         <Field.Label className="sea-label">Quelques précisions <span className="sea-optional">Facultatif</span></Field.Label>
@@ -160,14 +173,14 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                     </Field.Root>
                 </fieldset>
                 <p aria-label="Utilisation de vos données" className="sea-privacy-note mt-4 text-[11px] leading-5 text-[#6c665e]">
-                    Vos informations servent à vous rappeler et vous orienter. Aucune transmission à une fiduciaire sans votre accord.{' '}
+                    Vos informations servent à vous recontacter et vous orienter. Aucune transmission à une fiduciaire sans votre accord.{' '}
                     <a href="/confidentialite" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Confidentialité<span className="sr-only"> (s’ouvre dans un nouvel onglet)</span></a>.
                 </p>
                 <button type="submit" className="sea-button sea-submit mt-4" disabled={loading}>
                     {loading ? 'Envoi en cours…' : 'Trouver ma fiduciaire'}
                     {loading ? <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin motion-reduce:animate-none" /> : <ArrowRight aria-hidden="true" className="h-4 w-4" />}
                 </button>
-                <p className="sea-form-reassurance mt-3 text-center text-xs font-medium text-[#223b4a]">Rappel gratuit sous 24 h · Sans engagement</p>
+                <p className="sea-form-reassurance mt-3 text-center text-xs font-medium text-[#223b4a]">Réponse gratuite sous 24 h · Sans engagement</p>
             </div>
         </Form>
     );

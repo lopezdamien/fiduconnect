@@ -82,6 +82,32 @@ test('CRM mode commits to backend before success and never sends a second direct
     assert.equal(options.cache, 'no-store');
 });
 
+test('email-only and phone-only requests reach the CRM; missing or invalid contact is refused', async () => {
+    const f = fixture({ crm: true });
+    const payload = { ...validLead, submissionId: '00000000-0000-4000-8000-000000000005' };
+    assert.equal((await f.POST(request({ ...payload, phone: undefined }))).status, 200);
+    assert.equal((await f.POST(request({ ...payload, email: undefined }))).status, 200);
+    for (const contact of [{}, { email: 'invalid' }, { phone: '123' }]) {
+        assert.equal((await f.POST(request({ ...payload, email: undefined, phone: undefined, ...contact }))).status, 400);
+    }
+    assert.deepEqual(f.databaseCalls.map(call => {
+        const { email, phone } = JSON.parse(call.options.body).p_payload;
+        return [email, phone];
+    }), [[validLead.email, undefined], [undefined, validLead.phone]]);
+    assert.equal(f.sent.length, 0);
+});
+
+test('phone-only rate limit ignores formatting and does not block a different number', async () => {
+    const f = fixture();
+    const payload = { ...validLead, email: undefined };
+    for (const phone of ['+41 79 000 00 00', '+41790000000', '+41 (79) 000-00-00']) {
+        assert.equal((await f.POST(request({ ...payload, phone }))).status, 200);
+    }
+    assert.equal((await f.POST(request(payload))).status, 429);
+    assert.equal((await f.POST(request({ ...payload, phone: '+41790000001' }))).status, 200);
+    assert.match(f.sent[0].text, /E-mail : Non renseigné/);
+});
+
 test('CRM mode refuses missing ID and database failures without email fallback or false success', async () => {
     const f = fixture({ crm: true });
     assert.equal((await f.POST(request())).status, 400);

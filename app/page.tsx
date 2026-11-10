@@ -62,7 +62,7 @@ export default function Home() {
                                 Décrivez-nous votre besoin. FiduConnect vous aide à identifier et comparer des partenaires adaptés, gratuitement et sans engagement.
                             </p>
                             <div className="sea-hero-reassurance mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-medium text-[#605b54]">
-                                <span>Rappel gratuit sous 24 h</span><span className="border-l border-[#c7c0b6] pl-6">Sans engagement</span>
+                                <span>Réponse gratuite sous 24 h</span><span className="border-l border-[#c7c0b6] pl-6">Sans engagement</span>
                             </div>
                             <a href="#demande" className="sea-form-guide">
                                 <span>Trouver ma fiduciaire</span>
@@ -78,7 +78,7 @@ export default function Home() {
                             <div className="sea-form-heading">
                                 <p className="sea-eyebrow">Votre premier pas</p>
                                 <h2 className="sea-title mt-3 text-[1.9rem]">Parlez-nous de votre besoin.</h2>
-                                <p className="mt-2 text-sm leading-6 text-[#6c665e]">Nous vous rappelons gratuitement sous 24 heures.</p>
+                                <p className="mt-2 text-sm leading-6 text-[#6c665e]">Nous vous recontactons gratuitement sous 24 heures.</p>
                             </div>
                             <SeaLeadForm idPrefix="hero" />
                         </PremiumReveal>
@@ -147,7 +147,7 @@ export default function Home() {
                         <Eyebrow light>Votre demande</Eyebrow>
                         <h2 className="sea-title mt-5 max-w-lg text-4xl sm:text-5xl">Prêt à trouver une fiduciaire adaptée ?</h2>
                         <p className="mt-6 max-w-md text-base leading-7 text-[#c8c3b9]">Expliquez-nous votre situation. Nous vous aidons à avancer simplement, avec une orientation cohérente avec votre entreprise.</p>
-                        <p className="mt-8 text-sm tracking-wide text-[#efd6c9]">Gratuit · Rappel sous 24 h · Sans engagement</p>
+                        <p className="mt-8 text-sm tracking-wide text-[#efd6c9]">Gratuit · Réponse sous 24 h · Sans engagement</p>
                         <a href="#demande" className="mt-8 inline-flex min-h-14 w-full items-center justify-between gap-4 rounded-md bg-[#f6f2e9] px-6 py-4 text-base font-semibold text-[#223b4a] transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#efd6c9] sm:w-auto sm:min-w-72">
                             Trouver ma fiduciaire
                             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>

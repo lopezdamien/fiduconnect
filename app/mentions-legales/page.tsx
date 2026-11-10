@@ -25,9 +25,9 @@ export default function MentionsLegales() {
             </section>
             <section>
                 <h2>2. Le rôle de FIDUCONNECT</h2>
-                <p>Nous recueillons votre besoin, vous rappelons gratuitement sous 24 heures et vous aidons à identifier et comparer des partenaires fiduciaires adaptés à votre entreprise à Genève. La demande, le rappel et l’orientation FIDUCONNECT sont gratuits et sans engagement pour vous.</p>
+                <p>Nous recueillons votre besoin, vous recontactons gratuitement sous 24 heures et vous aidons à identifier et comparer des partenaires fiduciaires adaptés à votre entreprise à Genève. La demande, la prise de contact et l’orientation FIDUCONNECT sont gratuits et sans engagement pour vous.</p>
                 <h3 className="mb-2 mt-5 font-semibold text-[#223b4a]">Comment FIDUCONNECT est-il rémunéré ?</h3>
-                <p>FIDUCONNECT est rémunéré par ses partenaires fiduciaires pour son service de mise en relation. La demande, le rappel et l’orientation restent gratuits pour vous. Les prestations que vous choisissez ensuite de confier à une fiduciaire sont distinctes et soumises aux tarifs et conditions convenus avec elle.</p>
+                <p>FIDUCONNECT est rémunéré par ses partenaires fiduciaires pour son service de mise en relation. La demande, la prise de contact et l’orientation restent gratuits pour vous. Les prestations que vous choisissez ensuite de confier à une fiduciaire sont distinctes et soumises aux tarifs et conditions convenus avec elle.</p>
                 <p className="mt-3">FIDUCONNECT n’est pas un cabinet fiduciaire et ne fournit pas de conseil comptable, fiscal ou juridique personnalisé. L’orientation porte sur des partenaires du réseau, sans comparaison exhaustive de toutes les fiduciaires du marché.</p>
                 <p className="mt-3">Après l’appel, vos coordonnées ne sont transmises au partenaire concerné que si vous validez un rendez-vous. Vous restez libre de donner suite ou non. Les prestations éventuellement commandées à la fiduciaire font l’objet d’un accord distinct avec elle, notamment pour leurs tarifs et leurs conditions.</p>
             </section>

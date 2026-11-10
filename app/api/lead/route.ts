@@ -15,17 +15,17 @@ const leadSchema = z.object({
     submissionId: z.string().uuid().optional(),
     firstName: singleLine(leadLimits.firstName),
     lastName: singleLine(leadLimits.lastName),
-    email: z.string().trim().max(leadLimits.email).email(),
+    email: z.string().trim().max(leadLimits.email).email().optional(),
     phone: singleLine(leadLimits.phone).regex(/^[+\d\s().-]+$/).refine(value => {
         const digits = value.replace(/\D/g, '').length;
         return digits >= 7 && digits <= 15;
-    }),
+    }).optional(),
     company: optionalLine,
     situation: z.enum(situations),
     mainNeed: z.enum(needs),
     message: z.string().trim().max(leadLimits.message).refine(value => !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(value)).optional(),
     website: z.string().max(256).optional(),
-});
+}).refine(({ email, phone }) => Boolean(email || phone));
 
 const limiter = createLeadLimiter();
 const responseHeaders = { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' };
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
         if (crmIntakeEnabled() && !validation.data.submissionId) {
             return failure(400, 'Rechargez la page avant de réessayer l’envoi.');
         }
-        const retryAfter = limiter.consume(email);
+        const retryAfter = limiter.consume(email ?? `phone:${phone!.replace(/\D/g, '')}`);
         if (retryAfter !== null) {
             return failure(429, 'Trop de demandes ont été envoyées. Merci de réessayer dans quelques minutes.', { 'Retry-After': String(retryAfter) });
         }
@@ -92,8 +92,8 @@ export async function POST(request: Request) {
         const name = `${firstName} ${lastName}`;
         const safe = {
             name: escapeHtml(name),
-            email: escapeHtml(email),
-            phone: escapeHtml(phone),
+            email: email ? escapeHtml(email) : 'Non renseigné',
+            phone: phone ? escapeHtml(phone) : 'Non renseigné',
             company: company ? escapeHtml(company) : 'Non renseignée',
             situation: escapeHtml(situation),
             mainNeed: escapeHtml(mainNeed),
@@ -114,7 +114,7 @@ export async function POST(request: Request) {
             from: fromEmail,
             to: toEmail,
             subject: 'Nouvelle demande FIDUCONNECT',
-            text: `Nouvelle demande FIDUCONNECT\nNom : ${name}\nEntreprise : ${company || 'Non renseignée'}\nE-mail : ${email}\nTéléphone : ${phone}\nSituation : ${situation}\nBesoin : ${mainNeed}\nPrécisions : ${message || 'Non renseignées'}\n\nÀ rappeler sous 24 h. Ne transmettre au partenaire qu’après l’appel et la validation du rendez-vous par le client.`,
+            text: `Nouvelle demande FIDUCONNECT\nNom : ${name}\nEntreprise : ${company || 'Non renseignée'}\nE-mail : ${email || 'Non renseigné'}\nTéléphone : ${phone || 'Non renseigné'}\nSituation : ${situation}\nBesoin : ${mainNeed}\nPrécisions : ${message || 'Non renseignées'}\n\nRecontacter sous 24 h. Ne transmettre au partenaire qu’après la prise de contact et la validation du rendez-vous par le client.`,
             html: `
         <h2>Nouveau Lead Reçu</h2>
         <p><strong>Nom :</strong> ${safe.name}</p>
@@ -126,7 +126,7 @@ export async function POST(request: Request) {
         ${safe.message ? `<p style="white-space:pre-wrap"><strong>Précisions :</strong> ${safe.message}</p>` : ''}
         <br/>
         <p><strong>Origine :</strong> Landing SEA FIDUCONNECT</p>
-        <p>À rappeler sous 24 h. Ne transmettre au partenaire qu’après l’appel et la validation du rendez-vous par le client.</p>
+        <p>Recontacter sous 24 h. Ne transmettre au partenaire qu’après la prise de contact et la validation du rendez-vous par le client.</p>
       `,
         });
 

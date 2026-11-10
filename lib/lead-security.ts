@@ -94,14 +94,14 @@ export function createLeadLimiter() {
     let total = 0;
 
     return {
-        consume(email: string, now = Date.now()): number | null {
+        consume(contact: string, now = Date.now()): number | null {
             if (now >= expiresAt) {
                 counts.clear();
                 total = 0;
                 expiresAt = now + windowMs;
             }
-            // No raw e-mail or IP address is kept in the limiter.
-            const key = createHmac('sha256', salt).update(email.toLowerCase()).digest('hex');
+            // No raw contact detail or IP address is kept in the limiter.
+            const key = createHmac('sha256', salt).update(contact.toLowerCase()).digest('hex');
             const count = counts.get(key) ?? 0;
             if (count >= 3 || total >= 30) return Math.max(1, Math.ceil((expiresAt - now) / 1000));
             counts.set(key, count + 1);
