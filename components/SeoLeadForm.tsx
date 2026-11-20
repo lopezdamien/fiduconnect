@@ -9,6 +9,7 @@ import { Select } from '@base-ui/react/select';
 import { ArrowRight, ChevronDown, LoaderCircle } from 'lucide-react';
 import { leadLimits, needs, situations } from '@/lib/lead-fields';
 import { submitSeoLead } from '@/lib/seo-lead-client';
+import { trackSeoAction, trackSeoLead } from '@/lib/seo-analytics';
 
 type SeoLeadFormProps = { idPrefix: string };
 
@@ -58,6 +59,7 @@ export function SeoLeadForm({ idPrefix }: SeoLeadFormProps) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const sending = useRef(false);
+    const formStarted = useRef(false);
     const submission = useRef<{ fingerprint: string; id: string } | null>(null);
 
     async function handleSubmit(data: Record<string, unknown>) {
@@ -83,6 +85,7 @@ export function SeoLeadForm({ idPrefix }: SeoLeadFormProps) {
                 submission.current = { fingerprint, id: window.crypto.randomUUID() };
             }
             await submitSeoLead({ ...payload, submissionId: submission.current.id });
+            trackSeoLead(submission.current.id);
             router.replace('/merci');
         } catch (err) {
             sending.current = false;
@@ -92,7 +95,9 @@ export function SeoLeadForm({ idPrefix }: SeoLeadFormProps) {
     }
 
     return (
-        <Form onFormSubmit={handleSubmit} className="sea-lead-form seo-lead-form" aria-busy={loading}>
+        <Form onFormSubmit={handleSubmit} onChangeCapture={() => {
+            if (!formStarted.current) { formStarted.current = true; trackSeoAction('form_start'); }
+        }} className="sea-lead-form seo-lead-form" aria-busy={loading}>
             {error && <p role="alert" tabIndex={-1} ref={element => { element?.focus(); }} className="sea-submit-error">{error}</p>}
             <Field.Root name="website" className="hidden" aria-hidden="true">
                 <Field.Control type="text" name="website" tabIndex={-1} autoComplete="off" />

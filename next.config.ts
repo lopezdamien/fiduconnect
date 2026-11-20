@@ -10,16 +10,16 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     const development = process.env.NODE_ENV === 'development';
-    // SEO: Next.js hydration needs inline scripts, but no third-party tracking.
+    // GA4 loads only after the visitor grants audience-measurement consent.
     // Only the development mobile preview may frame the page.
     const csp = [
       "default-src 'self'",
-      `script-src 'self' 'unsafe-inline'${development ? " 'unsafe-eval'" : ''}`,
+      `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${development ? " 'unsafe-eval'" : ''}`,
       "script-src-attr 'none'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob:",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://region1.google-analytics.com",
       "font-src 'self'",
-      `connect-src 'self'${development ? ' ws://localhost:* ws://127.0.0.1:*' : ''}`,
+      `connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com${development ? ' ws://localhost:* ws://127.0.0.1:*' : ''}`,
       "frame-src 'none'",
       "object-src 'none'",
       "base-uri 'self'",

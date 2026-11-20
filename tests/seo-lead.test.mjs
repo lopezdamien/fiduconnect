@@ -325,7 +325,7 @@ test('layout and form never unconditionally ship an advertising script', () => {
     }
 });
 
-test('SEO production headers exclude third-party tracking and framing', async () => {
+test('SEO headers allow only the consent-gated Analytics endpoints and still exclude advertising and framing', async () => {
     const source = readFileSync(resolve(root, 'next.config.ts'), 'utf8');
     const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
     const cjsModule = { exports: {} };
@@ -335,8 +335,9 @@ test('SEO production headers exclude third-party tracking and framing', async ()
     assert.equal(headers['X-Content-Type-Options'], 'nosniff');
     assert.equal(headers['X-Frame-Options'], 'DENY');
     assert.match(headers['Content-Security-Policy'], /frame-ancestors 'none'/);
-    assert.doesNotMatch(headers['Content-Security-Policy'], /unsafe-eval|google-analytics|https:\/\/\*|localhost|127\.0\.0\.1/);
-    assert.doesNotMatch(headers['Content-Security-Policy'], /google|doubleclick|https:/);
+    assert.doesNotMatch(headers['Content-Security-Policy'], /unsafe-eval|https:\/\/\*|localhost|127\.0\.0\.1|doubleclick|googleadservices|connect.facebook/);
+    assert.match(headers['Content-Security-Policy'], /script-src 'self' 'unsafe-inline' https:\/\/www.googletagmanager.com/);
+    assert.match(headers['Content-Security-Policy'], /connect-src 'self' https:\/\/www.google-analytics.com https:\/\/region1.google-analytics.com/);
     assert.match(headers['Content-Security-Policy'], /script-src-attr 'none'/);
     assert.deepEqual(Array.from(cjsModule.exports.default.images.remotePatterns), []);
 });

@@ -1,6 +1,7 @@
 import { LegalPage } from '@/components/LegalPage';
 import { crmIntakeEnabled } from '@/lib/crm-intake';
 import { pageMetadata } from '@/lib/seo';
+import { SeoAnalyticsPreferences } from '@/components/SeoAnalytics';
 
 export const metadata = pageMetadata({
     title: 'Confidentialité',
@@ -13,7 +14,7 @@ metadata.robots = { index: false, follow: false };
 export default function Confidentialite() {
     const crmEnabled = crmIntakeEnabled();
     return (
-        <LegalPage title="Votre confidentialité" version={crmEnabled ? '18 octobre 2026' : '17 octobre 2026'}>
+        <LegalPage title="Votre confidentialité" version="20 novembre 2026">
             <section aria-label="L’essentiel de votre confidentialité">
                 <h2>Votre demande, en bref</h2>
                 <p>Le site principal www.fiduconnect.ch présente le service de mise en relation, sans suivi publicitaire. Votre demande sert au rappel et à l’orientation, sans transmission automatique aux fiduciaires ni inscription à une newsletter.</p>
@@ -63,7 +64,11 @@ export default function Confidentialite() {
             <section id="cookies">
                 <h2>7. Stockage dans le navigateur et mesure d’audience</h2>
                 <p className="mb-3">Les finalités et la durée du stockage technique sont aussi présentées sur la page <a href="/cookies">Cookies et stockage du navigateur</a>.</p>
-                <p>Cette version du site SEO ne charge pas de balise Google Ads, Google Analytics ou Google Tag Manager. Elle ne met pas en place de mesure publicitaire ni de cookie de suivi. Votre demande ne vaut pas consentement à la publicité. Tout ajout ultérieur d’une mesure nécessitera de revoir cette information et le dispositif applicable avant son activation.</p>
+                <p>Le site ne charge pas de balise Google Ads, de conteneur Google Tag Manager ni de pixel OpenAI. Google Analytics 4 mesure l’audience uniquement après votre acceptation. Refuser ou retirer votre accord ne bloque ni le site ni le formulaire. Aucun script Analytics ni appel de mesure à Google n’est chargé avant accord.</p>
+                <p className="mt-3">La mesure porte sur les pages consultées, l’origine générale des visites, les caractéristiques du navigateur et de l’appareil, les clics de contact, le début des formulaires et les demandes confirmées. Les adresses de pages sont envoyées sans paramètres ni fragments, et les adresses de sites référents externes sont limitées à leur origine. Aucune coordonnée, donnée saisie ou identifiant de demande n’est envoyé à Google. Les fonctionnalités de personnalisation publicitaire et les mesures améliorées automatiques sont désactivées.</p>
+                <p className="mt-3">Google intervient comme prestataire de mesure et peut traiter des données hors de Suisse, notamment aux États-Unis. Voir les <a href="https://policies.google.com/privacy">règles de confidentialité Google</a> et les <a href="https://business.safety.google/adsprocessorterms/">conditions de traitement des données Google</a>. Il ne s’agit pas d’une mesure anonyme garantie : Google reçoit des données techniques de connexion pour fournir son service.</p>
+                <p className="mt-3">Le choix est conservé 180 jours dans <code>fiduconnect.seo-analytics-consent</code>. Les cookies Analytics sont limités à 180 jours, sans renouvellement à chaque visite. Le détail et le retrait du choix sont disponibles sur <a href="/cookies">la page Cookies</a> et depuis le pied de page.</p>
+                <SeoAnalyticsPreferences />
                 <p className="mt-3">Après une réponse positive du service d’envoi, un marqueur technique nommé <code>fiduconnect.seo-receipt</code> peut être enregistré dans le stockage de session de l’onglet. Il contient uniquement une date d’expiration, pas vos coordonnées ou votre message. Il permet à la page de remerciement de reconnaître une confirmation récente, sans prouver la livraison dans la boîte de réception.</p>
                 <p className="mt-3">Ce marqueur n’est reconnu que pendant trente minutes au maximum. Le navigateur peut conserver sa valeur au-delà de ce délai tant que la session subsiste, mais elle est alors ignorée. Il est remplacé ou supprimé lors d’une nouvelle tentative ; vous pouvez aussi effacer les données du site dans le navigateur. Si ce stockage est bloqué, une confirmation temporaire en mémoire permet la navigation courante.</p>
                 <p className="mt-3">Les données saisies dans le formulaire ne sont pas enregistrées par le site dans le stockage local, le stockage de session ou l’adresse de la page. Elles restent affichées en cas d’erreur tant que la page reste ouverte. Votre navigateur peut gérer séparément ses fonctions de saisie automatique.</p>

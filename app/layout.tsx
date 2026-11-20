@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./seo.css";
 import "./seo-form.css";
+import "./seo-analytics.css";
 import { SITE_NAME, SITE_URL, socialMetadata } from "@/lib/seo";
 import { seoRobots } from '@/lib/seo-release';
+import { SeoAnalytics } from '@/components/SeoAnalytics';
 
 const DEFAULT_TITLE = "FiduConnect | Trouvez une fiduciaire adaptée à Genève";
 const DEFAULT_DESCRIPTION =
@@ -31,6 +33,7 @@ export default function RootLayout({
         className="antialiased font-sans bg-slate-50 text-slate-900 flex flex-col min-h-screen"
       >
         {children}
+        <SeoAnalytics />
       </body>
     </html>
   );

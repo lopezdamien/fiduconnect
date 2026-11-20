@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { FiduLogo } from '@/components/FiduLogo';
 import { seoServices } from '@/lib/seo-services';
+import { SeoAnalyticsPreferences } from '@/components/SeoAnalytics';
 
 export function SeoHeader() {
   const links = [
@@ -27,6 +28,7 @@ export function SeoFooter() {
     <div><Link href="/" aria-label="FIDUCONNECT — Accueil"><FiduLogo inverse className="w-[175px]" /></Link><p>La mise en relation fiduciaire, à Genève.</p></div>
     <nav aria-label="Nos domaines de mise en relation">{seoServices.map(service => <Link key={service.slug} href={'/services/' + service.slug}>{service.label}</Link>)}</nav>
     <nav aria-label="Informations et contact"><Link href="/a-propos">À propos</Link><Link href="/ressources">Ressources</Link><Link href="/mentions-legales">Mentions légales</Link><Link href="/confidentialite">Confidentialité</Link><Link href="/cookies">Cookies</Link><Link href="/contact">Contact</Link></nav>
+    <SeoAnalyticsPreferences />
     <span>© {new Date().getFullYear()} FIDUCONNECT</span>
   </div></footer>;
 }

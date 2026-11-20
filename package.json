@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --test tests/*.test.mjs",
-    "test:seo": "node --test tests/seo-release.test.mjs tests/seo-legal.test.mjs tests/seo-lead.test.mjs tests/seo-lead-client.test.mjs tests/seo-services.test.mjs tests/seo-deploy.test.mjs tests/icons.test.mjs",
+    "test:seo": "node --test tests/seo-release.test.mjs tests/seo-legal.test.mjs tests/seo-lead.test.mjs tests/seo-lead-client.test.mjs tests/seo-services.test.mjs tests/seo-deploy.test.mjs tests/icons.test.mjs tests/seo-analytics.test.mjs",
     "check:seo-built": "node --test tests/seo-built.test.mjs",
     "check:seo-deploy": "node scripts/check-seo-deploy.mjs"
   },
