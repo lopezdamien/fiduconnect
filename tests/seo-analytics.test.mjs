@@ -11,7 +11,7 @@ function fixture({ hostname = 'www.fiduconnect.ch', blockedStorage = false } = {
     const document = {
         title: 'FiduConnect', referrer: 'https://www.google.ch/search?q=private',
         head: { appendChild: script => scripts.push(script) },
-        createElement: () => ({}),
+        createElement: () => ({ dataset: {} }),
         get cookie() { return '_ga=example; _ga_MQMDRTXM65=example; functional=keep'; },
         set cookie(value) { cookies.push(value); },
     };
@@ -53,6 +53,7 @@ test('acceptance loads once, measures client navigation once and strips private 
     f.api.trackSeoPage('/contact');
     f.api.trackSeoPage('/services/comptabilite');
     assert.equal(f.scripts.length, 1);
+    assert.equal(typeof f.window.gtag, 'function');
     assert.match(f.scripts[0].src, /G-MQMDRTXM65$/);
     const pageviews = f.commands().filter(item => item[0] === 'event' && item[1] === 'page_view');
     assert.equal(pageviews.length, 2);

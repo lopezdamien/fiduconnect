@@ -83,6 +83,7 @@ function start() {
     if (started) return true;
     started = true;
     target.dataLayer ??= [];
+    target.gtag = command;
     command('consent', 'default', {
         analytics_storage: 'granted', ad_storage: 'denied',
         ad_user_data: 'denied', ad_personalization: 'denied',
@@ -101,9 +102,10 @@ function start() {
     const script = document.createElement('script');
     script.id = 'seo-analytics-tag';
     script.async = true;
+    script.dataset.status = 'loading';
     script.src = `https://www.googletagmanager.com/gtag/js?id=${SEO_MEASUREMENT_ID}`;
-    script.onerror = () => { failed = true; stopSeoAnalytics(); };
-    script.onload = () => { if (!readAnalyticsChoice()?.accepted) stopSeoAnalytics(); };
+    script.onerror = () => { script.dataset.status = 'blocked'; failed = true; stopSeoAnalytics(); };
+    script.onload = () => { script.dataset.status = 'loaded'; if (!readAnalyticsChoice()?.accepted) stopSeoAnalytics(); };
     document.head.appendChild(script);
     return true;
 }
