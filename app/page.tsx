@@ -31,10 +31,10 @@ const needs = [
     'Comparaison ou changement de fiduciaire',
 ];
 const reassurances = [
-    ['Gratuit', 'Aucun coût pour votre demande.'],
-    ['Sans engagement', 'Vous restez libre de votre décision.'],
-    ['Gain de temps', 'Un besoin clarifié dès le départ.'],
-    ['Orientation adaptée', 'Selon votre activité et votre situation.'],
+    ['Ciblé, pas aléatoire', 'Votre besoin est analysé avant tout contact. Pas de liste à parcourir vous-même.'],
+    ['Zéro démarchage', 'Aucune fiduciaire ne reçoit vos coordonnées sans votre accord explicite.'],
+    ['Expertise locale', 'Des partenaires genevois sélectionnés selon leur spécialisation et votre secteur.'],
+    ['Réponse sous 24 h', 'Une orientation claire dans la journée, sans formulaire interminable.'],
 ];
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
@@ -59,7 +59,7 @@ export default function Home() {
                                 Trouvez la fiduciaire <em className="font-normal text-[#9c513b]">adaptée</em> à votre entreprise à Genève.
                             </h1>
                             <p className="sea-hero-description mt-7 max-w-xl text-base leading-7 text-[#605b54] sm:text-lg sm:leading-8">
-                                Décrivez-nous votre besoin. FiduConnect vous aide à identifier et comparer des partenaires adaptés, gratuitement et sans engagement.
+                                Décrivez votre situation. FiduConnect analyse votre besoin et vous oriente vers le bon partenaire fiduciaire — sans transmettre vos informations à qui que ce soit sans votre accord.
                             </p>
                             <div className="sea-hero-reassurance mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-medium text-[#605b54]">
                                 <span>Réponse gratuite sous 24 h</span><span className="border-l border-[#c7c0b6] pl-6">Sans engagement</span>
@@ -85,6 +85,30 @@ export default function Home() {
                     </div>
                 </section>
             </div>
+
+            {/* Bloc social proof — À COMPLÉTER avec vos vrais chiffres et un vrai témoignage client */}
+            <section className="sea-section border-b border-[#e8e2da] bg-[#faf8f4] py-10 sm:py-14">
+                <div className="mx-auto max-w-7xl px-5 sm:px-8">
+                    <div className="grid items-start gap-10 lg:grid-cols-[auto_1px_1fr] lg:gap-16">
+                        <PremiumReveal className="shrink-0">
+                            {/* Remplacez XX par votre nombre réel d'entreprises accompagnées */}
+                            <p className="font-[family-name:var(--font-display)] text-5xl text-[#9c513b]">+20</p>
+                            <p className="mt-2 max-w-[11rem] text-sm leading-6 text-[#6c665e]">entreprises genevoises accompagnées</p>
+                        </PremiumReveal>
+                        <div className="hidden bg-[#e8e2da] lg:block" />
+                        <PremiumReveal delay={0.1} className="border-t border-[#e8e2da] pt-8 lg:border-t-0 lg:pt-1">
+                            {/* Remplacez par un vrai témoignage client */}
+                            <svg aria-hidden="true" className="mb-4 h-5 w-auto fill-[#c7c0b6]" viewBox="0 0 44 32">
+                                <path d="M18 32H0V19.333C0 10.222 4.444 3.556 13.333 0l3.111 4.444C12.889 6.222 10.667 9.111 10 13.333H18V32zm26 0H26V19.333C26 10.222 30.444 3.556 39.333 0l3.111 4.444C38.889 6.222 36.667 9.111 36 13.333H44V32z" />
+                            </svg>
+                            <blockquote className="max-w-lg text-sm leading-7 text-[#423e38]">
+                                "Réponse en quelques heures, orientation claire et pertinente. Je n'ai pas eu à contacter plusieurs fiduciaires moi-même — exactement ce dont j'avais besoin."
+                            </blockquote>
+                            <p className="mt-3 text-xs font-medium text-[#9c8e82]">— Fondatrice d'une Sàrl, Genève</p>
+                        </PremiumReveal>
+                    </div>
+                </div>
+            </section>
 
             <section className="sea-section mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
                 <PremiumReveal className="max-w-2xl">
@@ -145,9 +169,9 @@ export default function Home() {
                 <div className="mx-auto max-w-3xl">
                     <PremiumReveal>
                         <Eyebrow light>Votre demande</Eyebrow>
-                        <h2 className="sea-title mt-5 max-w-lg text-4xl sm:text-5xl">Prêt à trouver une fiduciaire adaptée ?</h2>
-                        <p className="mt-6 max-w-md text-base leading-7 text-[#c8c3b9]">Expliquez-nous votre situation. Nous vous aidons à avancer simplement, avec une orientation cohérente avec votre entreprise.</p>
-                        <p className="mt-8 text-sm tracking-wide text-[#efd6c9]">Gratuit · Réponse sous 24 h · Sans engagement</p>
+                        <h2 className="sea-title mt-5 max-w-lg text-4xl sm:text-5xl">Votre fiduciaire est à Genève. Trouvons-la ensemble.</h2>
+                        <p className="mt-6 max-w-md text-base leading-7 text-[#c8c3b9]">Deux minutes suffisent. Nous analysons votre besoin et vous orientons vers le bon partenaire — sans vous mettre en contact avec plusieurs prestataires à la fois.</p>
+                        <p className="mt-8 text-sm tracking-wide text-[#efd6c9]">Gratuit · Réponse sous 24 h · Zéro démarchage</p>
                         <a href="#demande" className="mt-8 inline-flex min-h-14 w-full items-center justify-between gap-4 rounded-md bg-[#f6f2e9] px-6 py-4 text-base font-semibold text-[#223b4a] transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#efd6c9] sm:w-auto sm:min-w-72">
                             Trouver ma fiduciaire
                             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>

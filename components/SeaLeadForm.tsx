@@ -169,7 +169,7 @@ export function SeaLeadForm({ idPrefix }: SeaLeadFormProps) {
                     <TextField label="Entreprise" optional id={`${idPrefix}-company`} name="company" maxLength={leadLimits.company} autoComplete="organization" enterKeyHint="next" />
                     <Field.Root name="message" className="sea-field">
                         <Field.Label className="sea-label">Quelques précisions <span className="sea-optional">Facultatif</span></Field.Label>
-                        <Field.Control id={`${idPrefix}-message`} render={<textarea rows={2} maxLength={leadLimits.message} />} className="sea-input sea-textarea" placeholder="Votre activité, vos attentes…" />
+                        <Field.Control id={`${idPrefix}-message`} render={<textarea rows={2} maxLength={leadLimits.message} />} className="sea-input sea-textarea" placeholder="Ex. : Sàrl créée en 2022, 2 employés, besoin comptabilité mensuelle + TVA." />
                     </Field.Root>
                 </fieldset>
                 <p aria-label="Utilisation de vos données" className="sea-privacy-note mt-4 text-[11px] leading-5 text-[#6c665e]">
