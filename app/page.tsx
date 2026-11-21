@@ -86,27 +86,20 @@ export default function Home() {
                 </section>
             </div>
 
-            {/* Bloc social proof — À COMPLÉTER avec vos vrais chiffres et un vrai témoignage client */}
             <section className="sea-section border-b border-[#e8e2da] bg-[#faf8f4] py-10 sm:py-14">
                 <div className="mx-auto max-w-7xl px-5 sm:px-8">
-                    <div className="grid items-start gap-10 lg:grid-cols-[auto_1px_1fr] lg:gap-16">
-                        <PremiumReveal className="shrink-0">
-                            {/* Remplacez XX par votre nombre réel d'entreprises accompagnées */}
-                            <p className="font-[family-name:var(--font-display)] text-5xl text-[#9c513b]">+20</p>
-                            <p className="mt-2 max-w-[11rem] text-sm leading-6 text-[#6c665e]">entreprises genevoises accompagnées</p>
-                        </PremiumReveal>
-                        <div className="hidden bg-[#e8e2da] lg:block" />
-                        <PremiumReveal delay={0.1} className="border-t border-[#e8e2da] pt-8 lg:border-t-0 lg:pt-1">
-                            {/* Remplacez par un vrai témoignage client */}
-                            <svg aria-hidden="true" className="mb-4 h-5 w-auto fill-[#c7c0b6]" viewBox="0 0 44 32">
-                                <path d="M18 32H0V19.333C0 10.222 4.444 3.556 13.333 0l3.111 4.444C12.889 6.222 10.667 9.111 10 13.333H18V32zm26 0H26V19.333C26 10.222 30.444 3.556 39.333 0l3.111 4.444C38.889 6.222 36.667 9.111 36 13.333H44V32z" />
-                            </svg>
-                            <blockquote className="max-w-lg text-sm leading-7 text-[#423e38]">
-                                "Réponse en quelques heures, orientation claire et pertinente. Je n'ai pas eu à contacter plusieurs fiduciaires moi-même — exactement ce dont j'avais besoin."
-                            </blockquote>
-                            <p className="mt-3 text-xs font-medium text-[#9c8e82]">— Fondatrice d'une Sàrl, Genève</p>
-                        </PremiumReveal>
-                    </div>
+                    <dl className="grid gap-y-8 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-0">
+                        {[
+                            ['25 ans', "d'expérience fiduciaire genevoise dans notre réseau"],
+                            ['100 %', 'des partenaires implantés à Genève, sélectionnés par secteur'],
+                            ['< 24 h', 'pour recevoir une orientation adaptée à votre situation'],
+                        ].map(([stat, label], index) => (
+                            <PremiumReveal key={stat} delay={index * 0.08} className="border-t border-[#e8e2da] pt-6 sm:border-t-0 sm:border-l sm:pl-10 first:border-l-0 first:pl-0">
+                                <dt className="font-[family-name:var(--font-display)] text-4xl text-[#9c513b]">{stat}</dt>
+                                <dd className="mt-2 text-sm leading-6 text-[#6c665e]">{label}</dd>
+                            </PremiumReveal>
+                        ))}
+                    </dl>
                 </div>
             </section>
 
