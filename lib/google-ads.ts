@@ -21,7 +21,10 @@ declare global {
 }
 
 let blocked = false;
+// tagStarted: consent was granted and the gtag consent update was sent.
 let tagStarted = false;
+// consentBootstrapped: gtag script was added to the DOM in denied/cookieless mode.
+let consentBootstrapped = false;
 let tagFailed = false;
 let submissions = 0;
 let reloadNeeded = false;
@@ -61,6 +64,67 @@ function clearAdsCookies() {
     }
 }
 
+function measurementUrl() {
+    const url = new URL(window.location.href);
+    const safe = new URL(url.pathname, url.origin);
+    for (const key of ['gclid', 'gclsrc', 'gbraid', 'wbraid']) {
+        const value = url.searchParams.get(key);
+        if (value && /^[\w-]{1,256}$/.test(value)) safe.searchParams.set(key, value);
+    }
+    return safe.href;
+}
+
+/**
+ * Bootstrap the Google tag in denied/cookieless mode — Consent Mode v2.
+ *
+ * Called on every page load regardless of consent choice so that Google can
+ * perform conversion modelling for visitors who have not (yet) consented.
+ * No cookies are set while consent remains denied; only an anonymous cookieless
+ * ping is sent. The function is idempotent: safe to call multiple times.
+ */
+export function bootstrapConsentMode() {
+    if (typeof window === 'undefined' || !allowedHost() || consentBootstrapped) return;
+    consentBootstrapped = true;
+    window['ga-disable-G-TRG36EY6PG'] = true;
+    window.dataLayer = window.dataLayer || [];
+    // Match Google's official queue format (IArguments, not a dataLayer event array).
+    // eslint-disable-next-line prefer-rest-params
+    window.gtag = function () { window.dataLayer?.push(arguments); };
+    // Set consent defaults BEFORE the script loads — required for Consent Mode v2.
+    // wait_for_update gives the consent banner time to run before the first hit.
+    window.gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+    });
+    window.gtag('set', 'ads_data_redaction', true);
+    window.gtag('set', 'allow_ad_personalization_signals', false);
+    window.gtag('set', 'allow_google_signals', false);
+    window.gtag('js', new Date());
+    window.gtag('config', ADS_ID, {
+        send_page_view: false,
+        allow_ad_personalization_signals: false,
+        // Keep measurement cookies on the SEA subdomain, not the future SEO site.
+        cookie_domain: window.location.hostname,
+        cookie_expires: 90 * 24 * 60 * 60,
+        cookie_update: false,
+        page_location: measurementUrl(), page_referrer: '',
+    });
+    const script = document.createElement('script');
+    script.id = SCRIPT_ID;
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`;
+    script.onerror = () => {
+        tagFailed = true;
+        window.dataLayer = [];
+        window.gtag = () => {};
+        for (const finish of pendingEvents) finish();
+    };
+    document.head.appendChild(script);
+}
+
 export function stopAdsTracking() {
     blocked = true;
     const openAiStarted = stopOpenAiTracking();
@@ -92,59 +156,25 @@ export function saveAdsConsent(accepted: boolean): boolean {
     return saved;
 }
 
-function measurementUrl() {
-    const url = new URL(window.location.href);
-    const safe = new URL(url.pathname, url.origin);
-    for (const key of ['gclid', 'gclsrc', 'gbraid', 'wbraid']) {
-        const value = url.searchParams.get(key);
-        if (value && /^[\w-]{1,256}$/.test(value)) safe.searchParams.set(key, value);
-    }
-    return safe.href;
-}
-
+/**
+ * Upgrade consent from denied to granted when the user accepts.
+ * The gtag script is already loaded by bootstrapConsentMode(); this only
+ * sends the consent update and records that cookies may now be set.
+ */
 export function startAdsTracking() {
     // Independent of Google SDK loading/failure, but shares the fresh consent.
     startOpenAiTracking(hasAdsConsent);
     if (typeof window === 'undefined' || !allowedHost() || !hasAdsConsent() || tagStarted) return;
     tagStarted = true;
-    window['ga-disable-G-TRG36EY6PG'] = true;
-    window.dataLayer = [];
-    // Match Google's official queue format (IArguments, not a dataLayer event array).
-    // eslint-disable-next-line prefer-rest-params
-    window.gtag = function () { window.dataLayer?.push(arguments); };
-    window.gtag('consent', 'default', {
-        ad_storage: 'denied', ad_user_data: 'denied',
-        ad_personalization: 'denied', analytics_storage: 'denied',
+    // Normally bootstrapped already by syncAdsConsent(); guard for edge cases.
+    if (!consentBootstrapped) bootstrapConsentMode();
+    // Upgrade consent: cookies and user data are now allowed.
+    window.gtag?.('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
     });
-    window.gtag('consent', 'update', {
-        ad_storage: 'granted', ad_user_data: 'granted',
-        ad_personalization: 'denied', analytics_storage: 'denied',
-    });
-    window.gtag('set', 'ads_data_redaction', true);
-    window.gtag('set', 'allow_ad_personalization_signals', false);
-    window.gtag('set', 'allow_google_signals', false);
-    window.gtag('set', 'send_page_view', false);
-    window.gtag('js', new Date());
-    window.gtag('config', ADS_ID, {
-        send_page_view: false,
-        allow_ad_personalization_signals: false,
-        // Keep measurement cookies on the SEA subdomain, not the future SEO site.
-        cookie_domain: window.location.hostname,
-        cookie_expires: 90 * 24 * 60 * 60,
-        cookie_update: false,
-        page_location: measurementUrl(), page_referrer: '',
-    });
-    const script = document.createElement('script');
-    script.id = SCRIPT_ID;
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`;
-    script.onerror = () => {
-        tagFailed = true;
-        window.dataLayer = [];
-        window.gtag = () => {};
-        for (const finish of pendingEvents) finish();
-    };
-    document.head.appendChild(script);
 }
 
 export function beginLeadSubmission() { submissions += 1; }
@@ -162,6 +192,9 @@ export function endLeadSubmission(success: boolean) {
 }
 
 export function syncAdsConsent() {
+    // Bootstrap Consent Mode v2 on every page load — always, regardless of choice.
+    // The tag runs in cookieless/denied mode until a consent update is explicitly sent.
+    bootstrapConsentMode();
     if (readAdsConsent()?.accepted === true) {
         blocked = false;
         startAdsTracking();
@@ -169,11 +202,16 @@ export function syncAdsConsent() {
 }
 
 export async function measureLeadSuccess(honeypot: unknown) {
-    if ((honeypot != null && (typeof honeypot !== 'string' || honeypot.trim())) || !hasAdsConsent()) return;
+    // Reject spam submissions (non-empty honeypot field).
+    if (honeypot != null && (typeof honeypot !== 'string' || honeypot.trim())) return;
+    // OpenAI pixel still requires explicit consent — it does not support Consent Mode.
     measureOpenAiLeadSuccess(honeypot, hasAdsConsent);
+    // Google conversion fires regardless of consent level: Consent Mode v2 sends a
+    // cookieless ping for denied/unknown consent so Google can model conversions.
+    // No personal data is transmitted when consent is denied.
     try {
-        startAdsTracking();
-        if (!tagStarted || tagFailed || !window.gtag || !hasAdsConsent()) return;
+        if (!consentBootstrapped) bootstrapConsentMode();
+        if (!consentBootstrapped || tagFailed || !window.gtag) return;
         // Random per submission, never derived from a name, email or phone.
         const transactionId = window.crypto.randomUUID();
         await new Promise<void>(resolve => {
